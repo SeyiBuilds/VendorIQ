@@ -114,6 +114,7 @@ def _map_opta_event(raw: dict, index: int) -> MappedEvent:
     team, team_attempt = _get_first_present(raw, ["TeamName", "Team"])
 
     player_ref, player_attempt = _get_first_present(raw, ["PlayerRef", "PlayerId", "Player_Ref"])
+    jersey, _ = _get_first_present(raw, ["JerseyNumber", "ShirtNumber"])
     if player_ref is None:
         log.append("player reference missing (null in source)")
 
@@ -132,14 +133,14 @@ def _map_opta_event(raw: dict, index: int) -> MappedEvent:
     missing_critical = sum(1 for v in [player_ref, x, y, period] if v is None)
     confidence = max(0.3, 1.0 - 0.15 * missing_critical)
 
-    known_keys = {"EventId", "TypeName", "Min", "Sec", "PeriodId", "PlayerRef",
+    known_keys = {"EventId", "TypeName", "Min", "Sec", "PeriodId", "PlayerRef", "JerseyNumber",
                   "TeamName", "X", "Y", "PassEndX", "PassEndY", "Outcome"}
     leftover = {k: v for k, v in raw.items() if k not in known_keys}
 
     return MappedEvent(
         event_id=str(event_id), event_type=event_type, event_type_raw=type_raw,
         timestamp=timestamp, period=period, team=team,
-        raw_player_ref={"vendor_id": player_ref, "jersey_number": None, "name": None},
+        raw_player_ref={"vendor_id": player_ref, "jersey_number": jersey, "name": None},
         x=x, y=y, end_x=end_x, end_y=end_y, outcome=outcome,
         vendor_source="opta", mapping_confidence=round(confidence, 3),
         mapping_attempts=mapping_attempts, mapping_log=log, raw_metadata=leftover,
@@ -190,6 +191,7 @@ def _map_statsbomb_event(raw: dict, index: int) -> MappedEvent:
 
     player_id = _nested_get(raw, ["player", "id"])
     player_name = _nested_get(raw, ["player", "name"])
+    jersey = _nested_get(raw, ["player", "jersey_number"])
     player_attempt = 1 if player_id is not None else 99
     if player_id is None:
         log.append("player reference missing (null player object in source)")
@@ -221,7 +223,7 @@ def _map_statsbomb_event(raw: dict, index: int) -> MappedEvent:
     return MappedEvent(
         event_id=str(event_id), event_type=event_type, event_type_raw=type_raw,
         timestamp=timestamp, period=period, team=team,
-        raw_player_ref={"vendor_id": player_id, "jersey_number": None, "name": player_name},
+        raw_player_ref={"vendor_id": player_id, "jersey_number": jersey, "name": player_name},
         x=x, y=y, end_x=end_x, end_y=end_y, outcome=outcome,
         vendor_source="statsbomb", mapping_confidence=round(confidence, 3),
         mapping_attempts=mapping_attempts, mapping_log=log, raw_metadata=leftover,

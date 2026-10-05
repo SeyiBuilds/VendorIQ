@@ -141,6 +141,8 @@ def to_opta_format(match: GroundTruthMatch, quality: Quality, seed: int | None =
         qualifier_id = player_ids.get(e.player_name)
         qualifier_id = _maybe_drop(qualifier_id, quality, rng, 0.03)
 
+        jersey = _maybe_drop(e.jersey_number, quality, rng, 0.04)
+
         ev = {
             "EventId": e.event_id,
             "TypeName": e.event_type.upper(),
@@ -148,6 +150,7 @@ def to_opta_format(match: GroundTruthMatch, quality: Quality, seed: int | None =
             "Sec": round(e.timestamp % 60, 1),
             "PeriodId": e.period,
             "PlayerRef": qualifier_id,
+            "JerseyNumber": jersey,
             "TeamName": e.team,
             "X": scale_x(e.x),
             "Y": scale_y(e.y),
@@ -188,13 +191,20 @@ def to_statsbomb_format(match: GroundTruthMatch, quality: Quality, seed: int | N
     for e in match.events:
         pid = player_ids.get(e.player_name)
         pid = _maybe_drop(pid, quality, rng, 0.02)
+        jersey = _maybe_drop(e.jersey_number, quality, rng, 0.05)
+
+        player_obj = None
+        if pid:
+            player_obj = {"id": pid, "name": e.player_name}
+            if jersey is not None:
+                player_obj["jersey_number"] = jersey
 
         ev = {
             "id": e.event_id,
             "type": {"name": e.event_type},
             "timestamp": f"00:{int(e.timestamp // 60):02d}:{e.timestamp % 60:05.2f}",
             "period": e.period,
-            "player": {"id": pid, "name": e.player_name} if pid else None,
+            "player": player_obj,
             "team": {"name": e.team},
             "location": [round(e.x, 2), round(e.y, 2)],
         }

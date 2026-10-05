@@ -3,7 +3,7 @@
   "label": "Arsenal - Chelsea",
   "events": [
     {
-      "eventId": "151684f5",
+      "eventId": "07cbf1c0",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 5.3,
@@ -19,7 +19,7 @@
       "accurate": true
     },
     {
-      "eventId": "3366a6f8",
+      "eventId": "e2936417",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 8.2,
@@ -35,7 +35,7 @@
       "accurate": false
     },
     {
-      "eventId": "500a82ce",
+      "eventId": "20ddccf5",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 10.1,
@@ -51,7 +51,7 @@
       "accurate": true
     },
     {
-      "eventId": "6d9d9d0c",
+      "eventId": "0e33712b",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 13.7,
@@ -71,7 +71,7 @@
       "accurate": false
     },
     {
-      "eventId": "5ea6f002",
+      "eventId": "1ca0b118",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 19.7,
@@ -87,7 +87,7 @@
       "accurate": true
     },
     {
-      "eventId": "3be53f7d",
+      "eventId": "275c9e52",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 23.8,
@@ -103,7 +103,7 @@
       "accurate": false
     },
     {
-      "eventId": "924b70a6",
+      "eventId": "0db957bc",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 27.7,
@@ -119,7 +119,7 @@
       "accurate": true
     },
     {
-      "eventId": "d66a0cd4",
+      "eventId": "bd42c63a",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 31.0,
@@ -135,7 +135,7 @@
       "accurate": true
     },
     {
-      "eventId": "95a42df6",
+      "eventId": "a23324b9",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 38.0,
@@ -151,7 +151,7 @@
       "accurate": true
     },
     {
-      "eventId": "c5a49c7a",
+      "eventId": "f62f415e",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 40.0,
@@ -167,7 +167,7 @@
       "accurate": false
     },
     {
-      "eventId": "7844d14c",
+      "eventId": "5b415f3c",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 42.3,
@@ -183,7 +183,7 @@
       "accurate": true
     },
     {
-      "eventId": "3cfa858d",
+      "eventId": "afdb2927",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 45.0,
@@ -199,7 +199,7 @@
       "accurate": true
     },
     {
-      "eventId": "ce97499e",
+      "eventId": "5bf8997f",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 52.7,
@@ -219,7 +219,7 @@
       "accurate": true
     },
     {
-      "eventId": "735b4747",
+      "eventId": "26826216",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 58.6,
@@ -235,7 +235,7 @@
       "accurate": true
     },
     {
-      "eventId": "e0977690",
+      "eventId": "2570a924",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 66.5,
@@ -251,7 +251,7 @@
       "accurate": true
     },
     {
-      "eventId": "f067fa3a",
+      "eventId": "a653211e",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 72.1,
@@ -267,7 +267,7 @@
       "accurate": false
     },
     {
-      "eventId": "53cb9f2f",
+      "eventId": "d5c0c190",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 76.7,
@@ -283,7 +283,7 @@
       "accurate": true
     },
     {
-      "eventId": "d3fd9009",
+      "eventId": "983b6075",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 80.4,
@@ -303,7 +303,7 @@
       "accurate": true
     },
     {
-      "eventId": "cbc7e0aa",
+      "eventId": "7f9210a6",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 82.9,
@@ -319,7 +319,7 @@
       "accurate": true
     },
     {
-      "eventId": "b84a4ba2",
+      "eventId": "55a73925",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 89.7,
@@ -335,7 +335,7 @@
       "accurate": true
     },
     {
-      "eventId": "1e1b4dab",
+      "eventId": "88466119",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 93.2,
@@ -351,7 +351,7 @@
       "accurate": false
     },
     {
-      "eventId": "424c8f44",
+      "eventId": "f6a71c49",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 99.6,
@@ -367,7 +367,7 @@
       "accurate": true
     },
     {
-      "eventId": "624ebe05",
+      "eventId": "e3b2e36d",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 102.8,
@@ -387,7 +387,7 @@
       "accurate": true
     },
     {
-      "eventId": "ee1d736a",
+      "eventId": "dad7d489",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 107.0,
@@ -403,7 +403,7 @@
       "accurate": false
     },
     {
-      "eventId": "0e67a547",
+      "eventId": "e92a1af3",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 112.6,
@@ -419,7 +419,7 @@
       "accurate": true
     },
     {
-      "eventId": "5f371991",
+      "eventId": "fab08954",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 118.2,
@@ -439,7 +439,7 @@
       "accurate": true
     },
     {
-      "eventId": "d7c724c8",
+      "eventId": "fc527b77",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 121.1,
@@ -455,7 +455,7 @@
       "accurate": true
     },
     {
-      "eventId": "b390a924",
+      "eventId": "70fde1ee",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 128.5,
@@ -471,7 +471,7 @@
       "accurate": true
     },
     {
-      "eventId": "a2721b3e",
+      "eventId": "f5a0065b",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 133.4,
@@ -487,7 +487,7 @@
       "accurate": true
     },
     {
-      "eventId": "41473721",
+      "eventId": "e0ce5239",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 135.0,
@@ -503,7 +503,7 @@
       "accurate": true
     },
     {
-      "eventId": "13cbc24c",
+      "eventId": "cb6d6ec4",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 142.9,
@@ -519,7 +519,7 @@
       "accurate": true
     },
     {
-      "eventId": "a24c9daa",
+      "eventId": "08fcf643",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 145.3,
@@ -535,7 +535,7 @@
       "accurate": true
     },
     {
-      "eventId": "12a4f6d3",
+      "eventId": "44c8cbcb",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 147.8,
@@ -555,7 +555,7 @@
       "accurate": false
     },
     {
-      "eventId": "b4c7f1d8",
+      "eventId": "817b2fdc",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 151.5,
@@ -575,7 +575,7 @@
       "accurate": true
     },
     {
-      "eventId": "f22e3af9",
+      "eventId": "e5c8bc1e",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 155.9,
@@ -595,7 +595,7 @@
       "accurate": true
     },
     {
-      "eventId": "582b633b",
+      "eventId": "c0567120",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 157.6,
@@ -611,7 +611,7 @@
       "accurate": false
     },
     {
-      "eventId": "d58d8473",
+      "eventId": "135e3885",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 163.1,
@@ -627,7 +627,7 @@
       "accurate": true
     },
     {
-      "eventId": "a1decb83",
+      "eventId": "732f7812",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 165.2,
@@ -643,7 +643,7 @@
       "accurate": false
     },
     {
-      "eventId": "ad27f123",
+      "eventId": "44161594",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 167.0,
@@ -663,7 +663,7 @@
       "accurate": true
     },
     {
-      "eventId": "f444f97e",
+      "eventId": "247f9141",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 172.9,
@@ -679,7 +679,7 @@
       "accurate": true
     },
     {
-      "eventId": "04f7a946",
+      "eventId": "4ec545cc",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 178.3,
@@ -695,7 +695,7 @@
       "accurate": false
     },
     {
-      "eventId": "3abc7e40",
+      "eventId": "40a0b366",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 182.5,
@@ -711,7 +711,7 @@
       "accurate": false
     },
     {
-      "eventId": "e326bc25",
+      "eventId": "362a9d69",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 187.2,
@@ -727,7 +727,7 @@
       "accurate": true
     },
     {
-      "eventId": "aa9444d2",
+      "eventId": "e0a4a12d",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 193.7,
@@ -747,7 +747,7 @@
       "accurate": false
     },
     {
-      "eventId": "3f1942fc",
+      "eventId": "558c9f7f",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 198.2,
@@ -763,7 +763,7 @@
       "accurate": true
     },
     {
-      "eventId": "a31d3ec1",
+      "eventId": "5e6718ea",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 204.6,
@@ -783,7 +783,7 @@
       "accurate": true
     },
     {
-      "eventId": "dcc4ad35",
+      "eventId": "d7bf6e76",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 209.9,
@@ -799,7 +799,7 @@
       "accurate": true
     },
     {
-      "eventId": "8e4fc5eb",
+      "eventId": "a59dea15",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 215.1,
@@ -815,7 +815,7 @@
       "accurate": true
     },
     {
-      "eventId": "73d8581e",
+      "eventId": "698094f9",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 216.9,
@@ -835,7 +835,7 @@
       "accurate": true
     },
     {
-      "eventId": "8747ee69",
+      "eventId": "9e260bfc",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 221.7,
@@ -851,7 +851,7 @@
       "accurate": true
     },
     {
-      "eventId": "7eb1d37f",
+      "eventId": "ea420fae",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 224.3,
@@ -867,7 +867,7 @@
       "accurate": false
     },
     {
-      "eventId": "0f4d5fdf",
+      "eventId": "2580431d",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 230.0,
@@ -887,7 +887,7 @@
       "accurate": true
     },
     {
-      "eventId": "32c0fd27",
+      "eventId": "1bd7a661",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 233.7,
@@ -903,7 +903,7 @@
       "accurate": true
     },
     {
-      "eventId": "681f215f",
+      "eventId": "1000553e",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 241.3,
@@ -919,7 +919,7 @@
       "accurate": true
     },
     {
-      "eventId": "2ee307a1",
+      "eventId": "9e6a5792",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 245.7,
@@ -935,7 +935,7 @@
       "accurate": true
     },
     {
-      "eventId": "9719ab42",
+      "eventId": "cec11ea9",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 247.7,
@@ -955,7 +955,7 @@
       "accurate": true
     },
     {
-      "eventId": "fd379981",
+      "eventId": "532c7dd9",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 251.8,
@@ -971,7 +971,7 @@
       "accurate": false
     },
     {
-      "eventId": "5c9db883",
+      "eventId": "7dc760f8",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 256.9,
@@ -991,7 +991,7 @@
       "accurate": true
     },
     {
-      "eventId": "30ea7c21",
+      "eventId": "123c9173",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 264.1,
@@ -1007,7 +1007,7 @@
       "accurate": true
     },
     {
-      "eventId": "c9d1ed72",
+      "eventId": "197aa024",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 268.6,
@@ -1023,7 +1023,7 @@
       "accurate": true
     },
     {
-      "eventId": "bdc3fd70",
+      "eventId": "7afe7b64",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 273.0,
@@ -1039,7 +1039,7 @@
       "accurate": true
     },
     {
-      "eventId": "6807a273",
+      "eventId": "a8a1266c",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 278.2,
@@ -1055,7 +1055,7 @@
       "accurate": false
     },
     {
-      "eventId": "2750260a",
+      "eventId": "ad12dc00",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 280.8,
@@ -1071,7 +1071,7 @@
       "accurate": false
     },
     {
-      "eventId": "c4ab6c06",
+      "eventId": "a837f1e5",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 286.1,
@@ -1087,7 +1087,7 @@
       "accurate": true
     },
     {
-      "eventId": "71134a51",
+      "eventId": "64bb7c56",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 289.6,
@@ -1103,7 +1103,7 @@
       "accurate": true
     },
     {
-      "eventId": "f72a1f63",
+      "eventId": "6a9fcfc1",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 296.2,
@@ -1123,7 +1123,7 @@
       "accurate": true
     },
     {
-      "eventId": "a41ac3ab",
+      "eventId": "22abb605",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 298.8,
@@ -1143,7 +1143,7 @@
       "accurate": true
     },
     {
-      "eventId": "0789a3e1",
+      "eventId": "0a955f9a",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 300.5,
@@ -1159,7 +1159,7 @@
       "accurate": false
     },
     {
-      "eventId": "099b801c",
+      "eventId": "03dd704e",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 304.6,
@@ -1175,7 +1175,7 @@
       "accurate": true
     },
     {
-      "eventId": "253daae3",
+      "eventId": "5c7f818e",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 308.1,
@@ -1195,7 +1195,7 @@
       "accurate": true
     },
     {
-      "eventId": "feca00a0",
+      "eventId": "074e56f1",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 314.8,
@@ -1211,7 +1211,7 @@
       "accurate": false
     },
     {
-      "eventId": "918681d7",
+      "eventId": "b163266d",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 319.3,
@@ -1227,7 +1227,7 @@
       "accurate": false
     },
     {
-      "eventId": "91077dc6",
+      "eventId": "3c89520a",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 321.3,
@@ -1243,7 +1243,7 @@
       "accurate": true
     },
     {
-      "eventId": "9865c961",
+      "eventId": "667b9140",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 328.9,
@@ -1259,7 +1259,7 @@
       "accurate": true
     },
     {
-      "eventId": "0200e000",
+      "eventId": "88144c07",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 331.5,
@@ -1279,7 +1279,7 @@
       "accurate": true
     },
     {
-      "eventId": "9e526c5a",
+      "eventId": "1d787901",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 335.8,
@@ -1295,7 +1295,7 @@
       "accurate": false
     },
     {
-      "eventId": "aa6443f2",
+      "eventId": "6da8b126",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 342.3,
@@ -1311,7 +1311,7 @@
       "accurate": true
     },
     {
-      "eventId": "7e90e1f8",
+      "eventId": "8c291821",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 349.3,
@@ -1327,7 +1327,7 @@
       "accurate": true
     },
     {
-      "eventId": "ae3a7c0f",
+      "eventId": "59dbf8ba",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 351.5,
@@ -1343,7 +1343,7 @@
       "accurate": false
     },
     {
-      "eventId": "77be99f2",
+      "eventId": "c74b96ec",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 357.7,
@@ -1359,7 +1359,7 @@
       "accurate": true
     },
     {
-      "eventId": "cf28feb3",
+      "eventId": "552e2219",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 360.0,
@@ -1375,7 +1375,7 @@
       "accurate": true
     },
     {
-      "eventId": "ed9d81b8",
+      "eventId": "3586d760",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 366.9,
@@ -1395,7 +1395,7 @@
       "accurate": false
     },
     {
-      "eventId": "1aa94a8d",
+      "eventId": "4570306a",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 374.5,
@@ -1415,7 +1415,7 @@
       "accurate": false
     },
     {
-      "eventId": "b97eab86",
+      "eventId": "091d8ef4",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 380.6,
@@ -1431,7 +1431,7 @@
       "accurate": false
     },
     {
-      "eventId": "9b98819d",
+      "eventId": "009e31eb",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 387.9,
@@ -1451,7 +1451,7 @@
       "accurate": true
     },
     {
-      "eventId": "2e0904ba",
+      "eventId": "b7db823a",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 394.4,
@@ -1467,7 +1467,7 @@
       "accurate": true
     },
     {
-      "eventId": "ffc3a0c4",
+      "eventId": "e0904e5d",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 399.6,
@@ -1487,7 +1487,7 @@
       "accurate": true
     },
     {
-      "eventId": "b2ebe8b8",
+      "eventId": "ef9cc14f",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 406.3,
@@ -1503,7 +1503,7 @@
       "accurate": true
     },
     {
-      "eventId": "fab647bf",
+      "eventId": "aa1c2e23",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 413.0,
@@ -1519,7 +1519,7 @@
       "accurate": true
     },
     {
-      "eventId": "2afddd59",
+      "eventId": "728f8d72",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 419.0,
@@ -1535,7 +1535,7 @@
       "accurate": false
     },
     {
-      "eventId": "c3e4561c",
+      "eventId": "0142aeda",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 423.9,
@@ -1551,7 +1551,7 @@
       "accurate": false
     },
     {
-      "eventId": "b427c2fa",
+      "eventId": "bacc1577",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 427.1,
@@ -1567,7 +1567,7 @@
       "accurate": true
     },
     {
-      "eventId": "82e34472",
+      "eventId": "dec0b02c",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 430.2,
@@ -1583,7 +1583,7 @@
       "accurate": true
     },
     {
-      "eventId": "7cc51659",
+      "eventId": "a27d05e5",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 435.4,
@@ -1603,7 +1603,7 @@
       "accurate": false
     },
     {
-      "eventId": "1e0e9e49",
+      "eventId": "1f82ce2e",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 436.9,
@@ -1623,7 +1623,7 @@
       "accurate": true
     },
     {
-      "eventId": "03a4e4a0",
+      "eventId": "1d1c769e",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 439.8,
@@ -1643,7 +1643,7 @@
       "accurate": true
     },
     {
-      "eventId": "9552a3f7",
+      "eventId": "7596698e",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 445.0,
@@ -1659,7 +1659,7 @@
       "accurate": true
     },
     {
-      "eventId": "b99bd4ff",
+      "eventId": "489ea16f",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 449.7,
@@ -1675,7 +1675,7 @@
       "accurate": false
     },
     {
-      "eventId": "54807803",
+      "eventId": "74cee939",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 451.8,
@@ -1691,7 +1691,7 @@
       "accurate": false
     },
     {
-      "eventId": "be82b3e0",
+      "eventId": "b8640a01",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 457.0,
@@ -1707,7 +1707,7 @@
       "accurate": true
     },
     {
-      "eventId": "211fb2de",
+      "eventId": "994b4301",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 459.3,
@@ -1723,7 +1723,7 @@
       "accurate": false
     },
     {
-      "eventId": "5167c987",
+      "eventId": "e30b56ad",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 464.4,
@@ -1739,7 +1739,7 @@
       "accurate": true
     },
     {
-      "eventId": "1e3a6487",
+      "eventId": "be4b056f",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 466.2,
@@ -1755,7 +1755,7 @@
       "accurate": false
     },
     {
-      "eventId": "7fa9b332",
+      "eventId": "ebfab5f1",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 473.9,
@@ -1771,7 +1771,7 @@
       "accurate": true
     },
     {
-      "eventId": "538f9671",
+      "eventId": "cc9473d6",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 481.9,
@@ -1787,7 +1787,7 @@
       "accurate": true
     },
     {
-      "eventId": "41ebbd36",
+      "eventId": "d327e643",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 484.4,
@@ -1803,7 +1803,7 @@
       "accurate": true
     },
     {
-      "eventId": "2373a260",
+      "eventId": "9bb2062d",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 489.2,
@@ -1819,7 +1819,7 @@
       "accurate": true
     },
     {
-      "eventId": "2e09c8a8",
+      "eventId": "9b5c5370",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 491.2,
@@ -1835,7 +1835,7 @@
       "accurate": true
     },
     {
-      "eventId": "3b27602b",
+      "eventId": "ec70994d",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 497.8,
@@ -1851,7 +1851,7 @@
       "accurate": true
     },
     {
-      "eventId": "55862b1f",
+      "eventId": "9fd1b329",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 505.1,
@@ -1867,7 +1867,7 @@
       "accurate": false
     },
     {
-      "eventId": "77fac57e",
+      "eventId": "60e83a4f",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 509.8,
@@ -1887,7 +1887,7 @@
       "accurate": true
     },
     {
-      "eventId": "35236edb",
+      "eventId": "0096e879",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 512.6,
@@ -1903,7 +1903,7 @@
       "accurate": true
     },
     {
-      "eventId": "bb371222",
+      "eventId": "97e85c4a",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 515.4,
@@ -1919,7 +1919,7 @@
       "accurate": true
     },
     {
-      "eventId": "10ccc21b",
+      "eventId": "cfb2f39e",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 523.1,
@@ -1935,7 +1935,7 @@
       "accurate": false
     },
     {
-      "eventId": "6884a2b0",
+      "eventId": "8e462889",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 528.1,
@@ -1951,7 +1951,7 @@
       "accurate": true
     },
     {
-      "eventId": "6aa60237",
+      "eventId": "3936d2bc",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 532.9,
@@ -1967,7 +1967,7 @@
       "accurate": true
     },
     {
-      "eventId": "38dd1a90",
+      "eventId": "0a9a061b",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 534.8,
@@ -1983,7 +1983,7 @@
       "accurate": true
     },
     {
-      "eventId": "8f325966",
+      "eventId": "9e4f3618",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 539.0,
@@ -2003,7 +2003,7 @@
       "accurate": false
     },
     {
-      "eventId": "ef88f22f",
+      "eventId": "e5e79b28",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 546.5,
@@ -2019,7 +2019,7 @@
       "accurate": true
     },
     {
-      "eventId": "228aacb9",
+      "eventId": "7df90088",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 548.4,
@@ -2035,7 +2035,7 @@
       "accurate": true
     },
     {
-      "eventId": "7b325625",
+      "eventId": "04a371d6",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 553.9,
@@ -2051,7 +2051,7 @@
       "accurate": true
     },
     {
-      "eventId": "150acf59",
+      "eventId": "077eab4d",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 561.0,
@@ -2067,7 +2067,7 @@
       "accurate": true
     },
     {
-      "eventId": "e8fd0a51",
+      "eventId": "29317785",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 565.2,
@@ -2087,7 +2087,7 @@
       "accurate": true
     },
     {
-      "eventId": "3261e5eb",
+      "eventId": "58822784",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 571.9,
@@ -2103,7 +2103,7 @@
       "accurate": false
     },
     {
-      "eventId": "488b8433",
+      "eventId": "db2beb3a",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 579.3,
@@ -2123,7 +2123,7 @@
       "accurate": true
     },
     {
-      "eventId": "644fbd46",
+      "eventId": "7d439469",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 581.1,
@@ -2139,7 +2139,7 @@
       "accurate": false
     },
     {
-      "eventId": "d89959b8",
+      "eventId": "708935f1",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 587.9,
@@ -2159,7 +2159,7 @@
       "accurate": false
     },
     {
-      "eventId": "b587f099",
+      "eventId": "c361f550",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 594.8,
@@ -2179,7 +2179,7 @@
       "accurate": true
     },
     {
-      "eventId": "ba7245c2",
+      "eventId": "d663a6d7",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 600.2,
@@ -2195,7 +2195,7 @@
       "accurate": true
     },
     {
-      "eventId": "3d970c5e",
+      "eventId": "d4eac822",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 602.2,
@@ -2211,7 +2211,7 @@
       "accurate": true
     },
     {
-      "eventId": "c07acd8c",
+      "eventId": "366d4679",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 606.5,
@@ -2227,7 +2227,7 @@
       "accurate": false
     },
     {
-      "eventId": "3a1bd8ee",
+      "eventId": "4756f8da",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 612.8,
@@ -2247,7 +2247,7 @@
       "accurate": true
     },
     {
-      "eventId": "5e386495",
+      "eventId": "fb374e56",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 614.9,
@@ -2263,7 +2263,7 @@
       "accurate": true
     },
     {
-      "eventId": "2785d947",
+      "eventId": "82cecbe0",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 618.1,
@@ -2283,7 +2283,7 @@
       "accurate": true
     },
     {
-      "eventId": "8daffb1c",
+      "eventId": "edacc3b9",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 624.3,
@@ -2299,7 +2299,7 @@
       "accurate": false
     },
     {
-      "eventId": "207c1d43",
+      "eventId": "8584eb08",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 626.3,
@@ -2319,7 +2319,7 @@
       "accurate": false
     },
     {
-      "eventId": "6823653b",
+      "eventId": "f243729e",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 630.3,
@@ -2335,7 +2335,7 @@
       "accurate": true
     },
     {
-      "eventId": "23535231",
+      "eventId": "bf73e64a",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 637.7,
@@ -2351,7 +2351,7 @@
       "accurate": true
     },
     {
-      "eventId": "a7dc0d97",
+      "eventId": "ac0cb56b",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 641.2,
@@ -2367,7 +2367,7 @@
       "accurate": true
     },
     {
-      "eventId": "819e495f",
+      "eventId": "dfeba3dd",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 646.3,
@@ -2387,7 +2387,7 @@
       "accurate": true
     },
     {
-      "eventId": "d6bb7d91",
+      "eventId": "9466c4c6",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 650.2,
@@ -2407,7 +2407,7 @@
       "accurate": true
     },
     {
-      "eventId": "19b3240a",
+      "eventId": "4c3ff68e",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 652.9,
@@ -2427,7 +2427,7 @@
       "accurate": false
     },
     {
-      "eventId": "da08dd89",
+      "eventId": "e7aa97e0",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 656.4,
@@ -2447,7 +2447,7 @@
       "accurate": true
     },
     {
-      "eventId": "e3986a78",
+      "eventId": "fd568a7f",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 663.1,
@@ -2463,7 +2463,7 @@
       "accurate": true
     },
     {
-      "eventId": "214df081",
+      "eventId": "ed42e66b",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 668.8,
@@ -2479,7 +2479,7 @@
       "accurate": true
     },
     {
-      "eventId": "de35dda8",
+      "eventId": "233fe91f",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 671.0,
@@ -2499,7 +2499,7 @@
       "accurate": true
     },
     {
-      "eventId": "9fc3cb08",
+      "eventId": "8d0e6610",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 678.5,
@@ -2515,7 +2515,7 @@
       "accurate": true
     },
     {
-      "eventId": "e0ac873b",
+      "eventId": "7ad2ff9b",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 685.2,
@@ -2531,7 +2531,7 @@
       "accurate": true
     },
     {
-      "eventId": "36359bd8",
+      "eventId": "030bdf5e",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 689.3,
@@ -2547,7 +2547,7 @@
       "accurate": true
     },
     {
-      "eventId": "832831d1",
+      "eventId": "31240d15",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 691.5,
@@ -2567,7 +2567,7 @@
       "accurate": true
     },
     {
-      "eventId": "ac5f3d0e",
+      "eventId": "bad7c09e",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 695.6,
@@ -2587,7 +2587,7 @@
       "accurate": true
     },
     {
-      "eventId": "4dcb4159",
+      "eventId": "8ba0c3a7",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 701.9,
@@ -2603,7 +2603,7 @@
       "accurate": true
     },
     {
-      "eventId": "cf6819b7",
+      "eventId": "3f07b6cf",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 706.7,
@@ -2623,7 +2623,7 @@
       "accurate": false
     },
     {
-      "eventId": "f0f2b10f",
+      "eventId": "564cf1d1",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 713.0,
@@ -2643,7 +2643,7 @@
       "accurate": true
     },
     {
-      "eventId": "14463110",
+      "eventId": "3bfc2b1c",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 715.9,
@@ -2659,7 +2659,7 @@
       "accurate": false
     },
     {
-      "eventId": "a91f3ec5",
+      "eventId": "5331acf8",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 720.1,
@@ -2675,7 +2675,7 @@
       "accurate": true
     },
     {
-      "eventId": "86c40fc7",
+      "eventId": "78a6b9dc",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 724.0,
@@ -2691,7 +2691,7 @@
       "accurate": true
     },
     {
-      "eventId": "5f5bb36f",
+      "eventId": "60e03afa",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 729.4,
@@ -2707,7 +2707,7 @@
       "accurate": false
     },
     {
-      "eventId": "a81227e3",
+      "eventId": "93090c53",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 731.6,
@@ -2727,7 +2727,7 @@
       "accurate": true
     },
     {
-      "eventId": "0d8bb170",
+      "eventId": "86217149",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 736.2,
@@ -2743,7 +2743,7 @@
       "accurate": true
     },
     {
-      "eventId": "e3476123",
+      "eventId": "1446736f",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 740.2,
@@ -2759,7 +2759,7 @@
       "accurate": true
     },
     {
-      "eventId": "8113289f",
+      "eventId": "62153958",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 747.3,
@@ -2779,7 +2779,7 @@
       "accurate": false
     },
     {
-      "eventId": "cc123176",
+      "eventId": "7a93921c",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 753.8,
@@ -2795,7 +2795,7 @@
       "accurate": true
     },
     {
-      "eventId": "7244adef",
+      "eventId": "b9c07190",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 761.4,
@@ -2815,7 +2815,7 @@
       "accurate": true
     },
     {
-      "eventId": "1e6ebaf6",
+      "eventId": "f7bb18e0",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 766.5,
@@ -2835,7 +2835,7 @@
       "accurate": true
     },
     {
-      "eventId": "c53404a1",
+      "eventId": "2403cd6f",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 774.0,
@@ -2855,7 +2855,7 @@
       "accurate": true
     },
     {
-      "eventId": "3d6375b3",
+      "eventId": "2b77adda",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 781.1,
@@ -2871,7 +2871,7 @@
       "accurate": false
     },
     {
-      "eventId": "5abcbaa3",
+      "eventId": "f26be9d8",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 783.3,
@@ -2887,7 +2887,7 @@
       "accurate": true
     },
     {
-      "eventId": "ac4870ea",
+      "eventId": "01dfbc0d",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 787.0,
@@ -2907,7 +2907,7 @@
       "accurate": false
     },
     {
-      "eventId": "f3978330",
+      "eventId": "fe99c716",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 794.5,
@@ -2927,7 +2927,7 @@
       "accurate": true
     },
     {
-      "eventId": "525c72b2",
+      "eventId": "fab9c22d",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 797.5,
@@ -2943,7 +2943,7 @@
       "accurate": true
     },
     {
-      "eventId": "5df96597",
+      "eventId": "51d6bcca",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 799.7,
@@ -2959,7 +2959,7 @@
       "accurate": true
     },
     {
-      "eventId": "77719da4",
+      "eventId": "cd528de0",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 805.1,
@@ -2975,7 +2975,7 @@
       "accurate": true
     },
     {
-      "eventId": "8bf7bd15",
+      "eventId": "f95a0505",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 808.6,
@@ -2991,7 +2991,7 @@
       "accurate": true
     },
     {
-      "eventId": "2f4a3a87",
+      "eventId": "5adec38c",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 813.4,
@@ -3007,7 +3007,7 @@
       "accurate": true
     },
     {
-      "eventId": "0a4fb8cc",
+      "eventId": "c0f30467",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 821.0,
@@ -3027,7 +3027,7 @@
       "accurate": true
     },
     {
-      "eventId": "21391ac9",
+      "eventId": "38c1ee0b",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 826.5,
@@ -3043,7 +3043,7 @@
       "accurate": true
     },
     {
-      "eventId": "be1e0015",
+      "eventId": "b0b995b4",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 828.6,
@@ -3063,7 +3063,7 @@
       "accurate": true
     },
     {
-      "eventId": "76b11755",
+      "eventId": "b076154d",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 835.6,
@@ -3079,7 +3079,7 @@
       "accurate": true
     },
     {
-      "eventId": "138338bd",
+      "eventId": "947eef6c",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 842.1,
@@ -3095,7 +3095,7 @@
       "accurate": true
     },
     {
-      "eventId": "2a110c07",
+      "eventId": "a8018cf7",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 845.0,
@@ -3111,7 +3111,7 @@
       "accurate": true
     },
     {
-      "eventId": "1868ff96",
+      "eventId": "476b21ea",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 847.3,
@@ -3127,7 +3127,7 @@
       "accurate": true
     },
     {
-      "eventId": "c251b89e",
+      "eventId": "36fcf9b6",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 854.3,
@@ -3147,7 +3147,7 @@
       "accurate": true
     },
     {
-      "eventId": "c3ab3a65",
+      "eventId": "304d3163",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 857.4,
@@ -3163,7 +3163,7 @@
       "accurate": true
     },
     {
-      "eventId": "816b31bb",
+      "eventId": "d98e32c1",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 859.9,
@@ -3179,7 +3179,7 @@
       "accurate": true
     },
     {
-      "eventId": "15e63e15",
+      "eventId": "b261598c",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 863.2,
@@ -3199,7 +3199,7 @@
       "accurate": false
     },
     {
-      "eventId": "3df4eb79",
+      "eventId": "7e5e52fa",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 870.4,
@@ -3215,7 +3215,7 @@
       "accurate": true
     },
     {
-      "eventId": "9e012175",
+      "eventId": "465a937d",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 876.5,
@@ -3235,7 +3235,7 @@
       "accurate": true
     },
     {
-      "eventId": "6836bb7a",
+      "eventId": "5a8699b7",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 882.3,
@@ -3255,7 +3255,7 @@
       "accurate": true
     },
     {
-      "eventId": "3e66f1fc",
+      "eventId": "e256f4fd",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 888.8,
@@ -3271,7 +3271,7 @@
       "accurate": true
     },
     {
-      "eventId": "26b7c4f8",
+      "eventId": "f45e5404",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 892.2,
@@ -3287,7 +3287,7 @@
       "accurate": false
     },
     {
-      "eventId": "b5e22311",
+      "eventId": "4f5a300b",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 899.6,
@@ -3307,7 +3307,7 @@
       "accurate": true
     },
     {
-      "eventId": "80cdd47a",
+      "eventId": "a35b7342",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 902.9,
@@ -3327,7 +3327,7 @@
       "accurate": true
     },
     {
-      "eventId": "676467b2",
+      "eventId": "04a5126c",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 907.6,
@@ -3343,7 +3343,7 @@
       "accurate": true
     },
     {
-      "eventId": "3eb7d056",
+      "eventId": "8736bb0a",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 914.1,
@@ -3359,7 +3359,7 @@
       "accurate": true
     },
     {
-      "eventId": "a69408aa",
+      "eventId": "6605a886",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 920.8,
@@ -3379,7 +3379,7 @@
       "accurate": true
     },
     {
-      "eventId": "bf37aef6",
+      "eventId": "d2801b5d",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 922.8,
@@ -3395,7 +3395,7 @@
       "accurate": true
     },
     {
-      "eventId": "9cc58a14",
+      "eventId": "2f3f68dd",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 924.8,
@@ -3411,7 +3411,7 @@
       "accurate": false
     },
     {
-      "eventId": "6bc74ada",
+      "eventId": "8fa0f75a",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 928.8,
@@ -3427,7 +3427,7 @@
       "accurate": true
     },
     {
-      "eventId": "d4bfae45",
+      "eventId": "19633f38",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 935.6,
@@ -3443,7 +3443,7 @@
       "accurate": false
     },
     {
-      "eventId": "050ff9d9",
+      "eventId": "06736b31",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 938.6,
@@ -3459,7 +3459,7 @@
       "accurate": true
     },
     {
-      "eventId": "2be881ba",
+      "eventId": "78d5d18c",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 942.4,
@@ -3479,7 +3479,7 @@
       "accurate": true
     },
     {
-      "eventId": "1f39c4a7",
+      "eventId": "d3dac1a9",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 949.0,
@@ -3499,7 +3499,7 @@
       "accurate": true
     },
     {
-      "eventId": "20bfad81",
+      "eventId": "90371680",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 951.4,
@@ -3519,7 +3519,7 @@
       "accurate": true
     },
     {
-      "eventId": "94358979",
+      "eventId": "c998a120",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 958.8,
@@ -3535,7 +3535,7 @@
       "accurate": true
     },
     {
-      "eventId": "a2e208dc",
+      "eventId": "69e32a6c",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 966.5,
@@ -3555,7 +3555,7 @@
       "accurate": true
     },
     {
-      "eventId": "97bb4743",
+      "eventId": "59d85c18",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 974.1,
@@ -3575,7 +3575,7 @@
       "accurate": true
     },
     {
-      "eventId": "4a4cc36d",
+      "eventId": "3d1b3ef8",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 976.7,
@@ -3595,7 +3595,7 @@
       "accurate": true
     },
     {
-      "eventId": "6a487e0e",
+      "eventId": "51d0bf86",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 980.8,
@@ -3611,7 +3611,7 @@
       "accurate": true
     },
     {
-      "eventId": "3f7be385",
+      "eventId": "03479a11",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 984.5,
@@ -3627,7 +3627,7 @@
       "accurate": true
     },
     {
-      "eventId": "7fe8a658",
+      "eventId": "c8e9f9f5",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 987.3,
@@ -3643,7 +3643,7 @@
       "accurate": true
     },
     {
-      "eventId": "bc10124a",
+      "eventId": "986462dd",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 993.8,
@@ -3663,7 +3663,7 @@
       "accurate": true
     },
     {
-      "eventId": "3c42902a",
+      "eventId": "788e67fd",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 1000.1,
@@ -3679,7 +3679,7 @@
       "accurate": true
     },
     {
-      "eventId": "f0d1bfdd",
+      "eventId": "fb4625b8",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 1002.9,
@@ -3699,7 +3699,7 @@
       "accurate": true
     },
     {
-      "eventId": "e39afb07",
+      "eventId": "f32771ee",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1008.1,
@@ -3719,7 +3719,7 @@
       "accurate": true
     },
     {
-      "eventId": "0e2cf5bc",
+      "eventId": "740f88d9",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 1010.5,
@@ -3735,7 +3735,7 @@
       "accurate": false
     },
     {
-      "eventId": "7aeb4694",
+      "eventId": "9c316bef",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 1018.2,
@@ -3755,7 +3755,7 @@
       "accurate": false
     },
     {
-      "eventId": "6858515d",
+      "eventId": "3b0884bb",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1021.4,
@@ -3771,7 +3771,7 @@
       "accurate": false
     },
     {
-      "eventId": "c492fab0",
+      "eventId": "ea08a1dd",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1029.1,
@@ -3787,7 +3787,7 @@
       "accurate": true
     },
     {
-      "eventId": "11ab202c",
+      "eventId": "126b89b3",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1035.9,
@@ -3803,7 +3803,7 @@
       "accurate": true
     },
     {
-      "eventId": "2593ba13",
+      "eventId": "90d82974",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 1038.5,
@@ -3819,7 +3819,7 @@
       "accurate": true
     },
     {
-      "eventId": "a4c98da2",
+      "eventId": "92de74f9",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1043.2,
@@ -3839,7 +3839,7 @@
       "accurate": true
     },
     {
-      "eventId": "319df1e0",
+      "eventId": "17a54f50",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1050.6,
@@ -3859,7 +3859,7 @@
       "accurate": true
     },
     {
-      "eventId": "b55f59f3",
+      "eventId": "d2a182e1",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 1054.9,
@@ -3875,7 +3875,7 @@
       "accurate": true
     },
     {
-      "eventId": "3494821a",
+      "eventId": "2a86fc61",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1058.9,
@@ -3895,7 +3895,7 @@
       "accurate": true
     },
     {
-      "eventId": "cf570cb8",
+      "eventId": "dda9076b",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 1061.9,
@@ -3911,7 +3911,7 @@
       "accurate": true
     },
     {
-      "eventId": "553ed7a7",
+      "eventId": "4a243c6a",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 1063.6,
@@ -3927,7 +3927,7 @@
       "accurate": false
     },
     {
-      "eventId": "62552f00",
+      "eventId": "d57dcf3f",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 1071.1,
@@ -3943,7 +3943,7 @@
       "accurate": false
     },
     {
-      "eventId": "733d7895",
+      "eventId": "58d7ea96",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1075.5,
@@ -3959,7 +3959,7 @@
       "accurate": false
     },
     {
-      "eventId": "49bccf74",
+      "eventId": "99f9088b",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1082.7,
@@ -3979,7 +3979,7 @@
       "accurate": true
     },
     {
-      "eventId": "dc9b87e7",
+      "eventId": "f4805f19",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 1085.1,
@@ -3995,7 +3995,7 @@
       "accurate": false
     },
     {
-      "eventId": "ba76dfce",
+      "eventId": "09116217",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 1089.1,
@@ -4011,7 +4011,7 @@
       "accurate": true
     },
     {
-      "eventId": "aab7e28b",
+      "eventId": "bb7a1d92",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1096.1,
@@ -4027,7 +4027,7 @@
       "accurate": true
     },
     {
-      "eventId": "f5731912",
+      "eventId": "0941afa5",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1099.3,
@@ -4047,7 +4047,7 @@
       "accurate": true
     },
     {
-      "eventId": "53f26c30",
+      "eventId": "a5d05e48",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 1107.0,
@@ -4063,7 +4063,7 @@
       "accurate": true
     },
     {
-      "eventId": "3eb0efd2",
+      "eventId": "ca792b1a",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 1111.1,
@@ -4079,7 +4079,7 @@
       "accurate": true
     },
     {
-      "eventId": "4a81b0a6",
+      "eventId": "e7d463ab",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1117.4,
@@ -4095,7 +4095,7 @@
       "accurate": false
     },
     {
-      "eventId": "45fe4535",
+      "eventId": "69f5daab",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 1123.2,
@@ -4111,7 +4111,7 @@
       "accurate": true
     },
     {
-      "eventId": "ecb89ebc",
+      "eventId": "68c33541",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 1129.6,
@@ -4127,7 +4127,7 @@
       "accurate": true
     },
     {
-      "eventId": "ca398edd",
+      "eventId": "eeb21c78",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 1132.2,
@@ -4143,7 +4143,7 @@
       "accurate": false
     },
     {
-      "eventId": "30212c97",
+      "eventId": "5cce00c3",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1138.6,
@@ -4163,7 +4163,7 @@
       "accurate": true
     },
     {
-      "eventId": "a63abce5",
+      "eventId": "404a00bc",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 1140.9,
@@ -4179,7 +4179,7 @@
       "accurate": true
     },
     {
-      "eventId": "add8b2c2",
+      "eventId": "f4341202",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 1144.6,
@@ -4195,7 +4195,7 @@
       "accurate": true
     },
     {
-      "eventId": "c33bad79",
+      "eventId": "f8d9e5f8",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1146.5,
@@ -4215,7 +4215,7 @@
       "accurate": true
     },
     {
-      "eventId": "afff298d",
+      "eventId": "36a6e5b8",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1148.0,
@@ -4235,7 +4235,7 @@
       "accurate": true
     },
     {
-      "eventId": "b3bf4461",
+      "eventId": "a83031d2",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1154.1,
@@ -4255,7 +4255,7 @@
       "accurate": true
     },
     {
-      "eventId": "35ebe9a9",
+      "eventId": "ffb583d5",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 1160.6,
@@ -4271,7 +4271,7 @@
       "accurate": false
     },
     {
-      "eventId": "62f4e399",
+      "eventId": "41a89aed",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1163.0,
@@ -4291,7 +4291,7 @@
       "accurate": false
     },
     {
-      "eventId": "c65f8a56",
+      "eventId": "712a92a1",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 1165.3,
@@ -4307,7 +4307,7 @@
       "accurate": false
     },
     {
-      "eventId": "2c27ddb5",
+      "eventId": "5f206dd8",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 1171.2,
@@ -4327,7 +4327,7 @@
       "accurate": true
     },
     {
-      "eventId": "6ca8e3e2",
+      "eventId": "fd0db9c8",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 1172.8,
@@ -4343,7 +4343,7 @@
       "accurate": true
     },
     {
-      "eventId": "b0a2d353",
+      "eventId": "49a30d08",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 1176.1,
@@ -4359,7 +4359,7 @@
       "accurate": false
     },
     {
-      "eventId": "dd93283f",
+      "eventId": "dd9441a4",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 1182.1,
@@ -4375,7 +4375,7 @@
       "accurate": true
     },
     {
-      "eventId": "923ca9d9",
+      "eventId": "4f176394",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 1189.3,
@@ -4391,7 +4391,7 @@
       "accurate": true
     },
     {
-      "eventId": "8dcb5e3c",
+      "eventId": "e13da75c",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 1191.9,
@@ -4411,7 +4411,7 @@
       "accurate": true
     },
     {
-      "eventId": "0b2a011e",
+      "eventId": "cfc73423",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 1193.9,
@@ -4427,7 +4427,7 @@
       "accurate": false
     },
     {
-      "eventId": "48a1623e",
+      "eventId": "5834cc6e",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1196.1,
@@ -4447,7 +4447,7 @@
       "accurate": true
     },
     {
-      "eventId": "e1e7bde7",
+      "eventId": "1cf50aed",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1199.6,
@@ -4467,7 +4467,7 @@
       "accurate": true
     },
     {
-      "eventId": "54149464",
+      "eventId": "1f88c2f2",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1204.2,
@@ -4487,7 +4487,7 @@
       "accurate": true
     },
     {
-      "eventId": "4c8b8aae",
+      "eventId": "5d5ca201",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1209.1,
@@ -4507,7 +4507,7 @@
       "accurate": true
     },
     {
-      "eventId": "47d12646",
+      "eventId": "b79fefc2",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1213.8,
@@ -4523,7 +4523,7 @@
       "accurate": false
     },
     {
-      "eventId": "08e5fa86",
+      "eventId": "b65039a2",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 1220.3,
@@ -4543,7 +4543,7 @@
       "accurate": true
     },
     {
-      "eventId": "84f67f8b",
+      "eventId": "8fd85908",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1222.2,
@@ -4563,7 +4563,7 @@
       "accurate": false
     },
     {
-      "eventId": "55706103",
+      "eventId": "4ca35e05",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 1224.2,
@@ -4579,7 +4579,7 @@
       "accurate": true
     },
     {
-      "eventId": "cd620704",
+      "eventId": "9ca14e21",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 1230.4,
@@ -4595,7 +4595,7 @@
       "accurate": true
     },
     {
-      "eventId": "7555a891",
+      "eventId": "8e838b2c",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 1235.2,
@@ -4611,7 +4611,7 @@
       "accurate": true
     },
     {
-      "eventId": "c1a0eec6",
+      "eventId": "6ff20806",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 1239.6,
@@ -4627,7 +4627,7 @@
       "accurate": true
     },
     {
-      "eventId": "9ccde0af",
+      "eventId": "de20c487",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1246.3,
@@ -4647,7 +4647,7 @@
       "accurate": true
     },
     {
-      "eventId": "5bb2983f",
+      "eventId": "676362cf",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 1251.8,
@@ -4663,7 +4663,7 @@
       "accurate": false
     },
     {
-      "eventId": "6b8bf078",
+      "eventId": "20aaea40",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 1255.2,
@@ -4683,7 +4683,7 @@
       "accurate": true
     },
     {
-      "eventId": "335b32a5",
+      "eventId": "3015809a",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 1258.7,
@@ -4699,7 +4699,7 @@
       "accurate": true
     },
     {
-      "eventId": "3d37fff3",
+      "eventId": "0f8ac2be",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1264.9,
@@ -4719,7 +4719,7 @@
       "accurate": true
     },
     {
-      "eventId": "fefca420",
+      "eventId": "82a6bfa5",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 1271.3,
@@ -4735,7 +4735,7 @@
       "accurate": true
     },
     {
-      "eventId": "cee7fc95",
+      "eventId": "63dfd7a6",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1277.7,
@@ -4751,7 +4751,7 @@
       "accurate": false
     },
     {
-      "eventId": "006dace8",
+      "eventId": "9797c1e2",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1280.8,
@@ -4771,7 +4771,7 @@
       "accurate": true
     },
     {
-      "eventId": "c49ab8a7",
+      "eventId": "a8021b58",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1282.9,
@@ -4791,7 +4791,7 @@
       "accurate": true
     },
     {
-      "eventId": "dff189b2",
+      "eventId": "c6ab5a0e",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 1286.2,
@@ -4807,7 +4807,7 @@
       "accurate": false
     },
     {
-      "eventId": "a6147bd6",
+      "eventId": "6b5cca46",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 1290.5,
@@ -4823,7 +4823,7 @@
       "accurate": false
     },
     {
-      "eventId": "a49d9a90",
+      "eventId": "7b8ce8cb",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 1297.7,
@@ -4839,7 +4839,7 @@
       "accurate": true
     },
     {
-      "eventId": "bf1ceaed",
+      "eventId": "66c63899",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 1301.8,
@@ -4855,7 +4855,7 @@
       "accurate": true
     },
     {
-      "eventId": "0187ce0d",
+      "eventId": "1f38fb54",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 1305.2,
@@ -4871,7 +4871,7 @@
       "accurate": false
     },
     {
-      "eventId": "ca287b75",
+      "eventId": "e4a105ab",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1308.0,
@@ -4891,7 +4891,7 @@
       "accurate": false
     },
     {
-      "eventId": "c0027a5a",
+      "eventId": "3a0c8990",
       "subEventName": "shot",
       "matchPeriod": "1H",
       "eventSec": 1311.9,
@@ -4911,7 +4911,7 @@
       "accurate": true
     },
     {
-      "eventId": "d59dea9c",
+      "eventId": "c9cdbe68",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1316.6,
@@ -4927,7 +4927,7 @@
       "accurate": true
     },
     {
-      "eventId": "f8b5fbb3",
+      "eventId": "d9a3709b",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1324.1,
@@ -4947,7 +4947,7 @@
       "accurate": false
     },
     {
-      "eventId": "87be98e4",
+      "eventId": "d8f7bea5",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1331.8,
@@ -4967,7 +4967,7 @@
       "accurate": true
     },
     {
-      "eventId": "e9d8b873",
+      "eventId": "15ac4ff0",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 1335.0,
@@ -4983,7 +4983,7 @@
       "accurate": true
     },
     {
-      "eventId": "0fa0a67f",
+      "eventId": "911c4c64",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 1339.9,
@@ -4999,7 +4999,7 @@
       "accurate": false
     },
     {
-      "eventId": "402e9778",
+      "eventId": "0e8d9552",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 1341.9,
@@ -5015,7 +5015,7 @@
       "accurate": true
     },
     {
-      "eventId": "32a9f8e7",
+      "eventId": "dd424ac1",
       "subEventName": "tackle",
       "matchPeriod": "1H",
       "eventSec": 1348.3,
@@ -5031,7 +5031,7 @@
       "accurate": true
     },
     {
-      "eventId": "dc9af0d8",
+      "eventId": "d0ecd0ee",
       "subEventName": "interception",
       "matchPeriod": "1H",
       "eventSec": 1353.5,
@@ -5047,7 +5047,7 @@
       "accurate": true
     },
     {
-      "eventId": "6a7396cd",
+      "eventId": "1f75dde4",
       "subEventName": "dribble",
       "matchPeriod": "1H",
       "eventSec": 1356.9,
@@ -5063,7 +5063,7 @@
       "accurate": true
     },
     {
-      "eventId": "ba9a33c5",
+      "eventId": "d0808427",
       "subEventName": "foul",
       "matchPeriod": "1H",
       "eventSec": 1361.1,
@@ -5079,7 +5079,7 @@
       "accurate": false
     },
     {
-      "eventId": "4d2af3e2",
+      "eventId": "29484215",
       "subEventName": "pass",
       "matchPeriod": "1H",
       "eventSec": 1364.9,
@@ -5099,7 +5099,7 @@
       "accurate": true
     },
     {
-      "eventId": "b49320fc",
+      "eventId": "569a7c80",
       "subEventName": "corner",
       "matchPeriod": "1H",
       "eventSec": 1366.7,
@@ -5115,7 +5115,7 @@
       "accurate": true
     },
     {
-      "eventId": "3d35dfbc",
+      "eventId": "f2ad81f7",
       "subEventName": "clearance",
       "matchPeriod": "1H",
       "eventSec": 1368.5,
@@ -5135,7 +5135,7 @@
       "accurate": false
     },
     {
-      "eventId": "4cb74614",
+      "eventId": "b4ef1e71",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 1373.0,
@@ -5151,7 +5151,7 @@
       "accurate": true
     },
     {
-      "eventId": "e6511325",
+      "eventId": "49866923",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 1375.0,
@@ -5167,7 +5167,7 @@
       "accurate": true
     },
     {
-      "eventId": "0fedd8f1",
+      "eventId": "ca402ad3",
       "subEventName": "throw_in",
       "matchPeriod": "1H",
       "eventSec": 1378.7,
@@ -5183,7 +5183,7 @@
       "accurate": true
     },
     {
-      "eventId": "1bfcc103",
+      "eventId": "0ef5ee0f",
       "subEventName": "save",
       "matchPeriod": "1H",
       "eventSec": 1384.7,
