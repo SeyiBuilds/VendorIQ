@@ -1,0 +1,6450 @@
+{
+  "match_id": "PL_2025_CLEAN_001",
+  "home_team": {
+    "name": "Liverpool"
+  },
+  "away_team": {
+    "name": "Manchester City"
+  },
+  "events": [
+    {
+      "id": "c344d7f8",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:00:05.70",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        22.32,
+        73.65
+      ]
+    },
+    {
+      "id": "7fa4af18",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:00:13.00",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        2.98,
+        21.86
+      ],
+      "pass": {
+        "end_location": [
+          3.3,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b80f188a",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:00:18.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        58.93,
+        80.94
+      ]
+    },
+    {
+      "id": "bb7f2c91",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:00:25.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        15.55,
+        95.72
+      ]
+    },
+    {
+      "id": "b93bce93",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:00:27.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        60.37,
+        80.71
+      ]
+    },
+    {
+      "id": "6ee5c6b3",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:00:32.50",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        82.94,
+        61.85
+      ]
+    },
+    {
+      "id": "aa3caa6e",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:00:37.80",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        77.31,
+        98.52
+      ]
+    },
+    {
+      "id": "db509f68",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:00:44.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        16.27,
+        35.53
+      ]
+    },
+    {
+      "id": "4deb676a",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:00:51.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        63.5,
+        53.41
+      ]
+    },
+    {
+      "id": "fa66de54",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:00:55.50",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        21.96,
+        32.43
+      ]
+    },
+    {
+      "id": "4d247944",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:00:57.30",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        26.77,
+        21.1
+      ],
+      "pass": {
+        "end_location": [
+          53.35,
+          43.68
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "34d64ed0",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:01:03.10",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        14.29,
+        13.96
+      ]
+    },
+    {
+      "id": "5dc0e8a6",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:01:08.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        39.94,
+        21.93
+      ]
+    },
+    {
+      "id": "d36f78fe",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:01:12.90",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        15.28,
+        16.0
+      ],
+      "pass": {
+        "end_location": [
+          26.11,
+          21.78
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "13cbd37f",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:01:18.30",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        86.08,
+        1.15
+      ]
+    },
+    {
+      "id": "d6e870f2",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:01:24.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        11.16,
+        43.48
+      ]
+    },
+    {
+      "id": "cdfe9139",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:01:31.90",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        76.2,
+        50.77
+      ]
+    },
+    {
+      "id": "327765b9",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:01:37.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        15.28,
+        76.25
+      ]
+    },
+    {
+      "id": "8b6f8047",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:01:44.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        32.42,
+        1.95
+      ]
+    },
+    {
+      "id": "74c15167",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:01:51.20",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        87.8,
+        94.69
+      ]
+    },
+    {
+      "id": "575efffa",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:01:55.90",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        76.58,
+        12.84
+      ]
+    },
+    {
+      "id": "ec204670",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:02:01.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        42.31,
+        21.18
+      ]
+    },
+    {
+      "id": "f31d810a",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:02:07.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        99.51,
+        64.99
+      ],
+      "pass": {
+        "end_location": [
+          95.8,
+          66.04
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "d3a1ac8b",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:02:10.20",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        23.01,
+        22.02
+      ]
+    },
+    {
+      "id": "67a40bb7",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:02:15.80",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        85.96,
+        7.09
+      ],
+      "pass": {
+        "end_location": [
+          70.24,
+          17.22
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "2b51a336",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:02:18.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        78.46,
+        80.75
+      ]
+    },
+    {
+      "id": "08e36d8e",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:02:20.30",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        46.7,
+        72.91
+      ],
+      "pass": {
+        "end_location": [
+          57.1,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "12b87cea",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:02:24.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        24.87,
+        19.02
+      ],
+      "pass": {
+        "end_location": [
+          21.78,
+          14.33
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "f016e10f",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:02:27.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        9.79,
+        65.21
+      ]
+    },
+    {
+      "id": "ab9256c5",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:02:29.10",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        16.63,
+        48.56
+      ]
+    },
+    {
+      "id": "9a8f2d6c",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:02:33.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        98.53,
+        26.52
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          23.82
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b69439d3",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:02:40.90",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        15.48,
+        29.67
+      ]
+    },
+    {
+      "id": "b6709c0b",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:02:46.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        5.72,
+        58.42
+      ]
+    },
+    {
+      "id": "678005dd",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:02:53.20",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        8.01,
+        18.58
+      ]
+    },
+    {
+      "id": "232c6a6d",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:02:59.10",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        24.62,
+        59.45
+      ]
+    },
+    {
+      "id": "3da9add9",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:03:03.40",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        93.47,
+        20.43
+      ]
+    },
+    {
+      "id": "71fcb8f0",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:03:06.40",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        45.72,
+        92.9
+      ]
+    },
+    {
+      "id": "9169ef74",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:03:08.00",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        7.33,
+        21.32
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          47.31
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "dedca2e0",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:03:15.20",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        83.37,
+        70.35
+      ]
+    },
+    {
+      "id": "797e6209",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:03:23.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        29.94,
+        66.34
+      ]
+    },
+    {
+      "id": "0d4c40fa",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:03:25.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        15.54,
+        28.18
+      ]
+    },
+    {
+      "id": "bf2e6680",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:03:29.20",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        50.54,
+        25.11
+      ]
+    },
+    {
+      "id": "a689a542",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:03:31.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        4.41,
+        33.36
+      ]
+    },
+    {
+      "id": "b0164a91",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:03:38.90",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        70.57,
+        56.09
+      ]
+    },
+    {
+      "id": "98561e65",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:03:46.50",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        3.6,
+        36.92
+      ]
+    },
+    {
+      "id": "6a2b58d9",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:03:50.80",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        89.89,
+        21.01
+      ],
+      "pass": {
+        "end_location": [
+          74.86,
+          0
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "0e0d6d1e",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:03:58.10",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        92.58,
+        23.67
+      ]
+    },
+    {
+      "id": "0e0a851d",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:04:04.80",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        17.94,
+        92.45
+      ],
+      "pass": {
+        "end_location": [
+          34.88,
+          87.15
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "d13957d0",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:04:11.10",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        38.25,
+        3.87
+      ],
+      "pass": {
+        "end_location": [
+          36.5,
+          0
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "1602f095",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:04:14.80",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        39.85,
+        27.86
+      ]
+    },
+    {
+      "id": "2c56234b",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:04:21.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        67.95,
+        84.37
+      ],
+      "pass": {
+        "end_location": [
+          57.82,
+          56.02
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "41d51747",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:04:24.60",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        3.83,
+        59.66
+      ]
+    },
+    {
+      "id": "83196a8a",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:04:31.20",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        11.56,
+        89.95
+      ]
+    },
+    {
+      "id": "887f98fd",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:04:33.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        68.69,
+        94.03
+      ]
+    },
+    {
+      "id": "a8f418b1",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:04:35.70",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        62.32,
+        66.34
+      ]
+    },
+    {
+      "id": "3d0fa164",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:04:43.10",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        32.62,
+        69.72
+      ],
+      "pass": {
+        "end_location": [
+          35.88,
+          51.23
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b0175634",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:04:47.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        56.91,
+        40.61
+      ]
+    },
+    {
+      "id": "d4d59d21",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:04:50.50",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        60.67,
+        32.22
+      ]
+    },
+    {
+      "id": "c7bff958",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:04:56.40",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        65.89,
+        28.38
+      ]
+    },
+    {
+      "id": "397a92e5",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:05:01.90",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        67.28,
+        22.46
+      ]
+    },
+    {
+      "id": "e01c4aab",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:05:03.60",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        84.97,
+        7.28
+      ]
+    },
+    {
+      "id": "0281e9a5",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:05:09.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        49.44,
+        24.4
+      ],
+      "pass": {
+        "end_location": [
+          58.8,
+          0
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "fb9c1080",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:05:15.70",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        17.59,
+        95.8
+      ]
+    },
+    {
+      "id": "a046c99d",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:05:17.50",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        45.65,
+        80.14
+      ],
+      "pass": {
+        "end_location": [
+          55.7,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "edbf7944",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:05:25.20",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        42.67,
+        90.69
+      ]
+    },
+    {
+      "id": "2907b19f",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:05:27.70",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        83.99,
+        27.73
+      ]
+    },
+    {
+      "id": "2212f4bc",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:05:32.40",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        71.35,
+        23.45
+      ],
+      "pass": {
+        "end_location": [
+          61.51,
+          47.03
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "c3d3ce2d",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:05:34.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        6.42,
+        40.76
+      ]
+    },
+    {
+      "id": "f912fcc9",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:05:39.10",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        90.48,
+        58.41
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          79.81
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "a08b75f7",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:05:43.00",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        75.35,
+        85.34
+      ]
+    },
+    {
+      "id": "a550a466",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:05:47.30",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        89.78,
+        48.82
+      ]
+    },
+    {
+      "id": "fef3ec6d",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:05:51.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        72.42,
+        84.05
+      ],
+      "pass": {
+        "end_location": [
+          97.59,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "1adecd82",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:05:59.30",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        8.39,
+        42.86
+      ],
+      "pass": {
+        "end_location": [
+          30.41,
+          23.77
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "fc654fed",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:06:02.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        27.83,
+        95.12
+      ],
+      "pass": {
+        "end_location": [
+          23.12,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "6a277a87",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:06:09.30",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        22.42,
+        6.86
+      ]
+    },
+    {
+      "id": "5cb7d492",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:06:11.10",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        83.92,
+        62.13
+      ]
+    },
+    {
+      "id": "61a1767a",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:06:15.70",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        46.5,
+        25.62
+      ]
+    },
+    {
+      "id": "95de7562",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:06:21.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        96.47,
+        10.81
+      ]
+    },
+    {
+      "id": "b7ba8de8",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:06:24.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        39.67,
+        71.5
+      ],
+      "pass": {
+        "end_location": [
+          14.23,
+          82.94
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "5e0a8cb3",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:06:26.80",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        80.55,
+        79.62
+      ]
+    },
+    {
+      "id": "6ad5dcc6",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:06:28.60",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        6.9,
+        64.75
+      ]
+    },
+    {
+      "id": "866cdedc",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:06:32.80",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        63.56,
+        82.87
+      ]
+    },
+    {
+      "id": "1a9ccff5",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:06:37.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        61.59,
+        91.96
+      ]
+    },
+    {
+      "id": "a3139069",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:06:41.60",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        85.17,
+        83.07
+      ]
+    },
+    {
+      "id": "2c922cb3",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:06:48.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        61.03,
+        37.9
+      ]
+    },
+    {
+      "id": "7e33d015",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:06:55.90",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        79.78,
+        34.03
+      ]
+    },
+    {
+      "id": "0cbefdbc",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:07:02.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        94.81,
+        8.56
+      ]
+    },
+    {
+      "id": "cdb26c92",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:07:06.60",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        44.82,
+        1.72
+      ]
+    },
+    {
+      "id": "f75bac59",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:07:10.80",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        36.9,
+        55.35
+      ]
+    },
+    {
+      "id": "f5e2fd18",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:07:18.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        27.09,
+        25.14
+      ]
+    },
+    {
+      "id": "1f368be7",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:07:21.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        19.15,
+        73.86
+      ]
+    },
+    {
+      "id": "f6bdaef4",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:07:26.80",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        83.26,
+        29.62
+      ],
+      "pass": {
+        "end_location": [
+          74.92,
+          17.76
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "1e98e72a",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:07:29.10",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        29.21,
+        94.41
+      ]
+    },
+    {
+      "id": "40409f5e",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:07:35.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        28.43,
+        47.87
+      ]
+    },
+    {
+      "id": "468fea99",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:07:43.30",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        11.41,
+        6.53
+      ]
+    },
+    {
+      "id": "1a814eff",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:07:48.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        81.11,
+        94.91
+      ]
+    },
+    {
+      "id": "7c665b62",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:07:51.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        59.61,
+        61.84
+      ]
+    },
+    {
+      "id": "9d9b5e30",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:07:55.60",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        99.0,
+        30.54
+      ]
+    },
+    {
+      "id": "77676d35",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:08:01.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        62.55,
+        26.46
+      ]
+    },
+    {
+      "id": "f1cb7b2e",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:08:04.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        40.85,
+        68.94
+      ],
+      "pass": {
+        "end_location": [
+          39.05,
+          40.9
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "7d58640d",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:08:07.50",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        92.39,
+        78.78
+      ]
+    },
+    {
+      "id": "785ec728",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:08:13.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        22.48,
+        14.9
+      ]
+    },
+    {
+      "id": "489a4981",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:08:15.70",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        59.5,
+        82.42
+      ]
+    },
+    {
+      "id": "01ab1f76",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:08:20.10",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        94.27,
+        50.05
+      ],
+      "pass": {
+        "end_location": [
+          93.9,
+          24.87
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "44d16fb0",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:08:24.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        9.13,
+        96.19
+      ],
+      "pass": {
+        "end_location": [
+          29.29,
+          100
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "552b00b7",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:08:32.40",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        4.02,
+        75.63
+      ]
+    },
+    {
+      "id": "404643b3",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:08:38.10",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        43.59,
+        81.42
+      ]
+    },
+    {
+      "id": "2216f8d6",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:08:42.70",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        85.77,
+        32.98
+      ],
+      "pass": {
+        "end_location": [
+          97.39,
+          20.27
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "1e3e8965",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:08:49.50",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        31.45,
+        32.33
+      ],
+      "pass": {
+        "end_location": [
+          59.66,
+          26.58
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "a6f8318a",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:08:57.40",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        41.32,
+        18.76
+      ]
+    },
+    {
+      "id": "5b7feab5",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:09:03.80",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        20.36,
+        54.92
+      ],
+      "pass": {
+        "end_location": [
+          46.02,
+          51.21
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "6f4bd57d",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:09:06.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        70.98,
+        31.08
+      ]
+    },
+    {
+      "id": "8028251a",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:09:10.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        46.14,
+        11.75
+      ],
+      "pass": {
+        "end_location": [
+          66.07,
+          11.65
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "74684111",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:09:15.10",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        98.02,
+        24.37
+      ]
+    },
+    {
+      "id": "75bace2f",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:09:19.00",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        86.4,
+        27.62
+      ]
+    },
+    {
+      "id": "df3530f8",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:09:23.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        28.28,
+        29.86
+      ],
+      "pass": {
+        "end_location": [
+          33.5,
+          59.79
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "ee888b5a",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:09:25.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        55.19,
+        54.34
+      ]
+    },
+    {
+      "id": "12f199ae",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:09:29.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        57.18,
+        23.36
+      ]
+    },
+    {
+      "id": "0a261e3a",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:09:31.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        38.61,
+        66.37
+      ],
+      "pass": {
+        "end_location": [
+          57.85,
+          95.22
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "74bf0d12",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:09:32.80",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        86.97,
+        87.42
+      ]
+    },
+    {
+      "id": "5651ee4c",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:09:37.70",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        41.0,
+        65.48
+      ]
+    },
+    {
+      "id": "b7bf5868",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:09:42.30",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        64.98,
+        85.18
+      ],
+      "pass": {
+        "end_location": [
+          86.12,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "f4813b78",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:09:45.90",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        87.24,
+        3.59
+      ]
+    },
+    {
+      "id": "98600961",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:09:51.50",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        43.4,
+        9.84
+      ],
+      "pass": {
+        "end_location": [
+          51.42,
+          32.2
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "8ac9f3b7",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:09:57.50",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        29.34,
+        37.48
+      ],
+      "pass": {
+        "end_location": [
+          8.07,
+          39.35
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "ba895ebe",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:10:04.10",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        87.08,
+        61.97
+      ]
+    },
+    {
+      "id": "dd967cb4",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:10:11.60",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        45.96,
+        66.68
+      ]
+    },
+    {
+      "id": "c7f1be4d",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:10:16.10",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        7.39,
+        94.52
+      ]
+    },
+    {
+      "id": "326f87f1",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:10:19.50",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        84.53,
+        19.92
+      ]
+    },
+    {
+      "id": "1086e11e",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:10:24.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        57.48,
+        99.27
+      ]
+    },
+    {
+      "id": "28627b74",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:10:32.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        56.59,
+        68.58
+      ],
+      "pass": {
+        "end_location": [
+          71.27,
+          41.52
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "cc26b6f8",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:10:36.80",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        60.71,
+        35.23
+      ]
+    },
+    {
+      "id": "9c008e48",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:10:42.30",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        62.82,
+        90.34
+      ]
+    },
+    {
+      "id": "077ca8b0",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:10:45.80",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        73.24,
+        9.01
+      ]
+    },
+    {
+      "id": "ddb156dc",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:10:52.20",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        87.65,
+        36.59
+      ]
+    },
+    {
+      "id": "015fbd82",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:10:55.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        96.74,
+        29.51
+      ]
+    },
+    {
+      "id": "7a4660a4",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:11:02.20",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        75.42,
+        22.56
+      ]
+    },
+    {
+      "id": "ed413e27",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:11:08.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        36.58,
+        79.07
+      ]
+    },
+    {
+      "id": "6d0e8086",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:11:13.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        58.46,
+        82.24
+      ]
+    },
+    {
+      "id": "9892441c",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:11:15.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        88.42,
+        56.14
+      ]
+    },
+    {
+      "id": "96fce954",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:11:18.20",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        90.94,
+        30.22
+      ]
+    },
+    {
+      "id": "59d9c0d7",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:11:20.60",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        11.61,
+        23.48
+      ]
+    },
+    {
+      "id": "84f1e5b9",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:11:24.60",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        41.91,
+        74.23
+      ]
+    },
+    {
+      "id": "6be0fcc6",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:11:28.80",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        40.81,
+        95.15
+      ]
+    },
+    {
+      "id": "424c41bf",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:11:32.70",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        85.55,
+        9.94
+      ]
+    },
+    {
+      "id": "c6d00ec8",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:11:37.70",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        27.59,
+        96.82
+      ],
+      "pass": {
+        "end_location": [
+          54.53,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "56367a43",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:11:40.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        5.06,
+        33.35
+      ],
+      "pass": {
+        "end_location": [
+          34.39,
+          50.57
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b24959d0",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:11:47.50",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        81.31,
+        23.3
+      ]
+    },
+    {
+      "id": "abf5a784",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:11:54.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        98.75,
+        54.02
+      ]
+    },
+    {
+      "id": "f7ac5163",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:11:56.40",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        79.0,
+        23.79
+      ]
+    },
+    {
+      "id": "97ab7f49",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:11:59.00",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        52.61,
+        74.57
+      ],
+      "pass": {
+        "end_location": [
+          51.18,
+          91.25
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "94c9b589",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:12:01.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        4.34,
+        78.32
+      ]
+    },
+    {
+      "id": "b7946673",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:12:06.10",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        6.08,
+        47.9
+      ],
+      "pass": {
+        "end_location": [
+          0.18,
+          59.06
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "0de71e8e",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:12:13.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        60.83,
+        6.57
+      ]
+    },
+    {
+      "id": "23da163b",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:12:19.10",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        99.46,
+        53.06
+      ],
+      "pass": {
+        "end_location": [
+          96.69,
+          59.38
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "50c03af3",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:12:25.20",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        72.08,
+        21.5
+      ]
+    },
+    {
+      "id": "d4371328",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:12:28.20",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        41.6,
+        9.51
+      ],
+      "pass": {
+        "end_location": [
+          37.2,
+          19.42
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "e92461cd",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:12:30.70",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        9.32,
+        9.66
+      ],
+      "pass": {
+        "end_location": [
+          23.65,
+          28.36
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "214c2b73",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:12:36.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        41.08,
+        87.36
+      ],
+      "pass": {
+        "end_location": [
+          67.55,
+          82.74
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "3fcbed58",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:12:37.80",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        10.36,
+        50.74
+      ]
+    },
+    {
+      "id": "587445af",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:12:42.40",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        36.76,
+        76.26
+      ]
+    },
+    {
+      "id": "f91b5482",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:12:49.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        61.36,
+        64.27
+      ]
+    },
+    {
+      "id": "501fc888",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:12:56.70",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        27.33,
+        76.24
+      ]
+    },
+    {
+      "id": "743236a7",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:13:00.50",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        65.73,
+        6.96
+      ]
+    },
+    {
+      "id": "f0166516",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:13:08.30",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        37.62,
+        45.36
+      ]
+    },
+    {
+      "id": "0da302cf",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:13:11.80",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        59.62,
+        88.33
+      ]
+    },
+    {
+      "id": "870813df",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:13:18.30",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        44.31,
+        42.4
+      ]
+    },
+    {
+      "id": "ebf99c08",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:13:22.40",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        34.52,
+        11.09
+      ],
+      "pass": {
+        "end_location": [
+          45.21,
+          16.68
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "925194b6",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:13:25.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        5.48,
+        20.44
+      ]
+    },
+    {
+      "id": "ffa2f4fb",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:13:32.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        0.77,
+        74.7
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          67.51
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "4af143ba",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:13:37.20",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        39.71,
+        74.2
+      ],
+      "pass": {
+        "end_location": [
+          35.88,
+          71.79
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "57fe4e9e",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:13:40.70",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        28.95,
+        40.5
+      ],
+      "pass": {
+        "end_location": [
+          56.92,
+          20.82
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "f5118dc5",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:13:45.20",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        43.67,
+        10.59
+      ],
+      "pass": {
+        "end_location": [
+          39.81,
+          4.61
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "d9d259dd",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:13:52.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        77.91,
+        7.64
+      ]
+    },
+    {
+      "id": "3c0d8171",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:13:57.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        35.11,
+        95.82
+      ]
+    },
+    {
+      "id": "f9569ac0",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:13:59.80",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        17.35,
+        15.29
+      ]
+    },
+    {
+      "id": "4edc50ad",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:14:01.80",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        75.99,
+        44.89
+      ]
+    },
+    {
+      "id": "bf8c6fe7",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:14:06.90",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        86.42,
+        62.72
+      ]
+    },
+    {
+      "id": "a23e8d58",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:14:08.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        59.14,
+        35.19
+      ]
+    },
+    {
+      "id": "8bab85e6",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:14:13.40",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        7.67,
+        86.43
+      ]
+    },
+    {
+      "id": "d47b7d0f",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:14:18.90",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        55.43,
+        79.18
+      ]
+    },
+    {
+      "id": "e3ce75ab",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:14:23.30",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        60.5,
+        50.14
+      ]
+    },
+    {
+      "id": "88347b81",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:14:27.70",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        50.45,
+        17.26
+      ],
+      "pass": {
+        "end_location": [
+          35.32,
+          13.52
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "56b38ebf",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:14:32.60",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        38.74,
+        77.45
+      ]
+    },
+    {
+      "id": "632ba8f7",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:14:34.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        32.97,
+        55.8
+      ],
+      "pass": {
+        "end_location": [
+          26.16,
+          40.92
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "7e9b90dd",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:14:42.20",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        8.15,
+        66.36
+      ]
+    },
+    {
+      "id": "ed29a81b",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:14:45.80",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        12.9,
+        70.88
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          74.42
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "dce01d0b",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:14:49.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        9.35,
+        67.05
+      ]
+    },
+    {
+      "id": "679c0666",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:14:51.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        34.17,
+        76.62
+      ]
+    },
+    {
+      "id": "63966e21",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:14:59.00",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        50.77,
+        53.98
+      ],
+      "pass": {
+        "end_location": [
+          65.09,
+          55.57
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "34d1dadc",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:15:06.20",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        15.43,
+        18.08
+      ],
+      "pass": {
+        "end_location": [
+          27.0,
+          25.57
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "a25a9a72",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:15:12.40",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        96.96,
+        61.06
+      ]
+    },
+    {
+      "id": "05258be1",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:15:19.00",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        96.56,
+        78.44
+      ]
+    },
+    {
+      "id": "bd982c23",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:15:21.80",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        46.17,
+        28.18
+      ]
+    },
+    {
+      "id": "3fece57a",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:15:26.70",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        13.84,
+        25.0
+      ]
+    },
+    {
+      "id": "f8cbad25",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:15:33.90",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        85.12,
+        28.51
+      ]
+    },
+    {
+      "id": "9c2812a9",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:15:37.10",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        9.17,
+        91.05
+      ],
+      "pass": {
+        "end_location": [
+          28.17,
+          100
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "52dcf5c0",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:15:41.30",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        38.62,
+        8.16
+      ]
+    },
+    {
+      "id": "845ee7d8",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:15:44.90",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        79.14,
+        13.76
+      ]
+    },
+    {
+      "id": "efe69b10",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:15:51.80",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        44.86,
+        0.53
+      ]
+    },
+    {
+      "id": "65a89b3f",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:15:55.00",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        52.78,
+        11.12
+      ]
+    },
+    {
+      "id": "7b619a9f",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:15:58.40",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        45.71,
+        11.09
+      ]
+    },
+    {
+      "id": "43adb55d",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:16:03.80",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        24.19,
+        14.36
+      ]
+    },
+    {
+      "id": "705a70da",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:16:09.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        66.44,
+        8.56
+      ]
+    },
+    {
+      "id": "55de1d09",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:16:11.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        55.42,
+        39.05
+      ]
+    },
+    {
+      "id": "20a2991a",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:16:16.90",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        35.71,
+        6.76
+      ],
+      "pass": {
+        "end_location": [
+          20.18,
+          16.18
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "aabb2997",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:16:22.10",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        54.6,
+        81.35
+      ]
+    },
+    {
+      "id": "4aed0e8f",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:16:28.70",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        63.17,
+        81.15
+      ]
+    },
+    {
+      "id": "bc0c8de0",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:16:35.30",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        4.38,
+        19.95
+      ]
+    },
+    {
+      "id": "c0fba17e",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:16:42.80",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        47.34,
+        3.66
+      ]
+    },
+    {
+      "id": "f35dd373",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:16:46.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        27.32,
+        79.93
+      ]
+    },
+    {
+      "id": "e5b513ba",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:16:50.30",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        33.9,
+        18.68
+      ],
+      "pass": {
+        "end_location": [
+          45.43,
+          10.72
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "2046900e",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:16:53.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        43.06,
+        99.51
+      ],
+      "pass": {
+        "end_location": [
+          23.89,
+          87.14
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "ff6a401a",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:16:57.10",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        71.77,
+        16.66
+      ]
+    },
+    {
+      "id": "7e74779b",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:17:01.60",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        61.49,
+        43.49
+      ]
+    },
+    {
+      "id": "174f1cab",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:17:08.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        36.33,
+        80.11
+      ],
+      "pass": {
+        "end_location": [
+          47.1,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "437323ef",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:17:13.60",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        23.6,
+        64.52
+      ],
+      "pass": {
+        "end_location": [
+          15.33,
+          91.48
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "16f22b5a",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:17:16.10",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        44.39,
+        7.69
+      ]
+    },
+    {
+      "id": "48785179",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:17:20.00",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        96.05,
+        2.59
+      ]
+    },
+    {
+      "id": "8cbf3c3f",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:17:24.90",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        70.4,
+        21.46
+      ]
+    },
+    {
+      "id": "59ad8a7a",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:17:30.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        85.28,
+        45.2
+      ]
+    },
+    {
+      "id": "1fb0d59c",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:17:35.30",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        66.78,
+        70.95
+      ]
+    },
+    {
+      "id": "f36daea7",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:17:38.70",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        79.37,
+        50.88
+      ]
+    },
+    {
+      "id": "1f87f218",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:17:41.50",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        2.63,
+        55.4
+      ]
+    },
+    {
+      "id": "b1ced84b",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:17:48.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        6.57,
+        39.82
+      ],
+      "pass": {
+        "end_location": [
+          19.59,
+          38.54
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "9c9b69fd",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:17:52.40",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        64.23,
+        45.0
+      ]
+    },
+    {
+      "id": "8b4eaf82",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:17:56.10",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        76.78,
+        12.9
+      ]
+    },
+    {
+      "id": "9de2b370",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:18:03.30",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        16.47,
+        32.27
+      ]
+    },
+    {
+      "id": "ba28cce9",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:18:07.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        25.06,
+        63.51
+      ],
+      "pass": {
+        "end_location": [
+          28.11,
+          41.02
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b5c5a578",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:18:12.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        94.16,
+        15.42
+      ]
+    },
+    {
+      "id": "8bddcc3d",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:18:18.20",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        4.12,
+        86.38
+      ]
+    },
+    {
+      "id": "1e8bff98",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:18:25.80",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        76.7,
+        41.66
+      ]
+    },
+    {
+      "id": "d1c95a01",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:18:30.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        48.29,
+        80.47
+      ]
+    },
+    {
+      "id": "7de5a0ac",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:18:34.00",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        43.96,
+        48.43
+      ]
+    },
+    {
+      "id": "4ed77c7c",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:18:39.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        73.42,
+        86.08
+      ]
+    },
+    {
+      "id": "f7c9de7d",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:18:41.80",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        31.91,
+        46.65
+      ],
+      "pass": {
+        "end_location": [
+          17.96,
+          31.52
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "9c96b123",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:18:45.20",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        24.83,
+        86.53
+      ],
+      "pass": {
+        "end_location": [
+          4.41,
+          76.18
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "de7f37be",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:18:48.70",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        46.68,
+        87.91
+      ]
+    },
+    {
+      "id": "5406b000",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:18:50.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        21.51,
+        35.29
+      ]
+    },
+    {
+      "id": "11b9356b",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:18:55.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        53.67,
+        84.72
+      ]
+    },
+    {
+      "id": "f93db9a2",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:19:02.70",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        36.59,
+        40.06
+      ],
+      "pass": {
+        "end_location": [
+          40.81,
+          21.74
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "453fde83",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:19:04.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        27.97,
+        98.91
+      ]
+    },
+    {
+      "id": "380f1b26",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:19:07.00",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        55.78,
+        36.56
+      ]
+    },
+    {
+      "id": "28bb2da2",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:19:12.40",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        3.89,
+        71.36
+      ],
+      "pass": {
+        "end_location": [
+          22.13,
+          72.52
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "342f62ad",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:19:19.70",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        31.85,
+        39.3
+      ]
+    },
+    {
+      "id": "465f86e4",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:19:26.70",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        53.23,
+        70.87
+      ]
+    },
+    {
+      "id": "73dd8549",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:19:33.50",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        97.99,
+        58.37
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          71.89
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "dc5c7693",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:19:35.20",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        57.76,
+        72.14
+      ]
+    },
+    {
+      "id": "51acf52c",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:19:37.80",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        14.78,
+        68.07
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          94.96
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "887abe49",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:19:39.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        69.05,
+        41.04
+      ],
+      "pass": {
+        "end_location": [
+          85.55,
+          66.27
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "91db7211",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:19:45.70",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        20.73,
+        32.5
+      ]
+    },
+    {
+      "id": "a4891997",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:19:50.60",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        91.21,
+        34.23
+      ]
+    },
+    {
+      "id": "b928464f",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:19:57.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        61.01,
+        19.23
+      ]
+    },
+    {
+      "id": "ed77a26b",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:20:02.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        77.12,
+        70.49
+      ]
+    },
+    {
+      "id": "5f42805d",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:20:06.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        28.78,
+        57.35
+      ]
+    },
+    {
+      "id": "8b95fe83",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:20:14.20",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        29.05,
+        28.76
+      ]
+    },
+    {
+      "id": "e8c17dad",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:20:18.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        21.4,
+        82.8
+      ]
+    },
+    {
+      "id": "a0592cf0",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:20:23.20",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        74.09,
+        23.93
+      ]
+    },
+    {
+      "id": "1acfdbe6",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:20:30.50",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        10.02,
+        33.03
+      ],
+      "pass": {
+        "end_location": [
+          8.36,
+          43.9
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b0742056",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:20:38.30",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        47.74,
+        19.95
+      ]
+    },
+    {
+      "id": "3e369ea5",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:20:41.90",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        65.23,
+        23.22
+      ],
+      "pass": {
+        "end_location": [
+          79.55,
+          44.24
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "75c7708c",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:20:49.40",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        93.39,
+        3.63
+      ]
+    },
+    {
+      "id": "328a2a05",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:20:56.00",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        87.67,
+        0.93
+      ]
+    },
+    {
+      "id": "f8c8dbb0",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:20:58.20",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        52.43,
+        88.93
+      ]
+    },
+    {
+      "id": "52d200ae",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:21:03.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        33.07,
+        73.11
+      ],
+      "pass": {
+        "end_location": [
+          41.97,
+          86.23
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "d4e59b3b",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:21:06.70",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        17.55,
+        85.61
+      ]
+    },
+    {
+      "id": "afd2ecf9",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:21:13.50",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        66.93,
+        18.48
+      ],
+      "pass": {
+        "end_location": [
+          45.36,
+          7.89
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "0a7f2dd5",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:21:16.70",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        95.4,
+        30.19
+      ]
+    },
+    {
+      "id": "6d467fb0",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:21:18.30",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        6.21,
+        11.82
+      ]
+    },
+    {
+      "id": "2858eee1",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:21:22.50",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        69.03,
+        63.87
+      ]
+    },
+    {
+      "id": "13d8bc24",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:21:26.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        47.82,
+        45.5
+      ]
+    },
+    {
+      "id": "8afbf19b",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:21:30.30",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        75.74,
+        80.2
+      ]
+    },
+    {
+      "id": "d3ee9dc0",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:21:36.70",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        52.55,
+        52.82
+      ],
+      "pass": {
+        "end_location": [
+          44.26,
+          77.85
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "f67e7b9c",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:21:43.60",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        14.99,
+        32.81
+      ]
+    },
+    {
+      "id": "fab044c3",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:21:45.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        9.09,
+        51.04
+      ]
+    },
+    {
+      "id": "91d8623c",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:21:50.30",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        5.77,
+        46.24
+      ]
+    },
+    {
+      "id": "b706a4c3",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:21:56.50",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        74.58,
+        57.83
+      ],
+      "pass": {
+        "end_location": [
+          47.3,
+          48.5
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "6baf3ae0",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:22:04.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        3.17,
+        40.89
+      ]
+    },
+    {
+      "id": "b53dacd1",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:22:11.00",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        37.45,
+        89.13
+      ],
+      "pass": {
+        "end_location": [
+          34.36,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "8095be6b",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:22:13.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        65.35,
+        34.78
+      ]
+    },
+    {
+      "id": "40feb190",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:22:18.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        83.48,
+        75.62
+      ]
+    },
+    {
+      "id": "759e5e37",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:22:22.50",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        37.93,
+        22.97
+      ]
+    },
+    {
+      "id": "edad2976",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:22:25.00",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        3.22,
+        66.02
+      ],
+      "pass": {
+        "end_location": [
+          10.12,
+          92.19
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "3b4f776e",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:22:28.00",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        44.64,
+        67.2
+      ],
+      "pass": {
+        "end_location": [
+          66.98,
+          51.89
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "06a1e702",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:22:32.40",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        14.01,
+        99.35
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "92d260cd",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:22:37.70",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        30.18,
+        14.33
+      ]
+    },
+    {
+      "id": "3a2aebd4",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:22:40.60",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        94.85,
+        87.97
+      ]
+    },
+    {
+      "id": "4d4d8a2e",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:22:46.20",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        97.23,
+        94.16
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "1ae8cc64",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:22:50.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        75.44,
+        47.35
+      ]
+    },
+    {
+      "id": "2e236dea",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:22:53.80",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        91.47,
+        56.24
+      ]
+    },
+    {
+      "id": "ec221b54",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:22:58.90",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        20.33,
+        64.67
+      ]
+    },
+    {
+      "id": "01a561b9",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:23:06.00",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        5.15,
+        37.72
+      ]
+    },
+    {
+      "id": "4415c464",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:23:07.70",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        72.43,
+        55.89
+      ]
+    },
+    {
+      "id": "b776c663",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:23:14.90",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        21.18,
+        19.0
+      ],
+      "pass": {
+        "end_location": [
+          35.67,
+          33.82
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "68ad0fe4",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:23:22.30",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        39.66,
+        23.93
+      ]
+    },
+    {
+      "id": "78dc997d",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:23:25.60",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        30.84,
+        35.96
+      ]
+    },
+    {
+      "id": "1b27c60d",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:23:30.20",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Liverpool"
+      },
+      "location": [
+        91.43,
+        37.07
+      ]
+    },
+    {
+      "id": "d089d6cf",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:23:35.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        26.08,
+        93.48
+      ],
+      "pass": {
+        "end_location": [
+          30.83,
+          88.53
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "bdf4abaa",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:23:39.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        49.93,
+        65.46
+      ]
+    },
+    {
+      "id": "05be60c4",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:23:42.10",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester City"
+      },
+      "location": [
+        46.08,
+        73.28
+      ]
+    }
+  ],
+  "_vendor_format": "statsbomb"
+}

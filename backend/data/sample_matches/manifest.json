@@ -1,0 +1,38 @@
+[
+  {
+    "match_id": "PL_2025_CLEAN_001",
+    "quality_tier": "clean",
+    "home_team": "Liverpool",
+    "away_team": "Manchester City",
+    "ground_truth_event_count": 300,
+    "files": [
+      "PL_2025_CLEAN_001/opta.json",
+      "PL_2025_CLEAN_001/statsbomb.json",
+      "PL_2025_CLEAN_001/wyscout.json"
+    ]
+  },
+  {
+    "match_id": "PL_2025_PARTIAL_001",
+    "quality_tier": "partial",
+    "home_team": "Arsenal",
+    "away_team": "Chelsea",
+    "ground_truth_event_count": 300,
+    "files": [
+      "PL_2025_PARTIAL_001/opta.json",
+      "PL_2025_PARTIAL_001/statsbomb.json",
+      "PL_2025_PARTIAL_001/wyscout.json"
+    ]
+  },
+  {
+    "match_id": "PL_2025_MESSY_001",
+    "quality_tier": "messy",
+    "home_team": "Manchester United",
+    "away_team": "Tottenham",
+    "ground_truth_event_count": 300,
+    "files": [
+      "PL_2025_MESSY_001/opta.json",
+      "PL_2025_MESSY_001/statsbomb.json",
+      "PL_2025_MESSY_001/wyscout.json"
+    ]
+  }
+]

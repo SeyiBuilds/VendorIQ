@@ -1,0 +1,5203 @@
+{
+  "wyId": "PL_2025_PARTIAL_001",
+  "label": "Arsenal - Chelsea",
+  "events": [
+    {
+      "eventId": "151684f5",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 5.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 92.4,
+          "y": 46.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3366a6f8",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 8.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 69.2,
+          "y": 21.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "500a82ce",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 10.1,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 77.0,
+          "y": 36.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6d9d9d0c",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 13.7,
+      "trackable_object": "player_7010",
+      "jerseyNumber": null,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 20.8,
+          "y": 43.0
+        },
+        {
+          "x": 9.1,
+          "y": 19.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "5ea6f002",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 19.7,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 39.5,
+          "y": 37.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3be53f7d",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 23.8,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 21.7,
+          "y": 9.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "924b70a6",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 27.7,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 81.9,
+          "y": 98.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d66a0cd4",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 31.0,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 89.6,
+          "y": 56.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "95a42df6",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 38.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 69.1,
+          "y": 68.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c5a49c7a",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 40.0,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 94.6,
+          "y": 87.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "7844d14c",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 42.3,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 80.9,
+          "y": 79.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3cfa858d",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 45.0,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 44.6,
+          "y": 89.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ce97499e",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 52.7,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 6.0,
+          "y": 55.0
+        },
+        {
+          "x": 35.9,
+          "y": 52.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "735b4747",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 58.6,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 25.0,
+          "y": 20.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e0977690",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 66.5,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 65.3,
+          "y": 88.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f067fa3a",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 72.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 4.5,
+          "y": 33.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "53cb9f2f",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 76.7,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 31.5,
+          "y": 1.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d3fd9009",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 80.4,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 63.8,
+          "y": 74.5
+        },
+        {
+          "x": 64.8,
+          "y": 57.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cbc7e0aa",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 82.9,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 86.0,
+          "y": 20.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b84a4ba2",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 89.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 20.9,
+          "y": 45.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1e1b4dab",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 93.2,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 88.2,
+          "y": 20.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "424c8f44",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 99.6,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 74.0,
+          "y": 43.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "624ebe05",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 102.8,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 77.3,
+          "y": 46.5
+        },
+        {
+          "x": 100,
+          "y": 71.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ee1d736a",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 107.0,
+      "trackable_object": null,
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 95.4,
+          "y": 48.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "0e67a547",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 112.6,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 60.5,
+          "y": 12.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5f371991",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 118.2,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 14.7,
+          "y": 71.4
+        },
+        {
+          "x": 9.7,
+          "y": 57.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d7c724c8",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 121.1,
+      "trackable_object": "player_7008",
+      "jerseyNumber": null,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 73.3,
+          "y": 65.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b390a924",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 128.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 44.9,
+          "y": 3.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a2721b3e",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 133.4,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 88.0,
+          "y": 10.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "41473721",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 135.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 66.0,
+          "y": 90.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "13cbc24c",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 142.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 60.2,
+          "y": 99.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a24c9daa",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 145.3,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 6.2,
+          "y": 9.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "12a4f6d3",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 147.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 15.1,
+          "y": 85.3
+        },
+        {
+          "x": 40.3,
+          "y": 100
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b4c7f1d8",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 151.5,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 89.8,
+          "y": 46.9
+        },
+        {
+          "x": 71.8,
+          "y": 26.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f22e3af9",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 155.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 75.6,
+          "y": 19.1
+        },
+        {
+          "x": 92.3,
+          "y": 2.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "582b633b",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 157.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 82.2,
+          "y": 72.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d58d8473",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 163.1,
+      "trackable_object": "player_7007",
+      "jerseyNumber": null,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 85.0,
+          "y": 5.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a1decb83",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 165.2,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 85.5,
+          "y": 4.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ad27f123",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 167.0,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 12.6,
+          "y": 98.6
+        },
+        {
+          "x": 32.7,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f444f97e",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 172.9,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 36.9,
+          "y": 82.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "04f7a946",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 178.3,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 51.6,
+          "y": 48.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "3abc7e40",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 182.5,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 10.7,
+          "y": 70.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "e326bc25",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 187.2,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 28.9,
+          "y": 36.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "aa9444d2",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 193.7,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 10.1,
+          "y": 76.2
+        },
+        {
+          "x": 0,
+          "y": 78.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "3f1942fc",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 198.2,
+      "trackable_object": null,
+      "jerseyNumber": 16,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 76.2,
+          "y": 55.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a31d3ec1",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 204.6,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 74.0,
+          "y": 76.3
+        },
+        {
+          "x": 98.7,
+          "y": 49.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dcc4ad35",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 209.9,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 52.9,
+          "y": 56.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8e4fc5eb",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 215.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 56.3,
+          "y": 69.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "73d8581e",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 216.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 60.6,
+          "y": 48.2
+        },
+        {
+          "x": 88.8,
+          "y": 29.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8747ee69",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 221.7,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 35.9,
+          "y": 88.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7eb1d37f",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 224.3,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 3.8,
+          "y": 26.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "0f4d5fdf",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 230.0,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 24.6,
+          "y": 86.2
+        },
+        {
+          "x": 13.8,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "32c0fd27",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 233.7,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 57.3,
+          "y": 29.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "681f215f",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 241.3,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 71.4,
+          "y": 1.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2ee307a1",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 245.7,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 49.4,
+          "y": 57.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9719ab42",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 247.7,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 87.7,
+          "y": 1.2
+        },
+        {
+          "x": 68.2,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fd379981",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 251.8,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 8.2,
+          "y": 17.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "5c9db883",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 256.9,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 17.2,
+          "y": 5.3
+        },
+        {
+          "x": 9.2,
+          "y": 18.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "30ea7c21",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 264.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 23.1,
+          "y": 36.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c9d1ed72",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 268.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 87.9,
+          "y": 32.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bdc3fd70",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 273.0,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 48.8,
+          "y": 80.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6807a273",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 278.2,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 37.8,
+          "y": 22.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2750260a",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 280.8,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 51.7,
+          "y": 28.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c4ab6c06",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 286.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": null,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 2.8,
+          "y": 18.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "71134a51",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 289.6,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 74.7,
+          "y": 41.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f72a1f63",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 296.2,
+      "trackable_object": null,
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 2.4,
+          "y": 37.1
+        },
+        {
+          "x": 21.9,
+          "y": 21.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a41ac3ab",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 298.8,
+      "trackable_object": "player_7010",
+      "jerseyNumber": null,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 30.8,
+          "y": 27.3
+        },
+        {
+          "x": 21.6,
+          "y": 41.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0789a3e1",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 300.5,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 39.9,
+          "y": 46.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "099b801c",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 304.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 72.7,
+          "y": 7.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "253daae3",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 308.1,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 41.9,
+          "y": 15.4
+        },
+        {
+          "x": 25.4,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "feca00a0",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 314.8,
+      "trackable_object": null,
+      "jerseyNumber": 66,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 74.9,
+          "y": 81.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "918681d7",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 319.3,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 86.9,
+          "y": 68.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "91077dc6",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 321.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 74.3,
+          "y": 85.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9865c961",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 328.9,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 73.3,
+          "y": 5.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0200e000",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 331.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 88.3,
+          "y": 20.4
+        },
+        {
+          "x": 70.0,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9e526c5a",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 335.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 61.3,
+          "y": 80.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "aa6443f2",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 342.3,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 53.6,
+          "y": 46.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7e90e1f8",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 349.3,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 56.4,
+          "y": 45.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ae3a7c0f",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 351.5,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 70.3,
+          "y": 5.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "77be99f2",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 357.7,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 31.0,
+          "y": 33.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cf28feb3",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 360.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 49.4,
+          "y": 55.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ed9d81b8",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 366.9,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 24.2,
+          "y": 29.4
+        },
+        {
+          "x": 0,
+          "y": 46.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "1aa94a8d",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 374.5,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 84.6,
+          "y": 12.1
+        },
+        {
+          "x": 58.7,
+          "y": 34.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b97eab86",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 380.6,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 63.5,
+          "y": 62.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "9b98819d",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 387.9,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 49.7,
+          "y": 64.2
+        },
+        {
+          "x": 65.6,
+          "y": 41.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2e0904ba",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 394.4,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 57.8,
+          "y": 72.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ffc3a0c4",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 399.6,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 94.6,
+          "y": 25.1
+        },
+        {
+          "x": 66.8,
+          "y": 33.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b2ebe8b8",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 406.3,
+      "trackable_object": "player_7000",
+      "jerseyNumber": null,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 32.7,
+          "y": 89.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fab647bf",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 413.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 42.1,
+          "y": 41.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2afddd59",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 419.0,
+      "trackable_object": "player_7000",
+      "jerseyNumber": null,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 31.9,
+          "y": 10.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c3e4561c",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 423.9,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 99.9,
+          "y": 96.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b427c2fa",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 427.1,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 92.5,
+          "y": 42.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "82e34472",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 430.2,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 13.9,
+          "y": 79.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7cc51659",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 435.4,
+      "trackable_object": null,
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 55.0,
+          "y": 81.1
+        },
+        {
+          "x": 67.9,
+          "y": 85.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "1e0e9e49",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 436.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 36.2,
+          "y": 77.0
+        },
+        {
+          "x": 53.4,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "03a4e4a0",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 439.8,
+      "trackable_object": null,
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 14.8,
+          "y": 95.6
+        },
+        {
+          "x": 1.4,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9552a3f7",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 445.0,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 68.8,
+          "y": 98.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b99bd4ff",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 449.7,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 86.6,
+          "y": 50.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "54807803",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 451.8,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 94.4,
+          "y": 37.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "be82b3e0",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 457.0,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 13.2,
+          "y": 91.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "211fb2de",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 459.3,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 55.9,
+          "y": 65.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "5167c987",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 464.4,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 30.7,
+          "y": 51.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1e3a6487",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 466.2,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 61.8,
+          "y": 86.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "7fa9b332",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 473.9,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 32.1,
+          "y": 37.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "538f9671",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 481.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 36.6,
+          "y": 56.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "41ebbd36",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 484.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 51.3,
+          "y": 39.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2373a260",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 489.2,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 40.4,
+          "y": 92.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2e09c8a8",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 491.2,
+      "trackable_object": null,
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 32.5,
+          "y": 19.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3b27602b",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 497.8,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 96.6,
+          "y": 25.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "55862b1f",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 505.1,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 3.5,
+          "y": 57.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "77fac57e",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 509.8,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 47.9,
+          "y": 69.1
+        },
+        {
+          "x": 70.1,
+          "y": 76.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "35236edb",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 512.6,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 54.0,
+          "y": 30.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bb371222",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 515.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 17.5,
+          "y": 41.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "10ccc21b",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 523.1,
+      "trackable_object": null,
+      "jerseyNumber": null,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 87.8,
+          "y": 31.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "6884a2b0",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 528.1,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 34.5,
+          "y": 63.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6aa60237",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 532.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 48.4,
+          "y": 41.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "38dd1a90",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 534.8,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 82.1,
+          "y": 75.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8f325966",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 539.0,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 28.6,
+          "y": 1.7
+        },
+        {
+          "x": 57.8,
+          "y": 0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ef88f22f",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 546.5,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 96.7,
+          "y": 22.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "228aacb9",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 548.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 72.3,
+          "y": 75.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7b325625",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 553.9,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 99.8,
+          "y": 50.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "150acf59",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 561.0,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 89.1,
+          "y": 22.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e8fd0a51",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 565.2,
+      "trackable_object": null,
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 94.1,
+          "y": 95.9
+        },
+        {
+          "x": 100,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3261e5eb",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 571.9,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 42.6,
+          "y": 20.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "488b8433",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 579.3,
+      "trackable_object": "player_7007",
+      "jerseyNumber": null,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 9.5,
+          "y": 17.3
+        },
+        {
+          "x": 21.3,
+          "y": 31.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "644fbd46",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 581.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 38.7,
+          "y": 80.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d89959b8",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 587.9,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 3.0,
+          "y": 98.3
+        },
+        {
+          "x": 17.6,
+          "y": 100
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b587f099",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 594.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": null,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 22.7,
+          "y": 97.5
+        },
+        {
+          "x": 42.6,
+          "y": 88.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ba7245c2",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 600.2,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 71.3,
+          "y": 34.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3d970c5e",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 602.2,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 70.3,
+          "y": 51.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c07acd8c",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 606.5,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 28.8,
+          "y": 35.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "3a1bd8ee",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 612.8,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 61.0,
+          "y": 38.8
+        },
+        {
+          "x": 52.2,
+          "y": 64.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5e386495",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 614.9,
+      "trackable_object": "player_7011",
+      "jerseyNumber": null,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 38.5,
+          "y": 56.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2785d947",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 618.1,
+      "trackable_object": null,
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 47.2,
+          "y": 93.2
+        },
+        {
+          "x": 44.2,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8daffb1c",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 624.3,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 75.0,
+          "y": 6.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "207c1d43",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 626.3,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 31.5,
+          "y": 26.3
+        },
+        {
+          "x": 38.0,
+          "y": 17.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "6823653b",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 630.3,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 85.8,
+          "y": 0.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "23535231",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 637.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 32.8,
+          "y": 1.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a7dc0d97",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 641.2,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 12.0,
+          "y": 39.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "819e495f",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 646.3,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 88.6,
+          "y": 11.1
+        },
+        {
+          "x": 63.8,
+          "y": 12.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d6bb7d91",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 650.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 18.4,
+          "y": 52.5
+        },
+        {
+          "x": 40.6,
+          "y": 63.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "19b3240a",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 652.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 25.6,
+          "y": 24.0
+        },
+        {
+          "x": 47.9,
+          "y": 43.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "da08dd89",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 656.4,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 89.6,
+          "y": 71.3
+        },
+        {
+          "x": 63.5,
+          "y": 44.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e3986a78",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 663.1,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 83.8,
+          "y": 81.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "214df081",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 668.8,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 96.3,
+          "y": 92.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "de35dda8",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 671.0,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 80.2,
+          "y": 21.9
+        },
+        {
+          "x": 99.0,
+          "y": 8.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9fc3cb08",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 678.5,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 73.2,
+          "y": 35.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e0ac873b",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 685.2,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 57.5,
+          "y": 66.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "36359bd8",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 689.3,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 88.4,
+          "y": 32.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "832831d1",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 691.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 16.7,
+          "y": 56.2
+        },
+        {
+          "x": 2.5,
+          "y": 84.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ac5f3d0e",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 695.6,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 74.9,
+          "y": 15.2
+        },
+        {
+          "x": 56.3,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4dcb4159",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 701.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 6.6,
+          "y": 3.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cf6819b7",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 706.7,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 93.7,
+          "y": 53.3
+        },
+        {
+          "x": 93.0,
+          "y": 64.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "f0f2b10f",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 713.0,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 2.4,
+          "y": 60.0
+        },
+        {
+          "x": 16.0,
+          "y": 41.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "14463110",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 715.9,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 66.4,
+          "y": 83.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a91f3ec5",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 720.1,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 76.5,
+          "y": 9.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "86c40fc7",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 724.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 97.2,
+          "y": 72.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5f5bb36f",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 729.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 66.8,
+          "y": 54.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a81227e3",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 731.6,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 43.0,
+          "y": 61.9
+        },
+        {
+          "x": 69.7,
+          "y": 50.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0d8bb170",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 736.2,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 3.7,
+          "y": 96.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e3476123",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 740.2,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 99.7,
+          "y": 11.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8113289f",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 747.3,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 54.7,
+          "y": 63.8
+        },
+        {
+          "x": 59.0,
+          "y": 59.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "cc123176",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 753.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 47.0,
+          "y": 24.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7244adef",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 761.4,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 95.8,
+          "y": 57.1
+        },
+        {
+          "x": 100,
+          "y": 39.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1e6ebaf6",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 766.5,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 51.8,
+          "y": 33.1
+        },
+        {
+          "x": 38.0,
+          "y": 36.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c53404a1",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 774.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 78.4,
+          "y": 97.2
+        },
+        {
+          "x": 89.2,
+          "y": 90.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3d6375b3",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 781.1,
+      "trackable_object": null,
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 98.2,
+          "y": 85.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "5abcbaa3",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 783.3,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 46.5,
+          "y": 22.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ac4870ea",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 787.0,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 73.1,
+          "y": 34.5
+        },
+        {
+          "x": 45.7,
+          "y": 37.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "f3978330",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 794.5,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 99.5,
+          "y": 96.8
+        },
+        {
+          "x": 100,
+          "y": 94.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "525c72b2",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 797.5,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 16.1,
+          "y": 0.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5df96597",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 799.7,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 68.4,
+          "y": 24.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "77719da4",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 805.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 32.3,
+          "y": 88.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8bf7bd15",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 808.6,
+      "trackable_object": null,
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 24.3,
+          "y": 95.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2f4a3a87",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 813.4,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 26.3,
+          "y": 60.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0a4fb8cc",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 821.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 84.5,
+          "y": 92.6
+        },
+        {
+          "x": 68.2,
+          "y": 97.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "21391ac9",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 826.5,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 52.2,
+          "y": 56.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "be1e0015",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 828.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 68.6,
+          "y": 23.7
+        },
+        {
+          "x": 61.6,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "76b11755",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 835.6,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 94.3,
+          "y": 64.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "138338bd",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 842.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 75.2,
+          "y": 43.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2a110c07",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 845.0,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 99.2,
+          "y": 68.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1868ff96",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 847.3,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 87.7,
+          "y": 56.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c251b89e",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 854.3,
+      "trackable_object": null,
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 32.1,
+          "y": 97.6
+        },
+        {
+          "x": 60.1,
+          "y": 91.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c3ab3a65",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 857.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 24.3,
+          "y": 30.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "816b31bb",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 859.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 43.7,
+          "y": 27.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "15e63e15",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 863.2,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 58.9,
+          "y": 43.9
+        },
+        {
+          "x": 56.3,
+          "y": 71.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "3df4eb79",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 870.4,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 21.4,
+          "y": 17.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9e012175",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 876.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 11.2,
+          "y": 64.8
+        },
+        {
+          "x": 6.6,
+          "y": 91.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6836bb7a",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 882.3,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 26.4,
+          "y": 45.5
+        },
+        {
+          "x": 40.8,
+          "y": 29.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3e66f1fc",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 888.8,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 17.9,
+          "y": 14.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "26b7c4f8",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 892.2,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 80.6,
+          "y": 49.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b5e22311",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 899.6,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 98.2,
+          "y": 37.0
+        },
+        {
+          "x": 100,
+          "y": 48.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "80cdd47a",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 902.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 48.3,
+          "y": 22.5
+        },
+        {
+          "x": 20.4,
+          "y": 47.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "676467b2",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 907.6,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 65.5,
+          "y": 86.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3eb7d056",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 914.1,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 10.2,
+          "y": 95.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a69408aa",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 920.8,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 8.0,
+          "y": 82.2
+        },
+        {
+          "x": 0,
+          "y": 68.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bf37aef6",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 922.8,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 57.2,
+          "y": 46.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9cc58a14",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 924.8,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 48.3,
+          "y": 71.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "6bc74ada",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 928.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 81.0,
+          "y": 20.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d4bfae45",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 935.6,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 44.1,
+          "y": 13.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "050ff9d9",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 938.6,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 98.8,
+          "y": 47.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2be881ba",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 942.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 32.4,
+          "y": 18.8
+        },
+        {
+          "x": 45.6,
+          "y": 45.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1f39c4a7",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 949.0,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 67.0,
+          "y": 1.1
+        },
+        {
+          "x": 49.6,
+          "y": 11.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "20bfad81",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 951.4,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 92.7,
+          "y": 85.3
+        },
+        {
+          "x": 89.2,
+          "y": 84.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "94358979",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 958.8,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 87.8,
+          "y": 77.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a2e208dc",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 966.5,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 68.9,
+          "y": 54.4
+        },
+        {
+          "x": 94.8,
+          "y": 39.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "97bb4743",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 974.1,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 68.4,
+          "y": 93.6
+        },
+        {
+          "x": 90.5,
+          "y": 84.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4a4cc36d",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 976.7,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 35.5,
+          "y": 63.4
+        },
+        {
+          "x": 42.3,
+          "y": 81.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6a487e0e",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 980.8,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 14.1,
+          "y": 3.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3f7be385",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 984.5,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 34.6,
+          "y": 88.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7fe8a658",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 987.3,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 1.6,
+          "y": 10.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bc10124a",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 993.8,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 23.6,
+          "y": 80.4
+        },
+        {
+          "x": 0,
+          "y": 52.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3c42902a",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1000.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 83.2,
+          "y": 6.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f0d1bfdd",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1002.9,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 2.5,
+          "y": 97.8
+        },
+        {
+          "x": 0,
+          "y": 72.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e39afb07",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1008.1,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 42.8,
+          "y": 55.1
+        },
+        {
+          "x": 41.3,
+          "y": 74.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0e2cf5bc",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1010.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 81.3,
+          "y": 34.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "7aeb4694",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1018.2,
+      "trackable_object": null,
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 8.2,
+          "y": 95.2
+        },
+        {
+          "x": 0,
+          "y": 100
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "6858515d",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1021.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 89.4,
+          "y": 78.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c492fab0",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1029.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 86.0,
+          "y": 49.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "11ab202c",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1035.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 13.1,
+          "y": 23.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2593ba13",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1038.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 66.2,
+          "y": 49.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a4c98da2",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1043.2,
+      "trackable_object": null,
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 39.5,
+          "y": 96.5
+        },
+        {
+          "x": 18.6,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "319df1e0",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1050.6,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 33.2,
+          "y": 41.4
+        },
+        {
+          "x": 22.3,
+          "y": 14.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b55f59f3",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1054.9,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 14.4,
+          "y": 29.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3494821a",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1058.9,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 68.2,
+          "y": 72.4
+        },
+        {
+          "x": 60.0,
+          "y": 71.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cf570cb8",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1061.9,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 31.2,
+          "y": 79.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "553ed7a7",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1063.6,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 72.6,
+          "y": 52.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "62552f00",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1071.1,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 4.5,
+          "y": 22.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "733d7895",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1075.5,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 91.3,
+          "y": 72.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "49bccf74",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1082.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 91.4,
+          "y": 83.8
+        },
+        {
+          "x": 97.6,
+          "y": 72.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dc9b87e7",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1085.1,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 87.0,
+          "y": 46.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ba76dfce",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1089.1,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 26.0,
+          "y": 54.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "aab7e28b",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1096.1,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 87.9,
+          "y": 36.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f5731912",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1099.3,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 23.7,
+          "y": 17.4
+        },
+        {
+          "x": 38.4,
+          "y": 10.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "53f26c30",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1107.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 29.9,
+          "y": 42.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3eb0efd2",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1111.1,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 3.6,
+          "y": 73.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4a81b0a6",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1117.4,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 23.5,
+          "y": 79.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "45fe4535",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1123.2,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 26.0,
+          "y": 17.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ecb89ebc",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1129.6,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 33.5,
+          "y": 90.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ca398edd",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1132.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 22.2,
+          "y": 55.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "30212c97",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1138.6,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 53.4,
+          "y": 71.5
+        },
+        {
+          "x": 26.3,
+          "y": 48.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a63abce5",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1140.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 64.3,
+          "y": 82.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "add8b2c2",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1144.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 22.6,
+          "y": 34.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c33bad79",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1146.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 50.3,
+          "y": 56.0
+        },
+        {
+          "x": 46.1,
+          "y": 64.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "afff298d",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1148.0,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 3.4,
+          "y": 40.9
+        },
+        {
+          "x": 0,
+          "y": 32.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b3bf4461",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1154.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 11.3,
+          "y": 90.3
+        },
+        {
+          "x": 17.5,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "35ebe9a9",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1160.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 16.4,
+          "y": 25.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "62f4e399",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1163.0,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 70.4,
+          "y": 24.7
+        },
+        {
+          "x": 54.8,
+          "y": 36.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c65f8a56",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1165.3,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 96.9,
+          "y": 7.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2c27ddb5",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1171.2,
+      "trackable_object": null,
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 43.6,
+          "y": 3.3
+        },
+        {
+          "x": 61.3,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6ca8e3e2",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1172.8,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 26.9,
+          "y": 83.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b0a2d353",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1176.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 50.0,
+          "y": 28.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "dd93283f",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1182.1,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 9.2,
+          "y": 59.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "923ca9d9",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1189.3,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 79.3,
+          "y": 41.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8dcb5e3c",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1191.9,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 11.9,
+          "y": 9.1
+        },
+        {
+          "x": 33.2,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0b2a011e",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1193.9,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 38.5,
+          "y": 69.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "48a1623e",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1196.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 82.6,
+          "y": 23.9
+        },
+        {
+          "x": 77.2,
+          "y": 9.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e1e7bde7",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1199.6,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 52.1,
+          "y": 95.4
+        },
+        {
+          "x": 49.1,
+          "y": 89.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "54149464",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1204.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 36.5,
+          "y": 43.3
+        },
+        {
+          "x": 45.1,
+          "y": 65.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4c8b8aae",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1209.1,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 18.0,
+          "y": 75.2
+        },
+        {
+          "x": 24.9,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "47d12646",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1213.8,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 83.9,
+          "y": 12.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "08e5fa86",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1220.3,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 93.7,
+          "y": 93.2
+        },
+        {
+          "x": 100,
+          "y": 77.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "84f67f8b",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1222.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 9.8,
+          "y": 65.3
+        },
+        {
+          "x": 2.7,
+          "y": 83.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "55706103",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1224.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 73.8,
+          "y": 58.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cd620704",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1230.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 30.4,
+          "y": 93.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7555a891",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1235.2,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 49.8,
+          "y": 29.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c1a0eec6",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1239.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 51.7,
+          "y": 92.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9ccde0af",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1246.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 81.2,
+          "y": 12.7
+        },
+        {
+          "x": 100,
+          "y": 13.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5bb2983f",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1251.8,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 90.0,
+          "y": 1.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "6b8bf078",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1255.2,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 93.7,
+          "y": 10.5
+        },
+        {
+          "x": 100,
+          "y": 34.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "335b32a5",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1258.7,
+      "trackable_object": null,
+      "jerseyNumber": 66,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 23.1,
+          "y": 32.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3d37fff3",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1264.9,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 74.9,
+          "y": 29.3
+        },
+        {
+          "x": 85.0,
+          "y": 31.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fefca420",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1271.3,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 89.1,
+          "y": 18.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cee7fc95",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1277.7,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 44.2,
+          "y": 47.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "006dace8",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1280.8,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 99.7,
+          "y": 16.4
+        },
+        {
+          "x": 100,
+          "y": 46.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c49ab8a7",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1282.9,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 66.1,
+          "y": 60.8
+        },
+        {
+          "x": 46.6,
+          "y": 41.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dff189b2",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1286.2,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 62.9,
+          "y": 68.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a6147bd6",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1290.5,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 63.9,
+          "y": 92.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a49d9a90",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1297.7,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 92.1,
+          "y": 24.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bf1ceaed",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1301.8,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 93.0,
+          "y": 90.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0187ce0d",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1305.2,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 39.9,
+          "y": 14.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ca287b75",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1308.0,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 58.2,
+          "y": 17.8
+        },
+        {
+          "x": 29.9,
+          "y": 22.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c0027a5a",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1311.9,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 95.7,
+          "y": 45.1
+        },
+        {
+          "x": 76.8,
+          "y": 60.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d59dea9c",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1316.6,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 84.8,
+          "y": 33.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f8b5fbb3",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1324.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 65.8,
+          "y": 51.9
+        },
+        {
+          "x": 70.4,
+          "y": 56.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "87be98e4",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1331.8,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 51.9,
+          "y": 20.2
+        },
+        {
+          "x": 73.6,
+          "y": 45.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e9d8b873",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1335.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 55.2,
+          "y": 40.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0fa0a67f",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1339.9,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 22.4,
+          "y": 48.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "402e9778",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1341.9,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 58.6,
+          "y": 0.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "32a9f8e7",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1348.3,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 84.3,
+          "y": 70.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dc9af0d8",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1353.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 37.5,
+          "y": 27.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6a7396cd",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1356.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 47.9,
+          "y": 49.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ba9a33c5",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1361.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 24.2,
+          "y": 28.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "4d2af3e2",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1364.9,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 61.1,
+          "y": 14.6
+        },
+        {
+          "x": 47.3,
+          "y": 36.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b49320fc",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1366.7,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 68.6,
+          "y": 73.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3d35dfbc",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1368.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 25.8,
+          "y": 65.2
+        },
+        {
+          "x": 27.9,
+          "y": 53.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "4cb74614",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1373.0,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 39.7,
+          "y": 35.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e6511325",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1375.0,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Arsenal",
+      "positions": [
+        {
+          "x": 12.1,
+          "y": 62.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0fedd8f1",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1378.7,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 91.0,
+          "y": 26.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1bfcc103",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1384.7,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Chelsea",
+      "positions": [
+        {
+          "x": 64.2,
+          "y": 16.9
+        }
+      ],
+      "accurate": true
+    }
+  ],
+  "_vendor_format": "wyscout"
+}

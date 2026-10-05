@@ -1,0 +1,5135 @@
+{
+  "wyId": "PL_2025_CLEAN_001",
+  "label": "Liverpool - Manchester City",
+  "events": [
+    {
+      "eventId": "c344d7f8",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 5.7,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 22.3,
+          "y": 73.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7fa4af18",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 13.0,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 3.0,
+          "y": 21.9
+        },
+        {
+          "x": 3.3,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b80f188a",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 18.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 58.9,
+          "y": 80.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bb7f2c91",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 25.4,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 15.6,
+          "y": 95.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b93bce93",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 27.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 60.4,
+          "y": 80.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6ee5c6b3",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 32.5,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 82.9,
+          "y": 61.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "aa3caa6e",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 37.8,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 77.3,
+          "y": 98.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "db509f68",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 44.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 16.3,
+          "y": 35.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4deb676a",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 51.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 63.5,
+          "y": 53.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fa66de54",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 55.5,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 22.0,
+          "y": 32.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "4d247944",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 57.3,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 26.8,
+          "y": 21.1
+        },
+        {
+          "x": 53.4,
+          "y": 43.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "34d64ed0",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 63.1,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 14.3,
+          "y": 14.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5dc0e8a6",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 68.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 39.9,
+          "y": 21.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d36f78fe",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 72.9,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 15.3,
+          "y": 16.0
+        },
+        {
+          "x": 26.1,
+          "y": 21.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "13cbd37f",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 78.3,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 86.1,
+          "y": 1.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d6e870f2",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 84.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 11.2,
+          "y": 43.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cdfe9139",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 91.9,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 76.2,
+          "y": 50.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "327765b9",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 97.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 15.3,
+          "y": 76.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8b6f8047",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 104.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 32.4,
+          "y": 1.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "74c15167",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 111.2,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 87.8,
+          "y": 94.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "575efffa",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 115.9,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 76.6,
+          "y": 12.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ec204670",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 121.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 42.3,
+          "y": 21.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f31d810a",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 127.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 99.5,
+          "y": 65.0
+        },
+        {
+          "x": 95.8,
+          "y": 66.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d3a1ac8b",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 130.2,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 23.0,
+          "y": 22.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "67a40bb7",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 135.8,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 86.0,
+          "y": 7.1
+        },
+        {
+          "x": 70.2,
+          "y": 17.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2b51a336",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 138.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 78.5,
+          "y": 80.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "08e36d8e",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 140.3,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 46.7,
+          "y": 72.9
+        },
+        {
+          "x": 57.1,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "12b87cea",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 144.4,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 24.9,
+          "y": 19.0
+        },
+        {
+          "x": 21.8,
+          "y": 14.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f016e10f",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 147.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 9.8,
+          "y": 65.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ab9256c5",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 149.1,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 16.6,
+          "y": 48.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9a8f2d6c",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 153.2,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 98.5,
+          "y": 26.5
+        },
+        {
+          "x": 100,
+          "y": 23.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b69439d3",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 160.9,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 15.5,
+          "y": 29.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b6709c0b",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 166.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 5.7,
+          "y": 58.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "678005dd",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 173.2,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 8.0,
+          "y": 18.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "232c6a6d",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 179.1,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 24.6,
+          "y": 59.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3da9add9",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 183.4,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 93.5,
+          "y": 20.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "71fcb8f0",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 186.4,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 45.7,
+          "y": 92.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "9169ef74",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 188.0,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 7.3,
+          "y": 21.3
+        },
+        {
+          "x": 0,
+          "y": 47.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "dedca2e0",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 195.2,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 83.4,
+          "y": 70.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "797e6209",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 203.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 29.9,
+          "y": 66.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "0d4c40fa",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 205.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 15.5,
+          "y": 28.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bf2e6680",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 209.2,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 50.5,
+          "y": 25.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a689a542",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 211.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 4.4,
+          "y": 33.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b0164a91",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 218.9,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 70.6,
+          "y": 56.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "98561e65",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 226.5,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 3.6,
+          "y": 36.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6a2b58d9",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 230.8,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 89.9,
+          "y": 21.0
+        },
+        {
+          "x": 74.9,
+          "y": 0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "0e0d6d1e",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 238.1,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 92.6,
+          "y": 23.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0e0a851d",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 244.8,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 17.9,
+          "y": 92.5
+        },
+        {
+          "x": 34.9,
+          "y": 87.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d13957d0",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 251.1,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 38.2,
+          "y": 3.9
+        },
+        {
+          "x": 36.5,
+          "y": 0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "1602f095",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 254.8,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 39.9,
+          "y": 27.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2c56234b",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 261.4,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 68.0,
+          "y": 84.4
+        },
+        {
+          "x": 57.8,
+          "y": 56.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "41d51747",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 264.6,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 3.8,
+          "y": 59.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "83196a8a",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 271.2,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 11.6,
+          "y": 90.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "887f98fd",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 273.0,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 68.7,
+          "y": 94.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a8f418b1",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 275.7,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 62.3,
+          "y": 66.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3d0fa164",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 283.1,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 32.6,
+          "y": 69.7
+        },
+        {
+          "x": 35.9,
+          "y": 51.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b0175634",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 287.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 56.9,
+          "y": 40.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d4d59d21",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 290.5,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 60.7,
+          "y": 32.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c7bff958",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 296.4,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 65.9,
+          "y": 28.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "397a92e5",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 301.9,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 67.3,
+          "y": 22.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e01c4aab",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 303.6,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 85.0,
+          "y": 7.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0281e9a5",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 309.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 49.4,
+          "y": 24.4
+        },
+        {
+          "x": 58.8,
+          "y": 0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "fb9c1080",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 315.7,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 17.6,
+          "y": 95.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a046c99d",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 317.5,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 45.6,
+          "y": 80.1
+        },
+        {
+          "x": 55.7,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "edbf7944",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 325.2,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 42.7,
+          "y": 90.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2907b19f",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 327.7,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 84.0,
+          "y": 27.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2212f4bc",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 332.4,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 71.3,
+          "y": 23.4
+        },
+        {
+          "x": 61.5,
+          "y": 47.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c3d3ce2d",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 334.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 6.4,
+          "y": 40.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f912fcc9",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 339.1,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 90.5,
+          "y": 58.4
+        },
+        {
+          "x": 100,
+          "y": 79.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a08b75f7",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 343.0,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 75.3,
+          "y": 85.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a550a466",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 347.3,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 89.8,
+          "y": 48.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fef3ec6d",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 351.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 72.4,
+          "y": 84.0
+        },
+        {
+          "x": 97.6,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1adecd82",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 359.3,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 8.4,
+          "y": 42.9
+        },
+        {
+          "x": 30.4,
+          "y": 23.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fc654fed",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 362.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 27.8,
+          "y": 95.1
+        },
+        {
+          "x": 23.1,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6a277a87",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 369.3,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 22.4,
+          "y": 6.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "5cb7d492",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 371.1,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 83.9,
+          "y": 62.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "61a1767a",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 375.7,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 46.5,
+          "y": 25.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "95de7562",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 381.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 96.5,
+          "y": 10.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b7ba8de8",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 384.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 39.7,
+          "y": 71.5
+        },
+        {
+          "x": 14.2,
+          "y": 82.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5e0a8cb3",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 386.8,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 80.5,
+          "y": 79.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6ad5dcc6",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 388.6,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 6.9,
+          "y": 64.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "866cdedc",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 392.8,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 63.6,
+          "y": 82.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1a9ccff5",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 397.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 61.6,
+          "y": 92.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a3139069",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 401.6,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 85.2,
+          "y": 83.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2c922cb3",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 408.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 61.0,
+          "y": 37.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7e33d015",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 415.9,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 79.8,
+          "y": 34.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "0cbefdbc",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 422.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 94.8,
+          "y": 8.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cdb26c92",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 426.6,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 44.8,
+          "y": 1.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f75bac59",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 430.8,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 36.9,
+          "y": 55.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f5e2fd18",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 438.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 27.1,
+          "y": 25.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1f368be7",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 441.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 19.1,
+          "y": 73.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f6bdaef4",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 446.8,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 83.3,
+          "y": 29.6
+        },
+        {
+          "x": 74.9,
+          "y": 17.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1e98e72a",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 449.1,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 29.2,
+          "y": 94.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "40409f5e",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 455.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 28.4,
+          "y": 47.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "468fea99",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 463.3,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 11.4,
+          "y": 6.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1a814eff",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 468.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 81.1,
+          "y": 94.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7c665b62",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 471.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 59.6,
+          "y": 61.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "9d9b5e30",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 475.6,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 99.0,
+          "y": 30.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "77676d35",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 481.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 62.5,
+          "y": 26.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f1cb7b2e",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 484.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 40.9,
+          "y": 68.9
+        },
+        {
+          "x": 39.0,
+          "y": 40.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7d58640d",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 487.5,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 92.4,
+          "y": 78.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "785ec728",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 493.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 22.5,
+          "y": 14.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "489a4981",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 495.7,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 59.5,
+          "y": 82.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "01ab1f76",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 500.1,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 94.3,
+          "y": 50.0
+        },
+        {
+          "x": 93.9,
+          "y": 24.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "44d16fb0",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 504.4,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 9.1,
+          "y": 96.2
+        },
+        {
+          "x": 29.3,
+          "y": 100
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "552b00b7",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 512.4,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 4.0,
+          "y": 75.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "404643b3",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 518.1,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 43.6,
+          "y": 81.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2216f8d6",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 522.7,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 85.8,
+          "y": 33.0
+        },
+        {
+          "x": 97.4,
+          "y": 20.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "1e3e8965",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 529.5,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 31.4,
+          "y": 32.3
+        },
+        {
+          "x": 59.7,
+          "y": 26.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a6f8318a",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 537.4,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 41.3,
+          "y": 18.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5b7feab5",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 543.8,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 20.4,
+          "y": 54.9
+        },
+        {
+          "x": 46.0,
+          "y": 51.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6f4bd57d",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 546.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 71.0,
+          "y": 31.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8028251a",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 550.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 46.1,
+          "y": 11.8
+        },
+        {
+          "x": 66.1,
+          "y": 11.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "74684111",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 555.1,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 98.0,
+          "y": 24.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "75bace2f",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 559.0,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 86.4,
+          "y": 27.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "df3530f8",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 563.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 28.3,
+          "y": 29.9
+        },
+        {
+          "x": 33.5,
+          "y": 59.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ee888b5a",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 565.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 55.2,
+          "y": 54.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "12f199ae",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 569.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 57.2,
+          "y": 23.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "0a261e3a",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 571.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 38.6,
+          "y": 66.4
+        },
+        {
+          "x": 57.9,
+          "y": 95.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "74bf0d12",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 572.8,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 87.0,
+          "y": 87.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5651ee4c",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 577.7,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 41.0,
+          "y": 65.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b7bf5868",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 582.3,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 65.0,
+          "y": 85.2
+        },
+        {
+          "x": 86.1,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f4813b78",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 585.9,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 87.2,
+          "y": 3.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "98600961",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 591.5,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 43.4,
+          "y": 9.8
+        },
+        {
+          "x": 51.4,
+          "y": 32.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8ac9f3b7",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 597.5,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 29.3,
+          "y": 37.5
+        },
+        {
+          "x": 8.1,
+          "y": 39.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ba895ebe",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 604.1,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 87.1,
+          "y": 62.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dd967cb4",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 611.6,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 46.0,
+          "y": 66.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c7f1be4d",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 616.1,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 7.4,
+          "y": 94.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "326f87f1",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 619.5,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 84.5,
+          "y": 19.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1086e11e",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 624.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 57.5,
+          "y": 99.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "28627b74",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 632.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 56.6,
+          "y": 68.6
+        },
+        {
+          "x": 71.3,
+          "y": 41.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cc26b6f8",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 636.8,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 60.7,
+          "y": 35.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9c008e48",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 642.3,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 62.8,
+          "y": 90.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "077ca8b0",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 645.8,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 73.2,
+          "y": 9.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ddb156dc",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 652.2,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 87.7,
+          "y": 36.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "015fbd82",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 655.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 96.7,
+          "y": 29.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "7a4660a4",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 662.2,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 75.4,
+          "y": 22.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ed413e27",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 668.0,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 36.6,
+          "y": 79.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6d0e8086",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 673.0,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 58.5,
+          "y": 82.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "9892441c",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 675.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 88.4,
+          "y": 56.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "96fce954",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 678.2,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 90.9,
+          "y": 30.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "59d9c0d7",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 680.6,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 11.6,
+          "y": 23.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "84f1e5b9",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 684.6,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 41.9,
+          "y": 74.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6be0fcc6",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 688.8,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 40.8,
+          "y": 95.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "424c41bf",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 692.7,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 85.5,
+          "y": 9.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c6d00ec8",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 697.7,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 27.6,
+          "y": 96.8
+        },
+        {
+          "x": 54.5,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "56367a43",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 700.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 5.1,
+          "y": 33.4
+        },
+        {
+          "x": 34.4,
+          "y": 50.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b24959d0",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 707.5,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 81.3,
+          "y": 23.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "abf5a784",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 714.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 98.8,
+          "y": 54.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "f7ac5163",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 716.4,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 79.0,
+          "y": 23.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "97ab7f49",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 719.0,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 52.6,
+          "y": 74.6
+        },
+        {
+          "x": 51.2,
+          "y": 91.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "94c9b589",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 721.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 4.3,
+          "y": 78.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b7946673",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 726.1,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 6.1,
+          "y": 47.9
+        },
+        {
+          "x": 0.2,
+          "y": 59.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0de71e8e",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 733.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 60.8,
+          "y": 6.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "23da163b",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 739.1,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 99.5,
+          "y": 53.1
+        },
+        {
+          "x": 96.7,
+          "y": 59.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "50c03af3",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 745.2,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 72.1,
+          "y": 21.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d4371328",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 748.2,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 41.6,
+          "y": 9.5
+        },
+        {
+          "x": 37.2,
+          "y": 19.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e92461cd",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 750.7,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 9.3,
+          "y": 9.7
+        },
+        {
+          "x": 23.6,
+          "y": 28.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "214c2b73",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 756.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 41.1,
+          "y": 87.4
+        },
+        {
+          "x": 67.5,
+          "y": 82.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "3fcbed58",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 757.8,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 10.4,
+          "y": 50.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "587445af",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 762.4,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 36.8,
+          "y": 76.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f91b5482",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 769.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 61.4,
+          "y": 64.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "501fc888",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 776.7,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 27.3,
+          "y": 76.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "743236a7",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 780.5,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 65.7,
+          "y": 7.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f0166516",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 788.3,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 37.6,
+          "y": 45.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0da302cf",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 791.8,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 59.6,
+          "y": 88.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "870813df",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 798.3,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 44.3,
+          "y": 42.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ebf99c08",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 802.4,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 34.5,
+          "y": 11.1
+        },
+        {
+          "x": 45.2,
+          "y": 16.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "925194b6",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 805.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 5.5,
+          "y": 20.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ffa2f4fb",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 812.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 0.8,
+          "y": 74.7
+        },
+        {
+          "x": 0,
+          "y": 67.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4af143ba",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 817.2,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 39.7,
+          "y": 74.2
+        },
+        {
+          "x": 35.9,
+          "y": 71.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "57fe4e9e",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 820.7,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 28.9,
+          "y": 40.5
+        },
+        {
+          "x": 56.9,
+          "y": 20.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "f5118dc5",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 825.2,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 43.7,
+          "y": 10.6
+        },
+        {
+          "x": 39.8,
+          "y": 4.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d9d259dd",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 832.4,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 77.9,
+          "y": 7.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3c0d8171",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 837.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 35.1,
+          "y": 95.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f9569ac0",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 839.8,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 17.4,
+          "y": 15.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "4edc50ad",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 841.8,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 76.0,
+          "y": 44.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "bf8c6fe7",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 846.9,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 86.4,
+          "y": 62.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a23e8d58",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 848.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 59.1,
+          "y": 35.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8bab85e6",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 853.4,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 7.7,
+          "y": 86.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d47b7d0f",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 858.9,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 55.4,
+          "y": 79.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "e3ce75ab",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 863.3,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 60.5,
+          "y": 50.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "88347b81",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 867.7,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 50.5,
+          "y": 17.3
+        },
+        {
+          "x": 35.3,
+          "y": 13.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "56b38ebf",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 872.6,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 38.7,
+          "y": 77.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "632ba8f7",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 874.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 33.0,
+          "y": 55.8
+        },
+        {
+          "x": 26.2,
+          "y": 40.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "7e9b90dd",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 882.2,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 8.2,
+          "y": 66.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ed29a81b",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 885.8,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 12.9,
+          "y": 70.9
+        },
+        {
+          "x": 0,
+          "y": 74.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dce01d0b",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 889.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 9.3,
+          "y": 67.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "679c0666",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 891.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 34.2,
+          "y": 76.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "63966e21",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 899.0,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 50.8,
+          "y": 54.0
+        },
+        {
+          "x": 65.1,
+          "y": 55.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "34d1dadc",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 906.2,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 15.4,
+          "y": 18.1
+        },
+        {
+          "x": 27.0,
+          "y": 25.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a25a9a72",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 912.4,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 97.0,
+          "y": 61.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "05258be1",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 919.0,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 96.6,
+          "y": 78.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "bd982c23",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 921.8,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 46.2,
+          "y": 28.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3fece57a",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 926.7,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 13.8,
+          "y": 25.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f8cbad25",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 933.9,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 85.1,
+          "y": 28.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "9c2812a9",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 937.1,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 9.2,
+          "y": 91.0
+        },
+        {
+          "x": 28.2,
+          "y": 100
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "52dcf5c0",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 941.3,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 38.6,
+          "y": 8.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "845ee7d8",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 944.9,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 79.1,
+          "y": 13.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "efe69b10",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 951.8,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 44.9,
+          "y": 0.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "65a89b3f",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 955.0,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 52.8,
+          "y": 11.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7b619a9f",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 958.4,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 45.7,
+          "y": 11.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "43adb55d",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 963.8,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 24.2,
+          "y": 14.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "705a70da",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 969.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 66.4,
+          "y": 8.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "55de1d09",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 971.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 55.4,
+          "y": 39.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "20a2991a",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 976.9,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 35.7,
+          "y": 6.8
+        },
+        {
+          "x": 20.2,
+          "y": 16.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "aabb2997",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 982.1,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 54.6,
+          "y": 81.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4aed0e8f",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 988.7,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 63.2,
+          "y": 81.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bc0c8de0",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 995.3,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 4.4,
+          "y": 19.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c0fba17e",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1002.8,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 47.3,
+          "y": 3.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f35dd373",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1006.2,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 27.3,
+          "y": 79.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e5b513ba",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1010.3,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 33.9,
+          "y": 18.7
+        },
+        {
+          "x": 45.4,
+          "y": 10.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2046900e",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1013.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 43.1,
+          "y": 99.5
+        },
+        {
+          "x": 23.9,
+          "y": 87.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ff6a401a",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1017.1,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 71.8,
+          "y": 16.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7e74779b",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1021.6,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 61.5,
+          "y": 43.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "174f1cab",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1028.2,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 36.3,
+          "y": 80.1
+        },
+        {
+          "x": 47.1,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "437323ef",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1033.6,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 23.6,
+          "y": 64.5
+        },
+        {
+          "x": 15.3,
+          "y": 91.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "16f22b5a",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1036.1,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 44.4,
+          "y": 7.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "48785179",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1040.0,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 96.0,
+          "y": 2.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8cbf3c3f",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1044.9,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 70.4,
+          "y": 21.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "59ad8a7a",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1050.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 85.3,
+          "y": 45.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "1fb0d59c",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1055.3,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 66.8,
+          "y": 71.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f36daea7",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1058.7,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 79.4,
+          "y": 50.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1f87f218",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1061.5,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 2.6,
+          "y": 55.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b1ced84b",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1068.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 6.6,
+          "y": 39.8
+        },
+        {
+          "x": 19.6,
+          "y": 38.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9c9b69fd",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1072.4,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 64.2,
+          "y": 45.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8b4eaf82",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1076.1,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 76.8,
+          "y": 12.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9de2b370",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1083.3,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 16.5,
+          "y": 32.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ba28cce9",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1087.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 25.1,
+          "y": 63.5
+        },
+        {
+          "x": 28.1,
+          "y": 41.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b5c5a578",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1092.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 94.2,
+          "y": 15.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8bddcc3d",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1098.2,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 4.1,
+          "y": 86.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1e8bff98",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1105.8,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 76.7,
+          "y": 41.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d1c95a01",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1110.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 48.3,
+          "y": 80.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7de5a0ac",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1114.0,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 44.0,
+          "y": 48.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4ed77c7c",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1119.4,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 73.4,
+          "y": 86.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "f7c9de7d",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1121.8,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 31.9,
+          "y": 46.6
+        },
+        {
+          "x": 18.0,
+          "y": 31.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9c96b123",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1125.2,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 24.8,
+          "y": 86.5
+        },
+        {
+          "x": 4.4,
+          "y": 76.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "de7f37be",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1128.7,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 46.7,
+          "y": 87.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5406b000",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1130.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 21.5,
+          "y": 35.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "11b9356b",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1135.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 53.7,
+          "y": 84.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f93db9a2",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1142.7,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 36.6,
+          "y": 40.1
+        },
+        {
+          "x": 40.8,
+          "y": 21.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "453fde83",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1144.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 28.0,
+          "y": 98.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "380f1b26",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1147.0,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 55.8,
+          "y": 36.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "28bb2da2",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1152.4,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 3.9,
+          "y": 71.4
+        },
+        {
+          "x": 22.1,
+          "y": 72.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "342f62ad",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1159.7,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 31.9,
+          "y": 39.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "465f86e4",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1166.7,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 53.2,
+          "y": 70.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "73dd8549",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1173.5,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 98.0,
+          "y": 58.4
+        },
+        {
+          "x": 100,
+          "y": 71.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dc5c7693",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1175.2,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 57.8,
+          "y": 72.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "51acf52c",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1177.8,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 14.8,
+          "y": 68.1
+        },
+        {
+          "x": 0,
+          "y": 95.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "887abe49",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1179.4,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 69.0,
+          "y": 41.0
+        },
+        {
+          "x": 85.5,
+          "y": 66.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "91db7211",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1185.7,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 20.7,
+          "y": 32.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a4891997",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1190.6,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 91.2,
+          "y": 34.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b928464f",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1197.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 61.0,
+          "y": 19.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ed77a26b",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1202.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 77.1,
+          "y": 70.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5f42805d",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1206.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 28.8,
+          "y": 57.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8b95fe83",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1214.2,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 29.1,
+          "y": 28.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e8c17dad",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1218.0,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 21.4,
+          "y": 82.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a0592cf0",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1223.2,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 74.1,
+          "y": 23.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1acfdbe6",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1230.5,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 10.0,
+          "y": 33.0
+        },
+        {
+          "x": 8.4,
+          "y": 43.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b0742056",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1238.3,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 47.7,
+          "y": 19.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "3e369ea5",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1241.9,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 65.2,
+          "y": 23.2
+        },
+        {
+          "x": 79.5,
+          "y": 44.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "75c7708c",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1249.4,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 93.4,
+          "y": 3.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "328a2a05",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1256.0,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 87.7,
+          "y": 0.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f8c8dbb0",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1258.2,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 52.4,
+          "y": 88.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "52d200ae",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1263.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 33.1,
+          "y": 73.1
+        },
+        {
+          "x": 42.0,
+          "y": 86.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d4e59b3b",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1266.7,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 17.6,
+          "y": 85.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "afd2ecf9",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1273.5,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 66.9,
+          "y": 18.5
+        },
+        {
+          "x": 45.4,
+          "y": 7.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0a7f2dd5",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1276.7,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 95.4,
+          "y": 30.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6d467fb0",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1278.3,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 6.2,
+          "y": 11.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2858eee1",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1282.5,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 69.0,
+          "y": 63.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "13d8bc24",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1286.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 47.8,
+          "y": 45.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "8afbf19b",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1290.3,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 75.7,
+          "y": 80.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d3ee9dc0",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1296.7,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 52.5,
+          "y": 52.8
+        },
+        {
+          "x": 44.3,
+          "y": 77.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f67e7b9c",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1303.6,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 15.0,
+          "y": 32.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fab044c3",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1305.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 9.1,
+          "y": 51.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "91d8623c",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1310.3,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 5.8,
+          "y": 46.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b706a4c3",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1316.5,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 74.6,
+          "y": 57.8
+        },
+        {
+          "x": 47.3,
+          "y": 48.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6baf3ae0",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1324.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 3.2,
+          "y": 40.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b53dacd1",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1331.0,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 37.5,
+          "y": 89.1
+        },
+        {
+          "x": 34.4,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8095be6b",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1333.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 65.3,
+          "y": 34.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "40feb190",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1338.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 83.5,
+          "y": 75.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "759e5e37",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1342.5,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 37.9,
+          "y": 23.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "edad2976",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1345.0,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 3.2,
+          "y": 66.0
+        },
+        {
+          "x": 10.1,
+          "y": 92.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "3b4f776e",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1348.0,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 44.6,
+          "y": 67.2
+        },
+        {
+          "x": 67.0,
+          "y": 51.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "06a1e702",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1352.4,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 14.0,
+          "y": 99.3
+        },
+        {
+          "x": 0,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "92d260cd",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1357.7,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 30.2,
+          "y": 14.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3a2aebd4",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1360.6,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 94.8,
+          "y": 88.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "4d4d8a2e",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1366.2,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 97.2,
+          "y": 94.2
+        },
+        {
+          "x": 100,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1ae8cc64",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1370.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 75.4,
+          "y": 47.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2e236dea",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1373.8,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 91.5,
+          "y": 56.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ec221b54",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1378.9,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 20.3,
+          "y": 64.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "01a561b9",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1386.0,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 5.2,
+          "y": 37.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4415c464",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1387.7,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 72.4,
+          "y": 55.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b776c663",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1394.9,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 21.2,
+          "y": 19.0
+        },
+        {
+          "x": 35.7,
+          "y": 33.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "68ad0fe4",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1402.3,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 39.7,
+          "y": 23.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "78dc997d",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1405.6,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 30.8,
+          "y": 36.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "1b27c60d",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1410.2,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Liverpool",
+      "positions": [
+        {
+          "x": 91.4,
+          "y": 37.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d089d6cf",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1415.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 26.1,
+          "y": 93.5
+        },
+        {
+          "x": 30.8,
+          "y": 88.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bdf4abaa",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1419.0,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 49.9,
+          "y": 65.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "05be60c4",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1422.1,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester City",
+      "positions": [
+        {
+          "x": 46.1,
+          "y": 73.3
+        }
+      ],
+      "accurate": true
+    }
+  ],
+  "_vendor_format": "wyscout"
+}

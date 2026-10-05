@@ -1,0 +1,6588 @@
+{
+  "match_id": "PL_2025_PARTIAL_001",
+  "home_team": {
+    "name": "Arsenal"
+  },
+  "away_team": {
+    "name": "Chelsea"
+  },
+  "events": [
+    {
+      "id": "151684f5",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:00:05.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        92.4,
+        46.71
+      ]
+    },
+    {
+      "id": "3366a6f8",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:00:08.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        69.24,
+        21.24
+      ]
+    },
+    {
+      "id": "500a82ce",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:00:10.10",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        76.99,
+        36.65
+      ]
+    },
+    {
+      "id": "6d9d9d0c",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:00:13.70",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        20.83,
+        43.02
+      ],
+      "pass": {
+        "end_location": [
+          9.08,
+          19.66
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "5ea6f002",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:00:19.70",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        39.46,
+        37.93
+      ]
+    },
+    {
+      "id": "3be53f7d",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:00:23.80",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        21.67,
+        9.47
+      ]
+    },
+    {
+      "id": "924b70a6",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:00:27.70",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        81.94,
+        98.56
+      ]
+    },
+    {
+      "id": "d66a0cd4",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:00:31.00",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        89.64,
+        56.91
+      ]
+    },
+    {
+      "id": "95a42df6",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:00:38.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        69.11,
+        68.35
+      ]
+    },
+    {
+      "id": "c5a49c7a",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:00:40.00",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        94.61,
+        87.57
+      ]
+    },
+    {
+      "id": "7844d14c",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:00:42.30",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        80.93,
+        79.22
+      ]
+    },
+    {
+      "id": "3cfa858d",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:00:45.00",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        44.65,
+        88.96
+      ]
+    },
+    {
+      "id": "ce97499e",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:00:52.70",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        5.96,
+        55.03
+      ],
+      "pass": {
+        "end_location": [
+          35.87,
+          52.81
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "735b4747",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:00:58.60",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        25.0,
+        20.44
+      ]
+    },
+    {
+      "id": "e0977690",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:01:06.50",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        65.33,
+        88.76
+      ]
+    },
+    {
+      "id": "f067fa3a",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:01:12.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        4.45,
+        33.65
+      ]
+    },
+    {
+      "id": "53cb9f2f",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:01:16.70",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        31.54,
+        1.85
+      ]
+    },
+    {
+      "id": "d3fd9009",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:01:20.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        63.84,
+        74.5
+      ],
+      "pass": {
+        "end_location": [
+          64.82,
+          57.47
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "cbc7e0aa",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:01:22.90",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        86.02,
+        20.24
+      ]
+    },
+    {
+      "id": "b84a4ba2",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:01:29.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        20.89,
+        45.84
+      ]
+    },
+    {
+      "id": "1e1b4dab",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:01:33.20",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        88.21,
+        20.36
+      ]
+    },
+    {
+      "id": "424c8f44",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:01:39.60",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        73.99,
+        43.88
+      ]
+    },
+    {
+      "id": "624ebe05",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:01:42.80",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        77.32,
+        46.52
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          71.84
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "ee1d736a",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:01:47.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        95.44,
+        48.74
+      ]
+    },
+    {
+      "id": "0e67a547",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:01:52.60",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        60.45,
+        12.12
+      ]
+    },
+    {
+      "id": "5f371991",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:01:58.20",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        14.68,
+        71.36
+      ],
+      "pass": {
+        "end_location": [
+          9.71,
+          57.27
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "d7c724c8",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:02:01.10",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        73.35,
+        65.12
+      ]
+    },
+    {
+      "id": "b390a924",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:02:08.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        44.87,
+        3.78
+      ]
+    },
+    {
+      "id": "a2721b3e",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:02:13.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        88.03,
+        10.5
+      ]
+    },
+    {
+      "id": "41473721",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:02:15.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        65.98,
+        90.76
+      ]
+    },
+    {
+      "id": "13cbc24c",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:02:22.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        60.25,
+        99.38
+      ]
+    },
+    {
+      "id": "a24c9daa",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:02:25.30",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        6.18,
+        9.63
+      ]
+    },
+    {
+      "id": "12a4f6d3",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:02:27.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        15.14,
+        85.33
+      ],
+      "pass": {
+        "end_location": [
+          40.3,
+          100
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "b4c7f1d8",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:02:31.50",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        89.78,
+        46.94
+      ],
+      "pass": {
+        "end_location": [
+          71.81,
+          26.01
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "f22e3af9",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:02:35.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        75.61,
+        19.09
+      ],
+      "pass": {
+        "end_location": [
+          92.26,
+          2.53
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "582b633b",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:02:37.60",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        82.22,
+        72.28
+      ]
+    },
+    {
+      "id": "d58d8473",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:02:43.10",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        84.98,
+        5.55
+      ]
+    },
+    {
+      "id": "a1decb83",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:02:45.20",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        85.45,
+        4.47
+      ]
+    },
+    {
+      "id": "ad27f123",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:02:47.00",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        12.55,
+        98.61
+      ],
+      "pass": {
+        "end_location": [
+          32.66,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "f444f97e",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:02:52.90",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        36.9,
+        82.14
+      ]
+    },
+    {
+      "id": "04f7a946",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:02:58.30",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        51.63,
+        48.79
+      ]
+    },
+    {
+      "id": "3abc7e40",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:03:02.50",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        10.73,
+        70.8
+      ]
+    },
+    {
+      "id": "e326bc25",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:03:07.20",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        28.89,
+        36.5
+      ]
+    },
+    {
+      "id": "aa9444d2",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:03:13.70",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        10.13,
+        76.15
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          78.63
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "3f1942fc",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:03:18.20",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        76.21,
+        55.47
+      ]
+    },
+    {
+      "id": "a31d3ec1",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:03:24.60",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        73.99,
+        76.29
+      ],
+      "pass": {
+        "end_location": [
+          98.68,
+          49.56
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "dcc4ad35",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:03:29.90",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        52.91,
+        56.24
+      ]
+    },
+    {
+      "id": "8e4fc5eb",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:03:35.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        56.32,
+        68.99
+      ]
+    },
+    {
+      "id": "73d8581e",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:03:36.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        60.6,
+        48.22
+      ],
+      "pass": {
+        "end_location": [
+          88.83,
+          29.26
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "8747ee69",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:03:41.70",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        35.85,
+        88.66
+      ]
+    },
+    {
+      "id": "7eb1d37f",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:03:44.30",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        3.75,
+        26.69
+      ]
+    },
+    {
+      "id": "0f4d5fdf",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:03:50.00",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        24.61,
+        86.25
+      ],
+      "pass": {
+        "end_location": [
+          13.84,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "32c0fd27",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:03:53.70",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        57.34,
+        29.44
+      ]
+    },
+    {
+      "id": "681f215f",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:04:01.30",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        71.38,
+        1.11
+      ]
+    },
+    {
+      "id": "2ee307a1",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:04:05.70",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        49.35,
+        57.77
+      ]
+    },
+    {
+      "id": "9719ab42",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:04:07.70",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        87.68,
+        1.16
+      ],
+      "pass": {
+        "end_location": [
+          68.21,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "fd379981",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:04:11.80",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        8.19,
+        17.7
+      ]
+    },
+    {
+      "id": "5c9db883",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:04:16.90",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        17.25,
+        5.33
+      ],
+      "pass": {
+        "end_location": [
+          9.15,
+          18.34
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "30ea7c21",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:04:24.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        23.13,
+        36.27
+      ]
+    },
+    {
+      "id": "c9d1ed72",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:04:28.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        87.9,
+        32.06
+      ]
+    },
+    {
+      "id": "bdc3fd70",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:04:33.00",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        48.77,
+        80.08
+      ]
+    },
+    {
+      "id": "6807a273",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:04:38.20",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        37.77,
+        22.31
+      ]
+    },
+    {
+      "id": "2750260a",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:04:40.80",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        51.66,
+        28.52
+      ]
+    },
+    {
+      "id": "c4ab6c06",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:04:46.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        2.78,
+        18.36
+      ]
+    },
+    {
+      "id": "71134a51",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:04:49.60",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        74.69,
+        41.6
+      ]
+    },
+    {
+      "id": "f72a1f63",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:04:56.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        2.36,
+        37.09
+      ],
+      "pass": {
+        "end_location": [
+          21.88,
+          21.21
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "a41ac3ab",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:04:58.80",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        30.76,
+        27.34
+      ],
+      "pass": {
+        "end_location": [
+          21.56,
+          41.33
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "0789a3e1",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:05:00.50",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        39.88,
+        46.0
+      ]
+    },
+    {
+      "id": "099b801c",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:05:04.60",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        72.66,
+        6.97
+      ]
+    },
+    {
+      "id": "253daae3",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:05:08.10",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        41.87,
+        15.43
+      ],
+      "pass": {
+        "end_location": [
+          25.39,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "feca00a0",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:05:14.80",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        74.91,
+        81.55
+      ]
+    },
+    {
+      "id": "918681d7",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:05:19.30",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        86.92,
+        68.11
+      ]
+    },
+    {
+      "id": "91077dc6",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:05:21.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        74.29,
+        85.57
+      ]
+    },
+    {
+      "id": "9865c961",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:05:28.90",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        73.33,
+        5.58
+      ]
+    },
+    {
+      "id": "0200e000",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:05:31.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        88.34,
+        20.44
+      ],
+      "pass": {
+        "end_location": [
+          69.99,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "9e526c5a",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:05:35.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        61.3,
+        80.38
+      ]
+    },
+    {
+      "id": "aa6443f2",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:05:42.30",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        53.61,
+        46.0
+      ]
+    },
+    {
+      "id": "7e90e1f8",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:05:49.30",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        56.43,
+        45.57
+      ]
+    },
+    {
+      "id": "ae3a7c0f",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:05:51.50",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        70.3,
+        5.59
+      ]
+    },
+    {
+      "id": "77be99f2",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:05:57.70",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        31.02,
+        33.36
+      ]
+    },
+    {
+      "id": "cf28feb3",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:06:00.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        49.44,
+        55.75
+      ]
+    },
+    {
+      "id": "ed9d81b8",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:06:06.90",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        24.22,
+        29.39
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          46.52
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "1aa94a8d",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:06:14.50",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        84.56,
+        12.07
+      ],
+      "pass": {
+        "end_location": [
+          58.66,
+          34.66
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "b97eab86",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:06:20.60",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        63.46,
+        62.69
+      ]
+    },
+    {
+      "id": "9b98819d",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:06:27.90",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        49.66,
+        64.23
+      ],
+      "pass": {
+        "end_location": [
+          65.61,
+          40.97
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "2e0904ba",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:06:34.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        57.79,
+        72.39
+      ]
+    },
+    {
+      "id": "ffc3a0c4",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:06:39.60",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        94.57,
+        25.12
+      ],
+      "pass": {
+        "end_location": [
+          66.78,
+          33.0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b2ebe8b8",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:06:46.30",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        32.72,
+        89.11
+      ]
+    },
+    {
+      "id": "fab647bf",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:06:53.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        42.14,
+        41.36
+      ]
+    },
+    {
+      "id": "2afddd59",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:06:59.00",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        31.94,
+        10.32
+      ]
+    },
+    {
+      "id": "c3e4561c",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:07:03.90",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        99.87,
+        96.12
+      ]
+    },
+    {
+      "id": "b427c2fa",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:07:07.10",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        92.53,
+        42.37
+      ]
+    },
+    {
+      "id": "82e34472",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:07:10.20",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        13.9,
+        79.45
+      ]
+    },
+    {
+      "id": "7cc51659",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:07:15.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        54.96,
+        81.08
+      ],
+      "pass": {
+        "end_location": [
+          67.89,
+          85.46
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "1e0e9e49",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:07:16.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        36.23,
+        77.03
+      ],
+      "pass": {
+        "end_location": [
+          53.43,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "03a4e4a0",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:07:19.80",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        14.84,
+        95.63
+      ],
+      "pass": {
+        "end_location": [
+          1.37,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "9552a3f7",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:07:25.00",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        68.78,
+        98.5
+      ]
+    },
+    {
+      "id": "b99bd4ff",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:07:29.70",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        86.6,
+        50.85
+      ]
+    },
+    {
+      "id": "54807803",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:07:31.80",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        94.39,
+        36.95
+      ]
+    },
+    {
+      "id": "be82b3e0",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:07:37.00",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        13.23,
+        91.88
+      ]
+    },
+    {
+      "id": "211fb2de",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:07:39.30",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        55.9,
+        65.23
+      ]
+    },
+    {
+      "id": "5167c987",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:07:44.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        30.66,
+        51.94
+      ]
+    },
+    {
+      "id": "1e3a6487",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:07:46.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        61.75,
+        86.36
+      ]
+    },
+    {
+      "id": "7fa9b332",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:07:53.90",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        32.08,
+        37.49
+      ]
+    },
+    {
+      "id": "538f9671",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:08:01.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        36.63,
+        56.73
+      ]
+    },
+    {
+      "id": "41ebbd36",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:08:04.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        51.29,
+        39.33
+      ]
+    },
+    {
+      "id": "2373a260",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:08:09.20",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        40.36,
+        92.62
+      ]
+    },
+    {
+      "id": "2e09c8a8",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:08:11.20",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        32.47,
+        19.86
+      ]
+    },
+    {
+      "id": "3b27602b",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:08:17.80",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        96.59,
+        25.21
+      ]
+    },
+    {
+      "id": "55862b1f",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:08:25.10",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        3.48,
+        57.23
+      ]
+    },
+    {
+      "id": "77fac57e",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:08:29.80",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        47.86,
+        69.13
+      ],
+      "pass": {
+        "end_location": [
+          70.13,
+          76.52
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "35236edb",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:08:32.60",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        53.96,
+        30.68
+      ]
+    },
+    {
+      "id": "bb371222",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:08:35.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        17.48,
+        41.06
+      ]
+    },
+    {
+      "id": "10ccc21b",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:08:43.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        87.84,
+        31.86
+      ]
+    },
+    {
+      "id": "6884a2b0",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:08:48.10",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        34.53,
+        62.95
+      ]
+    },
+    {
+      "id": "6aa60237",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:08:52.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        48.38,
+        41.71
+      ]
+    },
+    {
+      "id": "38dd1a90",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:08:54.80",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        82.11,
+        75.01
+      ]
+    },
+    {
+      "id": "8f325966",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:08:59.00",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        28.63,
+        1.74
+      ],
+      "pass": {
+        "end_location": [
+          57.77,
+          0
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "ef88f22f",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:09:06.50",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        96.72,
+        22.24
+      ]
+    },
+    {
+      "id": "228aacb9",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:09:08.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        72.32,
+        75.41
+      ]
+    },
+    {
+      "id": "7b325625",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:09:13.90",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        99.8,
+        50.19
+      ]
+    },
+    {
+      "id": "150acf59",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:09:21.00",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        89.08,
+        21.98
+      ]
+    },
+    {
+      "id": "e8fd0a51",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:09:25.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        94.06,
+        95.91
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "3261e5eb",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:09:31.90",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        42.57,
+        20.33
+      ]
+    },
+    {
+      "id": "488b8433",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:09:39.30",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        9.47,
+        17.3
+      ],
+      "pass": {
+        "end_location": [
+          21.32,
+          31.73
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "644fbd46",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:09:41.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        38.7,
+        80.78
+      ]
+    },
+    {
+      "id": "d89959b8",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:09:47.90",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        3.0,
+        98.3
+      ],
+      "pass": {
+        "end_location": [
+          17.6,
+          100
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "b587f099",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:09:54.80",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        22.74,
+        97.51
+      ],
+      "pass": {
+        "end_location": [
+          42.56,
+          88.46
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "ba7245c2",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:10:00.20",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        71.33,
+        34.35
+      ]
+    },
+    {
+      "id": "3d970c5e",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:10:02.20",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        70.33,
+        51.25
+      ]
+    },
+    {
+      "id": "c07acd8c",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:10:06.50",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        28.78,
+        35.4
+      ]
+    },
+    {
+      "id": "3a1bd8ee",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:10:12.80",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        61.01,
+        38.82
+      ],
+      "pass": {
+        "end_location": [
+          52.21,
+          64.15
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "5e386495",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:10:14.90",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        38.51,
+        55.96
+      ]
+    },
+    {
+      "id": "2785d947",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:10:18.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        47.16,
+        93.2
+      ],
+      "pass": {
+        "end_location": [
+          44.22,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "8daffb1c",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:10:24.30",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        75.02,
+        6.17
+      ]
+    },
+    {
+      "id": "207c1d43",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:10:26.30",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        31.49,
+        26.27
+      ],
+      "pass": {
+        "end_location": [
+          37.95,
+          17.22
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "6823653b",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:10:30.30",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        85.84,
+        0.6
+      ]
+    },
+    {
+      "id": "23535231",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:10:37.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        32.78,
+        1.85
+      ]
+    },
+    {
+      "id": "a7dc0d97",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:10:41.20",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        12.04,
+        39.08
+      ]
+    },
+    {
+      "id": "819e495f",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:10:46.30",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        88.6,
+        11.11
+      ],
+      "pass": {
+        "end_location": [
+          63.84,
+          12.94
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "d6bb7d91",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:10:50.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        18.43,
+        52.5
+      ],
+      "pass": {
+        "end_location": [
+          40.58,
+          62.99
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "19b3240a",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:10:52.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        25.6,
+        24.04
+      ],
+      "pass": {
+        "end_location": [
+          47.93,
+          43.92
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "da08dd89",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:10:56.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        89.61,
+        71.3
+      ],
+      "pass": {
+        "end_location": [
+          63.54,
+          44.5
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "e3986a78",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:11:03.10",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        83.82,
+        81.76
+      ]
+    },
+    {
+      "id": "214df081",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:11:08.80",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        96.28,
+        92.81
+      ]
+    },
+    {
+      "id": "de35dda8",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:11:11.00",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        80.22,
+        21.9
+      ],
+      "pass": {
+        "end_location": [
+          98.97,
+          8.9
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "9fc3cb08",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:11:18.50",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        73.16,
+        35.58
+      ]
+    },
+    {
+      "id": "e0ac873b",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:11:25.20",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        57.49,
+        66.35
+      ]
+    },
+    {
+      "id": "36359bd8",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:11:29.30",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        88.39,
+        32.41
+      ]
+    },
+    {
+      "id": "832831d1",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:11:31.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        16.67,
+        56.16
+      ],
+      "pass": {
+        "end_location": [
+          2.46,
+          84.88
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "ac5f3d0e",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:11:35.60",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        74.87,
+        15.25
+      ],
+      "pass": {
+        "end_location": [
+          56.29,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "4dcb4159",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:11:41.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        6.58,
+        3.94
+      ]
+    },
+    {
+      "id": "cf6819b7",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:11:46.70",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        93.68,
+        53.33
+      ],
+      "pass": {
+        "end_location": [
+          93.0,
+          63.96
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "f0f2b10f",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:11:53.00",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        2.36,
+        60.01
+      ],
+      "pass": {
+        "end_location": [
+          15.98,
+          41.71
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "14463110",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:11:55.90",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        66.38,
+        83.1
+      ]
+    },
+    {
+      "id": "a91f3ec5",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:12:00.10",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        76.45,
+        9.2
+      ]
+    },
+    {
+      "id": "86c40fc7",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:12:04.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        97.22,
+        72.41
+      ]
+    },
+    {
+      "id": "5f5bb36f",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:12:09.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        66.76,
+        54.18
+      ]
+    },
+    {
+      "id": "a81227e3",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:12:11.60",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        43.0,
+        61.87
+      ],
+      "pass": {
+        "end_location": [
+          69.7,
+          50.56
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "0d8bb170",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:12:16.20",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        3.74,
+        96.71
+      ]
+    },
+    {
+      "id": "e3476123",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:12:20.20",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        99.7,
+        11.45
+      ]
+    },
+    {
+      "id": "8113289f",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:12:27.30",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        54.69,
+        63.8
+      ],
+      "pass": {
+        "end_location": [
+          58.99,
+          58.98
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "cc123176",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:12:33.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        47.04,
+        24.16
+      ]
+    },
+    {
+      "id": "7244adef",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:12:41.40",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        95.79,
+        57.15
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          39.04
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "1e6ebaf6",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:12:46.50",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        51.81,
+        33.14
+      ],
+      "pass": {
+        "end_location": [
+          38.0,
+          36.03
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "c53404a1",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:12:54.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        78.44,
+        97.24
+      ],
+      "pass": {
+        "end_location": [
+          89.19,
+          90.23
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "3d6375b3",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:13:01.10",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        98.2,
+        85.16
+      ]
+    },
+    {
+      "id": "5abcbaa3",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:13:03.30",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        46.5,
+        22.45
+      ]
+    },
+    {
+      "id": "ac4870ea",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:13:07.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        73.1,
+        34.51
+      ],
+      "pass": {
+        "end_location": [
+          45.72,
+          37.47
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "f3978330",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:13:14.50",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        99.46,
+        96.75
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          94.03
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "525c72b2",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:13:17.50",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        16.1,
+        0.12
+      ]
+    },
+    {
+      "id": "5df96597",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:13:19.70",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        68.44,
+        24.51
+      ]
+    },
+    {
+      "id": "77719da4",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:13:25.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        32.32,
+        88.27
+      ]
+    },
+    {
+      "id": "8bf7bd15",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:13:28.60",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        24.29,
+        95.23
+      ]
+    },
+    {
+      "id": "2f4a3a87",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:13:33.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        26.26,
+        60.4
+      ]
+    },
+    {
+      "id": "0a4fb8cc",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:13:41.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        84.52,
+        92.59
+      ],
+      "pass": {
+        "end_location": [
+          68.23,
+          97.67
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "21391ac9",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:13:46.50",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        52.2,
+        56.29
+      ]
+    },
+    {
+      "id": "be1e0015",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:13:48.60",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        68.63,
+        23.74
+      ],
+      "pass": {
+        "end_location": [
+          61.57,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "76b11755",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:13:55.60",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        94.29,
+        64.44
+      ]
+    },
+    {
+      "id": "138338bd",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:14:02.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        75.22,
+        43.38
+      ]
+    },
+    {
+      "id": "2a110c07",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:14:05.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        99.15,
+        68.57
+      ]
+    },
+    {
+      "id": "1868ff96",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:14:07.30",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        87.66,
+        56.37
+      ]
+    },
+    {
+      "id": "c251b89e",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:14:14.30",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        32.09,
+        97.62
+      ],
+      "pass": {
+        "end_location": [
+          60.13,
+          91.13
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "c3ab3a65",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:14:17.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        24.3,
+        30.56
+      ]
+    },
+    {
+      "id": "816b31bb",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:14:19.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        43.69,
+        27.14
+      ]
+    },
+    {
+      "id": "15e63e15",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:14:23.20",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        58.86,
+        43.9
+      ],
+      "pass": {
+        "end_location": [
+          56.26,
+          71.91
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "3df4eb79",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:14:30.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        21.36,
+        17.69
+      ]
+    },
+    {
+      "id": "9e012175",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:14:36.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        11.17,
+        64.75
+      ],
+      "pass": {
+        "end_location": [
+          6.64,
+          91.04
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "6836bb7a",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:14:42.30",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        26.35,
+        45.47
+      ],
+      "pass": {
+        "end_location": [
+          40.84,
+          29.85
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "3e66f1fc",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:14:48.80",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        17.87,
+        14.26
+      ]
+    },
+    {
+      "id": "26b7c4f8",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:14:52.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        80.6,
+        49.57
+      ]
+    },
+    {
+      "id": "b5e22311",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:14:59.60",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        98.15,
+        36.96
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          48.76
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "80cdd47a",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:15:02.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        48.33,
+        22.48
+      ],
+      "pass": {
+        "end_location": [
+          20.44,
+          47.63
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "676467b2",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:15:07.60",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        65.52,
+        86.02
+      ]
+    },
+    {
+      "id": "3eb7d056",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:15:14.10",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        10.21,
+        95.31
+      ]
+    },
+    {
+      "id": "a69408aa",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:15:20.80",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        7.96,
+        82.16
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          68.54
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "bf37aef6",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:15:22.80",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        57.24,
+        46.59
+      ]
+    },
+    {
+      "id": "9cc58a14",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:15:24.80",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        48.27,
+        71.86
+      ]
+    },
+    {
+      "id": "6bc74ada",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:15:28.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        81.03,
+        20.15
+      ]
+    },
+    {
+      "id": "d4bfae45",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:15:35.60",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        44.11,
+        13.55
+      ]
+    },
+    {
+      "id": "050ff9d9",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:15:38.60",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        98.82,
+        47.49
+      ]
+    },
+    {
+      "id": "2be881ba",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:15:42.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        32.4,
+        18.82
+      ],
+      "pass": {
+        "end_location": [
+          45.6,
+          45.08
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "1f39c4a7",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:15:49.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        66.96,
+        1.13
+      ],
+      "pass": {
+        "end_location": [
+          49.62,
+          11.83
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "20bfad81",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:15:51.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        92.66,
+        85.28
+      ],
+      "pass": {
+        "end_location": [
+          89.24,
+          84.71
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "94358979",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:15:58.80",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        87.79,
+        77.67
+      ]
+    },
+    {
+      "id": "a2e208dc",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:16:06.50",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        68.88,
+        54.42
+      ],
+      "pass": {
+        "end_location": [
+          94.77,
+          39.51
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "97bb4743",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:16:14.10",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        68.44,
+        93.62
+      ],
+      "pass": {
+        "end_location": [
+          90.51,
+          84.22
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "4a4cc36d",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:16:16.70",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        35.51,
+        63.37
+      ],
+      "pass": {
+        "end_location": [
+          42.28,
+          81.46
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "6a487e0e",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:16:20.80",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        14.08,
+        3.03
+      ]
+    },
+    {
+      "id": "3f7be385",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:16:24.50",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        34.64,
+        88.94
+      ]
+    },
+    {
+      "id": "7fe8a658",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:16:27.30",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        1.64,
+        10.26
+      ]
+    },
+    {
+      "id": "bc10124a",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:16:33.80",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        23.59,
+        80.39
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          52.15
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "3c42902a",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:16:40.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        83.2,
+        6.89
+      ]
+    },
+    {
+      "id": "f0d1bfdd",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:16:42.90",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        2.5,
+        97.81
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          72.85
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "e39afb07",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:16:48.10",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        42.81,
+        55.08
+      ],
+      "pass": {
+        "end_location": [
+          41.29,
+          74.39
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "0e2cf5bc",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:16:50.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        81.35,
+        34.42
+      ]
+    },
+    {
+      "id": "7aeb4694",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:16:58.20",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        8.24,
+        95.18
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          100
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "6858515d",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:17:01.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        89.38,
+        78.05
+      ]
+    },
+    {
+      "id": "c492fab0",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:17:09.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        86.04,
+        49.57
+      ]
+    },
+    {
+      "id": "11ab202c",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:17:15.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        13.1,
+        23.77
+      ]
+    },
+    {
+      "id": "2593ba13",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:17:18.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        66.16,
+        49.0
+      ]
+    },
+    {
+      "id": "a4c98da2",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:17:23.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        39.53,
+        96.5
+      ],
+      "pass": {
+        "end_location": [
+          18.62,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "319df1e0",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:17:30.60",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        33.17,
+        41.41
+      ],
+      "pass": {
+        "end_location": [
+          22.26,
+          14.56
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b55f59f3",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:17:34.90",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        14.4,
+        29.09
+      ]
+    },
+    {
+      "id": "3494821a",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:17:38.90",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        68.18,
+        72.4
+      ],
+      "pass": {
+        "end_location": [
+          59.99,
+          71.63
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "cf570cb8",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:17:41.90",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        31.22,
+        79.22
+      ]
+    },
+    {
+      "id": "553ed7a7",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:17:43.60",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        72.6,
+        52.22
+      ]
+    },
+    {
+      "id": "62552f00",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:17:51.10",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        4.55,
+        22.49
+      ]
+    },
+    {
+      "id": "733d7895",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:17:55.50",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        91.26,
+        72.03
+      ]
+    },
+    {
+      "id": "49bccf74",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:18:02.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        91.37,
+        83.85
+      ],
+      "pass": {
+        "end_location": [
+          97.58,
+          72.23
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "dc9b87e7",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:18:05.10",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        87.04,
+        46.89
+      ]
+    },
+    {
+      "id": "ba76dfce",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:18:09.10",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        26.01,
+        54.37
+      ]
+    },
+    {
+      "id": "aab7e28b",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:18:16.10",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        87.9,
+        36.52
+      ]
+    },
+    {
+      "id": "f5731912",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:18:19.30",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        23.66,
+        17.44
+      ],
+      "pass": {
+        "end_location": [
+          38.43,
+          10.52
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "53f26c30",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:18:27.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        29.87,
+        42.45
+      ]
+    },
+    {
+      "id": "3eb0efd2",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:18:31.10",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        3.61,
+        73.17
+      ]
+    },
+    {
+      "id": "4a81b0a6",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:18:37.40",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        23.54,
+        79.12
+      ]
+    },
+    {
+      "id": "45fe4535",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:18:43.20",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        26.0,
+        17.62
+      ]
+    },
+    {
+      "id": "ecb89ebc",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:18:49.60",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        33.48,
+        90.69
+      ]
+    },
+    {
+      "id": "ca398edd",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:18:52.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        22.24,
+        55.81
+      ]
+    },
+    {
+      "id": "30212c97",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:18:58.60",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        53.37,
+        71.47
+      ],
+      "pass": {
+        "end_location": [
+          26.33,
+          48.14
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "a63abce5",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:19:00.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        64.33,
+        82.5
+      ]
+    },
+    {
+      "id": "add8b2c2",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:19:04.60",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        22.65,
+        34.76
+      ]
+    },
+    {
+      "id": "c33bad79",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:19:06.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        50.27,
+        55.97
+      ],
+      "pass": {
+        "end_location": [
+          46.07,
+          63.97
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "afff298d",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:19:08.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        3.37,
+        40.89
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          32.38
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b3bf4461",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:19:14.10",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        11.34,
+        90.32
+      ],
+      "pass": {
+        "end_location": [
+          17.54,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "35ebe9a9",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:19:20.60",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        16.38,
+        25.74
+      ]
+    },
+    {
+      "id": "62f4e399",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:19:23.00",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        70.37,
+        24.68
+      ],
+      "pass": {
+        "end_location": [
+          54.82,
+          36.14
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "c65f8a56",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:19:25.30",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        96.89,
+        7.41
+      ]
+    },
+    {
+      "id": "2c27ddb5",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:19:31.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        43.57,
+        3.31
+      ],
+      "pass": {
+        "end_location": [
+          61.34,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "6ca8e3e2",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:19:32.80",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        26.86,
+        83.5
+      ]
+    },
+    {
+      "id": "b0a2d353",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:19:36.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        50.04,
+        28.19
+      ]
+    },
+    {
+      "id": "dd93283f",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:19:42.10",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        9.22,
+        59.46
+      ]
+    },
+    {
+      "id": "923ca9d9",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:19:49.30",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        79.3,
+        41.14
+      ]
+    },
+    {
+      "id": "8dcb5e3c",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:19:51.90",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        11.89,
+        9.06
+      ],
+      "pass": {
+        "end_location": [
+          33.21,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "0b2a011e",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:19:53.90",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        38.47,
+        69.21
+      ]
+    },
+    {
+      "id": "48a1623e",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:19:56.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        82.64,
+        23.92
+      ],
+      "pass": {
+        "end_location": [
+          77.15,
+          9.52
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "e1e7bde7",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:19:59.60",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        52.06,
+        95.36
+      ],
+      "pass": {
+        "end_location": [
+          49.13,
+          89.89
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "54149464",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:20:04.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        36.45,
+        43.31
+      ],
+      "pass": {
+        "end_location": [
+          45.1,
+          65.25
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "4c8b8aae",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:20:09.10",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        18.01,
+        75.17
+      ],
+      "pass": {
+        "end_location": [
+          24.93,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "47d12646",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:20:13.80",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        83.92,
+        12.1
+      ]
+    },
+    {
+      "id": "08e5fa86",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:20:20.30",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        93.65,
+        93.21
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          76.96
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "84f67f8b",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:20:22.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        9.85,
+        65.34
+      ],
+      "pass": {
+        "end_location": [
+          2.72,
+          83.35
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "55706103",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:20:24.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        73.79,
+        58.23
+      ]
+    },
+    {
+      "id": "cd620704",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:20:30.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        30.42,
+        93.14
+      ]
+    },
+    {
+      "id": "7555a891",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:20:35.20",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        49.79,
+        29.22
+      ]
+    },
+    {
+      "id": "c1a0eec6",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:20:39.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        51.71,
+        92.22
+      ]
+    },
+    {
+      "id": "9ccde0af",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:20:46.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        81.22,
+        12.68
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          13.75
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "5bb2983f",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:20:51.80",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        90.04,
+        1.83
+      ]
+    },
+    {
+      "id": "6b8bf078",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:20:55.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        93.7,
+        10.52
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          34.28
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "335b32a5",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:20:58.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        23.08,
+        32.68
+      ]
+    },
+    {
+      "id": "3d37fff3",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:21:04.90",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        74.93,
+        29.32
+      ],
+      "pass": {
+        "end_location": [
+          85.04,
+          30.97
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "fefca420",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:21:11.30",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        89.12,
+        18.05
+      ]
+    },
+    {
+      "id": "cee7fc95",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:21:17.70",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        44.17,
+        47.32
+      ]
+    },
+    {
+      "id": "006dace8",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:21:20.80",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        99.65,
+        16.37
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          46.05
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "c49ab8a7",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:21:22.90",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        66.08,
+        60.77
+      ],
+      "pass": {
+        "end_location": [
+          46.64,
+          41.11
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "dff189b2",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:21:26.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        62.86,
+        68.29
+      ]
+    },
+    {
+      "id": "a6147bd6",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:21:30.50",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        63.9,
+        92.88
+      ]
+    },
+    {
+      "id": "a49d9a90",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:21:37.70",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        92.08,
+        24.65
+      ]
+    },
+    {
+      "id": "bf1ceaed",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:21:41.80",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        93.02,
+        90.45
+      ]
+    },
+    {
+      "id": "0187ce0d",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:21:45.20",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        39.87,
+        14.71
+      ]
+    },
+    {
+      "id": "ca287b75",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:21:48.00",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        58.25,
+        17.83
+      ],
+      "pass": {
+        "end_location": [
+          29.95,
+          22.75
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "c0027a5a",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:21:51.90",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        95.71,
+        45.09
+      ],
+      "pass": {
+        "end_location": [
+          76.85,
+          60.37
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "d59dea9c",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:21:56.60",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        84.77,
+        33.17
+      ]
+    },
+    {
+      "id": "f8b5fbb3",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:22:04.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        65.82,
+        51.87
+      ],
+      "pass": {
+        "end_location": [
+          70.44,
+          56.68
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "87be98e4",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:22:11.80",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        51.86,
+        20.22
+      ],
+      "pass": {
+        "end_location": [
+          73.64,
+          45.54
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "e9d8b873",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:22:15.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        55.21,
+        40.23
+      ]
+    },
+    {
+      "id": "0fa0a67f",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:22:19.90",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        22.41,
+        48.7
+      ]
+    },
+    {
+      "id": "402e9778",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:22:21.90",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        58.58,
+        0.22
+      ]
+    },
+    {
+      "id": "32a9f8e7",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:22:28.30",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        84.34,
+        70.34
+      ]
+    },
+    {
+      "id": "dc9af0d8",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:22:33.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        37.49,
+        27.49
+      ]
+    },
+    {
+      "id": "6a7396cd",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:22:36.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        47.94,
+        49.25
+      ]
+    },
+    {
+      "id": "ba9a33c5",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:22:41.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        24.17,
+        28.06
+      ]
+    },
+    {
+      "id": "4d2af3e2",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:22:44.90",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        61.11,
+        14.62
+      ],
+      "pass": {
+        "end_location": [
+          47.26,
+          36.81
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b49320fc",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:22:46.70",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        68.58,
+        73.07
+      ]
+    },
+    {
+      "id": "3d35dfbc",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:22:48.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        25.8,
+        65.16
+      ],
+      "pass": {
+        "end_location": [
+          27.94,
+          53.13
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "4cb74614",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:22:53.00",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        39.66,
+        35.52
+      ]
+    },
+    {
+      "id": "e6511325",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:22:55.00",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Arsenal"
+      },
+      "location": [
+        12.05,
+        62.33
+      ]
+    },
+    {
+      "id": "0fedd8f1",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:22:58.70",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        90.96,
+        26.09
+      ]
+    },
+    {
+      "id": "1bfcc103",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:23:04.70",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Chelsea"
+      },
+      "location": [
+        64.16,
+        16.91
+      ]
+    }
+  ],
+  "_vendor_format": "statsbomb"
+}

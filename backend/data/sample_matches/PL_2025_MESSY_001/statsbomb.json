@@ -1,0 +1,6448 @@
+{
+  "match_id": "PL_2025_MESSY_001",
+  "home_team": {
+    "name": "Manchester United"
+  },
+  "away_team": {
+    "name": "Tottenham"
+  },
+  "events": [
+    {
+      "id": "4c80e8d7",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:00:03.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        26.98,
+        33.61
+      ]
+    },
+    {
+      "id": "a3d071a0",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:00:10.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        60.15,
+        87.67
+      ],
+      "pass": {
+        "end_location": [
+          37.4,
+          64.53
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "27c8dcd8",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:00:14.20",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        83.68,
+        57.68
+      ],
+      "pass": {
+        "end_location": [
+          70.91,
+          43.72
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "45cf3090",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:00:21.30",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        58.68,
+        3.41
+      ],
+      "pass": {
+        "end_location": [
+          65.25,
+          8.01
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "44a35754",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:00:26.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        9.43,
+        45.03
+      ]
+    },
+    {
+      "id": "1a89e17a",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:00:29.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        37.66,
+        81.15
+      ],
+      "pass": {
+        "end_location": [
+          36.47,
+          54.98
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "73f1c5d7",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:00:34.70",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        99.15,
+        12.39
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          0
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "bcb80f0e",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:00:40.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        16.85,
+        12.0
+      ],
+      "pass": {
+        "end_location": [
+          41.09,
+          11.84
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "ce4bc8f1",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:00:45.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        34.32,
+        67.81
+      ]
+    },
+    {
+      "id": "b9e2caab",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:00:49.60",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        61.05,
+        5.34
+      ],
+      "pass": {
+        "end_location": [
+          80.34,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "5aaf45ae",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:00:57.20",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        70.37,
+        49.01
+      ]
+    },
+    {
+      "id": "602959e7",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:01:04.10",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        48.89,
+        51.65
+      ]
+    },
+    {
+      "id": "ffd475d6",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:01:06.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        30.13,
+        15.66
+      ]
+    },
+    {
+      "id": "697c5128",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:01:10.90",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        33.92,
+        38.66
+      ],
+      "pass": {
+        "end_location": [
+          43.94,
+          53.36
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "eee9a4e0",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:01:16.60",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        66.23,
+        43.27
+      ]
+    },
+    {
+      "id": "5e9bc1af",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:01:23.20",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        14.12,
+        16.52
+      ]
+    },
+    {
+      "id": "ff5686b8",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:01:27.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        82.44,
+        65.44
+      ],
+      "pass": {
+        "end_location": [
+          80.57,
+          39.28
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b8e97a35",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:01:30.30",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        86.71,
+        79.22
+      ]
+    },
+    {
+      "id": "54dee3fa",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:01:33.00",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        30.92,
+        28.19
+      ]
+    },
+    {
+      "id": "d7671c6a",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:01:39.00",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        24.91,
+        89.88
+      ]
+    },
+    {
+      "id": "52db2f79",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:01:44.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        38.15,
+        99.15
+      ]
+    },
+    {
+      "id": "6c87362c",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:01:48.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        24.39,
+        53.09
+      ],
+      "pass": {
+        "end_location": [
+          4.09,
+          47.35
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "31d540c7",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:01:52.70",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        20.08,
+        41.27
+      ]
+    },
+    {
+      "id": "caac802a",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:01:59.20",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        51.38,
+        15.79
+      ],
+      "pass": {
+        "end_location": [
+          76.86,
+          3.13
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "eae0a8cc",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:02:03.20",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        16.11,
+        79.5
+      ]
+    },
+    {
+      "id": "061eeb02",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:02:08.50",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        42.38,
+        37.02
+      ]
+    },
+    {
+      "id": "2d58f876",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:02:15.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        99.32,
+        98.63
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "19c37746",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:02:17.50",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        81.22,
+        62.96
+      ]
+    },
+    {
+      "id": "94c67b5d",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:02:22.30",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        68.69,
+        49.5
+      ]
+    },
+    {
+      "id": "2ec4b4c6",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:02:25.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        48.88,
+        66.2
+      ]
+    },
+    {
+      "id": "b61e4a5d",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:02:30.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        73.82,
+        67.72
+      ],
+      "pass": {
+        "end_location": [
+          49.18,
+          77.55
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "34a43095",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:02:32.30",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        84.13,
+        87.17
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          64.1
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "df90a2e0",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:02:35.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        67.23,
+        3.62
+      ]
+    },
+    {
+      "id": "1fe163a9",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:02:40.80",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        76.5,
+        14.47
+      ]
+    },
+    {
+      "id": "ff40d10b",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:02:45.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        86.46,
+        8.93
+      ]
+    },
+    {
+      "id": "e0a4e1ee",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:02:48.60",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        65.79,
+        78.57
+      ],
+      "pass": {
+        "end_location": [
+          4.91,
+          81.89
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "de127d81",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:02:51.80",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        97.83,
+        89.28
+      ]
+    },
+    {
+      "id": "4acde728",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:02:56.10",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        73.79,
+        13.01
+      ],
+      "pass": {
+        "end_location": [
+          57.45,
+          4.43
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "66ea3dd9",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:02:59.60",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        97.15,
+        9.27
+      ]
+    },
+    {
+      "id": "50a1628e",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:03:01.40",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        37.49,
+        53.11
+      ]
+    },
+    {
+      "id": "5892c806",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:03:03.10",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        27.28,
+        98.07
+      ]
+    },
+    {
+      "id": "638b3892",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:03:08.80",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        24.25,
+        67.24
+      ]
+    },
+    {
+      "id": "d0fc7284",
+      "type": {
+        "name": "custom_event_32"
+      },
+      "timestamp": "00:03:11.80",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        63.52,
+        72.82
+      ]
+    },
+    {
+      "id": "81b42d6c",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:03:19.60",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        79.4,
+        56.53
+      ],
+      "pass": {
+        "end_location": [
+          91.85,
+          48.91
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "175cc949",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:03:24.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        15.99,
+        24.87
+      ]
+    },
+    {
+      "id": "05e4f09c",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:03:27.90",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        13.73,
+        91.92
+      ],
+      "pass": {
+        "end_location": [
+          15.26,
+          73.3
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "7088af66",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:03:32.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        95.58,
+        70.79
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          77.81
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "f25e34fc",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:03:38.20",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        33.53,
+        19.32
+      ]
+    },
+    {
+      "id": "cec1a5f5",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:03:43.70",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        71.94,
+        70.61
+      ],
+      "pass": {
+        "end_location": [
+          57.34,
+          69.76
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "6f2b19ee",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:03:51.40",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        23.74,
+        94.5
+      ]
+    },
+    {
+      "id": "ae8351d7",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:03:53.80",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        116.3,
+        28.61
+      ]
+    },
+    {
+      "id": "2f9ae7d1",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:04:00.30",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        70.25,
+        29.04
+      ]
+    },
+    {
+      "id": "9688089b",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:04:07.20",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        3.37,
+        58.12
+      ]
+    },
+    {
+      "id": "b9a82731",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:04:14.30",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        57.56,
+        99.98
+      ]
+    },
+    {
+      "id": "aea245a6",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:04:22.10",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        12.38,
+        76.57
+      ],
+      "pass": {
+        "end_location": [
+          30.5,
+          79.04
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "17f0f8c8",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:04:30.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        42.99,
+        8.39
+      ],
+      "pass": {
+        "end_location": [
+          36.85,
+          0
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "09fa8529",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:04:35.30",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        24.23,
+        44.3
+      ]
+    },
+    {
+      "id": "d30add41",
+      "type": {
+        "name": "custom_event_48"
+      },
+      "timestamp": "00:04:40.20",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        91.54,
+        43.18
+      ]
+    },
+    {
+      "id": "fbd7681b",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:04:42.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        43.83,
+        39.49
+      ]
+    },
+    {
+      "id": "b5f50dea",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:04:45.80",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        79.13,
+        68.54
+      ]
+    },
+    {
+      "id": "111987b9",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:04:48.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        44.23,
+        24.98
+      ]
+    },
+    {
+      "id": "c1a02cc2",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:04:53.20",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        48.01,
+        64.03
+      ]
+    },
+    {
+      "id": "cb4e7c09",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:04:57.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        88.03,
+        83.46
+      ],
+      "pass": {
+        "end_location": [
+          80.35,
+          92.92
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "2cec1529",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:05:03.60",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        87.3,
+        5.14
+      ]
+    },
+    {
+      "id": "1456de29",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:05:06.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        40.08,
+        11.61
+      ]
+    },
+    {
+      "id": "03acad5f",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:05:09.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        74.02,
+        48.15
+      ]
+    },
+    {
+      "id": "8a077a7c",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:05:16.30",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        88.57,
+        69.63
+      ]
+    },
+    {
+      "id": "7ec0ebfb",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:05:22.20",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        32.11,
+        32.42
+      ]
+    },
+    {
+      "id": "fdc09a83",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:05:28.80",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        53.04,
+        4.51
+      ]
+    },
+    {
+      "id": "b1318551",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:05:35.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        74.85,
+        44.46
+      ],
+      "pass": {
+        "end_location": [
+          89.93,
+          59.97
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "d69e1de2",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:05:38.60",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        39.7,
+        64.64
+      ]
+    },
+    {
+      "id": "a5d68216",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:05:45.40",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        87.22,
+        94.05
+      ]
+    },
+    {
+      "id": "54cc4b33",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:05:50.30",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        60.31,
+        22.64
+      ]
+    },
+    {
+      "id": "47e1ba2a",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:05:55.40",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        62.26,
+        51.51
+      ]
+    },
+    {
+      "id": "f3a65efa",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:06:00.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        67.29,
+        91.12
+      ]
+    },
+    {
+      "id": "d834cfb6",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:06:03.50",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        37.39,
+        8.55
+      ]
+    },
+    {
+      "id": "eafedd2c",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:06:06.90",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        82.99,
+        84.51
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          88.04
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "8bd8f9d1",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:06:10.70",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        48.14,
+        4.97
+      ],
+      "pass": {
+        "end_location": [
+          41.91,
+          9.21
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "878cf86d",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:06:13.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        45.18,
+        94.01
+      ]
+    },
+    {
+      "id": "0d1b2594",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:06:14.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        43.02,
+        90.88
+      ],
+      "pass": {
+        "end_location": [
+          27.74,
+          75.29
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "885ff246",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:06:20.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        63.5,
+        92.12
+      ]
+    },
+    {
+      "id": "382d06af",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:06:22.40",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        136.11,
+        2.96
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          19.99
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "54cf1711",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:06:26.10",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        39.67,
+        20.45
+      ]
+    },
+    {
+      "id": "681243aa",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:06:28.60",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        47.13,
+        94.03
+      ]
+    },
+    {
+      "id": "dcd960dc",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:06:33.60",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        75.41,
+        31.65
+      ]
+    },
+    {
+      "id": "872e8d7a",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:06:41.50",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        74.75,
+        53.17
+      ]
+    },
+    {
+      "id": "a4c91d6c",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:06:49.50",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        43.54,
+        29.93
+      ],
+      "pass": {
+        "end_location": [
+          41.31,
+          12.18
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "5686c0d8",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:06:56.70",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        80.97,
+        29.81
+      ]
+    },
+    {
+      "id": "dcddc252",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:06:58.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        15.59,
+        97.16
+      ]
+    },
+    {
+      "id": "0f6c4066",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:07:05.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        83.55,
+        73.53
+      ]
+    },
+    {
+      "id": "bbe4dee2",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:07:10.00",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        84.54,
+        92.8
+      ]
+    },
+    {
+      "id": "a1ecb59c",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:07:12.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        69.67,
+        35.75
+      ]
+    },
+    {
+      "id": "e0a4e8de",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:07:16.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        76.65,
+        92.11
+      ]
+    },
+    {
+      "id": "9982ebd4",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:07:23.30",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        18.24,
+        8.71
+      ]
+    },
+    {
+      "id": "28aef528",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:07:30.80",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        69.63,
+        60.45
+      ],
+      "pass": {
+        "end_location": [
+          82.27,
+          43.08
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "fa672256",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:07:38.60",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        26.79,
+        80.55
+      ]
+    },
+    {
+      "id": "fdd731c4",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:07:44.60",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        6.3,
+        2.5
+      ],
+      "pass": {
+        "end_location": [
+          27.66,
+          22.95
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "23934132",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:07:51.80",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        33.6,
+        52.83
+      ]
+    },
+    {
+      "id": "908a5e30",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:07:56.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        84.2,
+        7.65
+      ]
+    },
+    {
+      "id": "d3b24a41",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:08:02.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        79.91,
+        55.21
+      ],
+      "pass": {
+        "end_location": [
+          91.96,
+          80.11
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "cdb1dec0",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:08:07.50",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        48.22,
+        9.0
+      ]
+    },
+    {
+      "id": "40ca82e6",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:08:09.50",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        53.83,
+        21.2
+      ],
+      "pass": {
+        "end_location": [
+          26.8,
+          7.14
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "1d37df38",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:08:12.00",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        71.45,
+        61.48
+      ]
+    },
+    {
+      "id": "940e1fdc",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:08:15.70",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        70.79,
+        24.5
+      ]
+    },
+    {
+      "id": "9b56a7c3",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:08:18.50",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        55.57,
+        88.7
+      ]
+    },
+    {
+      "id": "2a1f297c",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:08:24.30",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        53.95,
+        95.65
+      ]
+    },
+    {
+      "id": "1d77cb51",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:08:30.70",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        78.86,
+        83.35
+      ]
+    },
+    {
+      "id": "ff0788d1",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:08:38.00",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        34.61,
+        94.34
+      ],
+      "pass": {
+        "end_location": [
+          42.13,
+          96.35
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b6de3f2b",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:08:44.50",
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        33.88,
+        34.79
+      ],
+      "pass": {
+        "end_location": [
+          34.93,
+          7.74
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "3071eb8b",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:08:50.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        79.49,
+        30.89
+      ]
+    },
+    {
+      "id": "e9423a3f",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:08:53.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        53.71,
+        28.96
+      ]
+    },
+    {
+      "id": "9d4bd4fe",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:08:59.90",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        4.28,
+        56.55
+      ]
+    },
+    {
+      "id": "10d8c2b8",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:09:03.80",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        82.24,
+        4.71
+      ]
+    },
+    {
+      "id": "4a49ae8b",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:09:08.10",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        12.09,
+        50.91
+      ]
+    },
+    {
+      "id": "dc7ebcfc",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:09:10.30",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        90.33,
+        47.93
+      ],
+      "pass": {
+        "end_location": [
+          62.63,
+          54.63
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "759de9c3",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:09:17.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        62.87,
+        44.56
+      ]
+    },
+    {
+      "id": "dda4cbdd",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:09:22.50",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        80.54,
+        79.36
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          81.43
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b8c5b155",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:09:24.70",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        53.53,
+        89.38
+      ]
+    },
+    {
+      "id": "8e77348f",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:09:30.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        81.19,
+        17.7
+      ],
+      "pass": {
+        "end_location": [
+          57.26,
+          37.7
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "80f804ce",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:09:32.40",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        44.23,
+        80.39
+      ]
+    },
+    {
+      "id": "aa9839af",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:09:39.00",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        35.47,
+        41.8
+      ]
+    },
+    {
+      "id": "93b0543d",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:09:46.60",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        90.1,
+        24.86
+      ]
+    },
+    {
+      "id": "c99d1e14",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:09:51.40",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        63.17,
+        20.19
+      ]
+    },
+    {
+      "id": "bd647914",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:09:53.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        51.68,
+        54.27
+      ]
+    },
+    {
+      "id": "e3dbae77",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:09:57.50",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        8.44,
+        79.73
+      ]
+    },
+    {
+      "id": "203ac678",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:10:04.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        61.01,
+        43.95
+      ]
+    },
+    {
+      "id": "25aef2a2",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:10:08.50",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        12.72,
+        17.33
+      ]
+    },
+    {
+      "id": "dfec0855",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:10:10.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        109.38,
+        68.96
+      ]
+    },
+    {
+      "id": "598ac2bd",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:10:12.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        75.65,
+        12.37
+      ]
+    },
+    {
+      "id": "250ac1cc",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:10:15.40",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        15.93,
+        45.29
+      ]
+    },
+    {
+      "id": "a4924723",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:10:17.00",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        79.08,
+        32.83
+      ]
+    },
+    {
+      "id": "1abeec9c",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:10:21.20",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        72.35,
+        36.08
+      ]
+    },
+    {
+      "id": "c9958b93",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:10:25.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        78.75,
+        38.37
+      ]
+    },
+    {
+      "id": "a17ce976",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:10:31.10",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        46.83,
+        63.95
+      ]
+    },
+    {
+      "id": "0e7fb039",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:10:38.10",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        82.58,
+        38.59
+      ],
+      "pass": {
+        "end_location": [
+          59.14,
+          22.8
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "efc24a45",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:10:40.20",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        18.63,
+        17.25
+      ]
+    },
+    {
+      "id": "c72394af",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:10:43.50",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        68.72,
+        75.06
+      ]
+    },
+    {
+      "id": "62d5801b",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:10:50.70",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        38.19,
+        95.62
+      ]
+    },
+    {
+      "id": "cb4b51a4",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:10:53.00",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        34.68,
+        57.23
+      ]
+    },
+    {
+      "id": "2ca42b5c",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:10:57.20",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        62.7,
+        86.8
+      ]
+    },
+    {
+      "id": "41ccf659",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:11:00.80",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        61.51,
+        9.26
+      ],
+      "pass": {
+        "end_location": [
+          45.97,
+          21.33
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "8ce2da9a",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:11:08.50",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        3.94,
+        31.74
+      ],
+      "pass": {
+        "end_location": [
+          21.44,
+          33.13
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "8c057cfb",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:11:13.70",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        101.16,
+        20.68
+      ],
+      "pass": {
+        "end_location": [
+          33.33,
+          9.11
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b4b8ce43",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:11:21.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        11.68,
+        52.9
+      ],
+      "pass": {
+        "end_location": [
+          35.08,
+          72.64
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "65d7ab17",
+      "type": {
+        "name": "custom_event_46"
+      },
+      "timestamp": "00:11:24.00",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        30.67,
+        64.52
+      ],
+      "pass": {
+        "end_location": [
+          9.02,
+          76.76
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "b9757b20",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:11:27.60",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        81.98,
+        61.56
+      ],
+      "pass": {
+        "end_location": [
+          52.12,
+          70.26
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "dfd7fd57",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:11:33.90",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        18.61,
+        47.66
+      ],
+      "pass": {
+        "end_location": [
+          43.08,
+          17.81
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "f5b53930",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:11:41.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        83.35,
+        12.23
+      ],
+      "pass": {
+        "end_location": [
+          68.61,
+          40.16
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "fd473a98",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:11:48.90",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        35.72,
+        24.52
+      ]
+    },
+    {
+      "id": "39bdb57f",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:11:56.00",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        68.21,
+        23.32
+      ]
+    },
+    {
+      "id": "4d9d7fd3",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:12:01.40",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        40.35,
+        40.13
+      ]
+    },
+    {
+      "id": "d7c55068",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:12:07.10",
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        48.2,
+        79.18
+      ],
+      "pass": {
+        "end_location": [
+          58.19,
+          79.53
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "8562018a",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:12:08.80",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        3.57,
+        70.26
+      ]
+    },
+    {
+      "id": "8b34cdd5",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:12:13.10",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        53.7,
+        56.29
+      ],
+      "pass": {
+        "end_location": [
+          46.86,
+          75.54
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "a9c8302c",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:12:19.80",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        53.17,
+        83.99
+      ]
+    },
+    {
+      "id": "85124f6b",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:12:21.70",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        62.93,
+        99.36
+      ]
+    },
+    {
+      "id": "ba42cfe2",
+      "type": {
+        "name": "custom_event_5"
+      },
+      "timestamp": "00:12:24.00",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        14.75,
+        60.81
+      ]
+    },
+    {
+      "id": "ecf8d892",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:12:26.70",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        11.39,
+        12.98
+      ]
+    },
+    {
+      "id": "28caa111",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:12:28.90",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        68.09,
+        91.39
+      ]
+    },
+    {
+      "id": "a6191c86",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:12:35.60",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        8.46,
+        93.69
+      ]
+    },
+    {
+      "id": "e9a0826c",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:12:40.20",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        31.58,
+        73.2
+      ],
+      "pass": {
+        "end_location": [
+          10.75,
+          99.31
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "f1b4d933",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:12:47.50",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        59.99,
+        23.1
+      ]
+    },
+    {
+      "id": "7d4c3911",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:12:53.70",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        80.05,
+        79.53
+      ],
+      "pass": {
+        "end_location": [
+          57.11,
+          81.91
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "d495c5aa",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:12:59.00",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        16.98,
+        93.81
+      ]
+    },
+    {
+      "id": "40935068",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:13:04.20",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        9.15,
+        41.94
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          63.94
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "19517543",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:13:08.10",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        55.32,
+        84.78
+      ]
+    },
+    {
+      "id": "83139d9d",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:13:12.40",
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        28.95,
+        59.79
+      ]
+    },
+    {
+      "id": "0c1cbd88",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:13:16.60",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        47.2,
+        19.1
+      ]
+    },
+    {
+      "id": "fadceb27",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:13:24.20",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        18.88,
+        71.75
+      ]
+    },
+    {
+      "id": "c7b85571",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:13:31.30",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        54.5,
+        26.21
+      ]
+    },
+    {
+      "id": "3084ac1d",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:13:36.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        28.03,
+        16.28
+      ]
+    },
+    {
+      "id": "945a67a2",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:13:43.30",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        12.67,
+        39.41
+      ],
+      "pass": {
+        "end_location": [
+          15.05,
+          17.79
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "7e5b9460",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:13:47.80",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        81.92,
+        12.68
+      ]
+    },
+    {
+      "id": "a5b2d57d",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:13:51.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        45.11,
+        23.81
+      ]
+    },
+    {
+      "id": "a34266ee",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:13:57.40",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        50.75,
+        84.14
+      ]
+    },
+    {
+      "id": "d58eaf7f",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:14:05.20",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        49.31,
+        5.3
+      ]
+    },
+    {
+      "id": "7bdde9d3",
+      "type": {
+        "name": "custom_event_6"
+      },
+      "timestamp": "00:14:07.20",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        61.67,
+        8.16
+      ]
+    },
+    {
+      "id": "d2b9e264",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:14:08.90",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        24.83,
+        75.22
+      ]
+    },
+    {
+      "id": "2194de83",
+      "type": {
+        "name": "custom_event_50"
+      },
+      "timestamp": "00:14:16.60",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        35.35,
+        43.02
+      ]
+    },
+    {
+      "id": "ad70ac44",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:14:21.70",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        21.93,
+        68.43
+      ]
+    },
+    {
+      "id": "8f2cce4d",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:14:29.50",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        70.22,
+        6.43
+      ]
+    },
+    {
+      "id": "bae962d1",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:14:33.00",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        7.28,
+        56.61
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          39.34
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "4ccb91cb",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:14:40.00",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        8.14,
+        78.04
+      ]
+    },
+    {
+      "id": "2b442b20",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:14:45.10",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        4.02,
+        54.09
+      ]
+    },
+    {
+      "id": "8f7c10ba",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:14:52.20",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        43.94,
+        22.14
+      ]
+    },
+    {
+      "id": "a81140d5",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:14:54.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        5.49,
+        83.06
+      ]
+    },
+    {
+      "id": "0fa6ddc4",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:15:00.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        72.33,
+        14.83
+      ]
+    },
+    {
+      "id": "8a3f4ac7",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:15:05.50",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        76.04,
+        10.44
+      ]
+    },
+    {
+      "id": "76cad733",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:15:11.00",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        82.85,
+        27.96
+      ]
+    },
+    {
+      "id": "c6b4c873",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:15:17.80",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        69.44,
+        32.04
+      ]
+    },
+    {
+      "id": "a7c54dd6",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:15:20.40",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        41.55,
+        2.02
+      ]
+    },
+    {
+      "id": "d93c9bca",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:15:25.00",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        63.73,
+        5.63
+      ],
+      "pass": {
+        "end_location": [
+          41.35,
+          13.08
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "98c23c50",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:15:30.30",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        19.32,
+        87.08
+      ],
+      "pass": {
+        "end_location": [
+          28.39,
+          89.44
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "c1f3ad90",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:15:34.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        74.68,
+        17.93
+      ]
+    },
+    {
+      "id": "7f4b8f18",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:15:36.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        15.79,
+        47.69
+      ]
+    },
+    {
+      "id": "0fba2c3d",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:15:39.70",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        26.7,
+        90.7
+      ]
+    },
+    {
+      "id": "ae0f75e1",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:15:44.80",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        69.95,
+        34.75
+      ]
+    },
+    {
+      "id": "22f5b2f4",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:15:52.20",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        15.9,
+        74.11
+      ],
+      "pass": {
+        "end_location": [
+          24.16,
+          71.12
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "a4067154",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:15:59.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        5.47,
+        53.88
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          28.25
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "eff44b6a",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:16:07.00",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        26.37,
+        43.23
+      ]
+    },
+    {
+      "id": "d6edf410",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:16:09.80",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        22.06,
+        55.19
+      ]
+    },
+    {
+      "id": "6b38287d",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:16:13.50",
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        42.84,
+        60.45
+      ],
+      "pass": {
+        "end_location": [
+          28.4,
+          39.16
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "ee3cbeab",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:16:15.50",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        29.36,
+        15.35
+      ],
+      "pass": {
+        "end_location": [
+          33.58,
+          23.45
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "dfc5e833",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:16:21.60",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        29.54,
+        21.53
+      ]
+    },
+    {
+      "id": "ae00c261",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:16:28.20",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        70.17,
+        62.68
+      ]
+    },
+    {
+      "id": "c3e41218",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:16:32.60",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        94.53,
+        9.16
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          28.36
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "73e228f8",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:16:36.60",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        98.77,
+        36.03
+      ]
+    },
+    {
+      "id": "117693d7",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:16:39.70",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        64.59,
+        62.68
+      ]
+    },
+    {
+      "id": "7e7ba997",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:16:42.30",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        63.35,
+        23.16
+      ]
+    },
+    {
+      "id": "4b679540",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:16:47.20",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        73.49,
+        42.09
+      ]
+    },
+    {
+      "id": "e858de48",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:16:50.40",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        37.8,
+        11.97
+      ]
+    },
+    {
+      "id": "df76af24",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:16:55.30",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        94.21,
+        78.29
+      ]
+    },
+    {
+      "id": "a318f1bc",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:17:01.90",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        58.73,
+        91.5
+      ]
+    },
+    {
+      "id": "0bd5e072",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:17:06.10",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        43.9,
+        56.11
+      ]
+    },
+    {
+      "id": "c2aa5877",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:17:12.40",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        35.83,
+        70.27
+      ]
+    },
+    {
+      "id": "3ad28758",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:17:15.20",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        87.32,
+        34.67
+      ]
+    },
+    {
+      "id": "66248984",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:17:21.90",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        94.62,
+        63.46
+      ],
+      "pass": {
+        "end_location": [
+          70.08,
+          91.95
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "83be5534",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:17:24.70",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        89.03,
+        2.67
+      ],
+      "pass": {
+        "end_location": [
+          76.0,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "e6da093c",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:17:26.50",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        64.62,
+        74.84
+      ]
+    },
+    {
+      "id": "140075d3",
+      "type": {
+        "name": "custom_event_43"
+      },
+      "timestamp": "00:17:28.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        83.18,
+        12.09
+      ]
+    },
+    {
+      "id": "465d3503",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:17:32.90",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        17.7,
+        51.86
+      ],
+      "pass": {
+        "end_location": [
+          36.56,
+          59.09
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "7b165fca",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:17:40.70",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        11.27,
+        13.69
+      ]
+    },
+    {
+      "id": "c191283f",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:17:44.50",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        22.67,
+        0.25
+      ],
+      "pass": {
+        "end_location": [
+          42.84,
+          11.63
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "5a32fe16",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:17:47.70",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        54.6,
+        28.65
+      ]
+    },
+    {
+      "id": "fc1b1cdb",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:17:49.80",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        38.14,
+        98.36
+      ],
+      "pass": {
+        "end_location": [
+          30.01,
+          100
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "1347297b",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:17:57.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        80.27,
+        1.46
+      ],
+      "pass": {
+        "end_location": [
+          83.68,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "7bdacbe1",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:18:04.60",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        14.55,
+        68.84
+      ]
+    },
+    {
+      "id": "f273b9fa",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:18:11.30",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        57.9,
+        87.95
+      ]
+    },
+    {
+      "id": "c785bff8",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:18:15.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        11.88,
+        21.22
+      ]
+    },
+    {
+      "id": "451645d6",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:18:22.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        58.69,
+        56.31
+      ],
+      "pass": {
+        "end_location": [
+          0,
+          67.18
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "a8d12f1a",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:18:29.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        82.36,
+        2.52
+      ]
+    },
+    {
+      "id": "09e3f321",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:18:36.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        94.58,
+        87.92
+      ]
+    },
+    {
+      "id": "69e35f41",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:18:38.20",
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        73.69,
+        95.99
+      ]
+    },
+    {
+      "id": "285d4bcc",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:18:40.50",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        54.16,
+        37.29
+      ]
+    },
+    {
+      "id": "8df0bb3a",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:18:45.40",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        83.18,
+        41.83
+      ],
+      "pass": {
+        "end_location": [
+          55.41,
+          15.58
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "3d40583f",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:18:52.30",
+      "period": 1,
+      "player": {
+        "id": 5008,
+        "name": "Trent Alexander-Arnold"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        88.54,
+        89.72
+      ],
+      "pass": {
+        "end_location": [
+          96.55,
+          67.14
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "28fb4336",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:18:56.90",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        5.81,
+        78.46
+      ]
+    },
+    {
+      "id": "45ceca8e",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:18:59.50",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        88.53,
+        44.11
+      ]
+    },
+    {
+      "id": "8a65e0f4",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:19:01.40",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        61.25,
+        46.91
+      ]
+    },
+    {
+      "id": "a62345d4",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:19:04.70",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        80.45,
+        65.46
+      ]
+    },
+    {
+      "id": "2d668757",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:19:11.00",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        66.73,
+        14.08
+      ]
+    },
+    {
+      "id": "33f00a72",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:19:14.10",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        10.79,
+        96.59
+      ],
+      "pass": {
+        "end_location": [
+          26.14,
+          82.3
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "b668fb3c",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:19:21.50",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        52.85,
+        69.11
+      ],
+      "pass": {
+        "end_location": [
+          27.18,
+          90.09
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "b5f2e84d",
+      "type": {
+        "name": "custom_event_50"
+      },
+      "timestamp": "00:19:28.70",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        59.52,
+        17.92
+      ]
+    },
+    {
+      "id": "8bc579bb",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:19:31.30",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        7.37,
+        33.72
+      ]
+    },
+    {
+      "id": "7b3764a8",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:19:39.00",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        95.9,
+        73.83
+      ]
+    },
+    {
+      "id": "cc0417e6",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:19:41.50",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        99.74,
+        21.25
+      ]
+    },
+    {
+      "id": "3d6e1cac",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:19:43.30",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        88.39,
+        60.31
+      ]
+    },
+    {
+      "id": "e94127ef",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:19:48.40",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        14.18,
+        73.27
+      ]
+    },
+    {
+      "id": "c3db4c28",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:19:53.40",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        6.82,
+        47.66
+      ],
+      "pass": {
+        "end_location": [
+          10.78,
+          37.09
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "3e57ebe1",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:19:57.90",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        31.42,
+        14.63
+      ]
+    },
+    {
+      "id": "817fdd87",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:20:05.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        36.16,
+        70.25
+      ]
+    },
+    {
+      "id": "1ebdcf32",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:20:12.10",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        38.74,
+        42.43
+      ]
+    },
+    {
+      "id": "f0823e67",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:20:16.30",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        67.84,
+        60.99
+      ],
+      "pass": {
+        "end_location": [
+          80.9,
+          53.68
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "e3aaf5f4",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:20:21.80",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        78.79,
+        3.09
+      ]
+    },
+    {
+      "id": "96e35c87",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:20:28.90",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        28.79,
+        91.93
+      ]
+    },
+    {
+      "id": "5e98faf9",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:20:33.90",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        76.39,
+        72.19
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          88.23
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "af24e45b",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:20:39.30",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        78.58,
+        86.02
+      ],
+      "pass": {
+        "end_location": [
+          91.34,
+          65.49
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "e9275be1",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:20:46.50",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        93.31,
+        45.72
+      ],
+      "pass": {
+        "end_location": [
+          90.63,
+          32.88
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "ca818012",
+      "type": {
+        "name": "custom_event_41"
+      },
+      "timestamp": "00:20:51.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        23.52,
+        8.65
+      ],
+      "pass": {
+        "end_location": [
+          3.27,
+          22.2
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "efccdf5e",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:20:56.60",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        83.88,
+        78.84
+      ]
+    },
+    {
+      "id": "6e8dc679",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:21:03.70",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        36.13,
+        13.26
+      ],
+      "pass": {
+        "end_location": [
+          64.43,
+          0
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "f75df52d",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:21:09.50",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        16.39,
+        98.52
+      ]
+    },
+    {
+      "id": "72a8db51",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:21:15.90",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        74.34,
+        83.5
+      ]
+    },
+    {
+      "id": "d97527e7",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:21:20.90",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        96.18,
+        55.47
+      ]
+    },
+    {
+      "id": "bd0954f1",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:21:28.30",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        74.45,
+        13.43
+      ]
+    },
+    {
+      "id": "e3f4e499",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:21:31.60",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        81.74,
+        60.35
+      ]
+    },
+    {
+      "id": "84b3b4b3",
+      "type": {
+        "name": "corner"
+      },
+      "timestamp": "00:21:37.70",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        55.75,
+        62.67
+      ]
+    },
+    {
+      "id": "627df2a4",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:21:41.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        55.79,
+        30.04
+      ]
+    },
+    {
+      "id": "ab133eb9",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:21:48.30",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        91.32,
+        23.59
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          20.46
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "cb5a8d45",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:21:53.60",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        36.08,
+        15.57
+      ],
+      "pass": {
+        "end_location": [
+          27.46,
+          41.34
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "8d60dcdb",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:21:59.60",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        42.59,
+        5.02
+      ]
+    },
+    {
+      "id": "2bdab5f4",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:22:01.70",
+      "period": 1,
+      "player": {
+        "id": 5001,
+        "name": "Mohamed Salah"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        54.56,
+        23.45
+      ]
+    },
+    {
+      "id": "19759258",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:22:05.30",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        28.5,
+        26.23
+      ]
+    },
+    {
+      "id": "347b606a",
+      "type": {
+        "name": "custom_event_1"
+      },
+      "timestamp": "00:22:08.90",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        86.85,
+        52.13
+      ],
+      "pass": {
+        "end_location": [
+          100,
+          28.47
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "8244aef3",
+      "type": {
+        "name": "custom_event_9"
+      },
+      "timestamp": "00:22:15.40",
+      "period": 1,
+      "player": {
+        "id": 5002,
+        "name": "Erling Haaland"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        64.43,
+        32.54
+      ],
+      "pass": {
+        "end_location": [
+          57.24,
+          27.14
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "d5c649ab",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:22:19.50",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        13.21,
+        73.53
+      ]
+    },
+    {
+      "id": "77bee216",
+      "type": {
+        "name": "custom_event_21"
+      },
+      "timestamp": "00:22:21.00",
+      "period": 1,
+      "player": {
+        "id": 5005,
+        "name": "Rodri"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        3.52,
+        30.58
+      ]
+    },
+    {
+      "id": "05c09a48",
+      "type": {
+        "name": "custom_event_24"
+      },
+      "timestamp": "00:22:26.90",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        36.12,
+        51.27
+      ]
+    },
+    {
+      "id": "94474c80",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:22:31.30",
+      "period": 1,
+      "player": {
+        "id": 5010,
+        "name": "Jack Grealish"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        71.26,
+        13.16
+      ],
+      "pass": {
+        "end_location": [
+          87.24,
+          0
+        ],
+        "outcome": {
+          "name": "Incomplete"
+        }
+      }
+    },
+    {
+      "id": "dd088ec2",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:22:34.70",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        69.08,
+        48.17
+      ]
+    },
+    {
+      "id": "ec3c941a",
+      "type": {
+        "name": "shot"
+      },
+      "timestamp": "00:22:39.40",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        83.92,
+        31.51
+      ],
+      "pass": {
+        "end_location": [
+          79.57,
+          52.04
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "71d0f5c7",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:22:42.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        17.26,
+        38.81
+      ]
+    },
+    {
+      "id": "dc47716b",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:22:50.00",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        33.85,
+        8.87
+      ]
+    },
+    {
+      "id": "aa5654dc",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:22:56.00",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        73.72,
+        57.55
+      ]
+    },
+    {
+      "id": "dad86ba2",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:23:02.20",
+      "period": 1,
+      "player": {
+        "id": 5004,
+        "name": "Virgil van Dijk"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        87.04,
+        84.49
+      ]
+    },
+    {
+      "id": "cbb03b59",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:23:09.30",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        13.39,
+        28.23
+      ]
+    },
+    {
+      "id": "d0a5aff5",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:23:14.80",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        44.51,
+        39.56
+      ]
+    },
+    {
+      "id": "ae5b1510",
+      "type": {
+        "name": "dribble"
+      },
+      "timestamp": "00:23:22.80",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        56.16,
+        82.62
+      ]
+    },
+    {
+      "id": "ac3a357e",
+      "type": {
+        "name": "foul"
+      },
+      "timestamp": "00:23:30.50",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        37.32,
+        53.25
+      ]
+    },
+    {
+      "id": "e6f70fc5",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:23:37.50",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        19.17,
+        34.68
+      ],
+      "pass": {
+        "end_location": [
+          29.03,
+          11.89
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "867d94f5",
+      "type": {
+        "name": "save"
+      },
+      "timestamp": "00:23:43.40",
+      "period": 1,
+      "player": {
+        "id": 5009,
+        "name": "Phil Foden"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        55.94,
+        48.61
+      ]
+    },
+    {
+      "id": "b28f3048",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:23:49.90",
+      "period": 1,
+      "player": {
+        "id": 5011,
+        "name": "Bernardo Silva"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        65.91,
+        46.81
+      ],
+      "pass": {
+        "end_location": [
+          95.36,
+          26.32
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "95839a1b",
+      "type": {
+        "name": "tackle"
+      },
+      "timestamp": "00:23:52.20",
+      "period": 1,
+      "player": {
+        "id": 5007,
+        "name": "Ederson"
+      },
+      "team": {
+        "name": "Manchester United"
+      },
+      "location": [
+        30.98,
+        48.77
+      ]
+    },
+    {
+      "id": "175844bf",
+      "type": {
+        "name": "interception"
+      },
+      "timestamp": "00:23:55.40",
+      "period": 1,
+      "player": {
+        "id": 5000,
+        "name": "Lionel Messi"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        58.38,
+        34.67
+      ]
+    },
+    {
+      "id": "772a8445",
+      "type": {
+        "name": "pass"
+      },
+      "timestamp": "00:24:00.50",
+      "period": 1,
+      "player": {
+        "id": 5006,
+        "name": "Alisson Becker"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        33.62,
+        13.21
+      ],
+      "pass": {
+        "end_location": [
+          45.72,
+          33.54
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "e17aa0d0",
+      "type": {
+        "name": "clearance"
+      },
+      "timestamp": "00:24:05.50",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        7.89,
+        76.6
+      ],
+      "pass": {
+        "end_location": [
+          33.2,
+          56.79
+        ],
+        "outcome": {
+          "name": "Complete"
+        }
+      }
+    },
+    {
+      "id": "03ed63fc",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:24:12.40",
+      "period": 1,
+      "player": {
+        "id": 5003,
+        "name": "Kevin De Bruyne"
+      },
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        29.59,
+        53.59
+      ]
+    },
+    {
+      "id": "943c4105",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:24:16.70",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        20.93,
+        45.74
+      ]
+    },
+    {
+      "id": "21b7881f",
+      "type": {
+        "name": "throw_in"
+      },
+      "timestamp": "00:24:21.30",
+      "period": 1,
+      "player": null,
+      "team": {
+        "name": "Tottenham"
+      },
+      "location": [
+        10.01,
+        6.38
+      ]
+    }
+  ],
+  "_vendor_format": "statsbomb"
+}

@@ -1,0 +1,5141 @@
+{
+  "wyId": "PL_2025_MESSY_001",
+  "label": "Manchester United - Tottenham",
+  "events": [
+    {
+      "eventId": "4c80e8d7",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 3.0,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 27.0,
+          "y": 33.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a3d071a0",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 10.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 60.1,
+          "y": 87.7
+        },
+        {
+          "x": 37.4,
+          "y": 64.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "27c8dcd8",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 14.2,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 106.3,
+          "y": 57.7
+        },
+        {
+          "x": 70.9,
+          "y": 43.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "45cf3090",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 21.3,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 58.7,
+          "y": 3.4
+        },
+        {
+          "x": 65.2,
+          "y": 8.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "44a35754",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 26.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 9.4,
+          "y": 45.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1a89e17a",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 29.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 37.7,
+          "y": 81.2
+        },
+        {
+          "x": 36.5,
+          "y": 55.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "73f1c5d7",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 34.7,
+      "trackable_object": null,
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 99.2,
+          "y": 12.4
+        },
+        {
+          "x": 100,
+          "y": 0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "bcb80f0e",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 40.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 16.9,
+          "y": 12.0
+        },
+        {
+          "x": 41.1,
+          "y": 11.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ce4bc8f1",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 45.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 34.6,
+          "y": 67.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b9e2caab",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 49.6,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 61.0,
+          "y": 5.3
+        },
+        {
+          "x": 80.3,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5aaf45ae",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 57.2,
+      "trackable_object": "player_7011",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 70.4,
+          "y": 49.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "602959e7",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 64.1,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 48.9,
+          "y": 51.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ffd475d6",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 66.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 30.1,
+          "y": 15.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "697c5128",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 70.9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 33.9,
+          "y": 38.7
+        },
+        {
+          "x": 43.9,
+          "y": 53.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "eee9a4e0",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 76.6,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 66.2,
+          "y": 43.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5e9bc1af",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 83.2,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 14.1,
+          "y": 16.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ff5686b8",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 87.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 82.4,
+          "y": 65.4
+        },
+        {
+          "x": 80.6,
+          "y": 39.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b8e97a35",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 90.3,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 86.7,
+          "y": 79.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "54dee3fa",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 93.0,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 30.9,
+          "y": 28.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d7671c6a",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 99.0,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 26.4,
+          "y": 89.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "52db2f79",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 104.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 45.6,
+          "y": 99.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6c87362c",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 108.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 24.4,
+          "y": 53.1
+        },
+        {
+          "x": 4.1,
+          "y": 47.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "31d540c7",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 112.7,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 20.1,
+          "y": 41.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "caac802a",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 119.2,
+      "trackable_object": null,
+      "jerseyNumber": 20,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 51.4,
+          "y": 15.8
+        },
+        {
+          "x": 76.9,
+          "y": 3.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "eae0a8cc",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 123.2,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 16.1,
+          "y": 79.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "061eeb02",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 128.5,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 42.4,
+          "y": 37.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2d58f876",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 135.1,
+      "trackable_object": null,
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 99.3,
+          "y": 98.6
+        },
+        {
+          "x": 100,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "19c37746",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 137.5,
+      "trackable_object": "player_7011",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 81.2,
+          "y": 63.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "94c67b5d",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 142.3,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 68.7,
+          "y": 49.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2ec4b4c6",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 145.4,
+      "trackable_object": null,
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 48.9,
+          "y": 66.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b61e4a5d",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 150.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 73.8,
+          "y": 67.7
+        },
+        {
+          "x": 49.2,
+          "y": 77.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "34a43095",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 152.3,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 84.1,
+          "y": 87.2
+        },
+        {
+          "x": 100,
+          "y": 64.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "df90a2e0",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 155.0,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 78.7,
+          "y": 3.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "1fe163a9",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 160.8,
+      "trackable_object": "player_7002",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 76.5,
+          "y": 14.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ff40d10b",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 165.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 86.5,
+          "y": 8.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e0a4e1ee",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 168.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 33.9,
+          "y": 78.6
+        },
+        {
+          "x": 4.9,
+          "y": 81.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "de127d81",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 171.8,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 97.8,
+          "y": 89.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4acde728",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 176.1,
+      "trackable_object": "player_7002",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 92.7,
+          "y": 13.0
+        },
+        {
+          "x": 57.5,
+          "y": 4.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "66ea3dd9",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 179.6,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 97.2,
+          "y": 9.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "50a1628e",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 181.4,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 37.5,
+          "y": 53.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5892c806",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 183.1,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 27.3,
+          "y": 98.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "638b3892",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 188.8,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 24.2,
+          "y": 67.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d0fc7284",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 191.8,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 63.5,
+          "y": 72.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "81b42d6c",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 199.6,
+      "trackable_object": null,
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 79.4,
+          "y": 56.5
+        },
+        {
+          "x": 91.8,
+          "y": 48.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "175cc949",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 204.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 19.6,
+          "y": 24.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "05e4f09c",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 207.9,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 1.3,
+          "y": 91.9
+        },
+        {
+          "x": 15.3,
+          "y": 73.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7088af66",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 212.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 112.8,
+          "y": 70.8
+        },
+        {
+          "x": 100,
+          "y": 77.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f25e34fc",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 218.2,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 33.5,
+          "y": 19.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "cec1a5f5",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 223.7,
+      "trackable_object": null,
+      "jerseyNumber": 20,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 71.9,
+          "y": 70.6
+        },
+        {
+          "x": 57.3,
+          "y": 69.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6f2b19ee",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 231.4,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 23.7,
+          "y": 94.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ae8351d7",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 233.8,
+      "trackable_object": "player_7009",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 94.9,
+          "y": 28.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2f9ae7d1",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 240.3,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 80.9,
+          "y": 29.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9688089b",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 247.2,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 3.4,
+          "y": 58.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b9a82731",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 254.3,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 57.6,
+          "y": 100.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "aea245a6",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 262.1,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 12.4,
+          "y": 76.6
+        },
+        {
+          "x": 30.5,
+          "y": 79.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "17f0f8c8",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 270.0,
+      "trackable_object": "player_7007",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 43.0,
+          "y": 8.4
+        },
+        {
+          "x": 36.9,
+          "y": 0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "09fa8529",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 275.3,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 24.2,
+          "y": 44.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d30add41",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 280.2,
+      "trackable_object": null,
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 91.5,
+          "y": 43.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "fbd7681b",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 282.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 43.8,
+          "y": 39.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b5f50dea",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 285.8,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 79.1,
+          "y": 68.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "111987b9",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 288.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 44.2,
+          "y": 25.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c1a02cc2",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 293.2,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 48.0,
+          "y": 64.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cb4e7c09",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 297.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 88.0,
+          "y": 83.5
+        },
+        {
+          "x": 80.3,
+          "y": 92.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2cec1529",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 303.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 97.6,
+          "y": 5.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "1456de29",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 306.0,
+      "trackable_object": null,
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 40.1,
+          "y": 11.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "03acad5f",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 309.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 74.0,
+          "y": 48.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8a077a7c",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 316.3,
+      "trackable_object": null,
+      "jerseyNumber": 11,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 88.6,
+          "y": 69.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7ec0ebfb",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 322.2,
+      "trackable_object": null,
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 32.1,
+          "y": 32.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "fdc09a83",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 328.8,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 53.0,
+          "y": 4.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b1318551",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 335.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 74.8,
+          "y": 44.5
+        },
+        {
+          "x": 89.9,
+          "y": 60.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d69e1de2",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 338.6,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 39.7,
+          "y": 64.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a5d68216",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 345.4,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 87.2,
+          "y": 94.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "54cc4b33",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 350.3,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 60.3,
+          "y": 22.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "47e1ba2a",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 355.4,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 62.3,
+          "y": 51.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "f3a65efa",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 360.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 67.3,
+          "y": 91.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d834cfb6",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 363.5,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 37.4,
+          "y": 8.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "eafedd2c",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 366.9,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 83.0,
+          "y": 84.5
+        },
+        {
+          "x": 100,
+          "y": 88.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8bd8f9d1",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 370.7,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 48.1,
+          "y": 5.0
+        },
+        {
+          "x": 41.9,
+          "y": 9.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "878cf86d",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 373.0,
+      "trackable_object": null,
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 45.2,
+          "y": 94.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "0d1b2594",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 374.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 43.0,
+          "y": 90.9
+        },
+        {
+          "x": 27.7,
+          "y": 75.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "885ff246",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 380.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 63.5,
+          "y": 92.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "382d06af",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 382.4,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 87.3,
+          "y": 3.0
+        },
+        {
+          "x": 100,
+          "y": 20.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "54cf1711",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 386.1,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 39.7,
+          "y": 20.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "681243aa",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 388.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 47.1,
+          "y": 94.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dcd960dc",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 393.6,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 75.4,
+          "y": 31.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "872e8d7a",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 401.5,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 74.8,
+          "y": 53.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a4c91d6c",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 409.5,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 43.5,
+          "y": 29.9
+        },
+        {
+          "x": 41.3,
+          "y": 12.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5686c0d8",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 416.7,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 81.0,
+          "y": 29.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dcddc252",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 418.4,
+      "trackable_object": null,
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 17.1,
+          "y": 97.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0f6c4066",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 425.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 83.5,
+          "y": 73.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bbe4dee2",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 430.0,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 84.5,
+          "y": 92.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a1ecb59c",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 432.0,
+      "trackable_object": "player_7006",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 69.7,
+          "y": 35.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "e0a4e8de",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 436.4,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 76.7,
+          "y": 92.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9982ebd4",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 443.3,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 18.2,
+          "y": 8.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "28aef528",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 450.8,
+      "trackable_object": null,
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 69.6,
+          "y": 60.5
+        },
+        {
+          "x": 82.3,
+          "y": 43.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fa672256",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 458.6,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 26.8,
+          "y": 80.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fdd731c4",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 464.6,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 6.3,
+          "y": 2.5
+        },
+        {
+          "x": 27.7,
+          "y": 22.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "23934132",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 471.8,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 33.6,
+          "y": 52.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "908a5e30",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 476.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 84.2,
+          "y": 7.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d3b24a41",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 482.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 79.9,
+          "y": 55.2
+        },
+        {
+          "x": 92.0,
+          "y": 80.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cdb1dec0",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 487.5,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 48.2,
+          "y": 9.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "40ca82e6",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 489.5,
+      "trackable_object": null,
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 53.8,
+          "y": 21.2
+        },
+        {
+          "x": 26.8,
+          "y": 7.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1d37df38",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 492.0,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 71.5,
+          "y": 61.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "940e1fdc",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 495.7,
+      "trackable_object": null,
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 70.8,
+          "y": 24.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9b56a7c3",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 498.5,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 55.6,
+          "y": 88.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2a1f297c",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 504.3,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 54.0,
+          "y": 95.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1d77cb51",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 510.7,
+      "trackable_object": "player_7003",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 78.9,
+          "y": 83.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ff0788d1",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 518.0,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 34.6,
+          "y": 94.3
+        },
+        {
+          "x": 42.1,
+          "y": 96.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b6de3f2b",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 524.5,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 33.9,
+          "y": 34.8
+        },
+        {
+          "x": 34.9,
+          "y": 7.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3071eb8b",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 530.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 79.5,
+          "y": 30.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e9423a3f",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 533.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 53.7,
+          "y": 29.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "9d4bd4fe",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 539.9,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 4.3,
+          "y": 56.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "10d8c2b8",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 543.8,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 82.2,
+          "y": 4.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4a49ae8b",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 548.1,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 12.1,
+          "y": 50.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dc7ebcfc",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 550.3,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 90.3,
+          "y": 47.9
+        },
+        {
+          "x": 62.6,
+          "y": 54.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "759de9c3",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 557.4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 62.9,
+          "y": 44.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dda4cbdd",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 562.5,
+      "trackable_object": null,
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 80.5,
+          "y": 79.4
+        },
+        {
+          "x": 100,
+          "y": 81.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b8c5b155",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 564.7,
+      "trackable_object": null,
+      "jerseyNumber": 9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 54.3,
+          "y": 89.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8e77348f",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 570.4,
+      "trackable_object": "player_7011",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 81.2,
+          "y": 17.7
+        },
+        {
+          "x": 57.3,
+          "y": 37.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "80f804ce",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 572.4,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 44.2,
+          "y": 80.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "aa9839af",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 579.0,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 40.8,
+          "y": 41.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "93b0543d",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 586.6,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 90.1,
+          "y": 24.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c99d1e14",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 591.4,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 63.2,
+          "y": 20.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "bd647914",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 593.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 27.2,
+          "y": 54.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "e3dbae77",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 597.5,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 8.4,
+          "y": 79.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "203ac678",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 604.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 61.0,
+          "y": 44.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "25aef2a2",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 608.5,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 12.7,
+          "y": 17.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "dfec0855",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 610.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 85.6,
+          "y": 69.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "598ac2bd",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 612.0,
+      "trackable_object": null,
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 43.1,
+          "y": 12.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "250ac1cc",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 615.4,
+      "trackable_object": null,
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 15.9,
+          "y": 45.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a4924723",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 617.0,
+      "trackable_object": null,
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 101.4,
+          "y": 32.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1abeec9c",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 621.2,
+      "trackable_object": "player_7001",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 72.3,
+          "y": 36.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c9958b93",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 625.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 78.8,
+          "y": 38.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a17ce976",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 631.1,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 50.2,
+          "y": 64.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0e7fb039",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 638.1,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 82.6,
+          "y": 38.6
+        },
+        {
+          "x": 59.1,
+          "y": 22.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "efc24a45",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 640.2,
+      "trackable_object": null,
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 18.6,
+          "y": 17.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c72394af",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 643.5,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 68.7,
+          "y": 75.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "62d5801b",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 650.7,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 38.2,
+          "y": 95.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cb4b51a4",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 653.0,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 44.5,
+          "y": 57.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2ca42b5c",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 657.2,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 62.7,
+          "y": 86.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "41ccf659",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 660.8,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 61.5,
+          "y": 9.3
+        },
+        {
+          "x": 46.0,
+          "y": 21.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8ce2da9a",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 668.5,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 3.9,
+          "y": 31.7
+        },
+        {
+          "x": 21.4,
+          "y": 33.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8c057cfb",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 673.7,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 52.3,
+          "y": 20.7
+        },
+        {
+          "x": 33.3,
+          "y": 9.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b4b8ce43",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 681.0,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 11.7,
+          "y": 52.9
+        },
+        {
+          "x": 35.1,
+          "y": 72.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "65d7ab17",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 684.0,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 30.7,
+          "y": 64.5
+        },
+        {
+          "x": 9.0,
+          "y": 76.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b9757b20",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 687.6,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 82.0,
+          "y": 61.6
+        },
+        {
+          "x": 52.1,
+          "y": 70.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dfd7fd57",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 693.9,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 18.6,
+          "y": 47.7
+        },
+        {
+          "x": 43.1,
+          "y": 17.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f5b53930",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 701.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 83.3,
+          "y": 12.2
+        },
+        {
+          "x": 68.6,
+          "y": 40.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fd473a98",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 708.9,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 35.7,
+          "y": 24.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "39bdb57f",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 716.0,
+      "trackable_object": null,
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 68.2,
+          "y": 23.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4d9d7fd3",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 721.4,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 40.4,
+          "y": 40.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d7c55068",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 727.1,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 48.2,
+          "y": 79.2
+        },
+        {
+          "x": 58.2,
+          "y": 79.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "8562018a",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 728.8,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 3.6,
+          "y": 70.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "8b34cdd5",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 733.1,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 53.7,
+          "y": 56.3
+        },
+        {
+          "x": 46.9,
+          "y": 75.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a9c8302c",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 739.8,
+      "trackable_object": "player_7004",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 53.2,
+          "y": 84.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "85124f6b",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 741.7,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 74.3,
+          "y": 99.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ba42cfe2",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 744.0,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 14.8,
+          "y": 60.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ecf8d892",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 746.7,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 11.4,
+          "y": 13.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "28caa111",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 748.9,
+      "trackable_object": "player_7005",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 68.1,
+          "y": 91.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a6191c86",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 755.6,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 8.5,
+          "y": 93.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e9a0826c",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 760.2,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 31.6,
+          "y": 73.2
+        },
+        {
+          "x": 10.8,
+          "y": 99.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "f1b4d933",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 767.5,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 60.0,
+          "y": 23.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "7d4c3911",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 773.7,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 80.0,
+          "y": 79.5
+        },
+        {
+          "x": 57.1,
+          "y": 81.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d495c5aa",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 779.0,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 17.0,
+          "y": 93.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "40935068",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 784.2,
+      "trackable_object": null,
+      "jerseyNumber": 11,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 11.6,
+          "y": 41.9
+        },
+        {
+          "x": 0,
+          "y": 63.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "19517543",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 788.1,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 55.3,
+          "y": 84.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "83139d9d",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 792.4,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 28.9,
+          "y": 59.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0c1cbd88",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 796.6,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 47.2,
+          "y": 19.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fadceb27",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 804.2,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 20.3,
+          "y": 71.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c7b85571",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 811.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 54.5,
+          "y": 26.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3084ac1d",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 816.2,
+      "trackable_object": "player_7003",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 28.0,
+          "y": 16.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "945a67a2",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 823.3,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 12.7,
+          "y": 39.4
+        },
+        {
+          "x": 15.1,
+          "y": 17.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "7e5b9460",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 827.8,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 81.9,
+          "y": 12.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a5b2d57d",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 831.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 45.1,
+          "y": 23.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a34266ee",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 837.4,
+      "trackable_object": "player_7003",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 50.8,
+          "y": 84.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d58eaf7f",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 845.2,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 49.3,
+          "y": 5.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7bdde9d3",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 847.2,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 61.7,
+          "y": 8.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d2b9e264",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 848.9,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 24.8,
+          "y": 75.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2194de83",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 856.6,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 38.6,
+          "y": 43.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ad70ac44",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 861.7,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 21.9,
+          "y": 68.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8f2cce4d",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 869.5,
+      "trackable_object": "player_7004",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 70.2,
+          "y": 6.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "bae962d1",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 873.0,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 7.3,
+          "y": 56.6
+        },
+        {
+          "x": 0,
+          "y": 39.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "4ccb91cb",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 880.0,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 8.1,
+          "y": 78.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "2b442b20",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 885.1,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 4.0,
+          "y": 54.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8f7c10ba",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 892.2,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 43.9,
+          "y": 22.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a81140d5",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 894.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 5.5,
+          "y": 83.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "0fa6ddc4",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 900.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 41.0,
+          "y": 14.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "8a3f4ac7",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 905.5,
+      "trackable_object": null,
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 78.3,
+          "y": 10.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "76cad733",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 911.0,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 82.8,
+          "y": 28.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c6b4c873",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 917.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 69.4,
+          "y": 32.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a7c54dd6",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 920.4,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 45.3,
+          "y": 2.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d93c9bca",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 925.0,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 63.7,
+          "y": 5.6
+        },
+        {
+          "x": 41.4,
+          "y": 13.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "98c23c50",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 930.3,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 19.3,
+          "y": 87.1
+        },
+        {
+          "x": 28.4,
+          "y": 89.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c1f3ad90",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 934.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 74.7,
+          "y": 17.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7f4b8f18",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 936.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 15.8,
+          "y": 47.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0fba2c3d",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 939.7,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 26.7,
+          "y": 90.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ae0f75e1",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 944.8,
+      "trackable_object": null,
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 70.0,
+          "y": 34.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "22f5b2f4",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 952.2,
+      "trackable_object": null,
+      "jerseyNumber": 11,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 17.0,
+          "y": 74.1
+        },
+        {
+          "x": 24.2,
+          "y": 71.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a4067154",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 959.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 5.5,
+          "y": 53.9
+        },
+        {
+          "x": 0,
+          "y": 28.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "eff44b6a",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 967.0,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 26.4,
+          "y": 43.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d6edf410",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 969.8,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 25.7,
+          "y": 55.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6b38287d",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 973.5,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 42.8,
+          "y": 60.5
+        },
+        {
+          "x": 28.4,
+          "y": 39.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ee3cbeab",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 975.5,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 29.4,
+          "y": 15.3
+        },
+        {
+          "x": 33.6,
+          "y": 23.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dfc5e833",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 981.6,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 29.5,
+          "y": 21.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ae00c261",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 988.2,
+      "trackable_object": null,
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 90.0,
+          "y": 62.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c3e41218",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 992.6,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 94.5,
+          "y": 9.2
+        },
+        {
+          "x": 100,
+          "y": 28.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "73e228f8",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 996.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 98.8,
+          "y": 36.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "117693d7",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 999.7,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 64.6,
+          "y": 62.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "7e7ba997",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1002.3,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 63.4,
+          "y": 23.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "4b679540",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1007.2,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 73.5,
+          "y": 42.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e858de48",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1010.4,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 37.8,
+          "y": 12.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "df76af24",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1015.3,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 94.2,
+          "y": 78.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a318f1bc",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1021.9,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 58.7,
+          "y": 91.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "0bd5e072",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 1026.1,
+      "trackable_object": "player_7005",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 43.9,
+          "y": 56.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c2aa5877",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1032.4,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 35.8,
+          "y": 70.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3ad28758",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1035.2,
+      "trackable_object": null,
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 87.3,
+          "y": 34.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "66248984",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1041.9,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 94.6,
+          "y": 63.5
+        },
+        {
+          "x": 70.1,
+          "y": 92.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "83be5534",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 1044.7,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 89.0,
+          "y": 2.7
+        },
+        {
+          "x": 76.0,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e6da093c",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1046.5,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 64.6,
+          "y": 74.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "140075d3",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1048.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 83.2,
+          "y": 12.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "465d3503",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1052.9,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 17.7,
+          "y": 51.9
+        },
+        {
+          "x": 36.6,
+          "y": 59.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7b165fca",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1060.7,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 11.3,
+          "y": 13.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "c191283f",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1064.5,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 22.7,
+          "y": 0.2
+        },
+        {
+          "x": 42.8,
+          "y": 11.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "5a32fe16",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1067.7,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 54.6,
+          "y": 28.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "fc1b1cdb",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1069.8,
+      "trackable_object": "player_7000",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 38.1,
+          "y": 98.4
+        },
+        {
+          "x": 30.0,
+          "y": 100
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1347297b",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1077.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 80.3,
+          "y": 1.5
+        },
+        {
+          "x": 83.7,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7bdacbe1",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1084.6,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 14.6,
+          "y": 68.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f273b9fa",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1091.3,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 57.9,
+          "y": 88.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c785bff8",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1095.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 14.8,
+          "y": 21.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "451645d6",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1102.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 22.1,
+          "y": 56.3
+        },
+        {
+          "x": 0,
+          "y": 67.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "a8d12f1a",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1109.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 82.4,
+          "y": 2.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "09e3f321",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1116.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 94.6,
+          "y": 87.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "69e35f41",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1118.2,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 73.7,
+          "y": 96.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "285d4bcc",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1120.5,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 54.2,
+          "y": 37.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "8df0bb3a",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1125.4,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 83.2,
+          "y": 41.8
+        },
+        {
+          "x": 55.4,
+          "y": 15.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3d40583f",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1132.3,
+      "trackable_object": "player_7008",
+      "jerseyNumber": 66,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 88.5,
+          "y": 89.7
+        },
+        {
+          "x": 96.5,
+          "y": 67.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "28fb4336",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1136.9,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 5.8,
+          "y": 78.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "45ceca8e",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1139.5,
+      "trackable_object": "player_7010",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 105.5,
+          "y": 44.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "8a65e0f4",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1141.4,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 61.2,
+          "y": 46.9
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "a62345d4",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1144.7,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 80.5,
+          "y": 65.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2d668757",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1151.0,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 66.7,
+          "y": 14.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "33f00a72",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1154.1,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 10.8,
+          "y": 96.6
+        },
+        {
+          "x": 26.1,
+          "y": 82.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b668fb3c",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1161.5,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 52.9,
+          "y": 69.1
+        },
+        {
+          "x": 27.2,
+          "y": 90.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "b5f2e84d",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1168.7,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 59.5,
+          "y": 17.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8bc579bb",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1171.3,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 0.1,
+          "y": 33.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "7b3764a8",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1179.0,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 95.9,
+          "y": 73.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cc0417e6",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1181.5,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 99.7,
+          "y": 21.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3d6e1cac",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1183.3,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 88.4,
+          "y": 60.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e94127ef",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1188.4,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 14.2,
+          "y": 73.3
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "c3db4c28",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 1193.4,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 6.8,
+          "y": 47.7
+        },
+        {
+          "x": 10.8,
+          "y": 37.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "3e57ebe1",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1197.9,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 31.4,
+          "y": 14.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "817fdd87",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1205.0,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 36.2,
+          "y": 70.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "1ebdcf32",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1212.1,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 38.7,
+          "y": 42.4
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "f0823e67",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1216.3,
+      "trackable_object": null,
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 67.8,
+          "y": 61.0
+        },
+        {
+          "x": 80.9,
+          "y": 53.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e3aaf5f4",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1221.8,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 78.8,
+          "y": 3.1
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "96e35c87",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1228.9,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 28.8,
+          "y": 91.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "5e98faf9",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1233.9,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 76.4,
+          "y": 72.2
+        },
+        {
+          "x": 100,
+          "y": 88.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "af24e45b",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1239.3,
+      "trackable_object": null,
+      "jerseyNumber": 11,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 81.3,
+          "y": 86.0
+        },
+        {
+          "x": 91.3,
+          "y": 65.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e9275be1",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1246.5,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 93.3,
+          "y": 45.7
+        },
+        {
+          "x": 90.6,
+          "y": 32.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ca818012",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1251.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 23.5,
+          "y": 8.7
+        },
+        {
+          "x": 3.3,
+          "y": 22.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "efccdf5e",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1256.6,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 83.9,
+          "y": 78.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "6e8dc679",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1263.7,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 36.1,
+          "y": 13.3
+        },
+        {
+          "x": 64.4,
+          "y": 0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "f75df52d",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1269.5,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 16.4,
+          "y": 98.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "72a8db51",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1275.9,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 74.3,
+          "y": 83.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d97527e7",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1280.9,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 96.2,
+          "y": 55.5
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "bd0954f1",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1288.3,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 74.5,
+          "y": 13.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e3f4e499",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1291.6,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 81.7,
+          "y": 60.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "84b3b4b3",
+      "subEventName": "corner",
+      "matchPeriod": "1H",
+      "eventSec": 1297.7,
+      "trackable_object": "player_7006",
+      "jerseyNumber": null,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 55.8,
+          "y": 62.7
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "627df2a4",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1301.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 55.8,
+          "y": 30.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ab133eb9",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1308.3,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 91.3,
+          "y": 23.6
+        },
+        {
+          "x": 100,
+          "y": 20.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cb5a8d45",
+      "subEventName": null,
+      "matchPeriod": "1H",
+      "eventSec": 1313.6,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 36.1,
+          "y": 15.6
+        },
+        {
+          "x": 27.5,
+          "y": 41.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8d60dcdb",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1319.6,
+      "trackable_object": "player_7010",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 42.6,
+          "y": 5.0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "2bdab5f4",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1321.7,
+      "trackable_object": "player_7001",
+      "jerseyNumber": 11,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 54.6,
+          "y": 23.4
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "19759258",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1325.3,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 28.5,
+          "y": 26.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "347b606a",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1328.9,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 86.8,
+          "y": 52.1
+        },
+        {
+          "x": 100,
+          "y": 28.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "8244aef3",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1335.4,
+      "trackable_object": "player_7002",
+      "jerseyNumber": 9,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 64.4,
+          "y": 32.5
+        },
+        {
+          "x": 57.2,
+          "y": 27.1
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "d5c649ab",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1339.5,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 13.2,
+          "y": 73.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "77bee216",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1341.0,
+      "trackable_object": "player_7005",
+      "jerseyNumber": 16,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 3.5,
+          "y": 30.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "05c09a48",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1346.9,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 36.1,
+          "y": 51.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "94474c80",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1351.3,
+      "trackable_object": null,
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 71.3,
+          "y": 13.2
+        },
+        {
+          "x": 87.2,
+          "y": 0
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "dd088ec2",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1354.7,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 69.1,
+          "y": 48.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ec3c941a",
+      "subEventName": "shot",
+      "matchPeriod": "1H",
+      "eventSec": 1359.4,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 83.9,
+          "y": 31.5
+        },
+        {
+          "x": 79.6,
+          "y": 52.0
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "71d0f5c7",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1362.0,
+      "trackable_object": null,
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 17.3,
+          "y": 38.8
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "dc47716b",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1370.0,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 33.9,
+          "y": 8.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "aa5654dc",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1376.0,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 73.7,
+          "y": 57.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "dad86ba2",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1382.2,
+      "trackable_object": "player_7004",
+      "jerseyNumber": 4,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 99.1,
+          "y": 84.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "cbb03b59",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1389.3,
+      "trackable_object": "player_7011",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 13.4,
+          "y": 28.2
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "d0a5aff5",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1394.8,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 44.5,
+          "y": 39.6
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "ae5b1510",
+      "subEventName": "dribble",
+      "matchPeriod": "1H",
+      "eventSec": 1402.8,
+      "trackable_object": null,
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 56.2,
+          "y": 82.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "ac3a357e",
+      "subEventName": "foul",
+      "matchPeriod": "1H",
+      "eventSec": 1410.5,
+      "trackable_object": "player_7000",
+      "jerseyNumber": 10,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 37.3,
+          "y": 53.2
+        }
+      ],
+      "accurate": false
+    },
+    {
+      "eventId": "e6f70fc5",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1417.5,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 19.2,
+          "y": 34.7
+        },
+        {
+          "x": 29.0,
+          "y": 11.9
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "867d94f5",
+      "subEventName": "save",
+      "matchPeriod": "1H",
+      "eventSec": 1423.4,
+      "trackable_object": "player_7009",
+      "jerseyNumber": 47,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 72.0,
+          "y": 48.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "b28f3048",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1429.9,
+      "trackable_object": "player_7011",
+      "jerseyNumber": 20,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 65.9,
+          "y": 46.8
+        },
+        {
+          "x": 95.4,
+          "y": 26.3
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "95839a1b",
+      "subEventName": "tackle",
+      "matchPeriod": "1H",
+      "eventSec": 1432.2,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Manchester United",
+      "positions": [
+        {
+          "x": 31.0,
+          "y": 48.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "175844bf",
+      "subEventName": "interception",
+      "matchPeriod": "1H",
+      "eventSec": 1435.4,
+      "trackable_object": "player_7000",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 58.4,
+          "y": 34.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "772a8445",
+      "subEventName": "pass",
+      "matchPeriod": "1H",
+      "eventSec": 1440.5,
+      "trackable_object": "player_7006",
+      "jerseyNumber": 1,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 33.6,
+          "y": 13.2
+        },
+        {
+          "x": 45.7,
+          "y": 33.5
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "e17aa0d0",
+      "subEventName": "clearance",
+      "matchPeriod": "1H",
+      "eventSec": 1445.5,
+      "trackable_object": "player_7003",
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 7.9,
+          "y": 76.6
+        },
+        {
+          "x": 33.2,
+          "y": 56.8
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "03ed63fc",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1452.4,
+      "trackable_object": null,
+      "jerseyNumber": 17,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 29.6,
+          "y": 53.6
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "943c4105",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1456.7,
+      "trackable_object": "player_7005",
+      "jerseyNumber": null,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 20.9,
+          "y": 45.7
+        }
+      ],
+      "accurate": true
+    },
+    {
+      "eventId": "21b7881f",
+      "subEventName": "throw_in",
+      "matchPeriod": "1H",
+      "eventSec": 1461.3,
+      "trackable_object": "player_7007",
+      "jerseyNumber": 31,
+      "teamName": "Tottenham",
+      "positions": [
+        {
+          "x": 10.0,
+          "y": 6.4
+        }
+      ],
+      "accurate": true
+    }
+  ],
+  "_vendor_format": "wyscout"
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://fdoa/schemas/cdf_unified.json",
+  "title": "Common Data Format (CDF) - Unified Football Match Event Schema",
+  "description": "Vendor-agnostic schema that all vendor formats (Opta, StatsBomb, Wyscout) are normalized into by the agent pipeline. This is the contract every agent reads from and writes to.",
+  "type": "object",
+  "required": ["match", "metadata", "events"],
+  "properties": {
+    "match": {
+      "type": "object",
+      "required": ["match_id", "date", "home_team", "away_team"],
+      "properties": {
+        "match_id": { "type": "string", "description": "Unique ID for this match, assigned by FDOA, not any vendor" },
+        "date": { "type": "string", "format": "date" },
+        "home_team": { "type": "string" },
+        "away_team": { "type": "string" },
+        "venue": { "type": "string" },
+        "season": { "type": "integer" },
+        "competition": { "type": "string" }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["source_vendors", "coordinate_system", "quality_confidence", "generation_timestamp"],
+      "properties": {
+        "source_vendors": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["opta", "statsbomb", "wyscout", "genius_sports", "unknown"] },
+          "description": "Which vendor(s) contributed events to this merged dataset"
+        },
+        "coordinate_system": {
+          "type": "string",
+          "const": "normalized_0_100",
+          "description": "All events in a CDF file are always normalized to a 0-100 x 0-100 pitch. Agent 3 (Coordinate Translator) guarantees this invariant."
+        },
+        "timestamp_precision": { "type": "string", "enum": ["seconds", "milliseconds"] },
+        "quality_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Overall pipeline confidence after all agents ran, per Section 7 of PRD (starts at 1.0, degrades per retry/fallback used)"
+        },
+        "generation_timestamp": { "type": "string", "format": "date-time" },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Human-readable issues surfaced during normalization, e.g. '3 player IDs unresolved'"
+        },
+        "orchestration_log_ref": {
+          "type": "string",
+          "description": "Reference ID into the Master Orchestrator's error/recovery log for this run (see pipeline/error_handler.py)"
+        }
+      }
+    },
+    "players": {
+      "type": "array",
+      "description": "Unified player registry, output of Agent 4 (Entity Resolver). Events reference players by player_id defined here.",
+      "items": {
+        "type": "object",
+        "required": ["player_id", "resolution_confidence"],
+        "properties": {
+          "player_id": { "type": "string", "description": "Unified ID, e.g. 'messi_lionel_10' or 'unknown_jersey_7_rw' fallback form" },
+          "name": { "type": "string" },
+          "jersey_number": { "type": "integer" },
+          "position": { "type": "string" },
+          "team": { "type": "string" },
+          "vendor_ids": {
+            "type": "object",
+            "description": "Map of vendor name -> that vendor's own ID for this player, kept for traceability and export-back",
+            "additionalProperties": { "type": "string" }
+          },
+          "resolution_confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+          "resolution_attempts": { "type": "integer", "minimum": 1 }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/CDFEvent" }
+    }
+  },
+  "definitions": {
+    "CDFEvent": {
+      "type": "object",
+      "required": ["event_id", "event_type", "timestamp", "period", "x", "y", "quality_confidence", "vendor_source"],
+      "properties": {
+        "event_id": { "type": "string" },
+        "event_type": {
+          "type": "string",
+          "enum": [
+            "pass", "shot", "tackle", "foul", "card", "substitution",
+            "corner", "throw_in", "goal_kick", "offside", "goal",
+            "save", "interception", "clearance", "dribble", "other"
+          ]
+        },
+        "timestamp": { "type": "number", "minimum": 0, "description": "Seconds elapsed in the period" },
+        "period": { "type": "integer", "enum": [1, 2, 3, 4], "description": "3/4 cover extra time" },
+        "player_id": {
+          "type": ["string", "null"],
+          "description": "References players[].player_id. Null only if Entity Resolver fully failed (defensive/team events with no attributable player)"
+        },
+        "team": { "type": "string" },
+        "x": { "type": "number", "minimum": 0, "maximum": 100 },
+        "y": { "type": "number", "minimum": 0, "maximum": 100 },
+        "end_x": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+        "end_y": { "type": ["number", "null"], "minimum": 0, "maximum": 100 },
+        "outcome": { "type": ["boolean", "null"], "description": "Success/fail where applicable (e.g. pass completed)" },
+        "quality_confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Per-event confidence, set by Agent 5 (Validator). Downstream agents (e.g. Narrative Generator) should weight or flag low-confidence events rather than silently trusting them."
+        },
+        "vendor_source": {
+          "type": "string",
+          "enum": ["opta", "statsbomb", "wyscout", "genius_sports", "unknown"]
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Vendor-specific extra fields that don't map cleanly to CDF core fields, kept for traceability and lossless export-back where possible",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+}
