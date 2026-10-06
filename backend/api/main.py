@@ -38,10 +38,12 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(ROOT / "backend" / "agents"))
 sys.path.insert(0, str(ROOT / "backend" / "data" / "schemas"))
+sys.path.insert(0, str(ROOT / "backend" / "data"))
 
 from orchestrator import MasterOrchestrator, PipelineResult  # noqa: E402
 from personalization_engine import PersonalizationProfile  # noqa: E402
 from serialization import to_jsonable  # noqa: E402
+from corruption import corrupt_opta_payload, MUTATION_DESCRIPTIONS  # noqa: E402
 
 SAMPLE_MATCHES_DIR = ROOT / "backend" / "data" / "sample_matches"
 VALID_VENDOR_FILES = {"opta", "statsbomb", "wyscout"}
@@ -93,6 +95,28 @@ class ExportRequest(BaseModel):
     target_vendor: str
 
 
+class CorruptAndRunRequest(BaseModel):
+    vendor: str = "opta"
+    mutations: list[str]
+    rate: float = 0.2  # fraction of events each selected mutation targets
+    seed: Optional[int] = None  # pin for a reproducible run on stage
+
+
+def _serialize_run(result: PipelineResult, run_id: str, extra: Optional[dict] = None) -> dict:
+    base = {
+        "run_id": run_id,
+        "overall_status": result.orchestration_log.overall_status,
+        "orchestration_log": to_jsonable(result.orchestration_log),
+        "document": to_jsonable(result.document),
+        "narrative": to_jsonable(result.narrative),
+        "explainability": to_jsonable(result.explainability),
+        "timeline": result.timeline.to_dict() if result.timeline else None,
+    }
+    if extra:
+        base.update(extra)
+    return base
+
+
 @app.get("/health")
 def health() -> dict:
     return {"status": "ok"}
@@ -121,17 +145,7 @@ def run_match(match_id: str, body: RunRequest = RunRequest()) -> dict:
     run_id = result.orchestration_log.run_id
     RUN_STORE[run_id] = result
 
-    return {
-        "run_id": run_id,
-        "match_id": match_id,
-        "quality_tier": entry.get("quality_tier"),
-        "overall_status": result.orchestration_log.overall_status,
-        "orchestration_log": to_jsonable(result.orchestration_log),
-        "document": to_jsonable(result.document),
-        "narrative": to_jsonable(result.narrative),
-        "explainability": to_jsonable(result.explainability),
-        "timeline": result.timeline.to_dict() if result.timeline else None,
-    }
+    return _serialize_run(result, run_id, {"match_id": match_id, "quality_tier": entry.get("quality_tier")})
 
 
 def _get_run(run_id: str) -> PipelineResult:
@@ -144,15 +158,47 @@ def _get_run(run_id: str) -> PipelineResult:
 @app.get("/runs/{run_id}")
 def get_run(run_id: str) -> dict:
     result = _get_run(run_id)
-    return {
-        "run_id": run_id,
-        "overall_status": result.orchestration_log.overall_status,
-        "orchestration_log": to_jsonable(result.orchestration_log),
-        "document": to_jsonable(result.document),
-        "narrative": to_jsonable(result.narrative),
-        "explainability": to_jsonable(result.explainability),
-        "timeline": result.timeline.to_dict() if result.timeline else None,
-    }
+    return _serialize_run(result, run_id)
+
+
+@app.get("/mutations")
+def list_mutations() -> dict:
+    return MUTATION_DESCRIPTIONS
+
+
+@app.post("/matches/{match_id}/corrupt-and-run")
+def corrupt_and_run_match(match_id: str, body: CorruptAndRunRequest) -> dict:
+    """Live, on-demand data corruption for stage demos -- see
+    backend/data/corruption.py's module docstring for why this exists and
+    exactly which upstream fallback each mutation is built to exercise.
+    Currently Opta-only, matching that module's scope."""
+    if body.vendor != "opta":
+        raise HTTPException(
+            status_code=400,
+            detail=f"corrupt-and-run currently only supports the 'opta' vendor feed, got '{body.vendor}'",
+        )
+    entry = _manifest_entry(match_id)
+    vendor_file = SAMPLE_MATCHES_DIR / match_id / "opta.json"
+    if not vendor_file.exists():
+        raise HTTPException(status_code=404, detail=f"match '{match_id}' has no 'opta' file")
+
+    vendor_data = json.loads(vendor_file.read_text())
+    try:
+        corrupted_data, corruption_log = corrupt_opta_payload(
+            vendor_data, body.mutations, rate=body.rate, seed=body.seed,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+    result = orchestrator.run(corrupted_data)
+    run_id = result.orchestration_log.run_id
+    RUN_STORE[run_id] = result
+
+    return _serialize_run(result, run_id, {
+        "match_id": match_id,
+        "quality_tier": entry.get("quality_tier"),
+        "corruption_log": corruption_log,
+    })
 
 
 @app.post("/runs/{run_id}/export")

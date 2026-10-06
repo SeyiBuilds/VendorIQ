@@ -140,3 +140,78 @@ def test_run_lower_quality_tiers_still_succeed_with_degraded_confidence(client, 
     body = resp.json()
     assert body["quality_tier"] == tier
     assert body["document"]["metadata"]["quality_confidence"] < 1.0
+
+
+# --- Live corruption endpoints (the "break it on stage" demo feature) ---
+
+def test_list_mutations(client):
+    resp = client.get("/mutations")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert "strip_player_identity" in body
+    assert "null_coordinates" in body
+
+
+def test_corrupt_and_run_success(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"vendor": "opta", "mutations": ["null_coordinates", "drop_period"], "rate": 0.3, "seed": 7},
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["overall_status"] == "success"
+    assert len(body["corruption_log"]) == 2
+    assert body["document"]["metadata"]["quality_confidence"] < 1.0
+    assert body["run_id"] in RUN_STORE
+
+
+def test_corrupt_and_run_is_reproducible_with_seed(client):
+    resp_a = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": ["strip_player_identity"], "rate": 0.4, "seed": 123},
+    )
+    resp_b = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": ["strip_player_identity"], "rate": 0.4, "seed": 123},
+    )
+    conf_a = resp_a.json()["document"]["metadata"]["quality_confidence"]
+    conf_b = resp_b.json()["document"]["metadata"]["quality_confidence"]
+    assert conf_a == conf_b
+
+
+def test_corrupt_and_run_rejects_non_opta_vendor(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"vendor": "statsbomb", "mutations": ["drop_period"]},
+    )
+    assert resp.status_code == 400
+
+
+def test_corrupt_and_run_rejects_unknown_mutation(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": ["not_a_real_mutation"]},
+    )
+    assert resp.status_code == 400
+
+
+def test_corrupt_and_run_unknown_match_404(client):
+    resp = client.post(
+        "/matches/NOPE/corrupt-and-run",
+        json={"mutations": ["drop_period"]},
+    )
+    assert resp.status_code == 404
+
+
+def test_corrupt_and_run_result_can_be_personalized_and_exported(client):
+    run_resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": ["garble_event_types"], "rate": 0.2, "seed": 5},
+    )
+    run_id = run_resp.json()["run_id"]
+
+    personalize_resp = client.post(f"/runs/{run_id}/personalize", json={"mode": "casual_fan"})
+    assert personalize_resp.status_code == 200
+
+    export_resp = client.post(f"/runs/{run_id}/export", json={"target_vendor": "statsbomb"})
+    assert export_resp.status_code == 200
