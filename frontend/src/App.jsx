@@ -104,6 +104,8 @@ export default function App() {
 
       {error && <div className="error-banner">{error}</div>}
 
+      <UploadPanel onStart={handleStreamStart} onEvent={applyStreamEvent} />
+
       <MatchPicker
         matches={matches}
         selectedMatchId={selectedMatchId}
@@ -122,8 +124,6 @@ export default function App() {
         onEvent={applyStreamEvent}
         cleanConfidence={cleanConfidence}
       />
-
-      <UploadPanel onStart={handleStreamStart} onEvent={applyStreamEvent} />
 
       <PipelineStatus
         records={records}
