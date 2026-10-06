@@ -10,7 +10,7 @@ from __future__ import annotations
 from datetime import date, datetime
 from enum import Enum
 from typing import Optional
-from pydantic import BaseModel, Field, confloat, conint
+from pydantic import BaseModel, ConfigDict, Field, confloat, conint
 
 
 class VendorSource(str, Enum):
@@ -66,8 +66,7 @@ class CDFMetadata(BaseModel):
     warnings: list[str] = Field(default_factory=list)
     orchestration_log_ref: Optional[str] = None
 
-    class Config:
-        use_enum_values = True
+    model_config = ConfigDict(use_enum_values=True)
 
 
 class PlayerRecord(BaseModel):
@@ -97,8 +96,7 @@ class CDFEvent(BaseModel):
     vendor_source: VendorSource
     metadata: dict = Field(default_factory=dict)
 
-    class Config:
-        use_enum_values = True
+    model_config = ConfigDict(use_enum_values=True)
 
 
 class CDFDocument(BaseModel):
