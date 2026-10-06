@@ -117,6 +117,7 @@ class TeamStats:
 class KeyMoment:
     minute: int
     period: int
+    second_in_period: float  # exact timestamp, for downstream agents needing tighter sync than minute-granularity
     event_type: str
     team: Optional[str]
     player_name: Optional[str]
@@ -212,7 +213,7 @@ def extract_key_moments(document: CDFDocument) -> list[KeyMoment]:
             description = f"Card for {e.team} -- {who}"
 
         moments.append(KeyMoment(
-            minute=minute, period=e.period, event_type=e.event_type,
+            minute=minute, period=e.period, second_in_period=e.timestamp, event_type=e.event_type,
             team=e.team, player_name=player_name,
             confidence=e.quality_confidence, description=description,
         ))

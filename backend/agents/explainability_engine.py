@@ -72,6 +72,7 @@ class MomentumShift:
 class ExplainedMoment:
     minute: int
     period: int
+    second_in_period: float
     event_type: str
     team: Optional[str]
     base_description: str
@@ -206,10 +207,11 @@ class ExplainabilityEngine:
         key_moments = extract_key_moments(document)
         explained: list[ExplainedMoment] = []
         for m in key_moments:
-            window = _window_for_event(windows, m.period, (m.minute - (45 if m.period == 2 else 0)) * 60)
+            window = _window_for_event(windows, m.period, m.second_in_period)
             context = _explain_moment(m, window)
             explained.append(ExplainedMoment(
-                minute=m.minute, period=m.period, event_type=m.event_type, team=m.team,
+                minute=m.minute, period=m.period, second_in_period=m.second_in_period,
+                event_type=m.event_type, team=m.team,
                 base_description=m.description, context=context,
             ))
 
