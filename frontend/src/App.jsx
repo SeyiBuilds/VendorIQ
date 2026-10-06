@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
-import { listMatches, runMatch, personalizeRun } from "./api";
+import { listMatches, runMatch } from "./api";
 import MatchPicker from "./components/MatchPicker";
 import PipelineStatus from "./components/PipelineStatus";
-import BroadcastOverlay from "./components/BroadcastOverlay";
-import RhythmStrip from "./components/RhythmStrip";
 import NarrativePanel from "./components/NarrativePanel";
-import PersonalizationPanel from "./components/PersonalizationPanel";
 import CorruptionPanel from "./components/CorruptionPanel";
 import "./App.css";
 
@@ -16,8 +13,6 @@ export default function App() {
   const [running, setRunning] = useState(false);
   const [runResult, setRunResult] = useState(null);
   const [cleanConfidence, setCleanConfidence] = useState(null);
-  const [experience, setExperience] = useState(null);
-  const [personalizing, setPersonalizing] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -32,7 +27,6 @@ export default function App() {
   const handleRun = async () => {
     setRunning(true);
     setError(null);
-    setExperience(null);
     try {
       const result = await runMatch(selectedMatchId, selectedVendor);
       setRunResult(result);
@@ -47,21 +41,6 @@ export default function App() {
 
   const handleCorruptResult = (result) => {
     setRunResult(result);
-    setExperience(null);
-  };
-
-  const handlePersonalize = async (profile) => {
-    if (!runResult) return;
-    setPersonalizing(true);
-    setError(null);
-    try {
-      const result = await personalizeRun(runResult.run_id, profile);
-      setExperience(result);
-    } catch (e) {
-      setError(e.message);
-    } finally {
-      setPersonalizing(false);
-    }
   };
 
   return (
@@ -101,15 +80,7 @@ export default function App() {
             overallStatus={runResult.overall_status}
             confidence={runResult.document?.metadata?.quality_confidence}
           />
-          <BroadcastOverlay timeline={runResult.timeline} />
-          <RhythmStrip explainability={runResult.explainability} />
           <NarrativePanel narrative={runResult.narrative} />
-          <PersonalizationPanel
-            document={runResult.document}
-            onPersonalize={handlePersonalize}
-            experience={experience}
-            loading={personalizing}
-          />
         </>
       )}
     </div>

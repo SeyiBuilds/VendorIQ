@@ -41,13 +41,6 @@ export function exportRun(runId, targetVendor) {
   });
 }
 
-export function personalizeRun(runId, profile) {
-  return request(`/runs/${runId}/personalize`, {
-    method: "POST",
-    body: JSON.stringify(profile),
-  });
-}
-
 export function listMutations() {
   return request("/mutations");
 }

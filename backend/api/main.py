@@ -2,22 +2,22 @@
 FastAPI layer over the Master Orchestrator.
 
 This is a thin HTTP wrapper, not a rewrite: every endpoint below is a
-direct call into MasterOrchestrator.run()/.export()/.personalize(). No
-business logic lives here -- the orchestrator and its agents already own
-all of it, with their own test suites. This file only does three things:
-request/response plumbing, an in-memory run cache (see RunStore below),
-and the API's own error-to-HTTP-status mapping.
+direct call into MasterOrchestrator.run()/.export(). No business logic
+lives here -- the orchestrator and its agents already own all of it, with
+their own test suites. This file only does three things: request/response
+plumbing, an in-memory run cache (see RunStore below), and the API's own
+error-to-HTTP-status mapping.
 
 RunStore is a deliberate, documented shortcut: a single-process,
 in-memory dict keyed by run_id. A pipeline run produces objects
-(CDFDocument, NarrativeReport, ...) that export() and personalize() need
-as live Python objects, not their serialized JSON -- so a run has to be
-held somewhere between "POST /matches/{id}/run" and a later
-"POST /runs/{id}/personalize" call. For a hackathon demo / single-instance
-deployment this is fine and honest; it is explicitly NOT how a
-club-facing production service would do this (that needs a real cache --
-Redis, a DB-backed session, or re-running the deterministic stages
-on demand -- so a run survives a restart and works across replicas).
+(CDFDocument, NarrativeReport, ...) that export() needs as live Python
+objects, not their serialized JSON -- so a run has to be held somewhere
+between "POST /matches/{id}/run" and a later "POST /runs/{id}/export"
+call. For a hackathon demo / single-instance deployment this is fine and
+honest; it is explicitly NOT how a club-facing production service would
+do this (that needs a real cache -- Redis, a DB-backed session, or
+re-running the deterministic stages on demand -- so a run survives a
+restart and works across replicas).
 Called out here rather than hidden so the tradeoff is visible to anyone
 reading this file, including future-us.
 """
@@ -41,7 +41,6 @@ sys.path.insert(0, str(ROOT / "backend" / "data" / "schemas"))
 sys.path.insert(0, str(ROOT / "backend" / "data"))
 
 from orchestrator import MasterOrchestrator, PipelineResult  # noqa: E402
-from personalization_engine import PersonalizationProfile  # noqa: E402
 from serialization import to_jsonable  # noqa: E402
 from corruption import corrupt_opta_payload, MUTATION_DESCRIPTIONS  # noqa: E402
 
@@ -50,7 +49,7 @@ VALID_VENDOR_FILES = {"opta", "statsbomb", "wyscout"}
 
 app = FastAPI(
     title="Synthetic Match Insights Engine API",
-    description="HTTP layer over the 10-agent football-data orchestration pipeline.",
+    description="HTTP layer over the 7-agent football-data orchestration pipeline.",
     version="1.0.0",
 )
 
@@ -83,14 +82,6 @@ class RunRequest(BaseModel):
     vendor: str = "opta"  # which single vendor file to ingest -- see orchestrator's single-vendor-ingestion design note
 
 
-class PersonalizeRequest(BaseModel):
-    mode: str = "casual_fan"
-    favorite_club: Optional[str] = None
-    favorite_player_name: Optional[str] = None
-    favorite_player_jersey: Optional[int] = None
-    language: str = "en"
-
-
 class ExportRequest(BaseModel):
     target_vendor: str
 
@@ -109,8 +100,6 @@ def _serialize_run(result: PipelineResult, run_id: str, extra: Optional[dict] = 
         "orchestration_log": to_jsonable(result.orchestration_log),
         "document": to_jsonable(result.document),
         "narrative": to_jsonable(result.narrative),
-        "explainability": to_jsonable(result.explainability),
-        "timeline": result.timeline.to_dict() if result.timeline else None,
     }
     if extra:
         base.update(extra)
@@ -208,23 +197,3 @@ def export_run(run_id: str, body: ExportRequest) -> dict:
         raise HTTPException(status_code=409, detail="run has no document to export (critical stage failed)")
     payload, report = orchestrator.export(result.document, body.target_vendor)
     return {"payload": payload, "report": to_jsonable(report)}
-
-
-@app.post("/runs/{run_id}/personalize")
-def personalize_run(run_id: str, body: PersonalizeRequest) -> dict:
-    result = _get_run(run_id)
-    profile = PersonalizationProfile(
-        mode=body.mode,
-        favorite_club=body.favorite_club,
-        favorite_player_name=body.favorite_player_name,
-        favorite_player_jersey=body.favorite_player_jersey,
-        language=body.language,
-    )
-    experience = orchestrator.personalize(result, profile)
-    if experience is None:
-        raise HTTPException(
-            status_code=409,
-            detail="run is missing narrative/explainability/timeline output (optional stage failed or was skipped) -- "
-                   "cannot personalize",
-        )
-    return to_jsonable(experience)

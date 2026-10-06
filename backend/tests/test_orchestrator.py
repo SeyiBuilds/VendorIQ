@@ -4,16 +4,14 @@ Covers: the full single-vendor pipeline succeeds end to end for every
 sample match, the critical-vs-optional stage split (a critical stage
 failure aborts the run with nothing usable; an optional stage failure is
 logged, skipped, and the run still returns everything that DID succeed),
-the one-retry-then-fail behavior, overlay_renderer's skip when its
-dependencies didn't run, and the on-demand export()/personalize() methods
-not being part of run()'s critical path.
+the one-retry-then-fail behavior, and the on-demand export() method not
+being part of run()'s critical path.
 """
 
 import json
 import pytest
 from conftest import SAMPLE_MATCHES_DIR
 from orchestrator import MasterOrchestrator, OrchestrationLog, CRITICAL_STAGES, OPTIONAL_STAGES
-from personalization_engine import PersonalizationProfile
 
 
 @pytest.fixture
@@ -41,8 +39,6 @@ def test_full_run_succeeds_for_every_sample_match(orchestrator, match_name):
     assert result.orchestration_log.overall_status == "success"
     assert result.document is not None
     assert result.narrative is not None
-    assert result.explainability is not None
-    assert result.timeline is not None
     assert len(result.document.events) > 0
 
 
@@ -76,8 +72,6 @@ def test_critical_stage_failure_aborts_run(orchestrator, monkeypatch):
     assert result.orchestration_log.overall_status == "failed"
     assert result.document is None
     assert result.narrative is None
-    assert result.explainability is None
-    assert result.timeline is None
 
 
 def test_critical_stage_failure_does_not_run_later_stages(orchestrator, monkeypatch):
@@ -148,29 +142,6 @@ def test_optional_stage_failure_does_not_abort_run(orchestrator, monkeypatch):
     assert record.status == "failed"
 
 
-def test_overlay_renderer_skipped_when_narrative_fails(orchestrator, monkeypatch):
-    def boom(*args, **kwargs):
-        raise RuntimeError("simulated narrative_generator bug")
-    monkeypatch.setattr(orchestrator.narrator, "generate", boom)
-
-    result = orchestrator.run(_opta_vendor_data())
-    assert result.timeline is None
-    record = next(r for r in result.orchestration_log.records if r.stage == "overlay_renderer")
-    assert record.status == "skipped"
-
-
-def test_explainability_failure_also_skips_overlay(orchestrator, monkeypatch):
-    def boom(*args, **kwargs):
-        raise RuntimeError("simulated explainability_engine bug")
-    monkeypatch.setattr(orchestrator.explainer, "generate", boom)
-
-    result = orchestrator.run(_opta_vendor_data())
-    assert result.narrative is not None  # narrative still succeeded independently
-    assert result.explainability is None
-    assert result.timeline is None
-    assert result.orchestration_log.overall_status == "partial"
-
-
 # --- On-demand methods: not part of run()'s critical path ---
 
 def test_export_works_after_successful_run(orchestrator):
@@ -178,25 +149,6 @@ def test_export_works_after_successful_run(orchestrator):
     payload, report = orchestrator.export(result.document, "statsbomb")
     assert report.events_exported == len(result.document.events)
     assert payload["match_id"] == result.document.match.match_id
-
-
-def test_personalize_works_after_successful_run(orchestrator):
-    result = orchestrator.run(_opta_vendor_data())
-    profile = PersonalizationProfile(mode="analyst")
-    experience = orchestrator.personalize(result, profile)
-    assert experience is not None
-    assert experience.mode == "analyst"
-
-
-def test_personalize_returns_none_when_optional_stages_missing(orchestrator, monkeypatch):
-    def boom(*args, **kwargs):
-        raise RuntimeError("simulated narrative_generator bug")
-    monkeypatch.setattr(orchestrator.narrator, "generate", boom)
-
-    result = orchestrator.run(_opta_vendor_data())
-    profile = PersonalizationProfile(mode="analyst")
-    experience = orchestrator.personalize(result, profile)
-    assert experience is None
 
 
 def test_export_not_called_during_run(orchestrator, monkeypatch):

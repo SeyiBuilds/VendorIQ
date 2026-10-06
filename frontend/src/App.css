@@ -181,99 +181,7 @@ button:disabled {
   font-size: 0.75rem;
 }
 
-.broadcast-surface {
-  position: relative;
-  background: linear-gradient(180deg, #0a2e1a 0%, #0d1117 100%);
-  border-radius: 10px;
-  padding: 24px;
-  min-height: 160px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-}
-
-.score-bug {
-  background: #0d1117;
-  border: 1px solid var(--border);
-  padding: 8px 20px;
-  border-radius: 8px;
-  font-size: 1.3rem;
-  font-weight: 700;
-}
-
-.match-clock {
-  color: var(--text-dim);
-  font-size: 0.85rem;
-  font-variant-numeric: tabular-nums;
-}
-
-.cue-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-  min-height: 48px;
-}
-
-.cue {
-  background: #1c2531;
-  border: 1px solid var(--accent);
-  border-radius: 8px;
-  padding: 8px 16px;
-  text-align: center;
-  animation: cue-pop 0.2s ease-out;
-}
-
-.cue-goal { border-color: var(--success); }
-.cue-card { border-color: var(--failed); }
-.cue-momentum_shift { border-color: var(--partial); }
-
-.cue-title { display: block; font-weight: 700; letter-spacing: 0.05em; }
-.cue-subtitle { display: block; font-size: 0.78rem; color: var(--text-dim); margin-top: 2px; }
-
-@keyframes cue-pop {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-.playback-controls {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 14px;
-}
-
-.playback-controls input[type="range"] { flex: 1; }
-
-.rhythm-bar {
-  display: flex;
-  height: 28px;
-  border-radius: 6px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-}
-
-.rhythm-segment { height: 100%; }
-
-.rhythm-legend {
-  display: flex;
-  gap: 16px;
-  margin-top: 8px;
-  font-size: 0.8rem;
-  color: var(--text-dim);
-}
-
-.legend-item { display: flex; align-items: center; gap: 6px; }
-
-.legend-swatch {
-  width: 10px;
-  height: 10px;
-  border-radius: 2px;
-  display: inline-block;
-}
-
-.momentum-list, .moment-list {
+.moment-list {
   list-style: none;
   padding: 0;
   margin: 12px 0 0;
@@ -282,10 +190,6 @@ button:disabled {
   gap: 6px;
   font-size: 0.85rem;
 }
-
-.momentum-list li { color: var(--partial); }
-
-.favorite-moment { color: var(--accent); font-weight: 600; }
 
 .narrative-text {
   line-height: 1.5;
@@ -310,14 +214,6 @@ button:disabled {
   font-size: 0.8rem;
   color: var(--text-dim);
 }
-
-.experience-result {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-}
-
-.experience-result h3 { margin: 0 0 8px; }
 
 .corruption-panel {
   border-color: rgba(198,72,43,0.4);

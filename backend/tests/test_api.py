@@ -5,7 +5,7 @@ pipeline itself, since the pipeline already has its own test suites
 (test_orchestrator.py and each agent's own tests). What this file checks
 is the HTTP-specific plumbing: request/response shapes, status codes for
 each error path, and that run_id-based state (RUN_STORE) actually lets a
-later export/personalize call reuse an earlier run.
+later export call reuse an earlier run.
 """
 
 import sys
@@ -49,7 +49,6 @@ def test_run_match_success(client):
     assert body["quality_tier"] == "clean"
     assert len(body["document"]["events"]) > 0
     assert body["narrative"]["narrative_text"]
-    assert body["timeline"]["cues"]
     assert body["run_id"] in RUN_STORE
 
 
@@ -98,35 +97,6 @@ def test_export_after_run(client):
 
 def test_export_unknown_run_404(client):
     resp = client.post("/runs/not-a-real-run-id/export", json={"target_vendor": "statsbomb"})
-    assert resp.status_code == 404
-
-
-def test_personalize_after_run(client):
-    run_resp = client.post("/matches/PL_2025_CLEAN_001/run", json={"vendor": "opta"})
-    run_id = run_resp.json()["run_id"]
-
-    resp = client.post(f"/runs/{run_id}/personalize", json={
-        "mode": "casual_fan", "language": "es", "favorite_club": "Liverpool",
-    })
-    assert resp.status_code == 200
-    body = resp.json()
-    assert body["mode"] == "casual_fan"
-    assert body["language"] == "es"
-    assert body["headline"]
-
-
-def test_personalize_defaults(client):
-    run_resp = client.post("/matches/PL_2025_CLEAN_001/run", json={"vendor": "opta"})
-    run_id = run_resp.json()["run_id"]
-
-    resp = client.post(f"/runs/{run_id}/personalize", json={})
-    assert resp.status_code == 200
-    assert resp.json()["mode"] == "casual_fan"
-    assert resp.json()["language"] == "en"
-
-
-def test_personalize_unknown_run_404(client):
-    resp = client.post("/runs/not-a-real-run-id/personalize", json={})
     assert resp.status_code == 404
 
 
@@ -203,15 +173,12 @@ def test_corrupt_and_run_unknown_match_404(client):
     assert resp.status_code == 404
 
 
-def test_corrupt_and_run_result_can_be_personalized_and_exported(client):
+def test_corrupt_and_run_result_can_be_exported(client):
     run_resp = client.post(
         "/matches/PL_2025_CLEAN_001/corrupt-and-run",
         json={"mutations": ["garble_event_types"], "rate": 0.2, "seed": 5},
     )
     run_id = run_resp.json()["run_id"]
-
-    personalize_resp = client.post(f"/runs/{run_id}/personalize", json={"mode": "casual_fan"})
-    assert personalize_resp.status_code == 200
 
     export_resp = client.post(f"/runs/{run_id}/export", json={"target_vendor": "statsbomb"})
     assert export_resp.status_code == 200

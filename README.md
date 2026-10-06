@@ -3,15 +3,12 @@
 Built for Microsoft × Premier League's **Inside the Game: Developer Hackathon**.
 
 Turns synthetic, football-realistic match events into explainable match
-intelligence: a 10-agent pipeline that ingests a vendor feed (Opta/
-StatsBomb/Wyscout shaped), interprets it into a normalized format,
-explains why moments matter (not just that they happened), renders a
-broadcast-sync'd overlay timeline, and personalizes the same intelligence
-for an analyst, a casual fan, or a fan of one specific player — in
-English, Spanish, or French.
+intelligence: a 7-agent pipeline that ingests a vendor feed (Opta/
+StatsBomb/Wyscout shaped), interprets it into a normalized format, and
+explains it back out as stats + narrative text.
 
 Built with the mindset that this already won and a club wants it in
-production: real test suites (271 passing), pinned dependencies, honest
+production: real test suites (199 passing), pinned dependencies, honest
 confidence scoring and graceful degradation instead of fabricated
 numbers, and a documented fallback path for every place real data goes
 missing or wrong.
@@ -23,7 +20,8 @@ Requires Python 3.11+ and Node 18+.
 ```bash
 # 1. backend — install deps and run the test suite
 pip install -r requirements.txt
-pytest backend/tests -q          # 271 passed
+pytest backend/tests -q          # 199 passed
+# (Windows: if `pytest` / `uvicorn` aren't recognized, use `python -m pytest` / `python -m uvicorn` instead)
 
 # 2. backend — start the API
 uvicorn backend.api.main:app --reload --port 8000
@@ -57,16 +55,13 @@ backend/
     validator.py               Agent 5 — build the final CDFDocument, score confidence
     narrative_generator.py     Agent 6 — stats + key moments + narrative text
     format_exporter.py         Agent 7 — export CDF back to a vendor shape (on-demand)
-    explainability_engine.py   Agent 8 — control/chaos rhythm, momentum shifts, "why it matters"
-    overlay_renderer.py        Agent 9 — broadcast-sync'd overlay cue timeline
-    personalization_engine.py  Agent 10 — analyst/casual-fan/player-focus x language
-    orchestrator.py            Master Orchestrator — wires 1-9, critical/optional stage split
+    orchestrator.py            Master Orchestrator — wires 1-6, critical/optional stage split
   api/main.py                  FastAPI layer over the orchestrator
-  tests/                       271 tests, one file per agent/module
+  tests/                       199 tests, one file per agent/module
 frontend/                      React + Vite UI — see frontend/README.md
 ```
 
 Full design rationale (fallback tiers, confidence scoring, why
-single-vendor ingestion, why export/personalize are on-demand rather
-than pipeline stages) is documented inline in each agent's own
-docstring — start with `backend/agents/orchestrator.py`.
+single-vendor ingestion, why export is on-demand rather than a pipeline
+stage) is documented inline in each agent's own docstring — start with
+`backend/agents/orchestrator.py`.

@@ -2,13 +2,12 @@
 types.
 
 Every agent in this codebase returns either a plain @dataclass (Narrative
-Generator, Explainability Engine, Overlay Renderer, Personalization
-Engine, the orchestrator's own log/result types) or a Pydantic model
+Generator, the orchestrator's own log/result types) or a Pydantic model
 (CDFDocument and friends, from Validator). Rather than hand-write a
-to_dict for each of the ~15 types across the pipeline -- which would need
-updating every time a field is added upstream, as happened repeatedly
-during this project -- this walks either shape generically and converts
-nested dataclasses/models/enums the same way.
+to_dict for each type across the pipeline -- which would need updating
+every time a field is added upstream, as happened repeatedly during this
+project -- this walks either shape generically and converts nested
+dataclasses/models/enums the same way.
 """
 
 from __future__ import annotations

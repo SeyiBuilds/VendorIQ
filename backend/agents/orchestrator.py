@@ -1,7 +1,7 @@
 """
 Master Orchestrator
 
-Wires Agents 1-9 into one entry point and owns the TOP-LEVEL error handling
+Wires Agents 1-6 into one entry point and owns the TOP-LEVEL error handling
 across stages -- distinct from the per-field retry/fallback logic each
 agent already owns internally. Every agent in this pipeline already
 degrades gracefully on bad DATA (a missing field, an unknown vendor, a
@@ -10,21 +10,19 @@ never raises. What this orchestrator catches is an agent-level failure:
 a genuine bug, an unexpected input shape, a dependency problem -- the
 kind of thing no amount of per-field fallback logic prevents.
 
-Stage criticality, per the PRD's "ingest/interpret" vs. "explain/render/
-personalize" split:
+Stage criticality, per the PRD's "ingest/interpret" vs. "explain" split:
   CRITICAL stages (1-5: Format Detective -> Schema Mapper -> Coordinate
   Translator -> Entity Resolver -> Validator) produce the CDFDocument
   itself. If any of these fails, there is no usable output at all, so the
   run aborts immediately and returns a failed PipelineResult with the
   reason logged -- there's nothing honest to fall back to.
 
-  OPTIONAL stages (6/8/9: Narrative Generator, Explainability Engine,
-  Overlay Renderer) are presentation layers built ON TOP of a valid
-  CDFDocument. If one of these fails unexpectedly, the run does NOT abort
-  -- it logs the failure, skips that stage (and anything downstream of it
-  that depends on its output), and still returns everything that DID
-  succeed. A club getting normalized match data with no narrative text is
-  in a far better position than getting nothing at all.
+  OPTIONAL stage (6: Narrative Generator) is a presentation layer built ON
+  TOP of a valid CDFDocument. If it fails unexpectedly, the run does NOT
+  abort -- it logs the failure, skips that stage, and still returns
+  everything that DID succeed. A club getting normalized match data with
+  no narrative text is in a far better position than getting nothing at
+  all.
 
 Each stage gets exactly one retry before being treated as failed. This
 matters most for the optional Claude-escalation calls nested inside
@@ -34,11 +32,9 @@ retry here mostly guards against transient, non-data-quality problems
 (an import hiccup, a resource blip), which is a legitimate thing to guard
 against even in a fully deterministic pipeline.
 
-Format Exporter (Agent 7) and Personalization Engine (Agent 10) are
-deliberately NOT part of run() -- per the locked MVP decision, export is
-on-demand only, and personalization is inherently per-viewer-profile, not
-a pipeline stage that happens once per match. Both are exposed as
-separate methods on this class instead.
+Format Exporter (Agent 7) is deliberately NOT part of run() -- per the
+locked MVP decision, export is on-demand only. It is exposed as a
+separate method on this class instead.
 
 Realistic default: run() ingests ONE vendor file at a time (single-feed
 ingestion is the common case). Passing events from multiple vendors
@@ -62,16 +58,13 @@ from coordinate_translator import CoordinateTranslator
 from entity_resolver import EntityResolver, PlayerIdentity, ResolvedEvent
 from validator import Validator, ValidationReport
 from narrative_generator import NarrativeGenerator, NarrativeReport
-from explainability_engine import ExplainabilityEngine, ExplainabilityReport
-from overlay_renderer import OverlayRenderer, OverlayTimeline
 from format_exporter import FormatExporter, ExportReport
-from personalization_engine import PersonalizationEngine, PersonalizationProfile, PersonalizedExperience
 from cdf_models import CDFDocument
 
 T = TypeVar("T")
 
 CRITICAL_STAGES = ("format_detective", "schema_mapper", "coordinate_translator", "entity_resolver", "validator")
-OPTIONAL_STAGES = ("narrative_generator", "explainability_engine", "overlay_renderer")
+OPTIONAL_STAGES = ("narrative_generator",)
 
 
 @dataclass
@@ -96,14 +89,12 @@ class OrchestrationLog:
 class PipelineResult:
     document: Optional[CDFDocument]
     narrative: Optional[NarrativeReport]
-    explainability: Optional[ExplainabilityReport]
-    timeline: Optional[OverlayTimeline]
     orchestration_log: OrchestrationLog
 
 
 class MasterOrchestrator:
-    """Wires Agents 1-9 into one run() call. export() and personalize() are
-    separate, on-demand entry points per the locked MVP decision."""
+    """Wires Agents 1-6 into one run() call. export() is a separate,
+    on-demand entry point per the locked MVP decision."""
 
     def __init__(self, ai_escalation_enabled: bool = True):
         self.detective = FormatDetective()
@@ -112,10 +103,7 @@ class MasterOrchestrator:
         self.resolver = EntityResolver(ai_escalation_enabled=ai_escalation_enabled)
         self.validator = Validator()
         self.narrator = NarrativeGenerator(ai_enabled=ai_escalation_enabled)
-        self.explainer = ExplainabilityEngine()
-        self.renderer = OverlayRenderer()
         self.exporter = FormatExporter()
-        self.personalizer = PersonalizationEngine()
 
     def run(self, vendor_data: dict, match_date: Optional[date_cls] = None) -> PipelineResult:
         run_id = uuid.uuid4().hex[:12]
@@ -153,34 +141,15 @@ class MasterOrchestrator:
         document.metadata.orchestration_log_ref = run_id
 
         narrative = self._run_optional_stage(log, "narrative_generator", lambda: self.narrator.generate(document))
-        explainability = self._run_optional_stage(log, "explainability_engine", lambda: self.explainer.generate(document))
-
-        timeline = None
-        if narrative is not None and explainability is not None:
-            timeline = self._run_optional_stage(
-                log, "overlay_renderer", lambda: self.renderer.render(document, narrative, explainability),
-            )
-        else:
-            log.record("overlay_renderer", "skipped", "requires both narrative_generator and explainability_engine output")
 
         failed_or_skipped = [r for r in log.records if r.stage in OPTIONAL_STAGES and r.status != "success"]
         log.overall_status = "partial" if failed_or_skipped else "success"
 
-        return PipelineResult(document=document, narrative=narrative, explainability=explainability,
-                               timeline=timeline, orchestration_log=log)
+        return PipelineResult(document=document, narrative=narrative, orchestration_log=log)
 
     def export(self, document: CDFDocument, target_vendor: str) -> tuple[dict, ExportReport]:
         """On-demand only (Agent 7) -- never called from run()."""
         return self.exporter.export(document, target_vendor)
-
-    def personalize(self, result: PipelineResult, profile: PersonalizationProfile) -> Optional[PersonalizedExperience]:
-        """On-demand, per-viewer (Agent 10) -- never called from run().
-        Returns None (not a crash) if the run didn't produce the optional
-        stages this needs; the caller is told exactly why via the log."""
-        if result.narrative is None or result.explainability is None or result.timeline is None:
-            return None
-        return self.personalizer.personalize(result.document, result.narrative, result.explainability,
-                                              result.timeline, profile)
 
     def _run_critical_stage(self, log: OrchestrationLog, name: str, fn: Callable[[], T]) -> Optional[T]:
         """Shared by both critical and optional stages -- the one-retry
@@ -205,7 +174,7 @@ class MasterOrchestrator:
 
     def _failed_result(self, log: OrchestrationLog) -> PipelineResult:
         log.overall_status = "failed"
-        return PipelineResult(document=None, narrative=None, explainability=None, timeline=None, orchestration_log=log)
+        return PipelineResult(document=None, narrative=None, orchestration_log=log)
 
 
 if __name__ == "__main__":
@@ -240,12 +209,7 @@ if __name__ == "__main__":
         if result.narrative:
             print(f"  narrative: {result.narrative.narrative_text[:120]}...")
 
-        # Exercise export() and personalize() as on-demand calls
+        # Exercise export() as an on-demand call
         if result.document:
             payload, export_report = orchestrator.export(result.document, "statsbomb")
             print(f"  export->statsbomb: {export_report.events_exported} events")
-
-        if result.narrative and result.explainability and result.timeline:
-            profile = PersonalizationProfile(mode="casual_fan", language="es")
-            experience = orchestrator.personalize(result, profile)
-            print(f"  personalized (casual_fan/es): {experience.headline}")

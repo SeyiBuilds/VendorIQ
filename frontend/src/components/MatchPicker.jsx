@@ -35,7 +35,8 @@ export default function MatchPicker({ matches, selectedMatchId, selectedVendor, 
       </div>
       <p className="hint">
         Single-vendor ingestion is the realistic default — pick which vendor's feed to run through
-        the 5-stage pipeline (ingest → interpret → explain → render → personalize).
+        the 7-agent pipeline (detect format → map schema → normalize coordinates → resolve
+        identities → validate → narrate → export on demand).
       </p>
     </div>
   );

@@ -123,7 +123,5 @@ def test_full_mutation_combo_degrades_confidence_but_still_succeeds(clean_opta_d
     assert len(log) == len(MUTATIONS)
     assert corrupt_result.orchestration_log.overall_status == "success"
     assert corrupt_result.document.metadata.quality_confidence < clean_result.document.metadata.quality_confidence
-    # narrative/explainability/overlay still all produced despite the corruption
+    # narrative still produced despite the corruption
     assert corrupt_result.narrative is not None
-    assert corrupt_result.explainability is not None
-    assert corrupt_result.timeline is not None
