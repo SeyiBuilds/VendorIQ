@@ -275,7 +275,20 @@ def test_key_moment_with_unresolved_player_id_handled_gracefully():
     document = _minimal_document(events, players=[])
     report = narrator.generate(document)
     assert len(report.key_moments) == 1
-    assert "unresolved identity" in report.key_moments[0].description
+    assert "unidentified player" in report.key_moments[0].description
+
+
+def test_key_moment_falls_back_to_jersey_when_no_name_on_record():
+    """Single-vendor Opta ingestion carries jersey numbers but no names --
+    a resolved player with no name should be described by jersey number,
+    not mislabeled as an unresolved identity (a real bug this test pins)."""
+    narrator = NarrativeGenerator(ai_enabled=False)
+    player = PlayerRecord(player_id="player::Home FC::9", jersey_number=9, team="Home FC", resolution_confidence=1.0)
+    events = [_event(event_id="g1", event_type="goal", team="Home FC", player_id="player::Home FC::9")]
+    document = _minimal_document(events, players=[player])
+    report = narrator.generate(document)
+    assert "Jersey #9" in report.key_moments[0].description
+    assert "unidentified" not in report.key_moments[0].description
 
 
 # --- AI escalation: graceful no-key behavior (same contract as Agent 4) ---

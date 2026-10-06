@@ -177,6 +177,50 @@ def _call_claude_for_narrative(match_summary_line: str, team_stats: dict[str, Te
         return None  # caller treats this exactly like "no key" -- template path always covers it
 
 
+def extract_key_moments(document: CDFDocument) -> list[KeyMoment]:
+    """Module-level so Agent 8 (Explainability Engine) can reuse the exact
+    same goal/card extraction and minute math without importing private
+    NarrativeGenerator internals or duplicating the logic."""
+    players_by_id = {p.player_id: p for p in document.players}
+    moments: list[KeyMoment] = []
+
+    for e in document.events:
+        if e.event_type not in ("goal", "card"):
+            continue
+        minute = int(e.timestamp // 60) + (45 if e.period == 2 else 0)
+        player = players_by_id.get(e.player_id) if e.player_id else None
+        player_name = player.name if player else None
+
+        if player_name:
+            who = player_name
+        elif player and player.jersey_number is not None:
+            # Resolved identity (a real cross-vendor cluster or a vendor's
+            # own jersey-based record), just no name on record -- this is
+            # common for single-vendor Opta ingestion, which carries no
+            # player names at all. Not the same thing as an unresolved id.
+            who = f"Jersey #{player.jersey_number} ({e.team or 'unknown team'})"
+        elif e.player_id and e.player_id.startswith("unresolved::"):
+            who = "an unidentified player (no cross-vendor or jersey signal available)"
+        elif e.player_id:
+            who = f"a player (id={e.player_id})"
+        else:
+            who = "an unidentified player"
+
+        if e.event_type == "goal":
+            description = f"Goal for {e.team} -- {who}"
+        else:
+            description = f"Card for {e.team} -- {who}"
+
+        moments.append(KeyMoment(
+            minute=minute, period=e.period, event_type=e.event_type,
+            team=e.team, player_name=player_name,
+            confidence=e.quality_confidence, description=description,
+        ))
+
+    moments.sort(key=lambda m: (m.period, m.minute))
+    return moments
+
+
 class NarrativeGenerator:
     """Agent 7 in the PRD's numbering is Format Exporter; this is Agent 6.
     Consumes a validated CDFDocument -- the output of Agent 5 -- and is
@@ -282,29 +326,7 @@ class NarrativeGenerator:
         return stats
 
     def _extract_key_moments(self, document: CDFDocument) -> list[KeyMoment]:
-        player_names = {p.player_id: p.name for p in document.players}
-        moments: list[KeyMoment] = []
-
-        for e in document.events:
-            if e.event_type not in ("goal", "card"):
-                continue
-            minute = int(e.timestamp // 60) + (45 if e.period == 2 else 0)
-            player_name = player_names.get(e.player_id) if e.player_id else None
-            who = player_name or (f"a player (unresolved identity, player_id={e.player_id})" if e.player_id else "an unidentified player")
-
-            if e.event_type == "goal":
-                description = f"Goal for {e.team} -- {who}"
-            else:
-                description = f"Card for {e.team} -- {who}"
-
-            moments.append(KeyMoment(
-                minute=minute, period=e.period, event_type=e.event_type,
-                team=e.team, player_name=player_name,
-                confidence=e.quality_confidence, description=description,
-            ))
-
-        moments.sort(key=lambda m: (m.period, m.minute))
-        return moments
+        return extract_key_moments(document)
 
     def _build_data_quality_notes(self, document: CDFDocument, team_stats: dict[str, TeamStats]) -> list[str]:
         notes = list(document.metadata.warnings)
