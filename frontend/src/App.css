@@ -195,38 +195,117 @@ button:disabled {
   font-size: 0.75rem;
 }
 
+.narrative-section {
+  margin-top: 20px;
+}
+
+.narrative-section:first-of-type {
+  margin-top: 8px;
+}
+
+.narrative-section h3 {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
 .moment-list {
   list-style: none;
   padding: 0;
-  margin: 12px 0 0;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  font-size: 0.85rem;
+  gap: 8px;
+  font-size: 0.9rem;
+}
+
+.moment-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 10px;
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.moment-minute {
+  flex: 0 0 auto;
+  min-width: 32px;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.moment-desc {
+  flex: 1;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.moment-low-conf {
+  flex: 0 0 auto;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--partial);
+  border: 1px solid var(--partial);
+  border-radius: 999px;
+  padding: 1px 7px;
+}
+
+.narrative-raw summary,
+.data-quality-notes summary {
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.narrative-raw summary:hover,
+.data-quality-notes summary:hover {
+  color: var(--text);
 }
 
 .narrative-text {
-  line-height: 1.5;
-  color: var(--text);
+  line-height: 1.6;
+  color: var(--text-dim);
+  margin: 10px 0 0;
+  font-size: 0.88rem;
 }
 
 .stats-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 12px;
   font-size: 0.85rem;
 }
 
 .stats-table th, .stats-table td {
   border-bottom: 1px solid var(--border);
-  padding: 6px 8px;
+  padding: 8px 10px;
   text-align: left;
 }
 
+.stats-table th {
+  color: var(--text-dim);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
 .data-quality-notes {
-  margin-top: 12px;
   font-size: 0.8rem;
   color: var(--text-dim);
+}
+
+.data-quality-notes ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .corruption-panel {
