@@ -5,9 +5,10 @@ the template narrative is always produced with zero external dependencies,
 the optional AI-escalation path degrades exactly like Entity Resolver's
 (no key -> template, never a crash), low-confidence events are counted
 but flagged rather than silently blended in, and key-moment extraction
-works correctly on synthetic events built for that purpose (the sample
-dataset itself never emits goal/card events, which is exercised directly
-by the "no moments" test below).
+works correctly on synthetic events built for that purpose, and pass
+distance/difficulty banding (short/medium/long, converted from the
+normalized 0-100 coordinate space into meters via a documented standard
+pitch-dimension assumption).
 """
 
 import json
@@ -19,7 +20,7 @@ from schema_mapper import SchemaMapper
 from coordinate_translator import CoordinateTranslator
 from entity_resolver import EntityResolver
 from validator import Validator
-from narrative_generator import NarrativeGenerator, TeamStats
+from narrative_generator import NarrativeGenerator, TeamStats, _pass_distance_m, _pass_difficulty_band
 from cdf_models import CDFDocument, CDFEvent, CDFMetadata, MatchInfo, PlayerRecord
 from datetime import datetime, timezone
 
@@ -185,6 +186,47 @@ def test_goal_counts_as_both_goal_and_shot():
 def test_pass_accuracy_none_when_no_passes():
     s = TeamStats(team="X")
     assert s.pass_accuracy is None
+
+
+# --- Unit tests: pass distance / difficulty ---
+
+def test_pass_distance_m_computed_from_coordinates():
+    # full pitch length pass: x=0 -> end_x=100, same y -> should be ~105m
+    distance = _pass_distance_m(0.0, 50.0, 100.0, 50.0)
+    assert distance == pytest.approx(105.0, abs=0.01)
+
+
+def test_pass_distance_none_when_no_end_coordinates():
+    assert _pass_distance_m(50.0, 50.0, None, None) is None
+
+
+def test_pass_difficulty_bands():
+    assert _pass_difficulty_band(5.0) == "short"
+    assert _pass_difficulty_band(15.0) == "short"
+    assert _pass_difficulty_band(20.0) == "medium"
+    assert _pass_difficulty_band(30.0) == "medium"
+    assert _pass_difficulty_band(50.0) == "long"
+
+
+def test_team_stats_pass_distance_aggregation():
+    narrator = NarrativeGenerator(ai_enabled=False)
+    events = [
+        _event(event_id="1", event_type="pass", team="Home FC", x=0.0, y=50.0, end_x=10.0, end_y=50.0),   # ~10.5m short
+        _event(event_id="2", event_type="pass", team="Home FC", x=0.0, y=50.0, end_x=50.0, end_y=50.0),   # ~52.5m long
+        _event(event_id="3", event_type="pass", team="Home FC", x=0.0, y=50.0, end_x=None, end_y=None),   # no distance data
+    ]
+    document = _minimal_document(events)
+    report = narrator.generate(document)
+    home = report.team_stats["Home FC"]
+    assert home.passes_with_distance == 2
+    assert home.short_passes == 1
+    assert home.long_passes == 1
+    assert home.avg_pass_distance_m == pytest.approx((10.5 + 52.5) / 2, abs=0.1)
+
+
+def test_avg_pass_distance_none_when_no_distance_data():
+    s = TeamStats(team="X")
+    assert s.avg_pass_distance_m is None
 
 
 def test_low_confidence_events_tracked_separately():

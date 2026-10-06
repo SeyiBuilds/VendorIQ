@@ -49,6 +49,35 @@ POSSESSION_PROXY_TYPES = {
 
 AI_NARRATIVE_ENABLED_DEFAULT = True
 
+# Standard pitch dimensions, used ONLY to convert the normalized 0-100 CDF
+# coordinate space into meters for pass-distance reporting. CDF itself
+# carries no real pitch-dimensions field (Section: cdf_models.py), so this
+# is a documented assumption, not a value read from any vendor file.
+PITCH_LENGTH_M = 105.0
+PITCH_WIDTH_M = 68.0
+
+# Pass-difficulty bands by distance. This is a distance-based heuristic,
+# not a true expected-pass (xP) model -- a real difficulty rating would
+# also need defender proximity and passing-lane congestion, which no
+# vendor here supplies at the event level. Documented as a proxy, same
+# spirit as the possession-share proxy above.
+PASS_DIFFICULTY_BANDS: list[tuple[float, str]] = [(15.0, "short"), (30.0, "medium"), (float("inf"), "long")]
+
+
+def _pass_distance_m(x: float, y: float, end_x: Optional[float], end_y: Optional[float]) -> Optional[float]:
+    if end_x is None or end_y is None:
+        return None
+    dx_m = (end_x - x) / 100.0 * PITCH_LENGTH_M
+    dy_m = (end_y - y) / 100.0 * PITCH_WIDTH_M
+    return round((dx_m ** 2 + dy_m ** 2) ** 0.5, 2)
+
+
+def _pass_difficulty_band(distance_m: float) -> str:
+    for threshold, label in PASS_DIFFICULTY_BANDS:
+        if distance_m <= threshold:
+            return label
+    return "long"  # unreachable given the inf band, kept for defensiveness
+
 
 @dataclass
 class TeamStats:
@@ -65,12 +94,23 @@ class TeamStats:
     possession_proxy_events: int = 0
     low_confidence_events: int = 0
     avg_confidence: float = 1.0
+    pass_distance_total_m: float = 0.0
+    passes_with_distance: int = 0
+    short_passes: int = 0
+    medium_passes: int = 0
+    long_passes: int = 0
 
     @property
     def pass_accuracy(self) -> Optional[float]:
         if self.passes == 0:
             return None
         return round(self.passes_completed / self.passes, 3)
+
+    @property
+    def avg_pass_distance_m(self) -> Optional[float]:
+        if self.passes_with_distance == 0:
+            return None
+        return round(self.pass_distance_total_m / self.passes_with_distance, 2)
 
 
 @dataclass
@@ -111,8 +151,10 @@ def _call_claude_for_narrative(match_summary_line: str, team_stats: dict[str, Te
         stats_lines = []
         for team, s in team_stats.items():
             acc = f"{s.pass_accuracy * 100:.0f}%" if s.pass_accuracy is not None else "n/a"
+            avg_dist = f"{s.avg_pass_distance_m}m avg" if s.avg_pass_distance_m is not None else "n/a"
             stats_lines.append(
-                f"- {team}: {s.goals} goals, {s.shots} shots, {s.passes} passes ({acc} completion), "
+                f"- {team}: {s.goals} goals, {s.shots} shots, {s.passes} passes ({acc} completion, {avg_dist} distance, "
+                f"{s.short_passes} short/{s.medium_passes} medium/{s.long_passes} long), "
                 f"{s.tackles} tackles, {s.fouls} fouls, {s.cards} cards, {s.corners} corners"
             )
         moments_lines = [f"- {m.minute}' ({m.period}H): {m.description}" for m in key_moments]
@@ -202,6 +244,17 @@ class NarrativeGenerator:
                 s.passes += 1
                 if e.outcome:
                     s.passes_completed += 1
+                distance_m = _pass_distance_m(e.x, e.y, e.end_x, e.end_y)
+                if distance_m is not None:
+                    s.pass_distance_total_m += distance_m
+                    s.passes_with_distance += 1
+                    band = _pass_difficulty_band(distance_m)
+                    if band == "short":
+                        s.short_passes += 1
+                    elif band == "medium":
+                        s.medium_passes += 1
+                    else:
+                        s.long_passes += 1
             elif e.event_type == "shot":
                 s.shots += 1
             elif e.event_type == "goal":
@@ -290,6 +343,12 @@ class NarrativeGenerator:
                 f"Shots: {home} {home_stats.shots} ({home_stats.pass_accuracy and round(home_stats.pass_accuracy*100)}% "
                 f"pass completion) vs {away} {away_stats.shots} "
                 f"({away_stats.pass_accuracy and round(away_stats.pass_accuracy*100)}% pass completion)."
+            )
+            lines.append(
+                f"Pass distance: {home} averaged {home_stats.avg_pass_distance_m or 0}m per pass "
+                f"({home_stats.short_passes} short, {home_stats.medium_passes} medium, {home_stats.long_passes} long) "
+                f"vs {away} {away_stats.avg_pass_distance_m or 0}m "
+                f"({away_stats.short_passes} short, {away_stats.medium_passes} medium, {away_stats.long_passes} long)."
             )
 
         if key_moments:
