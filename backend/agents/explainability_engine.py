@@ -75,6 +75,8 @@ class ExplainedMoment:
     second_in_period: float
     event_type: str
     team: Optional[str]
+    player_name: Optional[str]
+    player_jersey: Optional[int]
     base_description: str
     context: str
 
@@ -211,7 +213,8 @@ class ExplainabilityEngine:
             context = _explain_moment(m, window)
             explained.append(ExplainedMoment(
                 minute=m.minute, period=m.period, second_in_period=m.second_in_period,
-                event_type=m.event_type, team=m.team,
+                event_type=m.event_type, team=m.team, player_name=m.player_name,
+                player_jersey=m.player_jersey,
                 base_description=m.description, context=context,
             ))
 

@@ -121,6 +121,7 @@ class KeyMoment:
     event_type: str
     team: Optional[str]
     player_name: Optional[str]
+    player_jersey: Optional[int]  # often the only reliable per-player identifier (names aren't always resolved)
     confidence: float
     description: str
 
@@ -214,7 +215,7 @@ def extract_key_moments(document: CDFDocument) -> list[KeyMoment]:
 
         moments.append(KeyMoment(
             minute=minute, period=e.period, second_in_period=e.timestamp, event_type=e.event_type,
-            team=e.team, player_name=player_name,
+            team=e.team, player_name=player_name, player_jersey=player.jersey_number if player else None,
             confidence=e.quality_confidence, description=description,
         ))
 

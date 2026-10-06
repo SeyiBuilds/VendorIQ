@@ -197,7 +197,7 @@ def test_moment_cue_for_goal_has_correct_type_and_duration():
     renderer = OverlayRenderer()
     explainability = ExplainabilityReport(
         windows=[], momentum_shifts=[],
-        explained_moments=[ExplainedMoment(minute=10, period=1, second_in_period=600.0, event_type="goal",
+        explained_moments=[ExplainedMoment(minute=10, period=1, second_in_period=600.0, event_type="goal", player_name="Test Scorer", player_jersey=9,
                                             team="Home FC", base_description="Goal for Home FC", context="came during control")],
     )
     cues = renderer._moment_cues(explainability)
@@ -211,7 +211,7 @@ def test_moment_cue_for_card_has_correct_type_and_duration():
     renderer = OverlayRenderer()
     explainability = ExplainabilityReport(
         windows=[], momentum_shifts=[],
-        explained_moments=[ExplainedMoment(minute=10, period=1, second_in_period=600.0, event_type="card",
+        explained_moments=[ExplainedMoment(minute=10, period=1, second_in_period=600.0, event_type="card", player_name="Test Defender", player_jersey=5,
                                             team="Home FC", base_description="Card for Home FC", context="chaotic")],
     )
     cues = renderer._moment_cues(explainability)
