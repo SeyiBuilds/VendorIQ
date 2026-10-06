@@ -1,0 +1,212 @@
+"""Tests for the Master Orchestrator.
+
+Covers: the full single-vendor pipeline succeeds end to end for every
+sample match, the critical-vs-optional stage split (a critical stage
+failure aborts the run with nothing usable; an optional stage failure is
+logged, skipped, and the run still returns everything that DID succeed),
+the one-retry-then-fail behavior, overlay_renderer's skip when its
+dependencies didn't run, and the on-demand export()/personalize() methods
+not being part of run()'s critical path.
+"""
+
+import json
+import pytest
+from conftest import SAMPLE_MATCHES_DIR
+from orchestrator import MasterOrchestrator, OrchestrationLog, CRITICAL_STAGES, OPTIONAL_STAGES
+from personalization_engine import PersonalizationProfile
+
+
+@pytest.fixture
+def orchestrator():
+    return MasterOrchestrator(ai_escalation_enabled=False)
+
+
+def _opta_vendor_data(match_name="PL_2025_CLEAN_001"):
+    path = SAMPLE_MATCHES_DIR / match_name / "opta.json"
+    return json.loads(path.read_text())
+
+
+def _all_match_names():
+    return [d.name for d in sorted(SAMPLE_MATCHES_DIR.iterdir()) if d.is_dir()]
+
+
+ALL_MATCHES = _all_match_names()
+
+
+# --- Integration: full pipeline, all sample matches ---
+
+@pytest.mark.parametrize("match_name", ALL_MATCHES)
+def test_full_run_succeeds_for_every_sample_match(orchestrator, match_name):
+    result = orchestrator.run(_opta_vendor_data(match_name))
+    assert result.orchestration_log.overall_status == "success"
+    assert result.document is not None
+    assert result.narrative is not None
+    assert result.explainability is not None
+    assert result.timeline is not None
+    assert len(result.document.events) > 0
+
+
+@pytest.mark.parametrize("match_name", ALL_MATCHES)
+def test_every_stage_recorded_as_success(orchestrator, match_name):
+    result = orchestrator.run(_opta_vendor_data(match_name))
+    stage_statuses = {r.stage: r.status for r in result.orchestration_log.records}
+    for stage in CRITICAL_STAGES + OPTIONAL_STAGES:
+        assert stage_statuses[stage] == "success"
+
+
+def test_orchestration_log_ref_set_on_document(orchestrator):
+    result = orchestrator.run(_opta_vendor_data())
+    assert result.document.metadata.orchestration_log_ref == result.orchestration_log.run_id
+
+
+def test_run_id_is_unique_per_run(orchestrator):
+    r1 = orchestrator.run(_opta_vendor_data())
+    r2 = orchestrator.run(_opta_vendor_data())
+    assert r1.orchestration_log.run_id != r2.orchestration_log.run_id
+
+
+# --- Critical stage failure: abort immediately, nothing usable ---
+
+def test_critical_stage_failure_aborts_run(orchestrator, monkeypatch):
+    def boom(*args, **kwargs):
+        raise RuntimeError("simulated schema_mapper bug")
+    monkeypatch.setattr(orchestrator.mapper, "map_events", boom)
+
+    result = orchestrator.run(_opta_vendor_data())
+    assert result.orchestration_log.overall_status == "failed"
+    assert result.document is None
+    assert result.narrative is None
+    assert result.explainability is None
+    assert result.timeline is None
+
+
+def test_critical_stage_failure_does_not_run_later_stages(orchestrator, monkeypatch):
+    calls = []
+    original_translate = orchestrator.translator.translate
+
+    def boom(*args, **kwargs):
+        raise RuntimeError("simulated coordinate_translator bug")
+
+    def track_resolver(*args, **kwargs):
+        calls.append("entity_resolver")
+        raise AssertionError("entity_resolver should never be called after coordinate_translator fails")
+
+    monkeypatch.setattr(orchestrator.translator, "translate", boom)
+    monkeypatch.setattr(orchestrator.resolver, "resolve", track_resolver)
+
+    result = orchestrator.run(_opta_vendor_data())
+    assert calls == []
+    assert result.document is None
+
+
+def test_critical_stage_retries_once_before_failing(orchestrator, monkeypatch):
+    attempts = {"count": 0}
+
+    def flaky(*args, **kwargs):
+        attempts["count"] += 1
+        raise RuntimeError("transient failure")
+
+    monkeypatch.setattr(orchestrator.mapper, "map_events", flaky)
+    result = orchestrator.run(_opta_vendor_data())
+    assert attempts["count"] == 2  # original attempt + one retry
+    assert result.orchestration_log.overall_status == "failed"
+    record = next(r for r in result.orchestration_log.records if r.stage == "schema_mapper")
+    assert record.status == "failed"
+    assert record.retried is True
+
+
+def test_critical_stage_succeeds_on_retry(orchestrator, monkeypatch):
+    attempts = {"count": 0}
+    original = orchestrator.mapper.map_events
+
+    def flaky_once(*args, **kwargs):
+        attempts["count"] += 1
+        if attempts["count"] == 1:
+            raise RuntimeError("transient failure")
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(orchestrator.mapper, "map_events", flaky_once)
+    result = orchestrator.run(_opta_vendor_data())
+    assert result.orchestration_log.overall_status == "success"
+    record = next(r for r in result.orchestration_log.records if r.stage == "schema_mapper")
+    assert record.status == "success"
+    assert record.retried is True
+
+
+# --- Optional stage failure: log, skip, continue with the rest ---
+
+def test_optional_stage_failure_does_not_abort_run(orchestrator, monkeypatch):
+    def boom(*args, **kwargs):
+        raise RuntimeError("simulated narrative_generator bug")
+    monkeypatch.setattr(orchestrator.narrator, "generate", boom)
+
+    result = orchestrator.run(_opta_vendor_data())
+    assert result.orchestration_log.overall_status == "partial"
+    assert result.document is not None  # the critical path's output is still returned
+    assert result.narrative is None
+    record = next(r for r in result.orchestration_log.records if r.stage == "narrative_generator")
+    assert record.status == "failed"
+
+
+def test_overlay_renderer_skipped_when_narrative_fails(orchestrator, monkeypatch):
+    def boom(*args, **kwargs):
+        raise RuntimeError("simulated narrative_generator bug")
+    monkeypatch.setattr(orchestrator.narrator, "generate", boom)
+
+    result = orchestrator.run(_opta_vendor_data())
+    assert result.timeline is None
+    record = next(r for r in result.orchestration_log.records if r.stage == "overlay_renderer")
+    assert record.status == "skipped"
+
+
+def test_explainability_failure_also_skips_overlay(orchestrator, monkeypatch):
+    def boom(*args, **kwargs):
+        raise RuntimeError("simulated explainability_engine bug")
+    monkeypatch.setattr(orchestrator.explainer, "generate", boom)
+
+    result = orchestrator.run(_opta_vendor_data())
+    assert result.narrative is not None  # narrative still succeeded independently
+    assert result.explainability is None
+    assert result.timeline is None
+    assert result.orchestration_log.overall_status == "partial"
+
+
+# --- On-demand methods: not part of run()'s critical path ---
+
+def test_export_works_after_successful_run(orchestrator):
+    result = orchestrator.run(_opta_vendor_data())
+    payload, report = orchestrator.export(result.document, "statsbomb")
+    assert report.events_exported == len(result.document.events)
+    assert payload["match_id"] == result.document.match.match_id
+
+
+def test_personalize_works_after_successful_run(orchestrator):
+    result = orchestrator.run(_opta_vendor_data())
+    profile = PersonalizationProfile(mode="analyst")
+    experience = orchestrator.personalize(result, profile)
+    assert experience is not None
+    assert experience.mode == "analyst"
+
+
+def test_personalize_returns_none_when_optional_stages_missing(orchestrator, monkeypatch):
+    def boom(*args, **kwargs):
+        raise RuntimeError("simulated narrative_generator bug")
+    monkeypatch.setattr(orchestrator.narrator, "generate", boom)
+
+    result = orchestrator.run(_opta_vendor_data())
+    profile = PersonalizationProfile(mode="analyst")
+    experience = orchestrator.personalize(result, profile)
+    assert experience is None
+
+
+def test_export_not_called_during_run(orchestrator, monkeypatch):
+    calls = []
+    original_export = orchestrator.exporter.export
+
+    def track(*args, **kwargs):
+        calls.append(True)
+        return original_export(*args, **kwargs)
+
+    monkeypatch.setattr(orchestrator.exporter, "export", track)
+    orchestrator.run(_opta_vendor_data())
+    assert calls == []  # export is on-demand only, never invoked by run()
