@@ -126,16 +126,25 @@ def test_event_totals_match_document_event_count(detective, mapper, translator, 
     assert total_from_stats == len(document.events)
 
 
-def test_no_goal_or_card_events_in_this_dataset_yields_no_key_moments(detective, mapper, translator, resolver, validator, narrator):
-    """Documents the synthetic generator's known limitation: EVENT_TYPES
-    never includes 'goal' or 'card', so key_moments is always empty for
-    this dataset. Narrative Generator handles that honestly (says so)
-    rather than fabricating moments -- this test pins that behavior."""
+def test_sample_data_produces_key_moments(detective, mapper, translator, resolver, validator, narrator):
+    """The generator's EVENT_TYPES includes weighted goal/card events, so a
+    300-event sample match should produce at least one key moment -- and
+    every one found must be attributed to a real player name, not a
+    dangling unresolved id, since clean-tier data has full jersey coverage."""
     match_dir = SAMPLE_MATCHES_DIR / "PL_2025_CLEAN_001"
     document = _document_for_match(detective, mapper, translator, resolver, validator, match_dir)
     report = narrator.generate(document)
-    assert report.key_moments == []
-    assert "No goals or cards recorded" in report.narrative_text
+    assert len(report.key_moments) > 0
+    assert all(m.event_type in ("goal", "card") for m in report.key_moments)
+    assert all(m.player_name is not None for m in report.key_moments)
+
+
+def test_key_moments_are_chronologically_sorted(detective, mapper, translator, resolver, validator, narrator):
+    match_dir = SAMPLE_MATCHES_DIR / "PL_2025_MESSY_001"
+    document = _document_for_match(detective, mapper, translator, resolver, validator, match_dir)
+    report = narrator.generate(document)
+    keys = [(m.period, m.minute) for m in report.key_moments]
+    assert keys == sorted(keys)
 
 
 def test_messy_tier_surfaces_low_confidence_note(detective, mapper, translator, resolver, validator, narrator):

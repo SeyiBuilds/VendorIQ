@@ -27,7 +27,18 @@ from typing import Literal
 Quality = Literal["clean", "partial", "messy"]
 
 EVENT_TYPES = ["pass", "shot", "tackle", "foul", "corner", "throw_in",
-               "clearance", "interception", "dribble", "save"]
+               "clearance", "interception", "dribble", "save", "goal", "card"]
+
+# Weighted so common open-play events still dominate while goal/card stay
+# rare but present -- a 300-event synthetic match should land around 2-4
+# goals and 2-5 cards, in line with a real Premier League match, instead
+# of either never happening (uniform EVENT_TYPES without weights) or
+# showing up as often as a tackle (uniform WITH goal/card just added).
+EVENT_TYPE_WEIGHTS = {
+    "pass": 30, "shot": 8, "tackle": 10, "foul": 8, "corner": 5,
+    "throw_in": 5, "clearance": 8, "interception": 8, "dribble": 8,
+    "save": 4, "goal": 1, "card": 1.5,
+}
 
 PLAYER_POOL = [
     {"name": "Lionel Messi", "jersey": 10, "position": "RW"},
@@ -85,7 +96,7 @@ def generate_ground_truth(match_id: str, home_team: str, away_team: str,
 
         player = rng.choice(PLAYER_POOL)
         team = home_team if rng.random() < 0.5 else away_team
-        etype = rng.choice(EVENT_TYPES)
+        etype = rng.choices(EVENT_TYPES, weights=[EVENT_TYPE_WEIGHTS[t] for t in EVENT_TYPES], k=1)[0]
         x, y = rng.uniform(0, 100), rng.uniform(0, 100)
         has_end = etype in ("pass", "shot", "clearance")
         end_x = min(100, max(0, x + rng.uniform(-30, 30))) if has_end else None
