@@ -39,7 +39,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Callable, Optional
 
-from cdf_models import CDFDocument, CDFEvent
+from cdf_models import CDFDocument, CDFEvent, MatchSheet, TeamSheet
 
 # Mirrors coordinate_translator.VENDOR_PITCH_DIMENSIONS -- duplicated
 # deliberately rather than imported, so this agent's coordinate contract
@@ -218,6 +218,94 @@ VENDOR_EXPORTERS: dict[str, Callable] = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Match-sheet export-back -- same on-demand, documented-lossy philosophy as
+# the event exporters above, kept as separate functions since the shapes
+# don't overlap at all (see schema_mapper's match-sheet mapping doc note).
+# ---------------------------------------------------------------------------
+
+def _export_team_sheet_opta(team: TeamSheet) -> dict:
+    players = [
+        {"PlayerRef": p.player_id, "PlayerName": p.name, "ShirtNumber": p.jersey_number,
+         "Position": p.position, "Status": "Start" if p.is_starter else "Sub", "Captain": p.is_captain}
+        for p in [*team.starters, *team.substitutes]
+    ]
+    return {"TeamName": team.team, "Formation": team.formation, "MatchPlayer": players}
+
+
+def _export_match_sheet_opta(sheet: MatchSheet) -> dict:
+    subs = [
+        {"TeamName": s.team, "PlayerOffRef": s.player_out_id, "PlayerOnRef": s.player_in_id,
+         "Min": s.minute, "PeriodId": s.period}
+        for s in [*sheet.home.substitutions, *sheet.away.substitutions]
+    ]
+    officials = []
+    if sheet.officials:
+        officials = [
+            {"Role": "Main", "Name": sheet.officials.referee},
+            *[{"Role": f"Assistant{i+1}", "Name": a} for i, a in enumerate(sheet.officials.assistant_referees)],
+            {"Role": "Fourth", "Name": sheet.officials.fourth_official},
+            {"Role": "VAR", "Name": sheet.officials.var_official},
+        ]
+    return {
+        "TeamData": [_export_team_sheet_opta(sheet.home), _export_team_sheet_opta(sheet.away)],
+        "Substitution": subs, "MatchOfficial": officials,
+        "Attendance": sheet.attendance, "Weather": sheet.weather,
+    }
+
+
+def _export_team_sheet_statsbomb(team: TeamSheet) -> dict:
+    lineup = [
+        {"player_id": p.player_id, "player_name": p.name, "jersey_number": p.jersey_number,
+         "position_name": p.position, "starter": p.is_starter, "captain": p.is_captain}
+        for p in [*team.starters, *team.substitutes]
+    ]
+    return {"team_name": team.team, "formation": team.formation, "lineup": lineup}
+
+
+def _export_match_sheet_statsbomb(sheet: MatchSheet) -> dict:
+    subs = [
+        {"team": s.team, "player_out": s.player_out_id, "player_in": s.player_in_id,
+         "minute": s.minute, "period": s.period, "reason": s.reason}
+        for s in [*sheet.home.substitutions, *sheet.away.substitutions]
+    ]
+    return {
+        "home_team": _export_team_sheet_statsbomb(sheet.home),
+        "away_team": _export_team_sheet_statsbomb(sheet.away),
+        "substitutions": subs,
+        "referee": {"name": sheet.officials.referee if sheet.officials else None},
+        "attendance": sheet.attendance, "weather": sheet.weather,
+    }
+
+
+def _export_team_sheet_wyscout(team: TeamSheet) -> dict:
+    lineups = [
+        {"playerId": p.player_id, "shortName": p.name, "shirtNumber": p.jersey_number,
+         "role": p.position, "bench": not p.is_starter}
+        for p in [*team.starters, *team.substitutes]
+    ]
+    return {"formation": team.formation, "lineups": lineups, "teamName": team.team}
+
+
+def _export_match_sheet_wyscout(sheet: MatchSheet) -> dict:
+    subs = [
+        {"teamName": s.team, "playerOut": s.player_out_id, "playerIn": s.player_in_id, "minute": s.minute}
+        for s in [*sheet.home.substitutions, *sheet.away.substitutions]
+    ]
+    return {
+        "teams": {"home": _export_team_sheet_wyscout(sheet.home), "away": _export_team_sheet_wyscout(sheet.away)},
+        "substitutions": subs,
+        "attendance": sheet.attendance, "weatherConditions": sheet.weather,
+    }
+
+
+MATCH_SHEET_EXPORTERS: dict[str, Callable[[MatchSheet], dict]] = {
+    "opta": _export_match_sheet_opta,
+    "statsbomb": _export_match_sheet_statsbomb,
+    "wyscout": _export_match_sheet_wyscout,
+}
+
+
 class FormatExporter:
     """Agent 7. Registry-driven like Agents 2-4: adding a new export target
     is one new entry in VENDOR_EXPORTERS, not a rewrite of this class.
@@ -242,6 +330,16 @@ class FormatExporter:
                 f"{report.players_with_native_id + report.players_with_synthesized_id} player references "
                 f"are synthesized placeholders, not real {target_vendor} ids"
             )
+
+        if document.match_sheet is not None:
+            sheet_exporter_fn = MATCH_SHEET_EXPORTERS.get(target_vendor)
+            if sheet_exporter_fn is not None:
+                payload["match_sheet"] = sheet_exporter_fn(document.match_sheet)
+            else:
+                report.warnings.append(
+                    f"match sheet not exported: no match-sheet exporter registered for '{target_vendor}'"
+                )
+
         return payload, report
 
 

@@ -107,7 +107,12 @@ def _serialize_run(result: PipelineResult, run_id: str, extra: Optional[dict] = 
     return base
 
 
-def _stream_run(vendor_data: dict, extra: Optional[dict] = None):
+def _match_sheet_file(match_id: str, vendor: str) -> Optional[Path]:
+    path = SAMPLE_MATCHES_DIR / match_id / "match_sheets" / f"{vendor}_match_sheet.json"
+    return path if path.exists() else None
+
+
+def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_data: Optional[dict] = None):
     """Shared by both streaming endpoints below. Drives
     orchestrator.run_streaming() and re-emits each event as one NDJSON
     line (newline-delimited JSON) as it actually happens -- this is a
@@ -116,7 +121,7 @@ def _stream_run(vendor_data: dict, extra: Optional[dict] = None):
     whole pipeline completes. Ends with exactly one {"type": "result", ...}
     line carrying the same shape /matches/{id}/run already returns, so
     existing non-streaming callers and RUN_STORE stay unaffected."""
-    for kind, payload in orchestrator.run_streaming(vendor_data):
+    for kind, payload in orchestrator.run_streaming(vendor_data, match_sheet_data=match_sheet_data):
         if kind == "start":
             yield json.dumps({"type": "start", "stage": payload}) + "\n"
         elif kind == "stage":
@@ -152,8 +157,10 @@ def run_match_stream(match_id: str, body: RunRequest = RunRequest()) -> Streamin
         raise HTTPException(status_code=404, detail=f"match '{match_id}' has no '{body.vendor}' file")
 
     vendor_data = json.loads(vendor_file.read_text())
+    sheet_file = _match_sheet_file(match_id, body.vendor)
+    match_sheet_data = json.loads(sheet_file.read_text()) if sheet_file else None
     extra = {"match_id": match_id, "quality_tier": entry.get("quality_tier")}
-    return StreamingResponse(_stream_run(vendor_data, extra), media_type="application/x-ndjson")
+    return StreamingResponse(_stream_run(vendor_data, extra, match_sheet_data), media_type="application/x-ndjson")
 
 
 @app.post("/ingest/run/stream")
@@ -166,11 +173,22 @@ def ingest_run_stream(payload: dict = Body(...)) -> StreamingResponse:
     input. An unrecognized shape isn't a 500 -- Format Detective's
     critical-stage failure path (orchestrator.py) turns it into a normal
     "failed" result with the reason in the orchestration log, same as any
-    other critical-stage failure."""
+    other critical-stage failure.
+
+    An optional sibling "match_sheet_data" key (a vendor-shaped lineups/
+    officials/venue payload, same as the bundled matches' own
+    opta_match_sheet.json etc.) is popped off before the rest is treated
+    as the event feed -- so the existing event-only contract keeps working
+    unchanged for callers that don't send it."""
     if not isinstance(payload, dict) or not payload:
         raise HTTPException(status_code=400, detail="request body must be a non-empty JSON object")
-    return StreamingResponse(_stream_run(payload, {"match_id": None, "quality_tier": None, "source": "uploaded"}),
-                              media_type="application/x-ndjson")
+    match_sheet_data = payload.pop("match_sheet_data", None)
+    if not isinstance(match_sheet_data, dict):
+        match_sheet_data = None
+    return StreamingResponse(
+        _stream_run(payload, {"match_id": None, "quality_tier": None, "source": "uploaded"}, match_sheet_data),
+        media_type="application/x-ndjson",
+    )
 
 
 @app.get("/health")
@@ -196,7 +214,9 @@ def run_match(match_id: str, body: RunRequest = RunRequest()) -> dict:
         raise HTTPException(status_code=404, detail=f"match '{match_id}' has no '{body.vendor}' file")
 
     vendor_data = json.loads(vendor_file.read_text())
-    result = orchestrator.run(vendor_data)
+    sheet_file = _match_sheet_file(match_id, body.vendor)
+    match_sheet_data = json.loads(sheet_file.read_text()) if sheet_file else None
+    result = orchestrator.run(vendor_data, match_sheet_data=match_sheet_data)
 
     run_id = result.orchestration_log.run_id
     RUN_STORE[run_id] = result
@@ -246,7 +266,9 @@ def corrupt_and_run_match(match_id: str, body: CorruptAndRunRequest) -> dict:
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
 
-    result = orchestrator.run(corrupted_data)
+    sheet_file = _match_sheet_file(match_id, "opta")
+    match_sheet_data = json.loads(sheet_file.read_text()) if sheet_file else None
+    result = orchestrator.run(corrupted_data, match_sheet_data=match_sheet_data)
     run_id = result.orchestration_log.run_id
     RUN_STORE[run_id] = result
 
@@ -281,8 +303,10 @@ def corrupt_and_run_match_stream(match_id: str, body: CorruptAndRunRequest) -> S
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
 
+    sheet_file = _match_sheet_file(match_id, "opta")
+    match_sheet_data = json.loads(sheet_file.read_text()) if sheet_file else None
     extra = {"match_id": match_id, "quality_tier": entry.get("quality_tier"), "corruption_log": corruption_log}
-    return StreamingResponse(_stream_run(corrupted_data, extra), media_type="application/x-ndjson")
+    return StreamingResponse(_stream_run(corrupted_data, extra, match_sheet_data), media_type="application/x-ndjson")
 
 
 @app.post("/runs/{run_id}/export")

@@ -99,6 +99,65 @@ class CDFEvent(BaseModel):
     model_config = ConfigDict(use_enum_values=True)
 
 
+class LineupEntry(BaseModel):
+    """One player's slot in a team sheet -- starter or bench, not an event."""
+
+    player_id: str
+    name: Optional[str] = None
+    jersey_number: Optional[int] = None
+    position: Optional[str] = None
+    is_starter: bool = True
+    is_captain: bool = False
+
+
+class SubstitutionRecord(BaseModel):
+    """A single in/out swap. Distinct from a CDFEvent of type SUBSTITUTION --
+    this is the team-sheet's own bookkeeping (who replaced whom, and why,
+    when the vendor reports it), used to render the sheet itself rather than
+    the event timeline."""
+
+    team: str
+    player_out_id: str
+    player_in_id: str
+    minute: conint(ge=0, le=130)
+    period: conint(ge=1, le=4) = 2
+    reason: Optional[str] = None
+
+
+class TeamSheet(BaseModel):
+    """One side's lineup for the match."""
+
+    team: str
+    formation: Optional[str] = None
+    starters: list[LineupEntry] = Field(default_factory=list)
+    substitutes: list[LineupEntry] = Field(default_factory=list)
+    substitutions: list[SubstitutionRecord] = Field(default_factory=list)
+    coach: Optional[str] = None
+
+
+class MatchOfficials(BaseModel):
+    referee: Optional[str] = None
+    assistant_referees: list[str] = Field(default_factory=list)
+    fourth_official: Optional[str] = None
+    var_official: Optional[str] = None
+
+
+class MatchSheet(BaseModel):
+    """The administrative record of the match -- who played, how they lined
+    up, who officiated, where and in front of how many. A separate pillar
+    from event data (what happened on the ball) and still discrete,
+    pipeline-compatible data unlike tracking/video/physical feeds, which
+    come from entirely different vendor systems and are out of scope here
+    (see orchestrator.py's design note)."""
+
+    home: TeamSheet
+    away: TeamSheet
+    officials: Optional[MatchOfficials] = None
+    kickoff: Optional[datetime] = None
+    attendance: Optional[conint(ge=0)] = None
+    weather: Optional[str] = None
+
+
 class CDFDocument(BaseModel):
     """Top-level object. This is what every agent passes down the pipeline
     and what gets written to disk as the normalized output."""
@@ -107,6 +166,7 @@ class CDFDocument(BaseModel):
     metadata: CDFMetadata
     players: list[PlayerRecord] = Field(default_factory=list)
     events: list[CDFEvent] = Field(default_factory=list)
+    match_sheet: Optional[MatchSheet] = None
 
     def confidence_summary(self) -> dict:
         """Quick sanity check used by Validator agent and the frontend dashboard."""

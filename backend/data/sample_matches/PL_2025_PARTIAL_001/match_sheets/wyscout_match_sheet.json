@@ -1,0 +1,341 @@
+{
+  "teams": {
+    "home": {
+      "formation": "4-3-3",
+      "lineups": [
+        {
+          "playerId": "player_8000",
+          "shortName": "Nico Hassan",
+          "shirtNumber": 18,
+          "role": "GK",
+          "bench": false
+        },
+        {
+          "playerId": "player_8001",
+          "shortName": "Axel Fernandez",
+          "shirtNumber": 69,
+          "role": "RB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8002",
+          "shortName": "Bernardo Silva",
+          "shirtNumber": 20,
+          "role": "CB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8003",
+          "shortName": "Yusuf Owusu",
+          "shirtNumber": 39,
+          "role": "CB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8004",
+          "shortName": "Rodri",
+          "shirtNumber": 16,
+          "role": "LB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8005",
+          "shortName": "Theo Hassan",
+          "shirtNumber": 86,
+          "role": "CDM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8006",
+          "shortName": "Sven Larsson",
+          "shirtNumber": 98,
+          "role": "CM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8007",
+          "shortName": "Hugo Novak",
+          "shirtNumber": 72,
+          "role": "CM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8008",
+          "shortName": "Omar Hassan",
+          "shirtNumber": 13,
+          "role": "RW",
+          "bench": false
+        },
+        {
+          "playerId": "player_8009",
+          "shortName": "Omar Rossi",
+          "shirtNumber": 45,
+          "role": "ST",
+          "bench": false
+        },
+        {
+          "playerId": "player_8010",
+          "shortName": "Elias Dubois",
+          "shirtNumber": 4,
+          "role": "LW",
+          "bench": false
+        },
+        {
+          "playerId": "player_8011",
+          "shortName": "Hugo Bianchi",
+          "shirtNumber": 92,
+          "role": "CM",
+          "bench": true
+        },
+        {
+          "playerId": "player_8012",
+          "shortName": "Mateo Novak",
+          "shirtNumber": 2,
+          "role": "RW",
+          "bench": true
+        },
+        {
+          "playerId": "player_8013",
+          "shortName": "Felix Ivanov",
+          "shirtNumber": 81,
+          "role": "GK",
+          "bench": true
+        },
+        {
+          "playerId": "player_8014",
+          "shortName": "Jamal Okafor",
+          "shirtNumber": 90,
+          "role": "ST",
+          "bench": true
+        },
+        {
+          "playerId": "player_8015",
+          "shortName": "Felix Mensah",
+          "shirtNumber": 25,
+          "role": "CB",
+          "bench": true
+        },
+        {
+          "playerId": "player_8016",
+          "shortName": "Omar Ivanov",
+          "shirtNumber": 5,
+          "role": "CDM",
+          "bench": true
+        },
+        {
+          "playerId": "player_8017",
+          "shortName": "Hugo Ivanov",
+          "shirtNumber": 38,
+          "role": "LB",
+          "bench": true
+        }
+      ],
+      "teamName": "Arsenal"
+    },
+    "away": {
+      "formation": "4-3-3",
+      "lineups": [
+        {
+          "playerId": "player_8018",
+          "shortName": "Marcus Fernandez",
+          "shirtNumber": 29,
+          "role": "GK",
+          "bench": false
+        },
+        {
+          "playerId": "player_8019",
+          "shortName": "Bruno Ivanov",
+          "shirtNumber": 66,
+          "role": "RB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8020",
+          "shortName": "Hugo Kowalski",
+          "shirtNumber": 8,
+          "role": "CB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8021",
+          "shortName": "Mohamed Salah",
+          "shirtNumber": null,
+          "role": "CB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8022",
+          "shortName": "Luca Dubois",
+          "shirtNumber": 43,
+          "role": "LB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8023",
+          "shortName": "Alisson Becker",
+          "shirtNumber": 1,
+          "role": "CDM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8024",
+          "shortName": "Enzo Owusu",
+          "shirtNumber": 81,
+          "role": "CM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8025",
+          "shortName": "Jamal Dubois",
+          "shirtNumber": 40,
+          "role": "CM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8026",
+          "shortName": "Diego Berg",
+          "shirtNumber": 77,
+          "role": "RW",
+          "bench": false
+        },
+        {
+          "playerId": "player_8027",
+          "shortName": "Theo Costa",
+          "shirtNumber": 97,
+          "role": "ST",
+          "bench": false
+        },
+        {
+          "playerId": "player_8028",
+          "shortName": "Amadou Lindqvist",
+          "shirtNumber": 83,
+          "role": "LW",
+          "bench": false
+        },
+        {
+          "playerId": "player_8029",
+          "shortName": "Iker Lindqvist",
+          "shirtNumber": 50,
+          "role": "CB",
+          "bench": true
+        },
+        {
+          "playerId": "player_8030",
+          "shortName": "Theo Silva",
+          "shirtNumber": null,
+          "role": "RW",
+          "bench": true
+        },
+        {
+          "playerId": "player_8031",
+          "shortName": "Dario Novak",
+          "shirtNumber": 18,
+          "role": "ST",
+          "bench": true
+        },
+        {
+          "playerId": "player_8032",
+          "shortName": "Diego Novak",
+          "shirtNumber": 4,
+          "role": "GK",
+          "bench": true
+        },
+        {
+          "playerId": "player_8033",
+          "shortName": "Yusuf Silva",
+          "shirtNumber": 69,
+          "role": "LB",
+          "bench": true
+        },
+        {
+          "playerId": "player_8034",
+          "shortName": "Felix Bianchi",
+          "shirtNumber": 88,
+          "role": "CM",
+          "bench": true
+        },
+        {
+          "playerId": "player_8035",
+          "shortName": "Tariq Rossi",
+          "shirtNumber": 85,
+          "role": "CDM",
+          "bench": true
+        }
+      ],
+      "teamName": "Chelsea"
+    }
+  },
+  "substitutions": [
+    {
+      "teamName": "Arsenal",
+      "playerOut": "Theo Hassan",
+      "playerIn": "Hugo Bianchi",
+      "minute": 52
+    },
+    {
+      "teamName": "Arsenal",
+      "playerOut": "Sven Larsson",
+      "playerIn": "Felix Mensah",
+      "minute": 63
+    },
+    {
+      "teamName": "Chelsea",
+      "playerOut": "Jamal Dubois",
+      "playerIn": "Dario Novak",
+      "minute": 77
+    },
+    {
+      "teamName": "Arsenal",
+      "playerOut": "Bernardo Silva",
+      "playerIn": "Jamal Okafor",
+      "minute": 79
+    },
+    {
+      "teamName": "Chelsea",
+      "playerOut": "Bruno Ivanov",
+      "playerIn": "Tariq Rossi",
+      "minute": 81
+    },
+    {
+      "teamName": "Chelsea",
+      "playerOut": "Mohamed Salah",
+      "playerIn": "Iker Lindqvist",
+      "minute": 86
+    },
+    {
+      "teamName": "Arsenal",
+      "playerOut": "Hugo Novak",
+      "playerIn": "Hugo Ivanov",
+      "minute": 88
+    }
+  ],
+  "referees": [
+    {
+      "role": "referee",
+      "name": "David Tierney"
+    },
+    {
+      "role": "fourthOfficial",
+      "name": "Michael Hooper"
+    },
+    {
+      "role": "var",
+      "name": "Anthony Tierney"
+    },
+    {
+      "role": "assistant",
+      "name": "Simon Taylor"
+    },
+    {
+      "role": "assistant",
+      "name": "Craig Oliver"
+    }
+  ],
+  "venue": {
+    "name": "Emirates Stadium"
+  },
+  "attendance": 59557,
+  "weatherConditions": "Overcast",
+  "kickOffTime": "12:30",
+  "_vendor_format": "wyscout_match_sheet"
+}

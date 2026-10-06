@@ -46,8 +46,13 @@ npm run dev
    `OrchestrationLog`.
 5. **Export** — re-export the current run's validated document into
    another vendor's shape (Agent 7, on demand) and download the result as
-   JSON.
-6. **Narrative** — the generated match report, key moments, and team
+   JSON -- includes the match sheet too, when the run has one.
+6. **Match sheet** — lineups, formations, substitutions, officials, venue,
+   attendance and weather. A separate data pillar from the event timeline,
+   mapped from its own vendor-shaped feed; only renders when the run
+   actually had one (auto-attached for the 3 sample matches, optional for
+   an upload).
+7. **Narrative** — the generated match report, key moments, and team
    stats table.
 
 No business logic lives here — every panel is a direct view onto what the

@@ -351,6 +351,304 @@ VENDOR_MAPPERS: dict[str, Callable[[dict, int], MappedEvent]] = {
 }
 
 
+# ---------------------------------------------------------------------------
+# Match-sheet mapping (lineups, formations, subs, officials, venue).
+#
+# A separate, parallel path from event mapping above, not a branch inside
+# it -- match sheets are a structurally distinct feed (real vendors ship
+# them separately from the event stream too), so Format Detective's
+# event-shaped signatures don't apply here. Detection is its own lightweight
+# top-level-key sniff (_detect_match_sheet_vendor), and mapping follows the
+# same fallback-field-resolution pattern (_get_first_present/_nested_get)
+# as the event mappers above.
+# ---------------------------------------------------------------------------
+
+@dataclass
+class MappedLineupEntry:
+    name: Optional[str]
+    jersey_number: Optional[int]
+    position: Optional[str]
+    is_starter: bool
+    is_captain: bool
+    raw_player_ref: dict = field(default_factory=dict)
+
+
+@dataclass
+class MappedSubstitution:
+    team: Optional[str]
+    player_out_ref: dict
+    player_in_ref: dict
+    minute: Optional[int]
+    period: int
+    reason: Optional[str] = None
+
+
+@dataclass
+class MappedMatchSheet:
+    home_team: Optional[str]
+    away_team: Optional[str]
+    home_formation: Optional[str]
+    away_formation: Optional[str]
+    home_lineup: list[MappedLineupEntry]
+    away_lineup: list[MappedLineupEntry]
+    substitutions: list[MappedSubstitution]
+    referee: Optional[str]
+    assistant_referees: list[str]
+    fourth_official: Optional[str]
+    var_official: Optional[str]
+    venue: Optional[str]
+    attendance: Optional[int]
+    weather: Optional[str]
+    kickoff_time: Optional[str]
+    vendor_source: str
+    mapping_confidence: float
+    mapping_log: list[str] = field(default_factory=list)
+
+
+def _detect_match_sheet_vendor(data: dict) -> str:
+    """Top-level-key sniff for which vendor's match-sheet shape this is.
+    Separate from FormatDetective's event-signature matching -- these
+    documents don't have an event list to score against."""
+    if not isinstance(data, dict):
+        return "unknown"
+    keys = {k for k in data.keys() if not k.startswith("_")}
+    if {"TeamData", "MatchOfficial"}.issubset(keys):
+        return "opta"
+    home = data.get("home_team")
+    if {"home_team", "away_team"}.issubset(keys) and isinstance(home, dict) and "lineup" in home:
+        return "statsbomb"
+    teams = data.get("teams")
+    if "teams" in keys and isinstance(teams, dict) and {"home", "away"}.issubset(teams.keys()):
+        return "wyscout"
+    return "unknown"
+
+
+def _map_opta_match_sheet(data: dict) -> MappedMatchSheet:
+    log = []
+    team_data = data.get("TeamData") or []
+    if len(team_data) < 2:
+        log.append("TeamData missing or incomplete -- expected 2 teams")
+    home_block = team_data[0] if len(team_data) > 0 else {}
+    away_block = team_data[1] if len(team_data) > 1 else {}
+
+    def map_squad(block: dict) -> list[MappedLineupEntry]:
+        entries = []
+        for p in (block.get("MatchPlayer") or []):
+            pid, _ = _get_first_present(p, ["PlayerRef", "PlayerId"])
+            name, _ = _get_first_present(p, ["PlayerName", "Name"])
+            jersey, _ = _get_first_present(p, ["ShirtNumber", "JerseyNumber"])
+            position, _ = _get_first_present(p, ["Position"])
+            status, _ = _get_first_present(p, ["Status"])
+            captain, _ = _get_first_present(p, ["Captain"])
+            entries.append(MappedLineupEntry(
+                name=name, jersey_number=jersey, position=position,
+                is_starter=(status != "Sub") if status is not None else True,
+                is_captain=bool(captain),
+                raw_player_ref={"vendor_id": pid, "jersey_number": jersey, "name": name},
+            ))
+        return entries
+
+    home_team, _ = _get_first_present(home_block, ["TeamName"])
+    away_team, _ = _get_first_present(away_block, ["TeamName"])
+    home_formation, _ = _get_first_present(home_block, ["Formation"])
+    away_formation, _ = _get_first_present(away_block, ["Formation"])
+
+    subs = []
+    for s in (data.get("Substitution") or []):
+        out_ref, _ = _get_first_present(s, ["PlayerOffRef"])
+        in_ref, _ = _get_first_present(s, ["PlayerOnRef"])
+        minute, _ = _get_first_present(s, ["Min", "Minute"])
+        period, _ = _get_first_present(s, ["PeriodId", "Period"])
+        team, _ = _get_first_present(s, ["TeamName"])
+        subs.append(MappedSubstitution(
+            team=team, player_out_ref={"vendor_id": out_ref}, player_in_ref={"vendor_id": in_ref},
+            minute=minute, period=period or 2,
+        ))
+
+    officials = data.get("MatchOfficial") or []
+
+    def official_name(role: str) -> Optional[str]:
+        return next((o.get("Name") for o in officials if o.get("Role") == role), None)
+
+    venue, _ = _get_first_present(data.get("Venue") or {}, ["Name"])
+    attendance, _ = _get_first_present(data, ["Attendance"])
+    weather, _ = _get_first_present(data, ["Weather"])
+    kickoff, _ = _get_first_present(data, ["KickOffTime"])
+
+    missing = sum(1 for v in [home_team, away_team, venue] if v is None)
+    confidence = max(0.3, 1.0 - 0.2 * missing)
+    if missing:
+        log.append(f"{missing} top-level field(s) missing (team names / venue)")
+
+    return MappedMatchSheet(
+        home_team=home_team, away_team=away_team,
+        home_formation=home_formation, away_formation=away_formation,
+        home_lineup=map_squad(home_block), away_lineup=map_squad(away_block),
+        substitutions=subs, referee=official_name("Main"),
+        assistant_referees=[n for n in (official_name("Assistant1"), official_name("Assistant2")) if n],
+        fourth_official=official_name("Fourth"), var_official=official_name("VAR"),
+        venue=venue, attendance=attendance, weather=weather, kickoff_time=kickoff,
+        vendor_source="opta", mapping_confidence=round(confidence, 3), mapping_log=log,
+    )
+
+
+def _map_statsbomb_match_sheet(data: dict) -> MappedMatchSheet:
+    log = []
+    home_block = data.get("home_team") or {}
+    away_block = data.get("away_team") or {}
+
+    def map_squad(block: dict) -> list[MappedLineupEntry]:
+        entries = []
+        for p in (block.get("lineup") or []):
+            pid, _ = _get_first_present(p, ["player_id"])
+            name, _ = _get_first_present(p, ["player_name"])
+            jersey, _ = _get_first_present(p, ["jersey_number"])
+            position, _ = _get_first_present(p, ["position_name"])
+            starter, _ = _get_first_present(p, ["starter"])
+            captain, _ = _get_first_present(p, ["captain"])
+            entries.append(MappedLineupEntry(
+                name=name, jersey_number=jersey, position=position,
+                is_starter=bool(starter) if starter is not None else True,
+                is_captain=bool(captain),
+                raw_player_ref={"vendor_id": pid, "jersey_number": jersey, "name": name},
+            ))
+        return entries
+
+    home_team, _ = _get_first_present(home_block, ["team_name"])
+    away_team, _ = _get_first_present(away_block, ["team_name"])
+    home_formation, _ = _get_first_present(home_block, ["formation"])
+    away_formation, _ = _get_first_present(away_block, ["formation"])
+
+    subs = []
+    for s in (data.get("substitutions") or []):
+        team, _ = _get_first_present(s, ["team"])
+        out_name, _ = _get_first_present(s, ["player_out"])
+        in_name, _ = _get_first_present(s, ["player_in"])
+        minute, _ = _get_first_present(s, ["minute"])
+        period, _ = _get_first_present(s, ["period"])
+        reason, _ = _get_first_present(s, ["reason"])
+        subs.append(MappedSubstitution(
+            team=team, player_out_ref={"name": out_name}, player_in_ref={"name": in_name},
+            minute=minute, period=period or 2, reason=reason,
+        ))
+
+    referee = _nested_get(data, ["referee", "name"])
+    officials_block = data.get("officials") or {}
+    assistants = officials_block.get("assistants") or []
+    fourth = officials_block.get("fourth_official")
+    var = officials_block.get("var")
+
+    venue = _nested_get(data, ["stadium", "name"])
+    attendance, _ = _get_first_present(data, ["attendance"])
+    weather, _ = _get_first_present(data, ["weather"])
+    kickoff, _ = _get_first_present(data, ["kick_off"])
+
+    missing = sum(1 for v in [home_team, away_team, venue] if v is None)
+    confidence = max(0.3, 1.0 - 0.2 * missing)
+    if missing:
+        log.append(f"{missing} top-level field(s) missing (team names / venue)")
+
+    return MappedMatchSheet(
+        home_team=home_team, away_team=away_team,
+        home_formation=home_formation, away_formation=away_formation,
+        home_lineup=map_squad(home_block), away_lineup=map_squad(away_block),
+        substitutions=subs, referee=referee, assistant_referees=list(assistants),
+        fourth_official=fourth, var_official=var,
+        venue=venue, attendance=attendance, weather=weather, kickoff_time=kickoff,
+        vendor_source="statsbomb", mapping_confidence=round(confidence, 3), mapping_log=log,
+    )
+
+
+def _map_wyscout_match_sheet(data: dict) -> MappedMatchSheet:
+    log = []
+    teams = data.get("teams") or {}
+    home_block = teams.get("home") or {}
+    away_block = teams.get("away") or {}
+
+    def map_squad(block: dict) -> list[MappedLineupEntry]:
+        entries = []
+        for p in (block.get("lineups") or []):
+            pid, _ = _get_first_present(p, ["playerId"])
+            name, _ = _get_first_present(p, ["shortName"])
+            jersey, _ = _get_first_present(p, ["shirtNumber"])
+            position, _ = _get_first_present(p, ["role"])
+            bench, _ = _get_first_present(p, ["bench"])
+            entries.append(MappedLineupEntry(
+                name=name, jersey_number=jersey, position=position,
+                is_starter=not bool(bench) if bench is not None else True,
+                is_captain=False,
+                raw_player_ref={"vendor_id": pid, "jersey_number": jersey, "name": name},
+            ))
+        return entries
+
+    home_team, _ = _get_first_present(home_block, ["teamName"])
+    away_team, _ = _get_first_present(away_block, ["teamName"])
+    home_formation, _ = _get_first_present(home_block, ["formation"])
+    away_formation, _ = _get_first_present(away_block, ["formation"])
+    if home_formation is None:
+        log.append("home formation missing (null in source)")
+
+    subs = []
+    for s in (data.get("substitutions") or []):
+        team, _ = _get_first_present(s, ["teamName"])
+        out_name, _ = _get_first_present(s, ["playerOut"])
+        in_name, _ = _get_first_present(s, ["playerIn"])
+        minute, _ = _get_first_present(s, ["minute"])
+        subs.append(MappedSubstitution(
+            team=team, player_out_ref={"name": out_name}, player_in_ref={"name": in_name},
+            minute=minute, period=2,
+        ))
+
+    referees = data.get("referees") or []
+
+    def official_name(role: str) -> Optional[str]:
+        return next((r.get("name") for r in referees if r.get("role") == role), None)
+
+    assistants = [r.get("name") for r in referees if r.get("role") == "assistant" and r.get("name")]
+
+    venue = _nested_get(data, ["venue", "name"])
+    attendance, _ = _get_first_present(data, ["attendance"])
+    weather, _ = _get_first_present(data, ["weatherConditions"])
+    kickoff, _ = _get_first_present(data, ["kickOffTime"])
+
+    missing = sum(1 for v in [home_team, away_team, venue] if v is None)
+    confidence = max(0.3, 1.0 - 0.2 * missing)
+    if missing:
+        log.append(f"{missing} top-level field(s) missing (team names / venue)")
+
+    return MappedMatchSheet(
+        home_team=home_team, away_team=away_team,
+        home_formation=home_formation, away_formation=away_formation,
+        home_lineup=map_squad(home_block), away_lineup=map_squad(away_block),
+        substitutions=subs, referee=official_name("referee"), assistant_referees=assistants,
+        fourth_official=official_name("fourthOfficial"), var_official=official_name("var"),
+        venue=venue, attendance=attendance, weather=weather, kickoff_time=kickoff,
+        vendor_source="wyscout", mapping_confidence=round(confidence, 3), mapping_log=log,
+    )
+
+
+def _map_generic_match_sheet(data: dict) -> MappedMatchSheet:
+    """Fallback for an unrecognized match-sheet shape -- same honest-
+    degradation philosophy as _map_generic_event: never crash, return a
+    low-confidence, mostly-empty structure with the reason logged."""
+    return MappedMatchSheet(
+        home_team=None, away_team=None, home_formation=None, away_formation=None,
+        home_lineup=[], away_lineup=[], substitutions=[],
+        referee=None, assistant_referees=[], fourth_official=None, var_official=None,
+        venue=None, attendance=None, weather=None, kickoff_time=None,
+        vendor_source="unknown", mapping_confidence=0.0,
+        mapping_log=["unrecognized match-sheet shape: no vendor signature matched, returning empty structure"],
+    )
+
+
+MATCH_SHEET_MAPPERS: dict[str, Callable[[dict], MappedMatchSheet]] = {
+    "opta": _map_opta_match_sheet,
+    "statsbomb": _map_statsbomb_match_sheet,
+    "wyscout": _map_wyscout_match_sheet,
+    "unknown": _map_generic_match_sheet,
+}
+
+
 class SchemaMapper:
     """Agent 2. Registry-driven so adding a new vendor is adding one entry
     to VENDOR_MAPPERS, not editing this class."""
@@ -359,6 +657,15 @@ class SchemaMapper:
         mapper_fn = VENDOR_MAPPERS.get(detected_format, _map_generic_event)
         events = data.get(event_list_key, []) if event_list_key else []
         return [mapper_fn(raw, i) for i, raw in enumerate(events) if isinstance(raw, dict)]
+
+    def map_match_sheet(self, data: dict) -> MappedMatchSheet:
+        """Separate entry point from map_events -- match-sheet payloads are
+        detected and mapped independently (see _detect_match_sheet_vendor)."""
+        if not isinstance(data, dict):
+            return _map_generic_match_sheet({})
+        vendor = _detect_match_sheet_vendor(data)
+        mapper_fn = MATCH_SHEET_MAPPERS.get(vendor, _map_generic_match_sheet)
+        return mapper_fn(data)
 
 
 if __name__ == "__main__":

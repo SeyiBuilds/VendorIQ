@@ -239,3 +239,34 @@ def test_unsupported_vendor_returns_empty_payload_with_warning(exporter):
     assert payload == {}
     assert report.events_exported == 0
     assert any("no exporter registered" in w for w in report.warnings)
+
+
+# --- Match-sheet export-back ---
+
+@pytest.fixture(scope="module")
+def document_with_match_sheet(detective, mapper, translator, resolver, validator):
+    match_dir = SAMPLE_MATCHES_DIR / "PL_2025_CLEAN_001"
+    all_events, vendor_raw_data = [], {}
+    for vendor_file in sorted(match_dir.glob("*.json")):
+        data = json.loads(vendor_file.read_text())
+        detection = detective.detect(data)
+        vendor_raw_data[detection.detected_format] = data
+        mapped = mapper.map_events(data, detection.detected_format, detection.event_list_key)
+        all_events.extend(translator.translate(mapped))
+    resolved, registry = resolver.resolve(all_events)
+
+    sheet_data = json.loads((match_dir / "match_sheets" / "opta_match_sheet.json").read_text())
+    mapped_sheet = mapper.map_match_sheet(sheet_data)
+    document, _ = validator.build_document(resolved, registry, vendor_raw_data, mapped_match_sheet=mapped_sheet)
+    return document
+
+
+@pytest.mark.parametrize("target", ["opta", "statsbomb", "wyscout"])
+def test_export_includes_match_sheet_when_document_has_one(document_with_match_sheet, exporter, target):
+    payload, report = exporter.export(document_with_match_sheet, target)
+    assert "match_sheet" in payload
+
+
+def test_export_omits_match_sheet_key_when_document_has_none(clean_document, exporter):
+    payload, report = exporter.export(clean_document, "opta")
+    assert "match_sheet" not in payload

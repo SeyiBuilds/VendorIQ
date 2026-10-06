@@ -55,6 +55,192 @@ PLAYER_POOL = [
     {"name": "Bernardo Silva", "jersey": 20, "position": "CM"},
 ]
 
+# ---------------------------------------------------------------------------
+# Match-sheet data: lineups, formations, subs, officials, venue. A full
+# matchday needs 2 x 18-man squads (11 starters + 7 bench) -- PLAYER_POOL's
+# 12 named real players aren't enough for that, so the rest of each squad
+# is filled with synthetic (non-real) names built from these pools. This is
+# a separate, discrete pillar from event data -- real vendors (Opta/
+# StatsBomb/Wyscout) ship it as its own feed, not bundled into the event
+# stream -- unlike tracking/video/physical data, which come from entirely
+# different vendor systems and are intentionally out of scope here.
+_FILLER_FIRST_NAMES = [
+    "Marcus", "Diego", "Kwame", "Luca", "Noah", "Theo", "Yusuf", "Mateo",
+    "Felix", "Omar", "Jamal", "Rafael", "Elias", "Hugo", "Bruno", "Axel",
+    "Tariq", "Iker", "Sven", "Nico", "Dario", "Amadou", "Enzo", "Kasper",
+]
+_FILLER_LAST_NAMES = [
+    "Owusu", "Fernandez", "Larsson", "Okafor", "Bianchi", "Kowalski",
+    "Dubois", "Haddad", "Nakamura", "Silva", "Mensah", "Petrov", "Costa",
+    "Berg", "Diallo", "Hassan", "Novak", "Rossi", "Ivanov", "Lindqvist",
+]
+
+FORMATIONS = {
+    "4-3-3": ["GK", "RB", "CB", "CB", "LB", "CDM", "CM", "CM", "RW", "ST", "LW"],
+    "4-4-2": ["GK", "RB", "CB", "CB", "LB", "RM", "CM", "CM", "LM", "ST", "ST"],
+    "3-5-2": ["GK", "CB", "CB", "CB", "RM", "CM", "CDM", "CM", "LM", "ST", "ST"],
+    "4-2-3-1": ["GK", "RB", "CB", "CB", "LB", "CDM", "CDM", "CAM", "RW", "LW", "ST"],
+}
+BENCH_POSITIONS = ["GK", "CB", "LB", "CM", "CDM", "ST", "RW"]
+
+REFEREE_FIRST_NAMES = ["Michael", "Anthony", "Paul", "Craig", "Simon", "Andre", "David"]
+REFEREE_LAST_NAMES = ["Oliver", "Taylor", "Tierney", "Pawson", "Hooper", "Marriner", "Attwell"]
+
+TEAM_VENUES = {
+    "Liverpool": "Anfield",
+    "Manchester City": "Etihad Stadium",
+    "Arsenal": "Emirates Stadium",
+    "Chelsea": "Stamford Bridge",
+    "Manchester United": "Old Trafford",
+    "Tottenham": "Tottenham Hotspur Stadium",
+}
+WEATHER_OPTIONS = ["Clear", "Overcast", "Light rain", "Heavy rain", "Windy"]
+
+
+@dataclass
+class GroundTruthLineupPlayer:
+    name: str
+    jersey_number: int
+    position: str
+    is_starter: bool
+    is_captain: bool = False
+
+
+@dataclass
+class GroundTruthSubstitution:
+    team: str
+    player_out: str
+    player_in: str
+    minute: int
+    period: int = 2
+    reason: str | None = None
+
+
+@dataclass
+class GroundTruthMatchSheet:
+    home_formation: str
+    away_formation: str
+    home_lineup: list[GroundTruthLineupPlayer]
+    away_lineup: list[GroundTruthLineupPlayer]
+    substitutions: list[GroundTruthSubstitution]
+    referee: str
+    assistant_referees: list[str]
+    fourth_official: str
+    var_official: str
+    venue: str
+    attendance: int
+    weather: str
+    kickoff_time: str  # "HH:MM", local kickoff time -- date comes from MatchInfo
+
+
+def _unique_name(rng: random.Random, used: set[str]) -> str:
+    """Builds a synthetic (non-real) player name not already used in this
+    match, so no two players on the pitch collide."""
+    for _ in range(200):
+        name = f"{rng.choice(_FILLER_FIRST_NAMES)} {rng.choice(_FILLER_LAST_NAMES)}"
+        if name not in used:
+            used.add(name)
+            return name
+    # Pool exhausted (shouldn't happen at 24x20 combinations for 36 players) --
+    # fall back to a numbered tag rather than looping forever.
+    name = f"Player {len(used) + 1}"
+    used.add(name)
+    return name
+
+
+def _generate_squad(team: str, rng: random.Random, used_names: set[str]) -> tuple[str, list[GroundTruthLineupPlayer]]:
+    """One team's 18-man squad: 11 starters in a formation + 7 substitutes.
+    Mixes in real PLAYER_POOL names where available (capped so both squads
+    don't fight over the same 12 names) and fills the rest synthetically."""
+    formation = rng.choice(list(FORMATIONS.keys()))
+    slots = FORMATIONS[formation]
+
+    squad: list[GroundTruthLineupPlayer] = []
+    used_jerseys: set[int] = set()
+
+    def next_jersey() -> int:
+        for _ in range(200):
+            n = rng.randint(1, 99)
+            if n not in used_jerseys:
+                used_jerseys.add(n)
+                return n
+        n = max(used_jerseys, default=0) + 1
+        used_jerseys.add(n)
+        return n
+
+    real_pool = [p for p in PLAYER_POOL if p["name"] not in used_names]
+    rng.shuffle(real_pool)
+
+    for i, position in enumerate(slots):
+        if real_pool and rng.random() < 0.3:
+            p = real_pool.pop()
+            used_names.add(p["name"])
+            name, jersey = p["name"], p["jersey"]
+            if jersey in used_jerseys:
+                jersey = next_jersey()
+            else:
+                used_jerseys.add(jersey)
+        else:
+            name, jersey = _unique_name(rng, used_names), next_jersey()
+        squad.append(GroundTruthLineupPlayer(
+            name=name, jersey_number=jersey, position=position,
+            is_starter=True, is_captain=(i == 0),
+        ))
+
+    for position in rng.sample(BENCH_POSITIONS, k=len(BENCH_POSITIONS)):
+        name, jersey = _unique_name(rng, used_names), next_jersey()
+        squad.append(GroundTruthLineupPlayer(
+            name=name, jersey_number=jersey, position=position, is_starter=False,
+        ))
+
+    return formation, squad
+
+
+def generate_match_sheet(home_team: str, away_team: str, seed: int | None = None) -> GroundTruthMatchSheet:
+    """Generates the administrative record for a match: lineups, formations,
+    substitutions, officials, venue, attendance, weather, kickoff time --
+    independent of (and not cross-referenced against) the event timeline,
+    since real vendors ship these as separate feeds too."""
+    rng = random.Random(seed)
+    used_names: set[str] = set()
+
+    home_formation, home_squad = _generate_squad(home_team, rng, used_names)
+    away_formation, away_squad = _generate_squad(away_team, rng, used_names)
+
+    substitutions = []
+    for team, squad in ((home_team, home_squad), (away_team, away_squad)):
+        starters = [p for p in squad if p.is_starter]
+        bench = [p for p in squad if not p.is_starter]
+        n_subs = rng.randint(2, 4)
+        out_players = rng.sample(starters, k=min(n_subs, len(starters)))
+        in_players = rng.sample(bench, k=min(n_subs, len(bench)))
+        for out_p, in_p in zip(out_players, in_players):
+            minute = rng.randint(46, 90)
+            substitutions.append(GroundTruthSubstitution(
+                team=team, player_out=out_p.name, player_in=in_p.name,
+                minute=minute, period=2,
+                reason=rng.choice(["tactical", "injury", "tactical", "fatigue"]),
+            ))
+    substitutions.sort(key=lambda s: s.minute)
+
+    referee = f"{rng.choice(REFEREE_FIRST_NAMES)} {rng.choice(REFEREE_LAST_NAMES)}"
+    assistants = [f"{rng.choice(REFEREE_FIRST_NAMES)} {rng.choice(REFEREE_LAST_NAMES)}" for _ in range(2)]
+    fourth = f"{rng.choice(REFEREE_FIRST_NAMES)} {rng.choice(REFEREE_LAST_NAMES)}"
+    var = f"{rng.choice(REFEREE_FIRST_NAMES)} {rng.choice(REFEREE_LAST_NAMES)}"
+
+    venue = TEAM_VENUES.get(home_team, f"{home_team} Stadium")
+    attendance = rng.randint(40_000, 75_000)
+    weather = rng.choice(WEATHER_OPTIONS)
+    kickoff_time = rng.choice(["12:30", "15:00", "17:30", "20:00"])
+
+    return GroundTruthMatchSheet(
+        home_formation=home_formation, away_formation=away_formation,
+        home_lineup=home_squad, away_lineup=away_squad,
+        substitutions=substitutions, referee=referee,
+        assistant_referees=assistants, fourth_official=fourth, var_official=var,
+        venue=venue, attendance=attendance, weather=weather, kickoff_time=kickoff_time,
+    )
+
 
 @dataclass
 class GroundTruthEvent:
@@ -290,6 +476,163 @@ def to_wyscout_format(match: GroundTruthMatch, quality: Quality, seed: int | Non
 
 
 # ---------------------------------------------------------------------------
+# Match-sheet vendor exporters: same ground-truth sheet, 3 different shapes --
+# mirroring how the event exporters above work, including quality-tier
+# degradation via _maybe_drop() so Schema Mapper has something real to
+# recover from on this pillar too.
+# ---------------------------------------------------------------------------
+
+def _lineup_entry_dict(p: GroundTruthLineupPlayer, player_ids: dict, quality: Quality, rng: random.Random,
+                        id_key: str, name_key: str, jersey_key: str, position_key: str) -> dict:
+    pid = player_ids.get(p.name)
+    pid = _maybe_drop(pid, quality, rng, 0.03)
+    jersey = _maybe_drop(p.jersey_number, quality, rng, 0.04)
+    position = _maybe_drop(p.position, quality, rng, 0.03)
+    return {
+        id_key: pid,
+        name_key: p.name,
+        jersey_key: jersey,
+        position_key: position,
+    }
+
+
+def to_opta_match_sheet(sheet: GroundTruthMatchSheet, home_team: str, away_team: str,
+                         quality: Quality, seed: int | None = None) -> dict:
+    """Opta-style team-sheet feed: flat MatchPlayer records per side, Start/
+    Sub status instead of a separate starters/bench list."""
+    rng = random.Random(seed)
+    all_names = [p.name for p in sheet.home_lineup + sheet.away_lineup]
+    player_ids = {name: f"p{20000 + i}" for i, name in enumerate(all_names)}
+
+    def team_block(team_name, formation, squad):
+        players = []
+        for p in squad:
+            entry = _lineup_entry_dict(p, player_ids, quality, rng, "PlayerRef", "PlayerName", "ShirtNumber", "Position")
+            entry["Status"] = "Start" if p.is_starter else "Sub"
+            entry["Captain"] = p.is_captain
+            players.append(entry)
+        return {"TeamName": team_name, "Formation": formation, "MatchPlayer": players}
+
+    subs = []
+    for s in sheet.substitutions:
+        subs.append({
+            "TeamName": s.team,
+            "PlayerOffRef": player_ids.get(s.player_out),
+            "PlayerOnRef": player_ids.get(s.player_in),
+            "Min": s.minute,
+            "PeriodId": s.period,
+        })
+
+    return {
+        "TeamData": [
+            team_block(home_team, sheet.home_formation, sheet.home_lineup),
+            team_block(away_team, sheet.away_formation, sheet.away_lineup),
+        ],
+        "Substitution": subs,
+        "MatchOfficial": [
+            {"Role": "Main", "Name": sheet.referee},
+            {"Role": "Assistant1", "Name": sheet.assistant_referees[0] if sheet.assistant_referees else None},
+            {"Role": "Assistant2", "Name": sheet.assistant_referees[1] if len(sheet.assistant_referees) > 1 else None},
+            {"Role": "Fourth", "Name": sheet.fourth_official},
+            {"Role": "VAR", "Name": sheet.var_official},
+        ],
+        "Venue": {"Name": sheet.venue},
+        "Attendance": sheet.attendance,
+        "Weather": sheet.weather,
+        "KickOffTime": sheet.kickoff_time,
+        "_vendor_format": "opta_match_sheet",
+    }
+
+
+def to_statsbomb_match_sheet(sheet: GroundTruthMatchSheet, home_team: str, away_team: str,
+                              quality: Quality, seed: int | None = None) -> dict:
+    """StatsBomb-style lineups feed: nested per-team lineup objects with a
+    `positions` list, separate from the event stream."""
+    rng = random.Random(seed)
+    all_names = [p.name for p in sheet.home_lineup + sheet.away_lineup]
+    player_ids = {name: 6000 + i for i, name in enumerate(all_names)}
+
+    def team_block(team_name, formation, squad):
+        lineup = []
+        for p in squad:
+            entry = _lineup_entry_dict(p, player_ids, quality, rng, "player_id", "player_name", "jersey_number", "position_name")
+            entry["starter"] = p.is_starter
+            entry["captain"] = p.is_captain
+            lineup.append(entry)
+        return {"team_name": team_name, "formation": formation, "lineup": lineup}
+
+    subs = [{
+        "team": s.team, "player_out": s.player_out, "player_in": s.player_in,
+        "minute": s.minute, "period": s.period, "reason": s.reason,
+    } for s in sheet.substitutions]
+
+    return {
+        "home_team": team_block(home_team, sheet.home_formation, sheet.home_lineup),
+        "away_team": team_block(away_team, sheet.away_formation, sheet.away_lineup),
+        "substitutions": subs,
+        "referee": {"name": sheet.referee},
+        "officials": {
+            "assistants": sheet.assistant_referees,
+            "fourth_official": sheet.fourth_official,
+            "var": sheet.var_official,
+        },
+        "stadium": {"name": sheet.venue},
+        "attendance": sheet.attendance,
+        "weather": sheet.weather,
+        "kick_off": sheet.kickoff_time,
+        "_vendor_format": "statsbomb_match_sheet",
+    }
+
+
+def to_wyscout_match_sheet(sheet: GroundTruthMatchSheet, home_team: str, away_team: str,
+                            quality: Quality, seed: int | None = None) -> dict:
+    """Wyscout-style lineups feed: lower-cased compact keys, formation as a
+    raw string code, officials folded into one flat `referees` list --
+    the messiest of the three shapes, same as its event feed."""
+    rng = random.Random(seed)
+    all_names = [p.name for p in sheet.home_lineup + sheet.away_lineup]
+    player_ids = {name: f"player_{8000 + i}" for i, name in enumerate(all_names)}
+
+    def team_block(squad):
+        lineups = []
+        for p in squad:
+            entry = _lineup_entry_dict(p, player_ids, quality, rng, "playerId", "shortName", "shirtNumber", "role")
+            entry["bench"] = not p.is_starter
+            lineups.append(entry)
+        return lineups
+
+    teams = {
+        "home": {"formation": sheet.home_formation, "lineups": team_block(sheet.home_lineup), "teamName": home_team},
+        "away": {"formation": sheet.away_formation, "lineups": team_block(sheet.away_lineup), "teamName": away_team},
+    }
+
+    subs = [{
+        "teamName": s.team, "playerOut": s.player_out, "playerIn": s.player_in,
+        "minute": s.minute,
+    } for s in sheet.substitutions]
+
+    referees = [
+        {"role": "referee", "name": sheet.referee},
+        {"role": "fourthOfficial", "name": sheet.fourth_official},
+        {"role": "var", "name": sheet.var_official},
+    ] + [{"role": "assistant", "name": a} for a in sheet.assistant_referees]
+
+    if quality == "messy" and rng.random() < 0.1:
+        teams["home"]["formation"] = None  # Wyscout's real-world quirk: formation sometimes just absent
+
+    return {
+        "teams": teams,
+        "substitutions": subs,
+        "referees": referees,
+        "venue": {"name": sheet.venue},
+        "attendance": sheet.attendance,
+        "weatherConditions": sheet.weather,
+        "kickOffTime": sheet.kickoff_time,
+        "_vendor_format": "wyscout_match_sheet",
+    }
+
+
+# ---------------------------------------------------------------------------
 # Top-level: generate one match at one quality tier, all 3 vendor files.
 # ---------------------------------------------------------------------------
 
@@ -297,10 +640,14 @@ def generate_match_bundle(match_id: str, home_team: str, away_team: str,
                            quality: Quality, n_events: int = 300,
                            seed: int = 42) -> dict[str, dict]:
     truth = generate_ground_truth(match_id, home_team, away_team, n_events=n_events, seed=seed)
+    sheet = generate_match_sheet(home_team, away_team, seed=seed + 100)
     return {
         "opta": to_opta_format(truth, quality, seed=seed + 1),
         "statsbomb": to_statsbomb_format(truth, quality, seed=seed + 2),
         "wyscout": to_wyscout_format(truth, quality, seed=seed + 3),
+        "opta_match_sheet": to_opta_match_sheet(sheet, home_team, away_team, quality, seed=seed + 4),
+        "statsbomb_match_sheet": to_statsbomb_match_sheet(sheet, home_team, away_team, quality, seed=seed + 5),
+        "wyscout_match_sheet": to_wyscout_match_sheet(sheet, home_team, away_team, quality, seed=seed + 6),
         "_ground_truth_event_count": len(truth.events),
     }
 
@@ -324,8 +671,20 @@ def write_sample_matches(output_dir: str = "backend/data/sample_matches"):
 
         match_dir = out / match_id
         match_dir.mkdir(exist_ok=True)
-        for vendor, data in bundle.items():
-            path = match_dir / f"{vendor}.json"
+        # Match-sheet files go in their own subdirectory, not match_dir
+        # itself -- every existing agent's `match_dir.glob("*.json")` (a
+        # non-recursive glob) expects exactly the 3 event vendor files
+        # there, and match sheets are a separate feed in the first place.
+        sheet_dir = match_dir / "match_sheets"
+        sheet_dir.mkdir(exist_ok=True)
+        event_files, match_sheet_files = [], []
+        for name, data in bundle.items():
+            if name.endswith("_match_sheet"):
+                path = sheet_dir / f"{name}.json"
+                match_sheet_files.append(f"{match_id}/match_sheets/{name}.json")
+            else:
+                path = match_dir / f"{name}.json"
+                event_files.append(f"{match_id}/{name}.json")
             path.write_text(json.dumps(data, indent=2))
 
         manifest.append({
@@ -334,7 +693,8 @@ def write_sample_matches(output_dir: str = "backend/data/sample_matches"):
             "home_team": home,
             "away_team": away,
             "ground_truth_event_count": ground_truth_count,
-            "files": [f"{match_id}/{v}.json" for v in bundle.keys()],
+            "files": event_files,
+            "match_sheet_files": match_sheet_files,
         })
         print(f"  {match_id} ({quality}): {ground_truth_count} ground-truth events -> {match_dir}/")
 

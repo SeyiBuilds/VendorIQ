@@ -389,6 +389,95 @@ button.danger {
   font-weight: 700;
 }
 
+.match-sheet-panel {
+  border-color: rgba(217,164,53,0.3);
+}
+
+.sheet-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+}
+
+.sheet-teams {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .sheet-teams { grid-template-columns: 1fr; }
+}
+
+.sheet-team h3 {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.formation-badge {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.lineup-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.82rem;
+}
+
+.lineup-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.lineup-jersey {
+  min-width: 20px;
+  color: var(--accent);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.lineup-name {
+  flex: 1;
+  color: var(--text);
+}
+
+.lineup-pos {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+}
+
+.sheet-bench {
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
+
+.sheet-bench summary {
+  cursor: pointer;
+}
+
+.sheet-bench ul {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
 .corruption-log {
   list-style: none;
   padding: 0;

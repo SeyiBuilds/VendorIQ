@@ -44,7 +44,11 @@ from typing import Callable, Optional
 from pydantic import ValidationError
 
 from entity_resolver import ResolvedEvent, PlayerIdentity
-from cdf_models import CDFDocument, CDFEvent, CDFMetadata, MatchInfo, PlayerRecord
+from schema_mapper import MappedMatchSheet
+from cdf_models import (
+    CDFDocument, CDFEvent, CDFMetadata, MatchInfo, PlayerRecord,
+    LineupEntry, MatchOfficials, MatchSheet, SubstitutionRecord, TeamSheet,
+)
 
 
 # --- Match-level metadata extraction (per-vendor, same registry pattern as
@@ -144,6 +148,123 @@ def _repair_period(period: Optional[int], timestamp: float, log: list[str]) -> t
     return inferred, 0.1
 
 
+# --- Match-sheet assembly (lineups, formations, subs, officials, venue) ---
+#
+# Deliberately NOT run through Entity Resolver: cross-vendor player-identity
+# reconciliation (Agent 4's job) exists because the same event stream can be
+# fed from more than one vendor over time. A match sheet is one coherent
+# document from one vendor describing one team's own squad -- there's
+# nothing to cross-reconcile, so lineup player_ids are taken straight from
+# Schema Mapper's output (vendor id when present, a stable placeholder when
+# not), matching the same honest-fallback spirit as everything else here.
+
+def _resolve_substitution_ref(ref: dict, name_to_id: dict[str, str], vendor_to_id: dict[str, str]) -> Optional[str]:
+    if not ref:
+        return None
+    name = ref.get("name")
+    if name and name in name_to_id:
+        return name_to_id[name]
+    vendor_id = ref.get("vendor_id")
+    if vendor_id is not None and str(vendor_id) in vendor_to_id:
+        return vendor_to_id[str(vendor_id)]
+    return None
+
+
+def _build_match_sheet(mapped: Optional[MappedMatchSheet], match_info: MatchInfo) -> tuple[Optional[MatchSheet], list[str]]:
+    """Attempt: assemble Schema Mapper's MappedMatchSheet into the schema's
+    MatchSheet. Fallback: no match-sheet payload was supplied, or the one
+    supplied carried no usable lineup data -- document.match_sheet stays
+    None (never fabricated), same honest-degradation rule as everything
+    else in this pipeline."""
+    if mapped is None:
+        return None, []
+
+    log = list(mapped.mapping_log)
+    if not mapped.home_lineup and not mapped.away_lineup:
+        log.append("match sheet unavailable: no lineup data could be mapped from the supplied payload")
+        return None, log
+
+    home_team_name = mapped.home_team or match_info.home_team
+    away_team_name = mapped.away_team or match_info.away_team
+
+    name_to_id: dict[str, str] = {}
+    vendor_to_id: dict[str, str] = {}
+
+    def build_lineup(entries, label: str) -> list[LineupEntry]:
+        out = []
+        for i, e in enumerate(entries):
+            vendor_id = (e.raw_player_ref or {}).get("vendor_id")
+            player_id = str(vendor_id) if vendor_id is not None else f"{label}_lineup_{i}"
+            if e.name:
+                name_to_id[e.name] = player_id
+            if vendor_id is not None:
+                vendor_to_id[str(vendor_id)] = player_id
+            out.append(LineupEntry(
+                player_id=player_id, name=e.name, jersey_number=e.jersey_number,
+                position=e.position, is_starter=e.is_starter, is_captain=e.is_captain,
+            ))
+        return out
+
+    home_lineup = build_lineup(mapped.home_lineup, "home")
+    away_lineup = build_lineup(mapped.away_lineup, "away")
+
+    substitution_records: list[SubstitutionRecord] = []
+    for s in mapped.substitutions:
+        out_id = _resolve_substitution_ref(s.player_out_ref, name_to_id, vendor_to_id)
+        in_id = _resolve_substitution_ref(s.player_in_ref, name_to_id, vendor_to_id)
+        if out_id is None or in_id is None or s.minute is None:
+            log.append(f"substitution dropped: could not resolve player(s) or minute (team={s.team!r})")
+            continue
+        team_name = s.team or home_team_name
+        try:
+            substitution_records.append(SubstitutionRecord(
+                team=team_name, player_out_id=out_id, player_in_id=in_id,
+                minute=int(s.minute), period=s.period or 2, reason=s.reason,
+            ))
+        except ValidationError as exc:
+            log.append(f"substitution dropped: failed SubstitutionRecord validation ({exc})")
+
+    home_sheet = TeamSheet(
+        team=home_team_name, formation=mapped.home_formation,
+        starters=[p for p in home_lineup if p.is_starter],
+        substitutes=[p for p in home_lineup if not p.is_starter],
+        substitutions=[s for s in substitution_records if s.team == home_team_name],
+    )
+    away_sheet = TeamSheet(
+        team=away_team_name, formation=mapped.away_formation,
+        starters=[p for p in away_lineup if p.is_starter],
+        substitutes=[p for p in away_lineup if not p.is_starter],
+        substitutions=[s for s in substitution_records if s.team == away_team_name],
+    )
+
+    officials = None
+    if any([mapped.referee, mapped.assistant_referees, mapped.fourth_official, mapped.var_official]):
+        officials = MatchOfficials(
+            referee=mapped.referee, assistant_referees=mapped.assistant_referees,
+            fourth_official=mapped.fourth_official, var_official=mapped.var_official,
+        )
+
+    kickoff_dt = None
+    if mapped.kickoff_time and match_info.date:
+        try:
+            hour, minute = mapped.kickoff_time.split(":")
+            kickoff_dt = datetime(match_info.date.year, match_info.date.month, match_info.date.day,
+                                   int(hour), int(minute), tzinfo=timezone.utc)
+        except (ValueError, AttributeError):
+            log.append(f"could not parse kickoff_time '{mapped.kickoff_time}'")
+
+    try:
+        sheet = MatchSheet(
+            home=home_sheet, away=away_sheet, officials=officials,
+            kickoff=kickoff_dt, attendance=mapped.attendance, weather=mapped.weather,
+        )
+    except ValidationError as exc:
+        log.append(f"match sheet dropped: failed MatchSheet validation ({exc})")
+        return None, log
+
+    return sheet, log
+
+
 @dataclass
 class ValidationReport:
     events_in: int = 0
@@ -164,11 +285,15 @@ class Validator:
         registry: dict[str, PlayerIdentity],
         vendor_raw_data: dict[str, dict],
         match_date: Optional[date_cls] = None,
+        mapped_match_sheet: Optional[MappedMatchSheet] = None,
     ) -> tuple[CDFDocument, ValidationReport]:
         report = ValidationReport(events_in=len(resolved_events))
 
         match_info, match_log = _resolve_match_info(vendor_raw_data, match_date)
         report.warnings.extend(match_log)
+
+        match_sheet, match_sheet_log = _build_match_sheet(mapped_match_sheet, match_info)
+        report.warnings.extend(match_sheet_log)
 
         players = self._build_players(resolved_events, registry)
         report.players_in_document = len(players)
@@ -210,7 +335,9 @@ class Validator:
         )
 
         try:
-            document = CDFDocument(match=match_info, metadata=metadata, players=players, events=events)
+            document = CDFDocument(
+                match=match_info, metadata=metadata, players=players, events=events, match_sheet=match_sheet,
+            )
         except ValidationError as exc:
             # Everything above is supposed to make this unreachable -- if it
             # fires, that's a real bug in this agent's repair logic, not a

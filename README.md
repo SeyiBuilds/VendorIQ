@@ -9,8 +9,19 @@ explains it back out as stats + narrative text -- with each agent's
 progress streamed to the UI live as it actually runs, not revealed all at
 once after the whole pipeline finishes.
 
+Covers two of the Common Data Format's data pillars honestly: **event
+data** (the pipeline above) and **match sheet data** (lineups, formations,
+substitutions, officials, venue, attendance -- mapped from its own
+vendor-shaped feed, a separate optional stage, never fabricated when no
+match-sheet payload is supplied). Tracking data, video footage and
+physical/physiological data are deliberately out of scope -- they come
+from entirely different vendor systems (TRACAB/Second Spectrum, raw media,
+club-internal GPS wearables) that aren't bundled into an Opta/StatsBomb/
+Wyscout event or lineup feed, so faking them would misrepresent what this
+tool actually does.
+
 Built with the mindset that this already won and a club wants it in
-production: real test suites (214 passing), pinned dependencies, honest
+production: real test suites (234 passing), pinned dependencies, honest
 confidence scoring and graceful degradation instead of fabricated
 numbers, and a documented fallback path for every place real data goes
 missing or wrong.
@@ -22,7 +33,7 @@ Requires Python 3.11+ and Node 18+.
 ```bash
 # 1. backend — install deps and run the test suite
 pip install -r requirements.txt
-pytest backend/tests -q          # 214 passed
+pytest backend/tests -q          # 234 passed
 # (Windows: if `pytest` / `uvicorn` aren't recognized, use `python -m pytest` / `python -m uvicorn` instead)
 
 # 2. backend — start the API
@@ -50,20 +61,26 @@ pipeline — format is auto-detected. Once a run produces a document, use
 backend/
   data/
     generators/synthetic_match_generator.py   synthetic Opta/StatsBomb/Wyscout fixtures
+                                               (events + match sheets)
     corruption.py                             live fallback-path injection (demo feature)
-    sample_matches/                           3 pre-generated matches (clean/messy/partial tiers)
+    sample_matches/                           3 pre-generated matches (clean/messy/partial tiers);
+                                               each has 3 event files + match_sheets/ (3 more)
     schemas/cdf_models.py                     the Common Data Format (CDF) — Pydantic
   agents/
-    format_detective.py        Agent 1 — detect vendor format
-    schema_mapper.py           Agent 2 — map to CDF, per-vendor
+    format_detective.py        Agent 1 — detect vendor format (event feeds)
+    schema_mapper.py           Agent 2 — map to CDF, per-vendor; also maps match-sheet feeds
+                                (own vendor detection, separate from Format Detective)
     coordinate_translator.py   Agent 3 — normalize pitch coordinates to 0-100 x 0-100
     entity_resolver.py         Agent 4 — resolve player identity (jersey/name, cross-vendor)
-    validator.py               Agent 5 — build the final CDFDocument, score confidence
+    validator.py               Agent 5 — build the final CDFDocument, score confidence,
+                                assemble match_sheet when one was supplied
     narrative_generator.py     Agent 6 — stats + key moments + narrative text
-    format_exporter.py         Agent 7 — export CDF back to a vendor shape (on-demand)
-    orchestrator.py            Master Orchestrator — wires 1-6, critical/optional stage split
+    format_exporter.py         Agent 7 — export CDF (events + match sheet) back to a vendor
+                                shape (on-demand)
+    orchestrator.py            Master Orchestrator — wires 1-6 + the optional match_sheet_mapper
+                                stage, critical/optional stage split
   api/main.py                  FastAPI layer over the orchestrator
-  tests/                       214 tests, one file per agent/module
+  tests/                       234 tests, one file per agent/module
 frontend/                      React + Vite UI — see frontend/README.md
 ```
 

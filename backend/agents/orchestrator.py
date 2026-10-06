@@ -64,7 +64,18 @@ from cdf_models import CDFDocument
 T = TypeVar("T")
 
 CRITICAL_STAGES = ("format_detective", "schema_mapper", "coordinate_translator", "entity_resolver", "validator")
-OPTIONAL_STAGES = ("narrative_generator",)
+OPTIONAL_STAGES = ("match_sheet_mapper", "narrative_generator")
+
+# Actual run_streaming() execution order -- distinct from CRITICAL_STAGES +
+# OPTIONAL_STAGES, which group stages by abort-vs-continue semantics, not
+# by when they run. match_sheet_mapper runs between entity_resolver and
+# validator (validator needs its output to attach match_sheet to the
+# document), ahead of validator even though validator is "critical" and
+# match_sheet_mapper is "optional".
+STAGE_ORDER = (
+    "format_detective", "schema_mapper", "coordinate_translator", "entity_resolver",
+    "match_sheet_mapper", "validator", "narrative_generator",
+)
 
 
 @dataclass
@@ -105,19 +116,21 @@ class MasterOrchestrator:
         self.narrator = NarrativeGenerator(ai_enabled=ai_escalation_enabled)
         self.exporter = FormatExporter()
 
-    def run(self, vendor_data: dict, match_date: Optional[date_cls] = None) -> PipelineResult:
+    def run(self, vendor_data: dict, match_date: Optional[date_cls] = None,
+            match_sheet_data: Optional[dict] = None) -> PipelineResult:
         """Blocking convenience wrapper: drains run_streaming() and returns
         just the final PipelineResult, discarding the per-stage events.
         Existing callers (tests, the CLI block below) that just want the
         end result keep working unchanged."""
         result: Optional[PipelineResult] = None
-        for kind, payload in self.run_streaming(vendor_data, match_date=match_date):
+        for kind, payload in self.run_streaming(vendor_data, match_date=match_date, match_sheet_data=match_sheet_data):
             if kind == "result":
                 result = payload
         assert result is not None  # run_streaming always ends with a "result" event
         return result
 
-    def run_streaming(self, vendor_data: dict, match_date: Optional[date_cls] = None):
+    def run_streaming(self, vendor_data: dict, match_date: Optional[date_cls] = None,
+                       match_sheet_data: Optional[dict] = None):
         """Generator version of run(): yields real-time progress events as
         each agent actually executes, instead of handing back one lump
         result after the whole pipeline has already finished. This is what
@@ -166,11 +179,28 @@ class MasterOrchestrator:
             return
         resolved, registry = resolution
 
+        # Match sheet is a separate pillar from the event stream above --
+        # a different payload, optionally supplied, mapped independently
+        # (see schema_mapper.map_match_sheet). Optional stage: no payload
+        # supplied means "skipped", never attempted; a mapping failure
+        # degrades the run to "partial" rather than aborting it, exactly
+        # like Narrative Generator below.
+        yield ("start", "match_sheet_mapper")
+        if match_sheet_data is not None:
+            mapped_match_sheet = self._run_optional_stage(
+                log, "match_sheet_mapper", lambda: self.mapper.map_match_sheet(match_sheet_data),
+            )
+        else:
+            mapped_match_sheet = None
+            log.record("match_sheet_mapper", "skipped", detail="no match-sheet payload supplied")
+        yield ("stage", log.records[-1])
+
         yield ("start", "validator")
         validation = self._run_critical_stage(
             log, "validator",
             lambda: self.validator.build_document(
                 resolved, registry, {detection.detected_format: vendor_data}, match_date=match_date,
+                mapped_match_sheet=mapped_match_sheet,
             ),
         )
         yield ("stage", log.records[-1])
@@ -184,8 +214,11 @@ class MasterOrchestrator:
         narrative = self._run_optional_stage(log, "narrative_generator", lambda: self.narrator.generate(document))
         yield ("stage", log.records[-1])
 
-        failed_or_skipped = [r for r in log.records if r.stage in OPTIONAL_STAGES and r.status != "success"]
-        log.overall_status = "partial" if failed_or_skipped else "success"
+        # "skipped" (match_sheet_mapper with no payload supplied) is a
+        # deliberate no-op, not a degradation -- only an actual failure of
+        # an optional stage knocks the run down to "partial".
+        failed_optional = [r for r in log.records if r.stage in OPTIONAL_STAGES and r.status == "failed"]
+        log.overall_status = "partial" if failed_optional else "success"
 
         yield ("result", PipelineResult(document=document, narrative=narrative, orchestration_log=log))
 

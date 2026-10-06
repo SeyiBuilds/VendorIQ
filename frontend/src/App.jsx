@@ -6,6 +6,7 @@ import NarrativePanel from "./components/NarrativePanel";
 import CorruptionPanel from "./components/CorruptionPanel";
 import UploadPanel from "./components/UploadPanel";
 import ExportPanel from "./components/ExportPanel";
+import MatchSheetPanel from "./components/MatchSheetPanel";
 import "./App.css";
 
 // Fixed display order for the live stage list -- mirrors
@@ -17,6 +18,7 @@ const STAGE_ORDER = [
   "schema_mapper",
   "coordinate_translator",
   "entity_resolver",
+  "match_sheet_mapper",
   "validator",
   "narrative_generator",
 ];
@@ -132,6 +134,8 @@ export default function App() {
       />
 
       <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} />
+
+      <MatchSheetPanel matchSheet={runResult?.document?.match_sheet} />
 
       {runResult && <NarrativePanel narrative={runResult.narrative} />}
     </div>

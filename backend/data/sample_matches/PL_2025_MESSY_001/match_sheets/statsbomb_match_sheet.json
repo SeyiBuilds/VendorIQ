@@ -1,0 +1,378 @@
+{
+  "home_team": {
+    "team_name": "Manchester United",
+    "formation": "4-4-2",
+    "lineup": [
+      {
+        "player_id": 6000,
+        "player_name": "Alisson Becker",
+        "jersey_number": 1,
+        "position_name": "GK",
+        "starter": true,
+        "captain": true
+      },
+      {
+        "player_id": 6001,
+        "player_name": "Erling Haaland",
+        "jersey_number": 9,
+        "position_name": "RB",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6002,
+        "player_name": "Ederson",
+        "jersey_number": 31,
+        "position_name": "CB",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6003,
+        "player_name": "Virgil van Dijk",
+        "jersey_number": 4,
+        "position_name": "CB",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6004,
+        "player_name": "Axel Nakamura",
+        "jersey_number": 42,
+        "position_name": "LB",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6005,
+        "player_name": "Noah Rossi",
+        "jersey_number": 14,
+        "position_name": "RM",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6006,
+        "player_name": "Nico Nakamura",
+        "jersey_number": 56,
+        "position_name": "CM",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6007,
+        "player_name": "Luca Bianchi",
+        "jersey_number": 58,
+        "position_name": "CM",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6008,
+        "player_name": "Rafael Larsson",
+        "jersey_number": 66,
+        "position_name": "LM",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6009,
+        "player_name": "Nico Ivanov",
+        "jersey_number": 60,
+        "position_name": "ST",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6010,
+        "player_name": "Bruno Diallo",
+        "jersey_number": 2,
+        "position_name": "ST",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6011,
+        "player_name": "Marcus Ivanov",
+        "jersey_number": null,
+        "position_name": "RW",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6012,
+        "player_name": "Kasper Okafor",
+        "jersey_number": 36,
+        "position_name": "CM",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6013,
+        "player_name": "Axel Dubois",
+        "jersey_number": 47,
+        "position_name": "ST",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6014,
+        "player_name": "Theo Lindqvist",
+        "jersey_number": 20,
+        "position_name": "LB",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6015,
+        "player_name": "Jamal Kowalski",
+        "jersey_number": 98,
+        "position_name": "CB",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6016,
+        "player_name": "Enzo Larsson",
+        "jersey_number": 55,
+        "position_name": "CDM",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6017,
+        "player_name": "Rafael Kowalski",
+        "jersey_number": null,
+        "position_name": "GK",
+        "starter": false,
+        "captain": false
+      }
+    ]
+  },
+  "away_team": {
+    "team_name": "Tottenham",
+    "formation": "3-5-2",
+    "lineup": [
+      {
+        "player_id": 6018,
+        "player_name": "Marcus Bianchi",
+        "jersey_number": null,
+        "position_name": "GK",
+        "starter": true,
+        "captain": true
+      },
+      {
+        "player_id": 6019,
+        "player_name": "Marcus Petrov",
+        "jersey_number": 73,
+        "position_name": "CB",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6020,
+        "player_name": "Kwame Silva",
+        "jersey_number": 97,
+        "position_name": "CB",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6021,
+        "player_name": "Diego Petrov",
+        "jersey_number": 59,
+        "position_name": "CB",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6022,
+        "player_name": "Bernardo Silva",
+        "jersey_number": 20,
+        "position_name": "RM",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6023,
+        "player_name": "Mateo Larsson",
+        "jersey_number": 19,
+        "position_name": "CM",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6024,
+        "player_name": "Axel Okafor",
+        "jersey_number": 90,
+        "position_name": "CDM",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6025,
+        "player_name": "Phil Foden",
+        "jersey_number": 47,
+        "position_name": null,
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6026,
+        "player_name": "Nico Mensah",
+        "jersey_number": 91,
+        "position_name": "LM",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6027,
+        "player_name": "Mohamed Salah",
+        "jersey_number": 11,
+        "position_name": "ST",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6028,
+        "player_name": "Jack Grealish",
+        "jersey_number": null,
+        "position_name": "ST",
+        "starter": true,
+        "captain": false
+      },
+      {
+        "player_id": 6029,
+        "player_name": "Tariq Haddad",
+        "jersey_number": 50,
+        "position_name": "CDM",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6030,
+        "player_name": "Tariq Larsson",
+        "jersey_number": 32,
+        "position_name": null,
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6031,
+        "player_name": "Felix Costa",
+        "jersey_number": 60,
+        "position_name": "CM",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6032,
+        "player_name": "Sven Hassan",
+        "jersey_number": 86,
+        "position_name": "GK",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6033,
+        "player_name": "Mateo Fernandez",
+        "jersey_number": 33,
+        "position_name": "CB",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6034,
+        "player_name": "Tariq Hassan",
+        "jersey_number": 29,
+        "position_name": "LB",
+        "starter": false,
+        "captain": false
+      },
+      {
+        "player_id": 6035,
+        "player_name": "Diego Lindqvist",
+        "jersey_number": null,
+        "position_name": "ST",
+        "starter": false,
+        "captain": false
+      }
+    ]
+  },
+  "substitutions": [
+    {
+      "team": "Tottenham",
+      "player_out": "Marcus Petrov",
+      "player_in": "Tariq Larsson",
+      "minute": 47,
+      "period": 2,
+      "reason": "fatigue"
+    },
+    {
+      "team": "Manchester United",
+      "player_out": "Noah Rossi",
+      "player_in": "Jamal Kowalski",
+      "minute": 53,
+      "period": 2,
+      "reason": "injury"
+    },
+    {
+      "team": "Manchester United",
+      "player_out": "Ederson",
+      "player_in": "Theo Lindqvist",
+      "minute": 60,
+      "period": 2,
+      "reason": "tactical"
+    },
+    {
+      "team": "Manchester United",
+      "player_out": "Nico Ivanov",
+      "player_in": "Rafael Kowalski",
+      "minute": 63,
+      "period": 2,
+      "reason": "tactical"
+    },
+    {
+      "team": "Manchester United",
+      "player_out": "Virgil van Dijk",
+      "player_in": "Kasper Okafor",
+      "minute": 69,
+      "period": 2,
+      "reason": "fatigue"
+    },
+    {
+      "team": "Tottenham",
+      "player_out": "Mohamed Salah",
+      "player_in": "Mateo Fernandez",
+      "minute": 89,
+      "period": 2,
+      "reason": "fatigue"
+    },
+    {
+      "team": "Tottenham",
+      "player_out": "Nico Mensah",
+      "player_in": "Tariq Haddad",
+      "minute": 90,
+      "period": 2,
+      "reason": "fatigue"
+    }
+  ],
+  "referee": {
+    "name": "Andre Tierney"
+  },
+  "officials": {
+    "assistants": [
+      "Craig Tierney",
+      "Michael Taylor"
+    ],
+    "fourth_official": "Simon Marriner",
+    "var": "Craig Oliver"
+  },
+  "stadium": {
+    "name": "Old Trafford"
+  },
+  "attendance": 64580,
+  "weather": "Clear",
+  "kick_off": "17:30",
+  "_vendor_format": "statsbomb_match_sheet"
+}

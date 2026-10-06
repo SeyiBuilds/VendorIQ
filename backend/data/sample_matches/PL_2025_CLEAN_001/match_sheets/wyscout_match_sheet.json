@@ -1,0 +1,329 @@
+{
+  "teams": {
+    "home": {
+      "formation": "4-2-3-1",
+      "lineups": [
+        {
+          "playerId": "player_8000",
+          "shortName": "Yusuf Lindqvist",
+          "shirtNumber": 69,
+          "role": "GK",
+          "bench": false
+        },
+        {
+          "playerId": "player_8001",
+          "shortName": "Axel Haddad",
+          "shirtNumber": 13,
+          "role": "RB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8002",
+          "shortName": "Tariq Mensah",
+          "shirtNumber": 12,
+          "role": "CB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8003",
+          "shortName": "Axel Okafor",
+          "shirtNumber": 35,
+          "role": "CB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8004",
+          "shortName": "Erling Haaland",
+          "shirtNumber": 9,
+          "role": "LB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8005",
+          "shortName": "Marcus Diallo",
+          "shirtNumber": 49,
+          "role": "CDM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8006",
+          "shortName": "Mateo Mensah",
+          "shirtNumber": 52,
+          "role": "CDM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8007",
+          "shortName": "Omar Nakamura",
+          "shirtNumber": 92,
+          "role": "CAM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8008",
+          "shortName": "Marcus Owusu",
+          "shirtNumber": 96,
+          "role": "RW",
+          "bench": false
+        },
+        {
+          "playerId": "player_8009",
+          "shortName": "Ederson",
+          "shirtNumber": 31,
+          "role": "LW",
+          "bench": false
+        },
+        {
+          "playerId": "player_8010",
+          "shortName": "Virgil van Dijk",
+          "shirtNumber": 4,
+          "role": "ST",
+          "bench": false
+        },
+        {
+          "playerId": "player_8011",
+          "shortName": "Noah Kowalski",
+          "shirtNumber": 3,
+          "role": "ST",
+          "bench": true
+        },
+        {
+          "playerId": "player_8012",
+          "shortName": "Nico Dubois",
+          "shirtNumber": 25,
+          "role": "GK",
+          "bench": true
+        },
+        {
+          "playerId": "player_8013",
+          "shortName": "Amadou Lindqvist",
+          "shirtNumber": 7,
+          "role": "LB",
+          "bench": true
+        },
+        {
+          "playerId": "player_8014",
+          "shortName": "Enzo Haddad",
+          "shirtNumber": 30,
+          "role": "RW",
+          "bench": true
+        },
+        {
+          "playerId": "player_8015",
+          "shortName": "Nico Silva",
+          "shirtNumber": 18,
+          "role": "CM",
+          "bench": true
+        },
+        {
+          "playerId": "player_8016",
+          "shortName": "Noah Larsson",
+          "shirtNumber": 63,
+          "role": "CB",
+          "bench": true
+        },
+        {
+          "playerId": "player_8017",
+          "shortName": "Jamal Dubois",
+          "shirtNumber": 45,
+          "role": "CDM",
+          "bench": true
+        }
+      ],
+      "teamName": "Liverpool"
+    },
+    "away": {
+      "formation": "4-4-2",
+      "lineups": [
+        {
+          "playerId": "player_8018",
+          "shortName": "Dario Berg",
+          "shirtNumber": 39,
+          "role": "GK",
+          "bench": false
+        },
+        {
+          "playerId": "player_8019",
+          "shortName": "Diego Hassan",
+          "shirtNumber": 76,
+          "role": "RB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8020",
+          "shortName": "Kevin De Bruyne",
+          "shirtNumber": 17,
+          "role": "CB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8021",
+          "shortName": "Diego Bianchi",
+          "shirtNumber": 95,
+          "role": "CB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8022",
+          "shortName": "Luca Fernandez",
+          "shirtNumber": 80,
+          "role": "LB",
+          "bench": false
+        },
+        {
+          "playerId": "player_8023",
+          "shortName": "Mohamed Salah",
+          "shirtNumber": 11,
+          "role": "RM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8024",
+          "shortName": "Tariq Dubois",
+          "shirtNumber": 42,
+          "role": "CM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8025",
+          "shortName": "Trent Alexander-Arnold",
+          "shirtNumber": 66,
+          "role": "CM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8026",
+          "shortName": "Axel Diallo",
+          "shirtNumber": 87,
+          "role": "LM",
+          "bench": false
+        },
+        {
+          "playerId": "player_8027",
+          "shortName": "Amadou Mensah",
+          "shirtNumber": 29,
+          "role": "ST",
+          "bench": false
+        },
+        {
+          "playerId": "player_8028",
+          "shortName": "Yusuf Ivanov",
+          "shirtNumber": 91,
+          "role": "ST",
+          "bench": false
+        },
+        {
+          "playerId": "player_8029",
+          "shortName": "Elias Haddad",
+          "shirtNumber": 63,
+          "role": "LB",
+          "bench": true
+        },
+        {
+          "playerId": "player_8030",
+          "shortName": "Omar Hassan",
+          "shirtNumber": 93,
+          "role": "ST",
+          "bench": true
+        },
+        {
+          "playerId": "player_8031",
+          "shortName": "Enzo Owusu",
+          "shirtNumber": 3,
+          "role": "RW",
+          "bench": true
+        },
+        {
+          "playerId": "player_8032",
+          "shortName": "Mateo Berg",
+          "shirtNumber": 57,
+          "role": "CDM",
+          "bench": true
+        },
+        {
+          "playerId": "player_8033",
+          "shortName": "Sven Larsson",
+          "shirtNumber": 24,
+          "role": "GK",
+          "bench": true
+        },
+        {
+          "playerId": "player_8034",
+          "shortName": "Noah Nakamura",
+          "shirtNumber": 1,
+          "role": "CM",
+          "bench": true
+        },
+        {
+          "playerId": "player_8035",
+          "shortName": "Hugo Berg",
+          "shirtNumber": 36,
+          "role": "CB",
+          "bench": true
+        }
+      ],
+      "teamName": "Manchester City"
+    }
+  },
+  "substitutions": [
+    {
+      "teamName": "Manchester City",
+      "playerOut": "Axel Diallo",
+      "playerIn": "Hugo Berg",
+      "minute": 57
+    },
+    {
+      "teamName": "Manchester City",
+      "playerOut": "Trent Alexander-Arnold",
+      "playerIn": "Omar Hassan",
+      "minute": 69
+    },
+    {
+      "teamName": "Liverpool",
+      "playerOut": "Mateo Mensah",
+      "playerIn": "Jamal Dubois",
+      "minute": 75
+    },
+    {
+      "teamName": "Liverpool",
+      "playerOut": "Erling Haaland",
+      "playerIn": "Nico Dubois",
+      "minute": 81
+    },
+    {
+      "teamName": "Liverpool",
+      "playerOut": "Ederson",
+      "playerIn": "Noah Larsson",
+      "minute": 87
+    }
+  ],
+  "referees": [
+    {
+      "role": "referee",
+      "name": "Craig Taylor"
+    },
+    {
+      "role": "fourthOfficial",
+      "name": "Paul Hooper"
+    },
+    {
+      "role": "var",
+      "name": "Michael Tierney"
+    },
+    {
+      "role": "assistant",
+      "name": "Anthony Hooper"
+    },
+    {
+      "role": "assistant",
+      "name": "Simon Pawson"
+    }
+  ],
+  "venue": {
+    "name": "Anfield"
+  },
+  "attendance": 69129,
+  "weatherConditions": "Clear",
+  "kickOffTime": "17:30",
+  "_vendor_format": "wyscout_match_sheet"
+}

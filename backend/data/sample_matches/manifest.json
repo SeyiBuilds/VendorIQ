@@ -9,6 +9,11 @@
       "PL_2025_CLEAN_001/opta.json",
       "PL_2025_CLEAN_001/statsbomb.json",
       "PL_2025_CLEAN_001/wyscout.json"
+    ],
+    "match_sheet_files": [
+      "PL_2025_CLEAN_001/match_sheets/opta_match_sheet.json",
+      "PL_2025_CLEAN_001/match_sheets/statsbomb_match_sheet.json",
+      "PL_2025_CLEAN_001/match_sheets/wyscout_match_sheet.json"
     ]
   },
   {
@@ -21,6 +26,11 @@
       "PL_2025_PARTIAL_001/opta.json",
       "PL_2025_PARTIAL_001/statsbomb.json",
       "PL_2025_PARTIAL_001/wyscout.json"
+    ],
+    "match_sheet_files": [
+      "PL_2025_PARTIAL_001/match_sheets/opta_match_sheet.json",
+      "PL_2025_PARTIAL_001/match_sheets/statsbomb_match_sheet.json",
+      "PL_2025_PARTIAL_001/match_sheets/wyscout_match_sheet.json"
     ]
   },
   {
@@ -33,6 +43,11 @@
       "PL_2025_MESSY_001/opta.json",
       "PL_2025_MESSY_001/statsbomb.json",
       "PL_2025_MESSY_001/wyscout.json"
+    ],
+    "match_sheet_files": [
+      "PL_2025_MESSY_001/match_sheets/opta_match_sheet.json",
+      "PL_2025_MESSY_001/match_sheets/statsbomb_match_sheet.json",
+      "PL_2025_MESSY_001/match_sheets/wyscout_match_sheet.json"
     ]
   }
 ]

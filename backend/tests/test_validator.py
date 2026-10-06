@@ -225,3 +225,61 @@ def test_event_with_null_coordinate_is_dropped(validator):
     document, report = validator.build_document([r], {}, vendor_raw_data, match_date=date(2026, 1, 1))
     assert report.events_dropped == 1
     assert len(document.events) == 0
+
+
+# --- Match-sheet assembly ---
+
+@pytest.fixture(scope="module")
+def mapper_for_sheets():
+    return SchemaMapper()
+
+
+def _minimal_valid_run(validator):
+    """A single trivially-valid event, just enough to get build_document to
+    run -- these tests are about the match_sheet argument, not the event
+    path (already covered above)."""
+    e = _bare_event()
+    r = ResolvedEvent(event=e, canonical_player_id="player::Liverpool::9",
+                       resolution_confidence=1.0, resolution_method="deterministic_jersey_team")
+    vendor_raw_data = {"opta": {"MatchId": "PL_2025_CLEAN_001", "HomeTeam": "Liverpool", "AwayTeam": "Manchester City"}}
+    return r, vendor_raw_data
+
+
+def test_no_match_sheet_payload_leaves_document_match_sheet_none(validator):
+    r, vendor_raw_data = _minimal_valid_run(validator)
+    document, report = validator.build_document([r], {}, vendor_raw_data, match_date=date(2026, 1, 1))
+    assert document.match_sheet is None
+
+
+def test_match_sheet_payload_assembles_into_document(validator, mapper_for_sheets):
+    r, vendor_raw_data = _minimal_valid_run(validator)
+    sheet_data = json.loads(
+        (SAMPLE_MATCHES_DIR / "PL_2025_CLEAN_001" / "match_sheets" / "opta_match_sheet.json").read_text()
+    )
+    mapped_sheet = mapper_for_sheets.map_match_sheet(sheet_data)
+
+    document, report = validator.build_document(
+        [r], {}, vendor_raw_data, match_date=date(2026, 1, 1), mapped_match_sheet=mapped_sheet,
+    )
+
+    assert document.match_sheet is not None
+    assert document.match_sheet.home.team == "Liverpool"
+    assert document.match_sheet.away.team == "Manchester City"
+    assert len(document.match_sheet.home.starters) == 11
+    assert len(document.match_sheet.home.substitutes) == 7
+    assert len(document.match_sheet.home.substitutions) > 0
+    assert document.match_sheet.officials.referee is not None
+    assert document.match_sheet.attendance is not None
+    assert document.match_sheet.kickoff is not None
+
+
+def test_match_sheet_with_no_lineup_data_is_dropped_not_fabricated(validator, mapper_for_sheets):
+    r, vendor_raw_data = _minimal_valid_run(validator)
+    mapped_sheet = mapper_for_sheets.map_match_sheet({"garbage": True})
+
+    document, report = validator.build_document(
+        [r], {}, vendor_raw_data, match_date=date(2026, 1, 1), mapped_match_sheet=mapped_sheet,
+    )
+
+    assert document.match_sheet is None
+    assert any("match sheet unavailable" in w for w in report.warnings)

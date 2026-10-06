@@ -116,7 +116,7 @@ def test_run_stream_emits_start_and_stage_per_agent_then_one_result(client):
     types = [e["type"] for e in events]
     assert types.count("result") == 1
     assert types[-1] == "result"
-    assert types.count("start") == types.count("stage") == 6  # 5 critical + narrative_generator
+    assert types.count("start") == types.count("stage") == 7  # 5 critical + match_sheet_mapper + narrative_generator
 
     result_event = events[-1]
     assert result_event["data"]["overall_status"] == "success"
@@ -193,6 +193,49 @@ def test_ingest_stream_rejects_non_object_body(client):
     # not our 400, since this is Pydantic/FastAPI's own validation layer.
     resp = client.post("/ingest/run/stream", json=["not", "an", "object"])
     assert resp.status_code == 422
+
+
+# --- Match sheet: auto-attached for sample matches, opt-in for uploads ---
+
+def _opta_match_sheet_bundle(match_id="PL_2025_CLEAN_001"):
+    import json
+    return json.loads(
+        (ROOT / "backend" / "data" / "sample_matches" / match_id / "match_sheets" / "opta_match_sheet.json").read_text()
+    )
+
+
+def test_run_attaches_match_sheet_for_sample_match(client):
+    resp = client.post("/matches/PL_2025_CLEAN_001/run", json={"vendor": "opta"})
+    assert resp.status_code == 200
+    sheet = resp.json()["document"]["match_sheet"]
+    assert sheet is not None
+    assert sheet["home"]["team"] == "Liverpool"
+
+
+def test_run_stream_attaches_match_sheet_for_sample_match(client):
+    resp = client.post("/matches/PL_2025_CLEAN_001/run/stream", json={"vendor": "opta"})
+    result = _parse_ndjson(resp.text)[-1]
+    sheet = result["data"]["document"]["match_sheet"]
+    assert sheet is not None
+    assert sheet["away"]["team"] == "Manchester City"
+
+
+def test_ingest_stream_without_match_sheet_data_leaves_it_none(client):
+    resp = client.post("/ingest/run/stream", json=_opta_bundle())
+    result = _parse_ndjson(resp.text)[-1]
+    assert result["data"]["document"]["match_sheet"] is None
+
+
+def test_ingest_stream_with_match_sheet_data_sibling_key_attaches_it(client):
+    payload = _opta_bundle()
+    payload["match_sheet_data"] = _opta_match_sheet_bundle()
+    resp = client.post("/ingest/run/stream", json=payload)
+    assert resp.status_code == 200
+    result = _parse_ndjson(resp.text)[-1]
+    assert result["data"]["overall_status"] == "success"
+    sheet = result["data"]["document"]["match_sheet"]
+    assert sheet is not None
+    assert sheet["home"]["team"] == "Liverpool"
 
 
 def test_corrupt_and_run_stream_success(client):

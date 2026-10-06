@@ -4,7 +4,7 @@
   "AwayTeam": "Tottenham",
   "Events": [
     {
-      "EventId": "7284d6ef",
+      "EventId": "3249c53e",
       "TypeName": "FOUL",
       "Min": 0,
       "Sec": 3.0,
@@ -17,7 +17,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "82495b3b",
+      "EventId": "7682a167",
       "TypeName": "SHOT",
       "Min": 0,
       "Sec": 7.4,
@@ -32,7 +32,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "ed50f603",
+      "EventId": "799fcd2e",
       "TypeName": "DRIBBLE",
       "Min": 0,
       "Sec": 9.6,
@@ -45,7 +45,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "ea37ab5e",
+      "EventId": "eebb5d17",
       "TypeName": "PASS",
       "Min": 0,
       "Sec": 12.8,
@@ -60,7 +60,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "e1c45830",
+      "EventId": "39a6d902",
       "TypeName": "FOUL",
       "Min": 0,
       "Sec": 18.3,
@@ -73,7 +73,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2bb272c1",
+      "EventId": "9e827495",
       "TypeName": "TACKLE",
       "Min": 0,
       "Sec": 20.4,
@@ -86,7 +86,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "5ab8c252",
+      "EventId": "f132770e",
       "TypeName": "FOUL",
       "Min": 0,
       "Sec": 23.0,
@@ -99,7 +99,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f2892aef",
+      "EventId": "f0821a5f",
       "TypeName": "INTERCEPTION",
       "Min": 0,
       "Sec": 30.9,
@@ -112,7 +112,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "810e7ae0",
+      "EventId": "a9895e7b",
       "TypeName": "PASS",
       "Min": 0,
       "Sec": 34.2,
@@ -127,7 +127,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "0ed6ef92",
+      "EventId": "3943da2d",
       "TypeName": "SHOT",
       "Min": 0,
       "Sec": 41.0,
@@ -142,7 +142,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7a296987",
+      "EventId": "c1f163ee",
       "TypeName": "SHOT",
       "Min": 0,
       "Sec": 46.4,
@@ -157,7 +157,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "0eb4a0c3",
+      "EventId": "1ef4aa24",
       "TypeName": "DRIBBLE",
       "Min": 0,
       "Sec": 52.5,
@@ -170,7 +170,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "84b1549c",
+      "EventId": "5c8cd700",
       "TypeName": "PASS",
       "Min": 0,
       "Sec": 56.3,
@@ -185,7 +185,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "c646e235",
+      "EventId": "75875e51",
       "TypeName": "CARD",
       "Min": 1,
       "Sec": 0.7,
@@ -198,7 +198,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "ac995e9a",
+      "EventId": "646ec673",
       "TypeName": "THROW_IN",
       "Min": 1,
       "Sec": 6.1,
@@ -211,7 +211,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "34030942",
+      "EventId": "cb2d040a",
       "TypeName": "SHOT",
       "Min": 1,
       "Sec": 10.5,
@@ -226,7 +226,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f680a8ff",
+      "EventId": "310bc407",
       "TypeName": "PASS",
       "Min": 1,
       "Sec": 14.3,
@@ -241,7 +241,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "57dee5b9",
+      "EventId": "dd2d214d",
       "TypeName": "CORNER",
       "Min": 1,
       "Sec": 20.3,
@@ -254,7 +254,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "ab8dbea9",
+      "EventId": "f1218266",
       "TypeName": "UNKNOWN_QUALIFIER_732",
       "Min": 1,
       "Sec": 26.0,
@@ -269,7 +269,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "6c05866e",
+      "EventId": "02930b91",
       "TypeName": "DRIBBLE",
       "Min": 1,
       "Sec": 32.5,
@@ -282,7 +282,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "5ad0b7ec",
+      "EventId": "784cdede",
       "TypeName": "PASS",
       "Min": 1,
       "Sec": 39.7,
@@ -297,7 +297,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "6aeb585c",
+      "EventId": "5e91b43b",
       "TypeName": "TACKLE",
       "Min": 1,
       "Sec": 47.6,
@@ -310,7 +310,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "cd26c36f",
+      "EventId": "347cdb08",
       "TypeName": "TACKLE",
       "Min": 1,
       "Sec": 50.4,
@@ -323,7 +323,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "dcaa0213",
+      "EventId": "dd9b70bc",
       "TypeName": "PASS",
       "Min": 1,
       "Sec": 55.2,
@@ -338,7 +338,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f98989c8",
+      "EventId": "d715bcbc",
       "TypeName": "FOUL",
       "Min": 1,
       "Sec": 57.8,
@@ -351,7 +351,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "a3fac192",
+      "EventId": "386efa58",
       "TypeName": "PASS",
       "Min": 2,
       "Sec": 1.7,
@@ -366,7 +366,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "b8537db9",
+      "EventId": "19b90d1d",
       "TypeName": "INTERCEPTION",
       "Min": 2,
       "Sec": 5.3,
@@ -379,7 +379,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "12601ad3",
+      "EventId": "0c5c7d88",
       "TypeName": "CLEARANCE",
       "Min": 2,
       "Sec": 10.2,
@@ -393,7 +393,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "9b7bbb5e",
+      "EventId": "ec072765",
       "TypeName": "SHOT",
       "Min": 2,
       "Sec": 15.4,
@@ -408,7 +408,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "c70f8243",
+      "EventId": "72e3c577",
       "TypeName": "PASS",
       "Min": 2,
       "Sec": 17.6,
@@ -423,7 +423,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "a2e3ac9d",
+      "EventId": "351287a1",
       "TypeName": "SAVE",
       "Min": 2,
       "Sec": 23.2,
@@ -436,7 +436,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7be6c273",
+      "EventId": "b3a41bb1",
       "TypeName": "CARD",
       "Min": 2,
       "Sec": 27.9,
@@ -448,7 +448,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "816da365",
+      "EventId": "c52a51c8",
       "TypeName": "PASS",
       "Min": 2,
       "Sec": 34.0,
@@ -463,7 +463,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "0d36a8fd",
+      "EventId": "88a88839",
       "TypeName": "PASS",
       "Min": 2,
       "Sec": 39.9,
@@ -478,7 +478,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "784b7005",
+      "EventId": "01427c9f",
       "TypeName": "CLEARANCE",
       "Min": 2,
       "Sec": 47.4,
@@ -493,7 +493,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "5f7189db",
+      "EventId": "7993f5d5",
       "TypeName": "PASS",
       "Min": 2,
       "Sec": 51.6,
@@ -508,7 +508,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "62b48d94",
+      "EventId": "6d079bf7",
       "TypeName": "FOUL",
       "Min": 2,
       "Sec": 59.4,
@@ -520,7 +520,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "1c5e65ff",
+      "EventId": "e90619e3",
       "TypeName": "SHOT",
       "Min": 3,
       "Sec": 4.2,
@@ -535,7 +535,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "9053f590",
+      "EventId": "f7d91330",
       "TypeName": "TACKLE",
       "Min": 3,
       "Sec": 11.5,
@@ -547,7 +547,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "53207477",
+      "EventId": "acd289bb",
       "TypeName": "SHOT",
       "Min": 3,
       "Sec": 14.8,
@@ -562,7 +562,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "d96ddfbc",
+      "EventId": "b89be5b0",
       "TypeName": "SHOT",
       "Min": 3,
       "Sec": 18.6,
@@ -577,7 +577,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "9375a5f0",
+      "EventId": "09f40bbc",
       "TypeName": "THROW_IN",
       "Min": 3,
       "Sec": 23.7,
@@ -590,7 +590,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "cf02c400",
+      "EventId": "aec87b98",
       "TypeName": "GOAL",
       "Min": 3,
       "Sec": 30.0,
@@ -603,7 +603,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "11204123",
+      "EventId": "51fe692e",
       "TypeName": "TACKLE",
       "Min": 3,
       "Sec": 31.6,
@@ -615,7 +615,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "726e35a6",
+      "EventId": "ea9142cf",
       "TypeName": "DRIBBLE",
       "Min": 3,
       "Sec": 39.3,
@@ -628,7 +628,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "b69b27a5",
+      "EventId": "1adbd925",
       "TypeName": "PASS",
       "Min": 3,
       "Sec": 42.2,
@@ -643,7 +643,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "096a4756",
+      "EventId": "1357b7b5",
       "TypeName": "INTERCEPTION",
       "Min": 3,
       "Sec": 49.5,
@@ -656,7 +656,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "176c7973",
+      "EventId": "7afe9aea",
       "TypeName": "PASS",
       "Min": 3,
       "Sec": 55.9,
@@ -671,7 +671,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "4004d6b0",
+      "EventId": "55e8e518",
       "TypeName": "CLEARANCE",
       "Min": 3,
       "Sec": 59.3,
@@ -686,7 +686,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2b18cda9",
+      "EventId": "c4f46267",
       "TypeName": "SHOT",
       "Min": 4,
       "Sec": 5.7,
@@ -701,7 +701,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "d42de947",
+      "EventId": "c5ccf40b",
       "TypeName": "TACKLE",
       "Min": 4,
       "Sec": 11.2,
@@ -714,7 +714,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "08d892de",
+      "EventId": "a4261bce",
       "TypeName": "INTERCEPTION",
       "Min": 4,
       "Sec": 13.2,
@@ -727,7 +727,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "860d9f97",
+      "EventId": "40655c14",
       "TypeName": "TACKLE",
       "Min": 4,
       "Sec": 17.9,
@@ -740,7 +740,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "622a6502",
+      "EventId": "e597b892",
       "TypeName": "FOUL",
       "Min": 4,
       "Sec": 25.5,
@@ -753,7 +753,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "3b98bdad",
+      "EventId": "68b6a85b",
       "TypeName": "DRIBBLE",
       "Min": 4,
       "Sec": 28.1,
@@ -766,7 +766,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "4c08b58b",
+      "EventId": "33648279",
       "TypeName": "TACKLE",
       "Min": 4,
       "Sec": 30.0,
@@ -779,7 +779,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "d8caca75",
+      "EventId": "f7ca19c9",
       "TypeName": "INTERCEPTION",
       "Min": 4,
       "Sec": 34.6,
@@ -792,7 +792,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "d7daef6a",
+      "EventId": "3590749e",
       "TypeName": "PASS",
       "Min": 4,
       "Sec": 39.8,
@@ -807,7 +807,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "a78255b4",
+      "EventId": "c1daa905",
       "TypeName": "UNKNOWN_QUALIFIER_784",
       "Min": 4,
       "Sec": 44.4,
@@ -820,7 +820,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "6d2e50ae",
+      "EventId": "5454ea21",
       "TypeName": "INTERCEPTION",
       "Min": 4,
       "Sec": 46.0,
@@ -833,7 +833,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "ca70f49f",
+      "EventId": "81934b3d",
       "TypeName": "SAVE",
       "Min": 4,
       "Sec": 52.2,
@@ -846,7 +846,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "45a78efe",
+      "EventId": "a59807b4",
       "TypeName": "INTERCEPTION",
       "Min": 4,
       "Sec": 54.6,
@@ -859,7 +859,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "040caeb0",
+      "EventId": "3e5701f3",
       "TypeName": "SHOT",
       "Min": 5,
       "Sec": 0.6,
@@ -874,7 +874,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "1fbf37c8",
+      "EventId": "c4b5651f",
       "TypeName": "PASS",
       "Min": 5,
       "Sec": 6.9,
@@ -889,7 +889,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "5eed32e4",
+      "EventId": "037022b1",
       "TypeName": "SHOT",
       "Min": 5,
       "Sec": 13.3,
@@ -903,7 +903,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "c05ce782",
+      "EventId": "f150ae79",
       "TypeName": "CLEARANCE",
       "Min": 5,
       "Sec": 17.0,
@@ -917,7 +917,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "55f0abc3",
+      "EventId": "c2240321",
       "TypeName": "PASS",
       "Min": 5,
       "Sec": 20.5,
@@ -932,7 +932,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "c00326c2",
+      "EventId": "f1f181b4",
       "TypeName": "CORNER",
       "Min": 5,
       "Sec": 28.1,
@@ -945,7 +945,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "e028560d",
+      "EventId": "c0435c4b",
       "TypeName": "PASS",
       "Min": 5,
       "Sec": 33.0,
@@ -960,7 +960,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "56af03e2",
+      "EventId": "30441fa0",
       "TypeName": "FOUL",
       "Min": 5,
       "Sec": 40.1,
@@ -973,7 +973,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "e337af03",
+      "EventId": "0bfa7823",
       "TypeName": "DRIBBLE",
       "Min": 5,
       "Sec": 42.1,
@@ -986,7 +986,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "22ecfac6",
+      "EventId": "483e8683",
       "TypeName": "THROW_IN",
       "Min": 5,
       "Sec": 47.0,
@@ -999,7 +999,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "e708cf2d",
+      "EventId": "5474ed51",
       "TypeName": "SAVE",
       "Min": 5,
       "Sec": 49.0,
@@ -1012,7 +1012,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f3d67839",
+      "EventId": "ee521f95",
       "TypeName": "DRIBBLE",
       "Min": 5,
       "Sec": 55.9,
@@ -1025,7 +1025,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "c851c40c",
+      "EventId": "d18e55d6",
       "TypeName": "SHOT",
       "Min": 6,
       "Sec": 1.1,
@@ -1040,7 +1040,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "828122df",
+      "EventId": "2d138041",
       "TypeName": "CLEARANCE",
       "Min": 6,
       "Sec": 3.4,
@@ -1055,7 +1055,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "9c0c6346",
+      "EventId": "ca74aed6",
       "TypeName": "PASS",
       "Min": 6,
       "Sec": 9.7,
@@ -1070,7 +1070,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "94ac6efc",
+      "EventId": "45eb5624",
       "TypeName": "INTERCEPTION",
       "Min": 6,
       "Sec": 17.7,
@@ -1083,7 +1083,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "f7f8a649",
+      "EventId": "8cfdd396",
       "TypeName": "PASS",
       "Min": 6,
       "Sec": 24.3,
@@ -1098,7 +1098,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "017f89bb",
+      "EventId": "9a265507",
       "TypeName": "SAVE",
       "Min": 6,
       "Sec": 28.6,
@@ -1110,7 +1110,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "fee9cea0",
+      "EventId": "e5abc81e",
       "TypeName": "FOUL",
       "Min": 6,
       "Sec": 31.6,
@@ -1123,7 +1123,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "daf7d9dd",
+      "EventId": "567d37aa",
       "TypeName": "TACKLE",
       "Min": 6,
       "Sec": 39.1,
@@ -1136,7 +1136,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "44b49e0b",
+      "EventId": "d8abacd3",
       "TypeName": "TACKLE",
       "Min": 6,
       "Sec": 42.8,
@@ -1149,7 +1149,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "792bc6b3",
+      "EventId": "29b41d26",
       "TypeName": "PASS",
       "Min": 6,
       "Sec": 48.8,
@@ -1164,7 +1164,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2fc25534",
+      "EventId": "7cc0e8a2",
       "TypeName": "INTERCEPTION",
       "Min": 6,
       "Sec": 53.0,
@@ -1177,7 +1177,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "3bebf346",
+      "EventId": "4ff87862",
       "TypeName": "FOUL",
       "Min": 6,
       "Sec": 59.6,
@@ -1190,7 +1190,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "a0345c0e",
+      "EventId": "941f51d0",
       "TypeName": "PASS",
       "Min": 7,
       "Sec": 6.6,
@@ -1205,7 +1205,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "e4bc87e4",
+      "EventId": "d5a9191b",
       "TypeName": "CORNER",
       "Min": 7,
       "Sec": 14.6,
@@ -1218,7 +1218,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "4eddc517",
+      "EventId": "291faa9c",
       "TypeName": "CORNER",
       "Min": 7,
       "Sec": 19.3,
@@ -1231,7 +1231,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f66a0d7f",
+      "EventId": "f6fbc495",
       "TypeName": "THROW_IN",
       "Min": 7,
       "Sec": 26.7,
@@ -1243,7 +1243,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "d4634622",
+      "EventId": "9fb15f5e",
       "TypeName": "DRIBBLE",
       "Min": 7,
       "Sec": 29.6,
@@ -1256,7 +1256,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "99f89f72",
+      "EventId": "47b1060a",
       "TypeName": "TACKLE",
       "Min": 7,
       "Sec": 36.3,
@@ -1269,7 +1269,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "77bb5268",
+      "EventId": "2dc03d62",
       "TypeName": "INTERCEPTION",
       "Min": 7,
       "Sec": 38.4,
@@ -1282,7 +1282,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "4ad47afa",
+      "EventId": "d26fab49",
       "TypeName": "SHOT",
       "Min": 7,
       "Sec": 45.2,
@@ -1297,7 +1297,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "3482f8b3",
+      "EventId": "e73c9823",
       "TypeName": "CLEARANCE",
       "Min": 7,
       "Sec": 48.2,
@@ -1312,7 +1312,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "8635dda6",
+      "EventId": "93a5e574",
       "TypeName": "INTERCEPTION",
       "Min": 7,
       "Sec": 54.3,
@@ -1325,7 +1325,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "8c673ffa",
+      "EventId": "2e85581a",
       "TypeName": "TACKLE",
       "Min": 7,
       "Sec": 56.9,
@@ -1338,7 +1338,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "e0cc61c6",
+      "EventId": "d0d1ad6b",
       "TypeName": "PASS",
       "Min": 8,
       "Sec": 3.0,
@@ -1353,7 +1353,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "43625344",
+      "EventId": "3ef76845",
       "TypeName": "DRIBBLE",
       "Min": 8,
       "Sec": 6.9,
@@ -1366,7 +1366,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "67af5b4b",
+      "EventId": "bc37f9c0",
       "TypeName": "INTERCEPTION",
       "Min": 8,
       "Sec": 8.9,
@@ -1379,7 +1379,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "d3ac09d2",
+      "EventId": "2cf4a444",
       "TypeName": "CORNER",
       "Min": 8,
       "Sec": 14.6,
@@ -1392,7 +1392,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "21257f90",
+      "EventId": "98a2a095",
       "TypeName": "INTERCEPTION",
       "Min": 8,
       "Sec": 19.1,
@@ -1404,7 +1404,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "615673f2",
+      "EventId": "e0d00622",
       "TypeName": "SAVE",
       "Min": 8,
       "Sec": 24.1,
@@ -1417,7 +1417,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "21ced68f",
+      "EventId": "c28fcbf9",
       "TypeName": "PASS",
       "Min": 8,
       "Sec": 30.6,
@@ -1432,7 +1432,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "4f1443be",
+      "EventId": "f06909fd",
       "TypeName": "PASS",
       "Min": 8,
       "Sec": 33.8,
@@ -1447,7 +1447,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "a8afe4db",
+      "EventId": "80f48caf",
       "TypeName": "CLEARANCE",
       "Min": 8,
       "Sec": 36.5,
@@ -1462,7 +1462,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "c9740878",
+      "EventId": "87ccad5c",
       "TypeName": "THROW_IN",
       "Min": 8,
       "Sec": 40.7,
@@ -1475,7 +1475,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "ebcd46ef",
+      "EventId": "3521644d",
       "TypeName": "SHOT",
       "Min": 8,
       "Sec": 46.9,
@@ -1490,7 +1490,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "272f9137",
+      "EventId": "65452cb0",
       "TypeName": "DRIBBLE",
       "Min": 8,
       "Sec": 52.8,
@@ -1503,7 +1503,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "bebe971b",
+      "EventId": "40f4ac24",
       "TypeName": "PASS",
       "Min": 8,
       "Sec": 56.4,
@@ -1518,7 +1518,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "4eac92f2",
+      "EventId": "ce279904",
       "TypeName": "FOUL",
       "Min": 8,
       "Sec": 58.1,
@@ -1531,7 +1531,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "83053c52",
+      "EventId": "3df8106a",
       "TypeName": "DRIBBLE",
       "Min": 9,
       "Sec": 2.7,
@@ -1544,7 +1544,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "f6bac827",
+      "EventId": "ff0db75a",
       "TypeName": "DRIBBLE",
       "Min": 9,
       "Sec": 9.0,
@@ -1557,7 +1557,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "4b21d1a5",
+      "EventId": "db754bc4",
       "TypeName": "FOUL",
       "Min": 9,
       "Sec": 13.4,
@@ -1570,7 +1570,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "5bb93510",
+      "EventId": "e090405f",
       "TypeName": "CORNER",
       "Min": 9,
       "Sec": 20.8,
@@ -1583,7 +1583,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "2b5d4c90",
+      "EventId": "267dc5ad",
       "TypeName": "PASS",
       "Min": 9,
       "Sec": 23.9,
@@ -1598,7 +1598,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "a5f5cab8",
+      "EventId": "5c6c0981",
       "TypeName": "FOUL",
       "Min": 9,
       "Sec": 26.7,
@@ -1611,7 +1611,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "31700029",
+      "EventId": "b197963c",
       "TypeName": "SHOT",
       "Min": 9,
       "Sec": 31.7,
@@ -1626,7 +1626,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2b23a776",
+      "EventId": "816701a1",
       "TypeName": "PASS",
       "Min": 9,
       "Sec": 39.1,
@@ -1641,7 +1641,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "701cfd57",
+      "EventId": "b4838c03",
       "TypeName": "PASS",
       "Min": 9,
       "Sec": 44.8,
@@ -1656,7 +1656,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "5e2aab53",
+      "EventId": "1a5f3794",
       "TypeName": "TACKLE",
       "Min": 9,
       "Sec": 51.9,
@@ -1669,7 +1669,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "cc9efb94",
+      "EventId": "c9f2ca62",
       "TypeName": "PASS",
       "Min": 9,
       "Sec": 58.0,
@@ -1684,7 +1684,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "eabc880f",
+      "EventId": "b42b6602",
       "TypeName": "INTERCEPTION",
       "Min": 10,
       "Sec": 2.3,
@@ -1697,7 +1697,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "dbe8f36a",
+      "EventId": "4b50130b",
       "TypeName": "SAVE",
       "Min": 10,
       "Sec": 4.3,
@@ -1709,7 +1709,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "3fc795f2",
+      "EventId": "b0a6b6ce",
       "TypeName": "UNKNOWN_QUALIFIER_871",
       "Min": 10,
       "Sec": 9.3,
@@ -1722,7 +1722,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "4a604dce",
+      "EventId": "9063e9da",
       "TypeName": "CLEARANCE",
       "Min": 10,
       "Sec": 12.8,
@@ -1737,7 +1737,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "255f884a",
+      "EventId": "0d9a1823",
       "TypeName": "INTERCEPTION",
       "Min": 10,
       "Sec": 19.7,
@@ -1750,7 +1750,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7d7ced67",
+      "EventId": "a968c072",
       "TypeName": "PASS",
       "Min": 10,
       "Sec": 26.2,
@@ -1765,7 +1765,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "c005c3de",
+      "EventId": "3517f8cc",
       "TypeName": "INTERCEPTION",
       "Min": 10,
       "Sec": 32.6,
@@ -1778,7 +1778,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "59112bb4",
+      "EventId": "30e355f6",
       "TypeName": "PASS",
       "Min": 10,
       "Sec": 36.1,
@@ -1793,7 +1793,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "613c65d4",
+      "EventId": "c0119040",
       "TypeName": "CLEARANCE",
       "Min": 10,
       "Sec": 39.0,
@@ -1808,7 +1808,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "a704be91",
+      "EventId": "4625cae1",
       "TypeName": "SHOT",
       "Min": 10,
       "Sec": 42.2,
@@ -1823,7 +1823,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "384abc18",
+      "EventId": "8bdd199e",
       "TypeName": "SHOT",
       "Min": 10,
       "Sec": 44.6,
@@ -1838,7 +1838,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "dffc0ba9",
+      "EventId": "3d1e2921",
       "TypeName": "PASS",
       "Min": 10,
       "Sec": 48.1,
@@ -1853,7 +1853,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "70402fcb",
+      "EventId": "bc909364",
       "TypeName": "TACKLE",
       "Min": 10,
       "Sec": 55.9,
@@ -1866,7 +1866,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "bf22011e",
+      "EventId": "36ff0424",
       "TypeName": "THROW_IN",
       "Min": 11,
       "Sec": 3.7,
@@ -1879,7 +1879,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "6d2415ab",
+      "EventId": "cd2273d7",
       "TypeName": "THROW_IN",
       "Min": 11,
       "Sec": 7.3,
@@ -1892,7 +1892,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2869408a",
+      "EventId": "d5c49e13",
       "TypeName": "PASS",
       "Min": 11,
       "Sec": 8.8,
@@ -1907,7 +1907,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "aa623244",
+      "EventId": "f0006d9f",
       "TypeName": "CLEARANCE",
       "Min": 11,
       "Sec": 16.2,
@@ -1922,7 +1922,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "889ea509",
+      "EventId": "cf327c14",
       "TypeName": "DRIBBLE",
       "Min": 11,
       "Sec": 18.6,
@@ -1935,7 +1935,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "56cc3656",
+      "EventId": "7d9f15b5",
       "TypeName": "PASS",
       "Min": 11,
       "Sec": 21.7,
@@ -1950,7 +1950,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "0ba2de31",
+      "EventId": "90fbebd0",
       "TypeName": "TACKLE",
       "Min": 11,
       "Sec": 26.7,
@@ -1963,7 +1963,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "132d5d3a",
+      "EventId": "52285805",
       "TypeName": "TACKLE",
       "Min": 11,
       "Sec": 29.1,
@@ -1976,7 +1976,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "14d72c5a",
+      "EventId": "435a2f4b",
       "TypeName": "FOUL",
       "Min": 11,
       "Sec": 36.9,
@@ -1989,7 +1989,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "cb9fa562",
+      "EventId": "9f18737f",
       "TypeName": "SHOT",
       "Min": 11,
       "Sec": 39.0,
@@ -2004,7 +2004,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "c3a07931",
+      "EventId": "731d37a9",
       "TypeName": "FOUL",
       "Min": 11,
       "Sec": 40.9,
@@ -2016,7 +2016,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7280dcf4",
+      "EventId": "ad3fe7ef",
       "TypeName": "TACKLE",
       "Min": 11,
       "Sec": 47.1,
@@ -2029,7 +2029,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "d1e3502a",
+      "EventId": "6f115553",
       "TypeName": "PASS",
       "Min": 11,
       "Sec": 54.7,
@@ -2044,7 +2044,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "f2cea56e",
+      "EventId": "515cc0e1",
       "TypeName": "THROW_IN",
       "Min": 11,
       "Sec": 57.5,
@@ -2057,7 +2057,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "38534236",
+      "EventId": "9923a246",
       "TypeName": "INTERCEPTION",
       "Min": 12,
       "Sec": 2.4,
@@ -2070,7 +2070,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "04a30e7c",
+      "EventId": "fdfeb3f4",
       "TypeName": "CLEARANCE",
       "Min": 12,
       "Sec": 10.0,
@@ -2085,7 +2085,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "b6d67e95",
+      "EventId": "c686feba",
       "TypeName": "CLEARANCE",
       "Min": 12,
       "Sec": 12.6,
@@ -2100,7 +2100,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "bc5eb61c",
+      "EventId": "98a9af78",
       "TypeName": "INTERCEPTION",
       "Min": 12,
       "Sec": 16.2,
@@ -2113,7 +2113,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "bc0792ad",
+      "EventId": "5d044e3d",
       "TypeName": "FOUL",
       "Min": 12,
       "Sec": 23.8,
@@ -2125,7 +2125,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "87d0466f",
+      "EventId": "c9057e14",
       "TypeName": "PASS",
       "Min": 12,
       "Sec": 29.7,
@@ -2140,7 +2140,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "1129da45",
+      "EventId": "e25f18ce",
       "TypeName": "FOUL",
       "Min": 12,
       "Sec": 31.6,
@@ -2152,7 +2152,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "eb4485d5",
+      "EventId": "1d79fa62",
       "TypeName": "FOUL",
       "Min": 12,
       "Sec": 36.2,
@@ -2165,7 +2165,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f3b60ef3",
+      "EventId": "59630dd3",
       "TypeName": "SHOT",
       "Min": 12,
       "Sec": 40.4,
@@ -2180,7 +2180,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "aade7579",
+      "EventId": "2574b11b",
       "TypeName": "UNKNOWN_QUALIFIER_356",
       "Min": 12,
       "Sec": 47.2,
@@ -2193,7 +2193,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "74b42c5c",
+      "EventId": "10367e04",
       "TypeName": "SHOT",
       "Min": 12,
       "Sec": 49.8,
@@ -2208,7 +2208,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "3bd09634",
+      "EventId": "01d69fb9",
       "TypeName": "THROW_IN",
       "Min": 12,
       "Sec": 53.9,
@@ -2221,7 +2221,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "bc1acc71",
+      "EventId": "339036b7",
       "TypeName": "TACKLE",
       "Min": 13,
       "Sec": 0.1,
@@ -2234,7 +2234,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "7a2c297a",
+      "EventId": "2b37f1b6",
       "TypeName": "CLEARANCE",
       "Min": 13,
       "Sec": 6.9,
@@ -2249,7 +2249,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "33ed75a8",
+      "EventId": "e9bce2b6",
       "TypeName": "TACKLE",
       "Min": 13,
       "Sec": 11.6,
@@ -2262,7 +2262,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "cb44b8bf",
+      "EventId": "b73742e6",
       "TypeName": "PASS",
       "Min": 13,
       "Sec": 19.3,
@@ -2277,7 +2277,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "eb88de05",
+      "EventId": "67ac2b6e",
       "TypeName": "PASS",
       "Min": 13,
       "Sec": 27.0,
@@ -2292,7 +2292,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "0fbde690",
+      "EventId": "d777378e",
       "TypeName": "TACKLE",
       "Min": 13,
       "Sec": 29.0,
@@ -2305,7 +2305,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "71d969de",
+      "EventId": "07dda870",
       "TypeName": "PASS",
       "Min": 13,
       "Sec": 35.1,
@@ -2320,7 +2320,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "de9f8941",
+      "EventId": "8a947648",
       "TypeName": "SHOT",
       "Min": 13,
       "Sec": 38.3,
@@ -2334,7 +2334,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "b9fb7178",
+      "EventId": "7c2c099d",
       "TypeName": "UNKNOWN_QUALIFIER_676",
       "Min": 13,
       "Sec": 43.9,
@@ -2347,7 +2347,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "4bb81ef6",
+      "EventId": "c1e53fe4",
       "TypeName": "INTERCEPTION",
       "Min": 13,
       "Sec": 50.0,
@@ -2360,7 +2360,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "a35a6221",
+      "EventId": "190ef2b3",
       "TypeName": "PASS",
       "Min": 13,
       "Sec": 54.1,
@@ -2375,7 +2375,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "9c222ff2",
+      "EventId": "7d8bf425",
       "TypeName": "PASS",
       "Min": 13,
       "Sec": 56.4,
@@ -2390,7 +2390,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "5a29791b",
+      "EventId": "3536fce6",
       "TypeName": "FOUL",
       "Min": 14,
       "Sec": 1.9,
@@ -2403,7 +2403,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "7d252a27",
+      "EventId": "c9203528",
       "TypeName": "CLEARANCE",
       "Min": 14,
       "Sec": 8.0,
@@ -2418,7 +2418,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "96686220",
+      "EventId": "2f07c42f",
       "TypeName": "PASS",
       "Min": 14,
       "Sec": 14.8,
@@ -2433,7 +2433,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "4b26fc2d",
+      "EventId": "de42f6f2",
       "TypeName": "CORNER",
       "Min": 14,
       "Sec": 21.2,
@@ -2445,7 +2445,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "8265e513",
+      "EventId": "6a18e03c",
       "TypeName": "TACKLE",
       "Min": 14,
       "Sec": 26.7,
@@ -2458,7 +2458,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "8e35f8ae",
+      "EventId": "49debace",
       "TypeName": "CORNER",
       "Min": 14,
       "Sec": 29.2,
@@ -2471,7 +2471,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f64c8703",
+      "EventId": "69a8388e",
       "TypeName": "DRIBBLE",
       "Min": 14,
       "Sec": 36.3,
@@ -2484,7 +2484,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "c72fa773",
+      "EventId": "f05641ad",
       "TypeName": "PASS",
       "Min": 14,
       "Sec": 40.1,
@@ -2499,7 +2499,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7be9c3b5",
+      "EventId": "4605b1b7",
       "TypeName": "PASS",
       "Min": 14,
       "Sec": 42.9,
@@ -2513,7 +2513,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "6cbee1e3",
+      "EventId": "b74a9d37",
       "TypeName": "TACKLE",
       "Min": 14,
       "Sec": 49.8,
@@ -2526,7 +2526,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "e084fd12",
+      "EventId": "58bd4432",
       "TypeName": "PASS",
       "Min": 14,
       "Sec": 55.0,
@@ -2541,7 +2541,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "82762f20",
+      "EventId": "8f3a7d4f",
       "TypeName": "PASS",
       "Min": 14,
       "Sec": 58.5,
@@ -2556,7 +2556,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "db9acd02",
+      "EventId": "3fbb2e6d",
       "TypeName": "UNKNOWN_QUALIFIER_809",
       "Min": 15,
       "Sec": 6.4,
@@ -2569,7 +2569,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "4699178f",
+      "EventId": "3f43060c",
       "TypeName": "PASS",
       "Min": 15,
       "Sec": 9.2,
@@ -2584,7 +2584,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "da2f8088",
+      "EventId": "3b1ff91a",
       "TypeName": "PASS",
       "Min": 15,
       "Sec": 11.2,
@@ -2599,7 +2599,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "be2d5fb4",
+      "EventId": "f10d08f3",
       "TypeName": "DRIBBLE",
       "Min": 15,
       "Sec": 18.8,
@@ -2612,7 +2612,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "1a682c95",
+      "EventId": "fc7d80f6",
       "TypeName": "TACKLE",
       "Min": 15,
       "Sec": 25.8,
@@ -2625,7 +2625,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "be143a5c",
+      "EventId": "e580ffb0",
       "TypeName": "PASS",
       "Min": 15,
       "Sec": 30.3,
@@ -2640,7 +2640,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "268d26d7",
+      "EventId": "94d16046",
       "TypeName": "UNKNOWN_QUALIFIER_833",
       "Min": 15,
       "Sec": 35.9,
@@ -2653,7 +2653,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "0e43c28d",
+      "EventId": "6b5e038f",
       "TypeName": "SHOT",
       "Min": 15,
       "Sec": 43.5,
@@ -2668,7 +2668,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "9f27fc73",
+      "EventId": "6f54304d",
       "TypeName": "PASS",
       "Min": 15,
       "Sec": 50.1,
@@ -2683,7 +2683,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "cd485404",
+      "EventId": "42f1c841",
       "TypeName": "INTERCEPTION",
       "Min": 15,
       "Sec": 54.5,
@@ -2696,7 +2696,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f6c46784",
+      "EventId": "243199ba",
       "TypeName": "PASS",
       "Min": 16,
       "Sec": 1.8,
@@ -2711,7 +2711,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "280d662a",
+      "EventId": "b04c3ad6",
       "TypeName": "THROW_IN",
       "Min": 16,
       "Sec": 8.4,
@@ -2724,7 +2724,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "621a734c",
+      "EventId": "cca922e8",
       "TypeName": "FOUL",
       "Min": 16,
       "Sec": 12.1,
@@ -2737,7 +2737,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "8c6576bc",
+      "EventId": "348ce4c2",
       "TypeName": "TACKLE",
       "Min": 16,
       "Sec": 16.5,
@@ -2750,7 +2750,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "05eff6fc",
+      "EventId": "1777822c",
       "TypeName": "PASS",
       "Min": 16,
       "Sec": 20.3,
@@ -2765,7 +2765,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "cb1a66c5",
+      "EventId": "dbc8ae38",
       "TypeName": "INTERCEPTION",
       "Min": 16,
       "Sec": 26.2,
@@ -2778,7 +2778,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "1ae249db",
+      "EventId": "0071225d",
       "TypeName": "TACKLE",
       "Min": 16,
       "Sec": 34.1,
@@ -2791,7 +2791,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "cd777e1a",
+      "EventId": "4230df59",
       "TypeName": "FOUL",
       "Min": 16,
       "Sec": 37.4,
@@ -2804,7 +2804,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "3c71576c",
+      "EventId": "8c1ffe3e",
       "TypeName": "DRIBBLE",
       "Min": 16,
       "Sec": 43.1,
@@ -2817,7 +2817,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "cd6fbcb1",
+      "EventId": "c1d5d913",
       "TypeName": "INTERCEPTION",
       "Min": 16,
       "Sec": 50.0,
@@ -2830,7 +2830,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7d954d32",
+      "EventId": "c0f47c16",
       "TypeName": "INTERCEPTION",
       "Min": 16,
       "Sec": 52.7,
@@ -2843,7 +2843,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "539b8ef2",
+      "EventId": "212b0fd8",
       "TypeName": "CORNER",
       "Min": 16,
       "Sec": 59.1,
@@ -2856,7 +2856,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "cd5866a0",
+      "EventId": "d6a206b5",
       "TypeName": "PASS",
       "Min": 17,
       "Sec": 2.8,
@@ -2871,7 +2871,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2a9693f9",
+      "EventId": "ba567eff",
       "TypeName": "PASS",
       "Min": 17,
       "Sec": 8.6,
@@ -2886,7 +2886,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "bcd21bdd",
+      "EventId": "5c941e63",
       "TypeName": "TACKLE",
       "Min": 17,
       "Sec": 12.6,
@@ -2899,7 +2899,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "8260a6c2",
+      "EventId": "c299ab2d",
       "TypeName": "UNKNOWN_QUALIFIER_902",
       "Min": 17,
       "Sec": 18.8,
@@ -2914,7 +2914,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "85c19907",
+      "EventId": "e3a6d343",
       "TypeName": "CLEARANCE",
       "Min": 17,
       "Sec": 22.0,
@@ -2929,7 +2929,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "5752538b",
+      "EventId": "3ca7b595",
       "TypeName": "TACKLE",
       "Min": 17,
       "Sec": 29.2,
@@ -2942,7 +2942,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "3191a6db",
+      "EventId": "3db2c4ba",
       "TypeName": "PASS",
       "Min": 17,
       "Sec": 33.0,
@@ -2957,7 +2957,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "b490e324",
+      "EventId": "6ddd694a",
       "TypeName": "PASS",
       "Min": 17,
       "Sec": 39.2,
@@ -2972,7 +2972,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "b9eecd26",
+      "EventId": "19840fef",
       "TypeName": "TACKLE",
       "Min": 17,
       "Sec": 45.1,
@@ -2985,7 +2985,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "16b18de5",
+      "EventId": "11eec326",
       "TypeName": "PASS",
       "Min": 17,
       "Sec": 46.8,
@@ -3000,7 +3000,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "0bd50e4e",
+      "EventId": "571c3e06",
       "TypeName": "INTERCEPTION",
       "Min": 17,
       "Sec": 51.7,
@@ -3013,7 +3013,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "327393d4",
+      "EventId": "0027e22e",
       "TypeName": "PASS",
       "Min": 17,
       "Sec": 53.7,
@@ -3028,7 +3028,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "56937dce",
+      "EventId": "71113ed4",
       "TypeName": "INTERCEPTION",
       "Min": 17,
       "Sec": 57.6,
@@ -3041,7 +3041,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "ab516ca9",
+      "EventId": "e6f8c038",
       "TypeName": "THROW_IN",
       "Min": 18,
       "Sec": 2.8,
@@ -3054,7 +3054,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "5c164764",
+      "EventId": "b40bf9af",
       "TypeName": "TACKLE",
       "Min": 18,
       "Sec": 9.6,
@@ -3067,7 +3067,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "adbc507e",
+      "EventId": "b03f3d77",
       "TypeName": "UNKNOWN_QUALIFIER_423",
       "Min": 18,
       "Sec": 14.2,
@@ -3082,7 +3082,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "0d107eb4",
+      "EventId": "fa479849",
       "TypeName": "THROW_IN",
       "Min": 18,
       "Sec": 21.2,
@@ -3095,7 +3095,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "3250e3fe",
+      "EventId": "024ae982",
       "TypeName": "FOUL",
       "Min": 18,
       "Sec": 26.3,
@@ -3108,7 +3108,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7bb15d1e",
+      "EventId": "3cd21a07",
       "TypeName": "PASS",
       "Min": 18,
       "Sec": 28.7,
@@ -3122,7 +3122,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "d4d55021",
+      "EventId": "f39a32d8",
       "TypeName": "FOUL",
       "Min": 18,
       "Sec": 36.1,
@@ -3135,7 +3135,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f807e5d0",
+      "EventId": "63350ba9",
       "TypeName": "INTERCEPTION",
       "Min": 18,
       "Sec": 38.7,
@@ -3148,7 +3148,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "a18b7dbc",
+      "EventId": "8abede04",
       "TypeName": "CLEARANCE",
       "Min": 18,
       "Sec": 46.4,
@@ -3163,7 +3163,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "0dce4b02",
+      "EventId": "aed98234",
       "TypeName": "PASS",
       "Min": 18,
       "Sec": 48.8,
@@ -3178,7 +3178,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "de30da17",
+      "EventId": "2c8f5d8e",
       "TypeName": "CORNER",
       "Min": 18,
       "Sec": 56.1,
@@ -3191,7 +3191,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "825f2400",
+      "EventId": "93a89495",
       "TypeName": "FOUL",
       "Min": 18,
       "Sec": 59.3,
@@ -3204,7 +3204,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "b1e6d275",
+      "EventId": "eca2d389",
       "TypeName": "PASS",
       "Min": 19,
       "Sec": 5.1,
@@ -3219,7 +3219,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "417a3bc3",
+      "EventId": "36b43462",
       "TypeName": "SHOT",
       "Min": 19,
       "Sec": 11.9,
@@ -3234,7 +3234,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7fce0faf",
+      "EventId": "7ddc63d1",
       "TypeName": "PASS",
       "Min": 19,
       "Sec": 15.6,
@@ -3249,7 +3249,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2dd342c9",
+      "EventId": "d115f8fb",
       "TypeName": "TACKLE",
       "Min": 19,
       "Sec": 23.0,
@@ -3262,7 +3262,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "1a250398",
+      "EventId": "4d5b807d",
       "TypeName": "CLEARANCE",
       "Min": 19,
       "Sec": 28.4,
@@ -3277,7 +3277,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "290bc2b9",
+      "EventId": "5611b625",
       "TypeName": "SHOT",
       "Min": 19,
       "Sec": 31.7,
@@ -3292,7 +3292,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "947064cf",
+      "EventId": "716c7201",
       "TypeName": "SAVE",
       "Min": 19,
       "Sec": 36.9,
@@ -3305,7 +3305,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "f86e1ff6",
+      "EventId": "31a6ef77",
       "TypeName": "TACKLE",
       "Min": 19,
       "Sec": 43.4,
@@ -3318,7 +3318,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "a31f5ce9",
+      "EventId": "2df7c3a2",
       "TypeName": "SAVE",
       "Min": 19,
       "Sec": 50.5,
@@ -3331,7 +3331,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "03eed0c1",
+      "EventId": "c0775635",
       "TypeName": "UNKNOWN_QUALIFIER_442",
       "Min": 19,
       "Sec": 52.7,
@@ -3344,7 +3344,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "6cb09c7e",
+      "EventId": "3e4b6d05",
       "TypeName": "SHOT",
       "Min": 19,
       "Sec": 59.2,
@@ -3359,7 +3359,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2e852392",
+      "EventId": "747576c0",
       "TypeName": "FOUL",
       "Min": 20,
       "Sec": 5.4,
@@ -3372,7 +3372,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "436ca01a",
+      "EventId": "6f5651e3",
       "TypeName": "DRIBBLE",
       "Min": 20,
       "Sec": 8.4,
@@ -3385,7 +3385,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "0857bed5",
+      "EventId": "cea8c94c",
       "TypeName": "INTERCEPTION",
       "Min": 20,
       "Sec": 10.6,
@@ -3397,7 +3397,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "b26e070d",
+      "EventId": "41627ec7",
       "TypeName": "DRIBBLE",
       "Min": 20,
       "Sec": 18.5,
@@ -3410,7 +3410,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "9f226016",
+      "EventId": "72eff364",
       "TypeName": "TACKLE",
       "Min": 20,
       "Sec": 24.8,
@@ -3423,7 +3423,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "01cd234c",
+      "EventId": "3d5054da",
       "TypeName": "SHOT",
       "Min": 20,
       "Sec": 32.1,
@@ -3438,7 +3438,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "81dccd18",
+      "EventId": "0e04e4ae",
       "TypeName": "PASS",
       "Min": 20,
       "Sec": 34.5,
@@ -3453,7 +3453,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "4e976328",
+      "EventId": "50e3d960",
       "TypeName": "TACKLE",
       "Min": 20,
       "Sec": 38.8,
@@ -3466,7 +3466,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "b7d680f6",
+      "EventId": "d1bb1316",
       "TypeName": "PASS",
       "Min": 20,
       "Sec": 43.9,
@@ -3481,7 +3481,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "e3dfd914",
+      "EventId": "cd558e7c",
       "TypeName": "PASS",
       "Min": 20,
       "Sec": 46.7,
@@ -3496,7 +3496,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "9a87dd4d",
+      "EventId": "29fb331f",
       "TypeName": "SHOT",
       "Min": 20,
       "Sec": 54.7,
@@ -3511,7 +3511,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "0042e2fc",
+      "EventId": "379dc615",
       "TypeName": "SAVE",
       "Min": 20,
       "Sec": 56.6,
@@ -3524,7 +3524,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "8bb71175",
+      "EventId": "8a5ed30c",
       "TypeName": "PASS",
       "Min": 21,
       "Sec": 1.6,
@@ -3539,7 +3539,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "27b6bb03",
+      "EventId": "5bb67bdd",
       "TypeName": "PASS",
       "Min": 21,
       "Sec": 6.9,
@@ -3554,7 +3554,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "f7905383",
+      "EventId": "76e6da9c",
       "TypeName": "TACKLE",
       "Min": 21,
       "Sec": 13.9,
@@ -3567,7 +3567,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "19f492c3",
+      "EventId": "4e841002",
       "TypeName": "CLEARANCE",
       "Min": 21,
       "Sec": 18.3,
@@ -3582,7 +3582,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "5cc74d89",
+      "EventId": "a486f952",
       "TypeName": "SAVE",
       "Min": 21,
       "Sec": 21.8,
@@ -3595,7 +3595,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "90920c7a",
+      "EventId": "fe297fea",
       "TypeName": "SAVE",
       "Min": 21,
       "Sec": 24.2,
@@ -3608,7 +3608,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "6753e73d",
+      "EventId": "0ecc5dc5",
       "TypeName": "PASS",
       "Min": 21,
       "Sec": 30.1,
@@ -3623,7 +3623,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "54670546",
+      "EventId": "a672d721",
       "TypeName": "CORNER",
       "Min": 21,
       "Sec": 32.6,
@@ -3636,7 +3636,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2d8f16a7",
+      "EventId": "e060d274",
       "TypeName": "PASS",
       "Min": 21,
       "Sec": 34.6,
@@ -3651,7 +3651,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "de06f1d6",
+      "EventId": "95ec54ba",
       "TypeName": "PASS",
       "Min": 21,
       "Sec": 41.7,
@@ -3666,7 +3666,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2bc0a381",
+      "EventId": "65ff5aeb",
       "TypeName": "SAVE",
       "Min": 21,
       "Sec": 44.6,
@@ -3679,7 +3679,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "c5adf6fc",
+      "EventId": "8601d3e9",
       "TypeName": "CORNER",
       "Min": 21,
       "Sec": 51.3,
@@ -3692,7 +3692,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "5242b02f",
+      "EventId": "ff03997b",
       "TypeName": "TACKLE",
       "Min": 21,
       "Sec": 53.7,
@@ -3705,7 +3705,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "71b218d0",
+      "EventId": "f4dbf01d",
       "TypeName": "FOUL",
       "Min": 21,
       "Sec": 58.1,
@@ -3718,7 +3718,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "95ab8e14",
+      "EventId": "57b23c4f",
       "TypeName": "THROW_IN",
       "Min": 22,
       "Sec": 3.9,
@@ -3731,7 +3731,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "07a395fb",
+      "EventId": "d9b84372",
       "TypeName": "CLEARANCE",
       "Min": 22,
       "Sec": 11.9,
@@ -3746,7 +3746,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "858e6ca0",
+      "EventId": "68a6de7f",
       "TypeName": "PASS",
       "Min": 22,
       "Sec": 17.5,
@@ -3761,7 +3761,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "53e6268f",
+      "EventId": "9d1cb76c",
       "TypeName": "PASS",
       "Min": 22,
       "Sec": 25.5,
@@ -3776,7 +3776,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7113594d",
+      "EventId": "01282d38",
       "TypeName": "UNKNOWN_QUALIFIER_846",
       "Min": 22,
       "Sec": 27.7,
@@ -3791,7 +3791,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "0cc79df1",
+      "EventId": "d2aa7be1",
       "TypeName": "TACKLE",
       "Min": 22,
       "Sec": 32.4,
@@ -3804,7 +3804,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "134ef3d9",
+      "EventId": "f436622f",
       "TypeName": "TACKLE",
       "Min": 22,
       "Sec": 39.9,
@@ -3817,7 +3817,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "4c64ee61",
+      "EventId": "f6d3812b",
       "TypeName": "TACKLE",
       "Min": 22,
       "Sec": 46.8,
@@ -3830,7 +3830,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "65efb90d",
+      "EventId": "179ad429",
       "TypeName": "INTERCEPTION",
       "Min": 22,
       "Sec": 49.7,
@@ -3843,7 +3843,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "35189837",
+      "EventId": "dcfc0713",
       "TypeName": "DRIBBLE",
       "Min": 22,
       "Sec": 57.5,
@@ -3856,7 +3856,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "5cf264d0",
+      "EventId": "3bfdd3a8",
       "TypeName": "DRIBBLE",
       "Min": 22,
       "Sec": 59.1,
@@ -3869,7 +3869,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "c1fad484",
+      "EventId": "57ef6ac6",
       "TypeName": "DRIBBLE",
       "Min": 23,
       "Sec": 6.7,
@@ -3882,7 +3882,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "963553f9",
+      "EventId": "e5293196",
       "TypeName": "CLEARANCE",
       "Min": 23,
       "Sec": 10.4,
@@ -3897,7 +3897,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "e48d596c",
+      "EventId": "2417b48b",
       "TypeName": "CLEARANCE",
       "Min": 23,
       "Sec": 15.4,
@@ -3912,7 +3912,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "2e2cf3e0",
+      "EventId": "c2d1167d",
       "TypeName": "PASS",
       "Min": 23,
       "Sec": 21.2,
@@ -3927,7 +3927,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "bf9bbd19",
+      "EventId": "429844b4",
       "TypeName": "TACKLE",
       "Min": 23,
       "Sec": 27.2,
@@ -3940,7 +3940,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "e962248e",
+      "EventId": "1f815701",
       "TypeName": "CORNER",
       "Min": 23,
       "Sec": 33.0,
@@ -3953,7 +3953,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "db971460",
+      "EventId": "8e7a7145",
       "TypeName": "CORNER",
       "Min": 23,
       "Sec": 36.4,
@@ -3965,7 +3965,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "ea6fc8dc",
+      "EventId": "5d3a1f67",
       "TypeName": "SHOT",
       "Min": 23,
       "Sec": 38.2,
@@ -3980,7 +3980,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "e30f3bac",
+      "EventId": "ed79fe4c",
       "TypeName": "PASS",
       "Min": 23,
       "Sec": 40.7,
@@ -3995,7 +3995,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "d3086e42",
+      "EventId": "194c31de",
       "TypeName": "PASS",
       "Min": 23,
       "Sec": 42.9,
@@ -4010,7 +4010,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "e763d5c5",
+      "EventId": "6fe0fcf4",
       "TypeName": "PASS",
       "Min": 23,
       "Sec": 48.8,
@@ -4025,7 +4025,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "53c348c4",
+      "EventId": "99d33097",
       "TypeName": "PASS",
       "Min": 23,
       "Sec": 53.1,
@@ -4040,7 +4040,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "69073e0c",
+      "EventId": "1622471c",
       "TypeName": "DRIBBLE",
       "Min": 23,
       "Sec": 55.9,
@@ -4053,7 +4053,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "1bb9fb3e",
+      "EventId": "05e84469",
       "TypeName": "PASS",
       "Min": 23,
       "Sec": 58.4,
@@ -4068,7 +4068,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "6979bc58",
+      "EventId": "b144bf68",
       "TypeName": "PASS",
       "Min": 24,
       "Sec": 4.0,
@@ -4083,7 +4083,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "7c7fb2e2",
+      "EventId": "df2d8edb",
       "TypeName": "FOUL",
       "Min": 24,
       "Sec": 7.9,
@@ -4096,7 +4096,7 @@
       "Outcome": 0
     },
     {
-      "EventId": "19140569",
+      "EventId": "bf499c47",
       "TypeName": "TACKLE",
       "Min": 24,
       "Sec": 11.1,
@@ -4109,7 +4109,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "ca72c535",
+      "EventId": "9655ad50",
       "TypeName": "FOUL",
       "Min": 24,
       "Sec": 13.6,
@@ -4122,7 +4122,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "49d8dbb1",
+      "EventId": "8d87440a",
       "TypeName": "PASS",
       "Min": 24,
       "Sec": 15.5,
@@ -4137,7 +4137,7 @@
       "Outcome": 1
     },
     {
-      "EventId": "40149786",
+      "EventId": "26dcf5e4",
       "TypeName": "PASS",
       "Min": 24,
       "Sec": 20.2,

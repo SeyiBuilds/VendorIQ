@@ -13,7 +13,7 @@ pipeline view are both built on top of).
 import json
 import pytest
 from conftest import SAMPLE_MATCHES_DIR
-from orchestrator import MasterOrchestrator, OrchestrationLog, CRITICAL_STAGES, OPTIONAL_STAGES
+from orchestrator import MasterOrchestrator, OrchestrationLog, CRITICAL_STAGES, OPTIONAL_STAGES, STAGE_ORDER
 
 
 @pytest.fixture
@@ -48,8 +48,11 @@ def test_full_run_succeeds_for_every_sample_match(orchestrator, match_name):
 def test_every_stage_recorded_as_success(orchestrator, match_name):
     result = orchestrator.run(_opta_vendor_data(match_name))
     stage_statuses = {r.stage: r.status for r in result.orchestration_log.records}
-    for stage in CRITICAL_STAGES + OPTIONAL_STAGES:
+    # match_sheet_mapper gets its own assertion below -- no match-sheet
+    # payload was supplied here, so it's "skipped", not "success".
+    for stage in CRITICAL_STAGES + ("narrative_generator",):
         assert stage_statuses[stage] == "success"
+    assert stage_statuses["match_sheet_mapper"] == "skipped"
 
 
 def test_orchestration_log_ref_set_on_document(orchestrator):
@@ -168,7 +171,7 @@ def test_export_not_called_during_run(orchestrator, monkeypatch):
 
 # --- run_streaming(): the real-time event sequence run() is built on ---
 
-ALL_STAGES = CRITICAL_STAGES + OPTIONAL_STAGES
+ALL_STAGES = STAGE_ORDER
 
 
 def test_streaming_success_emits_start_then_stage_for_every_stage_then_result(orchestrator):
@@ -187,7 +190,10 @@ def test_streaming_success_emits_start_then_stage_for_every_stage_then_result(or
 
     stage_records = [e[1] for e in stage_events if e[0] == "stage"]
     assert [r.stage for r in stage_records] == list(ALL_STAGES)
-    assert all(r.status == "success" for r in stage_records)
+    # No match-sheet payload supplied -- that one stage is "skipped" by
+    # design, not a failure; every other stage succeeds.
+    for r in stage_records:
+        assert r.status == ("skipped" if r.stage == "match_sheet_mapper" else "success")
 
 
 def test_streaming_matches_run_result(orchestrator):
@@ -227,3 +233,40 @@ def test_streaming_optional_failure_still_emits_result_with_narrative_none(orche
     assert result.orchestration_log.overall_status == "partial"
     assert result.document is not None
     assert result.narrative is None
+
+
+# --- Match-sheet wiring: a separate, optional payload run() can take ---
+
+def _opta_match_sheet_data(match_name="PL_2025_CLEAN_001"):
+    path = SAMPLE_MATCHES_DIR / match_name / "match_sheets" / "opta_match_sheet.json"
+    return json.loads(path.read_text())
+
+
+def test_match_sheet_data_attaches_to_document_when_supplied(orchestrator):
+    result = orchestrator.run(_opta_vendor_data(), match_sheet_data=_opta_match_sheet_data())
+    assert result.orchestration_log.overall_status == "success"
+    assert result.document.match_sheet is not None
+    assert result.document.match_sheet.home.team == "Liverpool"
+    record = next(r for r in result.orchestration_log.records if r.stage == "match_sheet_mapper")
+    assert record.status == "success"
+
+
+def test_match_sheet_mapper_skipped_without_a_payload(orchestrator):
+    result = orchestrator.run(_opta_vendor_data())
+    assert result.orchestration_log.overall_status == "success"
+    assert result.document.match_sheet is None
+    record = next(r for r in result.orchestration_log.records if r.stage == "match_sheet_mapper")
+    assert record.status == "skipped"
+
+
+def test_match_sheet_mapper_failure_degrades_to_partial_not_abort(orchestrator, monkeypatch):
+    def boom(*args, **kwargs):
+        raise RuntimeError("simulated match_sheet_mapper bug")
+    monkeypatch.setattr(orchestrator.mapper, "map_match_sheet", boom)
+
+    result = orchestrator.run(_opta_vendor_data(), match_sheet_data=_opta_match_sheet_data())
+    assert result.orchestration_log.overall_status == "partial"
+    assert result.document is not None  # critical path still produced output
+    assert result.document.match_sheet is None
+    record = next(r for r in result.orchestration_log.records if r.stage == "match_sheet_mapper")
+    assert record.status == "failed"
