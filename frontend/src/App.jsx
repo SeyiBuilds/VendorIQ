@@ -6,6 +6,7 @@ import BroadcastOverlay from "./components/BroadcastOverlay";
 import RhythmStrip from "./components/RhythmStrip";
 import NarrativePanel from "./components/NarrativePanel";
 import PersonalizationPanel from "./components/PersonalizationPanel";
+import CorruptionPanel from "./components/CorruptionPanel";
 import "./App.css";
 
 export default function App() {
@@ -14,6 +15,7 @@ export default function App() {
   const [selectedVendor, setSelectedVendor] = useState("opta");
   const [running, setRunning] = useState(false);
   const [runResult, setRunResult] = useState(null);
+  const [cleanConfidence, setCleanConfidence] = useState(null);
   const [experience, setExperience] = useState(null);
   const [personalizing, setPersonalizing] = useState(false);
   const [error, setError] = useState(null);
@@ -34,12 +36,18 @@ export default function App() {
     try {
       const result = await runMatch(selectedMatchId, selectedVendor);
       setRunResult(result);
+      setCleanConfidence(result.document?.metadata?.quality_confidence ?? null);
     } catch (e) {
       setError(e.message);
       setRunResult(null);
     } finally {
       setRunning(false);
     }
+  };
+
+  const handleCorruptResult = (result) => {
+    setRunResult(result);
+    setExperience(null);
   };
 
   const handlePersonalize = async (profile) => {
@@ -78,6 +86,12 @@ export default function App() {
         }}
         onRun={handleRun}
         running={running}
+      />
+
+      <CorruptionPanel
+        matchId={selectedMatchId}
+        onResult={handleCorruptResult}
+        cleanConfidence={cleanConfidence}
       />
 
       {runResult && (

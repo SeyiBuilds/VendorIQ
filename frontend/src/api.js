@@ -47,3 +47,14 @@ export function personalizeRun(runId, profile) {
     body: JSON.stringify(profile),
   });
 }
+
+export function listMutations() {
+  return request("/mutations");
+}
+
+export function corruptAndRun(matchId, { mutations, rate, seed }) {
+  return request(`/matches/${matchId}/corrupt-and-run`, {
+    method: "POST",
+    body: JSON.stringify({ vendor: "opta", mutations, rate, seed: seed ?? null }),
+  });
+}

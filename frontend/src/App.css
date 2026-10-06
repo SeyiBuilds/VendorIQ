@@ -318,3 +318,82 @@ button:disabled {
 }
 
 .experience-result h3 { margin: 0 0 8px; }
+
+.corruption-panel {
+  border-color: rgba(198,72,43,0.4);
+}
+
+.mutation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.mutation-item {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 0.82rem;
+}
+
+.mutation-item input {
+  margin-top: 3px;
+}
+
+.mutation-item strong {
+  display: block;
+  text-transform: capitalize;
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.mutation-desc {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+button.danger {
+  background: var(--failed);
+  border-color: var(--failed);
+  color: #fff;
+}
+
+.corruption-result {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.confidence-compare {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.confidence-compare .degraded {
+  color: var(--partial);
+  font-weight: 700;
+}
+
+.corruption-log {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
