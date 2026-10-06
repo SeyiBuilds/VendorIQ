@@ -312,6 +312,19 @@ button:disabled {
   border-color: rgba(198,72,43,0.4);
 }
 
+.upload-panel {
+  border-color: rgba(91,140,255,0.35);
+}
+
+.upload-panel input[type="file"] {
+  color: var(--text-dim);
+  font-size: 0.82rem;
+}
+
+.export-panel {
+  border-color: rgba(47,158,104,0.3);
+}
+
 .mutation-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));

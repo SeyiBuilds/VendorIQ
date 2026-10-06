@@ -30,7 +30,7 @@ import uuid
 from pathlib import Path
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import Body, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
@@ -154,6 +154,23 @@ def run_match_stream(match_id: str, body: RunRequest = RunRequest()) -> Streamin
     vendor_data = json.loads(vendor_file.read_text())
     extra = {"match_id": match_id, "quality_tier": entry.get("quality_tier")}
     return StreamingResponse(_stream_run(vendor_data, extra), media_type="application/x-ndjson")
+
+
+@app.post("/ingest/run/stream")
+def ingest_run_stream(payload: dict = Body(...)) -> StreamingResponse:
+    """Run the pipeline against a vendor feed the caller supplies directly
+    -- e.g. a club's own Opta/StatsBomb/Wyscout export -- rather than one
+    of the bundled sample matches. No vendor needs to be named: Format
+    Detective (Agent 1) auto-detects it exactly as it does for the sample
+    matches, so this is the same pipeline, just pointed at different
+    input. An unrecognized shape isn't a 500 -- Format Detective's
+    critical-stage failure path (orchestrator.py) turns it into a normal
+    "failed" result with the reason in the orchestration log, same as any
+    other critical-stage failure."""
+    if not isinstance(payload, dict) or not payload:
+        raise HTTPException(status_code=400, detail="request body must be a non-empty JSON object")
+    return StreamingResponse(_stream_run(payload, {"match_id": None, "quality_tier": None, "source": "uploaded"}),
+                              media_type="application/x-ndjson")
 
 
 @app.get("/health")

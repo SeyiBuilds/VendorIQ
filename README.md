@@ -10,7 +10,7 @@ progress streamed to the UI live as it actually runs, not revealed all at
 once after the whole pipeline finishes.
 
 Built with the mindset that this already won and a club wants it in
-production: real test suites (209 passing), pinned dependencies, honest
+production: real test suites (214 passing), pinned dependencies, honest
 confidence scoring and graceful degradation instead of fabricated
 numbers, and a documented fallback path for every place real data goes
 missing or wrong.
@@ -22,7 +22,7 @@ Requires Python 3.11+ and Node 18+.
 ```bash
 # 1. backend — install deps and run the test suite
 pip install -r requirements.txt
-pytest backend/tests -q          # 209 passed
+pytest backend/tests -q          # 214 passed
 # (Windows: if `pytest` / `uvicorn` aren't recognized, use `python -m pytest` / `python -m uvicorn` instead)
 
 # 2. backend — start the API
@@ -39,6 +39,10 @@ Open the frontend URL, pick a sample match, hit **Run pipeline**. Try
 **Break it live** to corrupt a clean feed on the spot (strip player
 identities, null out coordinates, drop timestamps...) and watch the same
 pipeline degrade gracefully instead of crashing or fabricating data.
+Or use **Bring your own match data** to upload a vendor-shaped JSON file
+of your own (Opta/StatsBomb/Wyscout) and run it through the same
+pipeline — format is auto-detected. Once a run produces a document, use
+**Export** to re-export it into another vendor's shape and download it.
 
 ## Architecture
 
@@ -59,7 +63,7 @@ backend/
     format_exporter.py         Agent 7 — export CDF back to a vendor shape (on-demand)
     orchestrator.py            Master Orchestrator — wires 1-6, critical/optional stage split
   api/main.py                  FastAPI layer over the orchestrator
-  tests/                       209 tests, one file per agent/module
+  tests/                       214 tests, one file per agent/module
 frontend/                      React + Vite UI — see frontend/README.md
 ```
 

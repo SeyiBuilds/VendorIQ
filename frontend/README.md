@@ -33,11 +33,22 @@ npm run dev
    optional seed, and watch the same pipeline degrade gracefully instead
    of crashing or fabricating data, with a clean-vs-corrupted confidence
    comparison.
-3. **Pipeline run** — shows every stage live: pending → running → success/
+3. **Bring your own match data** — upload a vendor-shaped JSON file (Opta/
+   StatsBomb/Wyscout, exactly as that vendor delivers it) and run it
+   through the same pipeline. Format Detective auto-detects the vendor;
+   nothing to select. An unrecognized shape degrades to a zero-confidence,
+   zero-event result with the reason logged, rather than crashing or
+   fabricating data.
+4. **Pipeline run** — shows every stage live: pending → running → success/
    failed (retried flagged), streamed over NDJSON from
-   `POST /matches/{id}/run/stream` as each agent actually executes --
-   mirroring `OrchestrationLog`.
-4. **Narrative** — the generated match report and team stats table.
+   `POST /matches/{id}/run/stream` (or `/ingest/run/stream` for an
+   uploaded file) as each agent actually executes -- mirroring
+   `OrchestrationLog`.
+5. **Export** — re-export the current run's validated document into
+   another vendor's shape (Agent 7, on demand) and download the result as
+   JSON.
+6. **Narrative** — the generated match report, key moments, and team
+   stats table.
 
 No business logic lives here — every panel is a direct view onto what the
 pipeline already produced; see `backend/api/main.py`'s docstring for the

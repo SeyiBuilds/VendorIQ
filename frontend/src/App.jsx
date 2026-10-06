@@ -4,6 +4,8 @@ import MatchPicker from "./components/MatchPicker";
 import PipelineStatus from "./components/PipelineStatus";
 import NarrativePanel from "./components/NarrativePanel";
 import CorruptionPanel from "./components/CorruptionPanel";
+import UploadPanel from "./components/UploadPanel";
+import ExportPanel from "./components/ExportPanel";
 import "./App.css";
 
 // Fixed display order for the live stage list -- mirrors
@@ -42,6 +44,10 @@ export default function App() {
       .catch((e) => setError(`Could not reach the API: ${e.message}`));
   }, []);
 
+  // Shared by every run source (sample match, corrupted sample match, or
+  // an uploaded file) -- same live stage list, same result shape, so one
+  // handler drives PipelineStatus/NarrativePanel/ExportPanel regardless
+  // of where the run came from.
   const applyStreamEvent = (event) => {
     if (event.type === "start") {
       setRecords((prev) => prev.map((r) => (r.stage === event.stage ? { ...r, status: "running" } : r)));
@@ -61,11 +67,15 @@ export default function App() {
     }
   };
 
-  const handleRun = async () => {
-    setRunning(true);
+  const handleStreamStart = () => {
     setError(null);
     setRunResult(null);
     setRecords(pendingRecords());
+  };
+
+  const handleRun = async () => {
+    setRunning(true);
+    handleStreamStart();
     try {
       await runMatchStream(selectedMatchId, selectedVendor, (event) => {
         applyStreamEvent(event);
@@ -80,15 +90,6 @@ export default function App() {
     } finally {
       setRunning(false);
     }
-  };
-
-  const handleCorruptEvent = (event) => {
-    applyStreamEvent(event);
-  };
-
-  const handleCorruptStart = () => {
-    setRunResult(null);
-    setRecords(pendingRecords());
   };
 
   return (
@@ -117,16 +118,20 @@ export default function App() {
 
       <CorruptionPanel
         matchId={selectedMatchId}
-        onStart={handleCorruptStart}
-        onEvent={handleCorruptEvent}
+        onStart={handleStreamStart}
+        onEvent={applyStreamEvent}
         cleanConfidence={cleanConfidence}
       />
+
+      <UploadPanel onStart={handleStreamStart} onEvent={applyStreamEvent} />
 
       <PipelineStatus
         records={records}
         overallStatus={runResult?.overall_status}
         confidence={runResult?.document?.metadata?.quality_confidence}
       />
+
+      <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} />
 
       {runResult && <NarrativePanel narrative={runResult.narrative} />}
     </div>

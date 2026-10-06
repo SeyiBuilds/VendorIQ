@@ -89,6 +89,14 @@ export function listMutations() {
   return request("/mutations");
 }
 
+// Runs the pipeline against a vendor feed the caller supplies directly
+// (a club's own Opta/StatsBomb/Wyscout export), rather than one of the
+// bundled sample matches. Same event shape as runMatchStream(); no vendor
+// is named since Format Detective auto-detects it.
+export function ingestRunStream(payload, onEvent) {
+  return streamRequest("/ingest/run/stream", payload, onEvent);
+}
+
 // Streaming twin of the corrupt-and-run endpoint -- same event shape as
 // runMatchStream(), with corruption_log attached to the final "result" event.
 export function corruptAndRunStream(matchId, { mutations, rate, seed }, onEvent) {
