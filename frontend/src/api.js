@@ -23,15 +23,59 @@ async function request(path, options = {}) {
   return res.json();
 }
 
+// Reads one of the /stream endpoints as NDJSON (one JSON object per line),
+// calling onEvent as each line arrives -- not after the whole response
+// body is buffered. This is what lets the UI show each agent actually
+// starting and finishing in real time instead of painting a finished
+// pipeline all at once. Throws the same shape of error as request() if
+// the initial response itself is a non-2xx (validation errors, 404s).
+async function streamRequest(path, body, onEvent) {
+  const res = await fetch(`${BASE_URL}${path}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok || !res.body) {
+    let detail = res.statusText;
+    try {
+      const errBody = await res.json();
+      detail = errBody.detail || detail;
+    } catch {
+      // response wasn't JSON -- fall back to statusText
+    }
+    throw new Error(`${res.status}: ${detail}`);
+  }
+
+  const reader = res.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    let newlineIndex;
+    while ((newlineIndex = buffer.indexOf("\n")) >= 0) {
+      const line = buffer.slice(0, newlineIndex).trim();
+      buffer = buffer.slice(newlineIndex + 1);
+      if (line) onEvent(JSON.parse(line));
+    }
+  }
+  const trailing = buffer.trim();
+  if (trailing) onEvent(JSON.parse(trailing));
+}
+
 export function listMatches() {
   return request("/matches");
 }
 
-export function runMatch(matchId, vendor) {
-  return request(`/matches/${matchId}/run`, {
-    method: "POST",
-    body: JSON.stringify({ vendor }),
-  });
+// Streams live stage-by-stage progress for a pipeline run. onEvent
+// receives one of:
+//   { type: "start", stage }
+//   { type: "stage", stage, status, detail, retried }
+//   { type: "result", data }   -- the same shape runMatch() used to resolve with
+export function runMatchStream(matchId, vendor, onEvent) {
+  return streamRequest(`/matches/${matchId}/run/stream`, { vendor }, onEvent);
 }
 
 export function exportRun(runId, targetVendor) {
@@ -45,9 +89,12 @@ export function listMutations() {
   return request("/mutations");
 }
 
-export function corruptAndRun(matchId, { mutations, rate, seed }) {
-  return request(`/matches/${matchId}/corrupt-and-run`, {
-    method: "POST",
-    body: JSON.stringify({ vendor: "opta", mutations, rate, seed: seed ?? null }),
-  });
+// Streaming twin of the corrupt-and-run endpoint -- same event shape as
+// runMatchStream(), with corruption_log attached to the final "result" event.
+export function corruptAndRunStream(matchId, { mutations, rate, seed }, onEvent) {
+  return streamRequest(
+    `/matches/${matchId}/corrupt-and-run/stream`,
+    { vendor: "opta", mutations, rate, seed: seed ?? null },
+    onEvent,
+  );
 }

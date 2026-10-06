@@ -32,6 +32,7 @@ from typing import Optional
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -104,6 +105,55 @@ def _serialize_run(result: PipelineResult, run_id: str, extra: Optional[dict] = 
     if extra:
         base.update(extra)
     return base
+
+
+def _stream_run(vendor_data: dict, extra: Optional[dict] = None):
+    """Shared by both streaming endpoints below. Drives
+    orchestrator.run_streaming() and re-emits each event as one NDJSON
+    line (newline-delimited JSON) as it actually happens -- this is a
+    chunked HTTP response, not a buffered one, so the frontend sees each
+    agent start/finish in real time rather than all at once after the
+    whole pipeline completes. Ends with exactly one {"type": "result", ...}
+    line carrying the same shape /matches/{id}/run already returns, so
+    existing non-streaming callers and RUN_STORE stay unaffected."""
+    for kind, payload in orchestrator.run_streaming(vendor_data):
+        if kind == "start":
+            yield json.dumps({"type": "start", "stage": payload}) + "\n"
+        elif kind == "stage":
+            yield json.dumps({
+                "type": "stage",
+                "stage": payload.stage,
+                "status": payload.status,
+                "detail": payload.detail,
+                "retried": payload.retried,
+            }) + "\n"
+        else:  # kind == "result"
+            result = payload
+            run_id = result.orchestration_log.run_id
+            RUN_STORE[run_id] = result
+            final = _serialize_run(result, run_id, extra)
+            yield json.dumps({"type": "result", "data": final}) + "\n"
+
+
+@app.post("/matches/{match_id}/run/stream")
+def run_match_stream(match_id: str, body: RunRequest = RunRequest()) -> StreamingResponse:
+    """Streaming twin of POST /matches/{match_id}/run -- same validation,
+    same orchestrator, same final payload shape; the only difference is
+    that stage progress is pushed as NDJSON lines as each agent actually
+    finishes, instead of one response after the whole pipeline is done."""
+    if body.vendor not in VALID_VENDOR_FILES:
+        raise HTTPException(
+            status_code=400,
+            detail=f"unknown vendor '{body.vendor}'; supported ingest vendors: {sorted(VALID_VENDOR_FILES)}",
+        )
+    entry = _manifest_entry(match_id)
+    vendor_file = SAMPLE_MATCHES_DIR / match_id / f"{body.vendor}.json"
+    if not vendor_file.exists():
+        raise HTTPException(status_code=404, detail=f"match '{match_id}' has no '{body.vendor}' file")
+
+    vendor_data = json.loads(vendor_file.read_text())
+    extra = {"match_id": match_id, "quality_tier": entry.get("quality_tier")}
+    return StreamingResponse(_stream_run(vendor_data, extra), media_type="application/x-ndjson")
 
 
 @app.get("/health")
@@ -188,6 +238,34 @@ def corrupt_and_run_match(match_id: str, body: CorruptAndRunRequest) -> dict:
         "quality_tier": entry.get("quality_tier"),
         "corruption_log": corruption_log,
     })
+
+
+@app.post("/matches/{match_id}/corrupt-and-run/stream")
+def corrupt_and_run_match_stream(match_id: str, body: CorruptAndRunRequest) -> StreamingResponse:
+    """Streaming twin of POST /matches/{match_id}/corrupt-and-run -- same
+    corruption + validation, same NDJSON stage-by-stage shape as
+    /run/stream above. The corruption_log is attached to the final
+    {"type": "result"} line, same as the non-streaming endpoint."""
+    if body.vendor != "opta":
+        raise HTTPException(
+            status_code=400,
+            detail=f"corrupt-and-run currently only supports the 'opta' vendor feed, got '{body.vendor}'",
+        )
+    entry = _manifest_entry(match_id)
+    vendor_file = SAMPLE_MATCHES_DIR / match_id / "opta.json"
+    if not vendor_file.exists():
+        raise HTTPException(status_code=404, detail=f"match '{match_id}' has no 'opta' file")
+
+    vendor_data = json.loads(vendor_file.read_text())
+    try:
+        corrupted_data, corruption_log = corrupt_opta_payload(
+            vendor_data, body.mutations, rate=body.rate, seed=body.seed,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc))
+
+    extra = {"match_id": match_id, "quality_tier": entry.get("quality_tier"), "corruption_log": corruption_log}
+    return StreamingResponse(_stream_run(corrupted_data, extra), media_type="application/x-ndjson")
 
 
 @app.post("/runs/{run_id}/export")

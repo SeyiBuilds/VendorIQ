@@ -5,10 +5,12 @@ Built for Microsoft × Premier League's **Inside the Game: Developer Hackathon**
 Turns synthetic, football-realistic match events into explainable match
 intelligence: a 7-agent pipeline that ingests a vendor feed (Opta/
 StatsBomb/Wyscout shaped), interprets it into a normalized format, and
-explains it back out as stats + narrative text.
+explains it back out as stats + narrative text -- with each agent's
+progress streamed to the UI live as it actually runs, not revealed all at
+once after the whole pipeline finishes.
 
 Built with the mindset that this already won and a club wants it in
-production: real test suites (199 passing), pinned dependencies, honest
+production: real test suites (209 passing), pinned dependencies, honest
 confidence scoring and graceful degradation instead of fabricated
 numbers, and a documented fallback path for every place real data goes
 missing or wrong.
@@ -20,7 +22,7 @@ Requires Python 3.11+ and Node 18+.
 ```bash
 # 1. backend — install deps and run the test suite
 pip install -r requirements.txt
-pytest backend/tests -q          # 199 passed
+pytest backend/tests -q          # 209 passed
 # (Windows: if `pytest` / `uvicorn` aren't recognized, use `python -m pytest` / `python -m uvicorn` instead)
 
 # 2. backend — start the API
@@ -57,7 +59,7 @@ backend/
     format_exporter.py         Agent 7 — export CDF back to a vendor shape (on-demand)
     orchestrator.py            Master Orchestrator — wires 1-6, critical/optional stage split
   api/main.py                  FastAPI layer over the orchestrator
-  tests/                       199 tests, one file per agent/module
+  tests/                       209 tests, one file per agent/module
 frontend/                      React + Vite UI — see frontend/README.md
 ```
 

@@ -170,6 +170,20 @@ button:disabled {
 .stage-pill-success { background: rgba(47,158,104,0.2); color: var(--success); }
 .stage-pill-failed { background: rgba(198,72,43,0.2); color: var(--failed); }
 .stage-pill-skipped { background: rgba(107,114,128,0.2); color: var(--skipped); }
+.stage-pill-pending { background: rgba(107,114,128,0.12); color: var(--text-dim); }
+.stage-pill-running {
+  background: rgba(91,140,255,0.2);
+  color: var(--accent);
+  animation: pulse 1.1s ease-in-out infinite;
+}
+
+.stage-pending { opacity: 0.55; }
+.stage-running { background: rgba(91,140,255,0.08); border-radius: 6px; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
 
 .retried-tag {
   font-size: 0.7rem;

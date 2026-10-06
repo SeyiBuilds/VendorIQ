@@ -1,16 +1,34 @@
 import { useEffect, useState } from "react";
-import { listMatches, runMatch } from "./api";
+import { listMatches, runMatchStream } from "./api";
 import MatchPicker from "./components/MatchPicker";
 import PipelineStatus from "./components/PipelineStatus";
 import NarrativePanel from "./components/NarrativePanel";
 import CorruptionPanel from "./components/CorruptionPanel";
 import "./App.css";
 
+// Fixed display order for the live stage list -- mirrors
+// orchestrator.CRITICAL_STAGES + OPTIONAL_STAGES. Every stage starts
+// "pending" the moment a run kicks off, so the full pipeline shape is
+// visible immediately and fills in live as stream events arrive.
+const STAGE_ORDER = [
+  "format_detective",
+  "schema_mapper",
+  "coordinate_translator",
+  "entity_resolver",
+  "validator",
+  "narrative_generator",
+];
+
+function pendingRecords() {
+  return STAGE_ORDER.map((stage) => ({ stage, status: "pending" }));
+}
+
 export default function App() {
   const [matches, setMatches] = useState([]);
   const [selectedMatchId, setSelectedMatchId] = useState("");
   const [selectedVendor, setSelectedVendor] = useState("opta");
   const [running, setRunning] = useState(false);
+  const [records, setRecords] = useState([]);
   const [runResult, setRunResult] = useState(null);
   const [cleanConfidence, setCleanConfidence] = useState(null);
   const [error, setError] = useState(null);
@@ -24,23 +42,53 @@ export default function App() {
       .catch((e) => setError(`Could not reach the API: ${e.message}`));
   }, []);
 
+  const applyStreamEvent = (event) => {
+    if (event.type === "start") {
+      setRecords((prev) => prev.map((r) => (r.stage === event.stage ? { ...r, status: "running" } : r)));
+    } else if (event.type === "stage") {
+      setRecords((prev) =>
+        prev.map((r) =>
+          r.stage === event.stage
+            ? { stage: r.stage, status: event.status, detail: event.detail, retried: event.retried }
+            : r,
+        ),
+      );
+    } else if (event.type === "result") {
+      setRunResult(event.data);
+      // Reconcile against the authoritative orchestration log, in case any
+      // individual stream event was missed -- same data, just a safety net.
+      setRecords(event.data.orchestration_log.records);
+    }
+  };
+
   const handleRun = async () => {
     setRunning(true);
     setError(null);
+    setRunResult(null);
+    setRecords(pendingRecords());
     try {
-      const result = await runMatch(selectedMatchId, selectedVendor);
-      setRunResult(result);
-      setCleanConfidence(result.document?.metadata?.quality_confidence ?? null);
+      await runMatchStream(selectedMatchId, selectedVendor, (event) => {
+        applyStreamEvent(event);
+        if (event.type === "result") {
+          setCleanConfidence(event.data.document?.metadata?.quality_confidence ?? null);
+        }
+      });
     } catch (e) {
       setError(e.message);
       setRunResult(null);
+      setRecords([]);
     } finally {
       setRunning(false);
     }
   };
 
-  const handleCorruptResult = (result) => {
-    setRunResult(result);
+  const handleCorruptEvent = (event) => {
+    applyStreamEvent(event);
+  };
+
+  const handleCorruptStart = () => {
+    setRunResult(null);
+    setRecords(pendingRecords());
   };
 
   return (
@@ -69,20 +117,18 @@ export default function App() {
 
       <CorruptionPanel
         matchId={selectedMatchId}
-        onResult={handleCorruptResult}
+        onStart={handleCorruptStart}
+        onEvent={handleCorruptEvent}
         cleanConfidence={cleanConfidence}
       />
 
-      {runResult && (
-        <>
-          <PipelineStatus
-            orchestrationLog={runResult.orchestration_log}
-            overallStatus={runResult.overall_status}
-            confidence={runResult.document?.metadata?.quality_confidence}
-          />
-          <NarrativePanel narrative={runResult.narrative} />
-        </>
-      )}
+      <PipelineStatus
+        records={records}
+        overallStatus={runResult?.overall_status}
+        confidence={runResult?.document?.metadata?.quality_confidence}
+      />
+
+      {runResult && <NarrativePanel narrative={runResult.narrative} />}
     </div>
   );
 }

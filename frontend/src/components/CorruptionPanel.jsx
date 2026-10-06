@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { listMutations, corruptAndRun } from "../api";
+import { listMutations, corruptAndRunStream } from "../api";
 
-export default function CorruptionPanel({ matchId, onResult, cleanConfidence }) {
+export default function CorruptionPanel({ matchId, onStart, onEvent, cleanConfidence }) {
   const [mutations, setMutations] = useState({});
   const [selected, setSelected] = useState(new Set());
   const [rate, setRate] = useState(0.25);
@@ -26,14 +26,17 @@ export default function CorruptionPanel({ matchId, onResult, cleanConfidence }) 
     if (selected.size === 0) return;
     setRunning(true);
     setError(null);
+    setLastResult(null);
+    onStart();
     try {
-      const result = await corruptAndRun(matchId, {
-        mutations: Array.from(selected),
-        rate,
-        seed: seed === "" ? null : Number(seed),
-      });
-      setLastResult(result);
-      onResult(result);
+      await corruptAndRunStream(
+        matchId,
+        { mutations: Array.from(selected), rate, seed: seed === "" ? null : Number(seed) },
+        (event) => {
+          onEvent(event);
+          if (event.type === "result") setLastResult(event.data);
+        },
+      );
     } catch (e) {
       setError(e.message);
     } finally {

@@ -1,8 +1,9 @@
 # Synthetic Match Insights Engine — frontend
 
 React + Vite UI over the FastAPI layer (`backend/api/`), demonstrating the
-7-agent ingest → interpret → narrate pipeline, plus a live "break it on
-stage" data-corruption demo.
+7-agent ingest → interpret → narrate pipeline live -- each agent's status
+streams in as it actually runs, not as one lump result after the whole
+pipeline finishes -- plus a live "break it on stage" data-corruption demo.
 
 ## Running locally
 
@@ -32,8 +33,10 @@ npm run dev
    optional seed, and watch the same pipeline degrade gracefully instead
    of crashing or fabricating data, with a clean-vs-corrupted confidence
    comparison.
-3. **Pipeline run** — shows every stage's status (success/failed/skipped,
-   retried), mirroring `OrchestrationLog`.
+3. **Pipeline run** — shows every stage live: pending → running → success/
+   failed (retried flagged), streamed over NDJSON from
+   `POST /matches/{id}/run/stream` as each agent actually executes --
+   mirroring `OrchestrationLog`.
 4. **Narrative** — the generated match report and team stats table.
 
 No business logic lives here — every panel is a direct view onto what the

@@ -100,6 +100,69 @@ def test_export_unknown_run_404(client):
     assert resp.status_code == 404
 
 
+# --- Streaming endpoints: live stage-by-stage progress as NDJSON ---
+
+def _parse_ndjson(response_text):
+    import json
+    return [json.loads(line) for line in response_text.strip().split("\n") if line.strip()]
+
+
+def test_run_stream_emits_start_and_stage_per_agent_then_one_result(client):
+    resp = client.post("/matches/PL_2025_CLEAN_001/run/stream", json={"vendor": "opta"})
+    assert resp.status_code == 200
+    assert resp.headers["content-type"].startswith("application/x-ndjson")
+
+    events = _parse_ndjson(resp.text)
+    types = [e["type"] for e in events]
+    assert types.count("result") == 1
+    assert types[-1] == "result"
+    assert types.count("start") == types.count("stage") == 6  # 5 critical + narrative_generator
+
+    result_event = events[-1]
+    assert result_event["data"]["overall_status"] == "success"
+    assert result_event["data"]["match_id"] == "PL_2025_CLEAN_001"
+    assert result_event["data"]["run_id"] in RUN_STORE
+
+
+def test_run_stream_unknown_vendor_400(client):
+    resp = client.post("/matches/PL_2025_CLEAN_001/run/stream", json={"vendor": "sportradar"})
+    assert resp.status_code == 400
+
+
+def test_run_stream_unknown_match_404(client):
+    resp = client.post("/matches/NOPE/run/stream", json={"vendor": "opta"})
+    assert resp.status_code == 404
+
+
+def test_run_stream_result_can_be_exported(client):
+    resp = client.post("/matches/PL_2025_CLEAN_001/run/stream", json={"vendor": "opta"})
+    run_id = _parse_ndjson(resp.text)[-1]["data"]["run_id"]
+
+    export_resp = client.post(f"/runs/{run_id}/export", json={"target_vendor": "statsbomb"})
+    assert export_resp.status_code == 200
+
+
+def test_corrupt_and_run_stream_success(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run/stream",
+        json={"vendor": "opta", "mutations": ["null_coordinates", "drop_period"], "rate": 0.3, "seed": 7},
+    )
+    assert resp.status_code == 200
+    events = _parse_ndjson(resp.text)
+    result_event = events[-1]
+    assert result_event["type"] == "result"
+    assert len(result_event["data"]["corruption_log"]) == 2
+    assert result_event["data"]["document"]["metadata"]["quality_confidence"] < 1.0
+
+
+def test_corrupt_and_run_stream_rejects_unknown_mutation(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run/stream",
+        json={"mutations": ["not_a_real_mutation"]},
+    )
+    assert resp.status_code == 400
+
+
 @pytest.mark.parametrize("match_id,tier", [
     ("PL_2025_MESSY_001", "messy"),
     ("PL_2025_PARTIAL_001", "partial"),

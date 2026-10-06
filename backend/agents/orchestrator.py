@@ -106,46 +106,88 @@ class MasterOrchestrator:
         self.exporter = FormatExporter()
 
     def run(self, vendor_data: dict, match_date: Optional[date_cls] = None) -> PipelineResult:
+        """Blocking convenience wrapper: drains run_streaming() and returns
+        just the final PipelineResult, discarding the per-stage events.
+        Existing callers (tests, the CLI block below) that just want the
+        end result keep working unchanged."""
+        result: Optional[PipelineResult] = None
+        for kind, payload in self.run_streaming(vendor_data, match_date=match_date):
+            if kind == "result":
+                result = payload
+        assert result is not None  # run_streaming always ends with a "result" event
+        return result
+
+    def run_streaming(self, vendor_data: dict, match_date: Optional[date_cls] = None):
+        """Generator version of run(): yields real-time progress events as
+        each agent actually executes, instead of handing back one lump
+        result after the whole pipeline has already finished. This is what
+        lets a UI show agents working live rather than a static final
+        state -- including genuine wall-clock gaps when Entity Resolver or
+        Narrative Generator's optional Claude-escalation calls are
+        actually in flight (ANTHROPIC_API_KEY set).
+
+        Yields:
+          ("start", stage_name)              -- right before a stage begins
+          ("stage", StageRecord)             -- right after it finishes (success/failed)
+          ("result", PipelineResult)         -- exactly once, always last
+        """
         run_id = uuid.uuid4().hex[:12]
         log = OrchestrationLog(run_id=run_id)
 
+        yield ("start", "format_detective")
         detection = self._run_critical_stage(log, "format_detective", lambda: self.detective.detect(vendor_data))
+        yield ("stage", log.records[-1])
         if detection is None:
-            return self._failed_result(log)
+            yield ("result", self._failed_result(log))
+            return
 
+        yield ("start", "schema_mapper")
         mapped = self._run_critical_stage(
             log, "schema_mapper",
             lambda: self.mapper.map_events(vendor_data, detection.detected_format, detection.event_list_key),
         )
+        yield ("stage", log.records[-1])
         if mapped is None:
-            return self._failed_result(log)
+            yield ("result", self._failed_result(log))
+            return
 
+        yield ("start", "coordinate_translator")
         translated = self._run_critical_stage(log, "coordinate_translator", lambda: self.translator.translate(mapped))
+        yield ("stage", log.records[-1])
         if translated is None:
-            return self._failed_result(log)
+            yield ("result", self._failed_result(log))
+            return
 
+        yield ("start", "entity_resolver")
         resolution = self._run_critical_stage(log, "entity_resolver", lambda: self.resolver.resolve(translated))
+        yield ("stage", log.records[-1])
         if resolution is None:
-            return self._failed_result(log)
+            yield ("result", self._failed_result(log))
+            return
         resolved, registry = resolution
 
+        yield ("start", "validator")
         validation = self._run_critical_stage(
             log, "validator",
             lambda: self.validator.build_document(
                 resolved, registry, {detection.detected_format: vendor_data}, match_date=match_date,
             ),
         )
+        yield ("stage", log.records[-1])
         if validation is None:
-            return self._failed_result(log)
+            yield ("result", self._failed_result(log))
+            return
         document, validation_report = validation
         document.metadata.orchestration_log_ref = run_id
 
+        yield ("start", "narrative_generator")
         narrative = self._run_optional_stage(log, "narrative_generator", lambda: self.narrator.generate(document))
+        yield ("stage", log.records[-1])
 
         failed_or_skipped = [r for r in log.records if r.stage in OPTIONAL_STAGES and r.status != "success"]
         log.overall_status = "partial" if failed_or_skipped else "success"
 
-        return PipelineResult(document=document, narrative=narrative, orchestration_log=log)
+        yield ("result", PipelineResult(document=document, narrative=narrative, orchestration_log=log))
 
     def export(self, document: CDFDocument, target_vendor: str) -> tuple[dict, ExportReport]:
         """On-demand only (Agent 7) -- never called from run()."""

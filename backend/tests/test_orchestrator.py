@@ -4,8 +4,10 @@ Covers: the full single-vendor pipeline succeeds end to end for every
 sample match, the critical-vs-optional stage split (a critical stage
 failure aborts the run with nothing usable; an optional stage failure is
 logged, skipped, and the run still returns everything that DID succeed),
-the one-retry-then-fail behavior, and the on-demand export() method not
-being part of run()'s critical path.
+the one-retry-then-fail behavior, the on-demand export() method not being
+part of run()'s critical path, and run_streaming()'s real-time event
+sequence (what the API's /stream endpoints and the frontend's live
+pipeline view are both built on top of).
 """
 
 import json
@@ -162,3 +164,66 @@ def test_export_not_called_during_run(orchestrator, monkeypatch):
     monkeypatch.setattr(orchestrator.exporter, "export", track)
     orchestrator.run(_opta_vendor_data())
     assert calls == []  # export is on-demand only, never invoked by run()
+
+
+# --- run_streaming(): the real-time event sequence run() is built on ---
+
+ALL_STAGES = CRITICAL_STAGES + OPTIONAL_STAGES
+
+
+def test_streaming_success_emits_start_then_stage_for_every_stage_then_result(orchestrator):
+    events = list(orchestrator.run_streaming(_opta_vendor_data()))
+
+    assert events[-1][0] == "result"
+    result = events[-1][1]
+    assert result.orchestration_log.overall_status == "success"
+
+    stage_events = events[:-1]
+    # every stage must appear as a ("start", name) immediately followed by
+    # a ("stage", StageRecord) for that same name, in pipeline order
+    expected_starts = [("start", name) for name in ALL_STAGES]
+    actual_starts = [e for e in stage_events if e[0] == "start"]
+    assert actual_starts == expected_starts
+
+    stage_records = [e[1] for e in stage_events if e[0] == "stage"]
+    assert [r.stage for r in stage_records] == list(ALL_STAGES)
+    assert all(r.status == "success" for r in stage_records)
+
+
+def test_streaming_matches_run_result(orchestrator):
+    vendor_data = _opta_vendor_data()
+    streamed_result = list(orchestrator.run_streaming(vendor_data))[-1][1]
+    direct_result = orchestrator.run(vendor_data)
+    assert streamed_result.orchestration_log.overall_status == direct_result.orchestration_log.overall_status
+    assert len(streamed_result.document.events) == len(direct_result.document.events)
+
+
+def test_streaming_critical_failure_stops_immediately_with_no_later_starts(orchestrator, monkeypatch):
+    def boom(*args, **kwargs):
+        raise RuntimeError("simulated schema_mapper bug")
+    monkeypatch.setattr(orchestrator.mapper, "map_events", boom)
+
+    events = list(orchestrator.run_streaming(_opta_vendor_data()))
+
+    started = [e[1] for e in events if e[0] == "start"]
+    assert started == ["format_detective", "schema_mapper"]  # never reaches coordinate_translator etc.
+
+    result = events[-1][1]
+    assert events[-1][0] == "result"
+    assert result.orchestration_log.overall_status == "failed"
+    assert result.document is None
+
+
+def test_streaming_optional_failure_still_emits_result_with_narrative_none(orchestrator, monkeypatch):
+    def boom(*args, **kwargs):
+        raise RuntimeError("simulated narrative_generator bug")
+    monkeypatch.setattr(orchestrator.narrator, "generate", boom)
+
+    events = list(orchestrator.run_streaming(_opta_vendor_data()))
+    narrative_stage = next(e[1] for e in events if e[0] == "stage" and e[1].stage == "narrative_generator")
+    assert narrative_stage.status == "failed"
+
+    result = events[-1][1]
+    assert result.orchestration_log.overall_status == "partial"
+    assert result.document is not None
+    assert result.narrative is None
