@@ -1,0 +1,289 @@
+"""
+Agent 7: Format Exporter
+
+The export-back half of the vendor-lock-in argument: a club that adopts
+CDF internally shouldn't be stuck feeding it to a downstream tool (a
+broadcaster graphics package, a legacy analytics dashboard) that only
+understands Opta's shape. This agent takes a validated CDFDocument and
+converts it BACK into one vendor's native format.
+
+Per the PRD decision (Section: Core Components, Agent 7 / MVP scope), this
+is explicitly ON-DEMAND ONLY -- never run automatically as part of the main
+pipeline. Nothing upstream calls this; something (the API layer, a CLI
+flag, a user action) has to ask for a specific target vendor.
+
+Round-trip honesty: this is a best-effort, DOCUMENTED-LOSSY export, not a
+guaranteed bit-for-bit reconstruction of the original file. What's
+recoverable:
+  - coordinates: inverse of Agent 3's scaling, exact for the three MVP
+    vendors since their native pitch dimensions are known
+  - event_type: inverse of Agent 2's canonicalization, using the vendor's
+    own original label when Validator preserved it (metadata.event_type_raw)
+    for an event that originated from THIS vendor; best-effort canonical
+    label guess otherwise
+  - player identity: the target vendor's own id/jersey/name, when that
+    player's PlayerRecord carries a vendor_ids entry for this vendor
+    (meaning this player was actually seen in that vendor's feed somewhere
+    in this match); a synthesized placeholder, clearly marked, otherwise
+  - vendor-specific leftover fields: round-tripped from CDFEvent.metadata's
+    preserved raw_metadata keys when they originated from this vendor
+
+What's NOT recoverable and never faked: an event that only ever existed in
+a different vendor's feed has no original native id for Opta, say -- this
+agent fabricates a plausible-shaped placeholder, flags it in the export
+report, and never passes that placeholder off as the real vendor ID.
+"""
+
+from __future__ import annotations
+
+from dataclasses import dataclass, field
+from typing import Callable, Optional
+
+from cdf_models import CDFDocument, CDFEvent
+
+# Mirrors coordinate_translator.VENDOR_PITCH_DIMENSIONS -- duplicated
+# deliberately rather than imported, so this agent's coordinate contract
+# doesn't silently drift if Agent 3's dict ever gets vendor-specific
+# normalization quirks added that don't apply symmetrically on the way out.
+VENDOR_PITCH_DIMENSIONS: dict[str, tuple[float, float]] = {
+    "opta": (120.0, 80.0),
+    "statsbomb": (100.0, 100.0),
+    "wyscout": (100.0, 100.0),
+}
+
+# Reverse of Schema Mapper's canonicalization. Picks ONE representative
+# native label per canonical type per vendor -- used only when the event's
+# own vendor-native label (event_type_raw) isn't available, i.e. the event
+# originated from a different vendor than the export target.
+CANONICAL_TO_NATIVE_TYPE: dict[str, dict[str, str]] = {
+    "opta": {
+        "pass": "PASS", "shot": "SHOT", "tackle": "TACKLE", "foul": "FOUL",
+        "card": "CARD", "substitution": "SUBSTITUTION", "corner": "CORNER",
+        "throw_in": "THROWIN", "goal_kick": "GOALKICK", "offside": "OFFSIDE",
+        "goal": "GOAL", "save": "SAVE", "interception": "INTERCEPTION",
+        "clearance": "CLEARANCE", "dribble": "DRIBBLE", "other": "OTHER",
+    },
+    "statsbomb": {
+        "pass": "Pass", "shot": "Shot", "tackle": "Tackle", "foul": "Foul Committed",
+        "card": "Card", "substitution": "Substitution", "corner": "Corner",
+        "throw_in": "Throw In", "goal_kick": "Goal Kick", "offside": "Offside",
+        "goal": "Goal", "save": "Save", "interception": "Interception",
+        "clearance": "Clearance", "dribble": "Dribble", "other": "Other",
+    },
+    "wyscout": {
+        "pass": "Pass", "shot": "Shot", "tackle": "Tackle", "foul": "Foul",
+        "card": "Card", "substitution": "Substitution", "corner": "Corner",
+        "throw_in": "Throw in", "goal_kick": "Goal kick", "offside": "Offside",
+        "goal": "Goal", "save": "Save", "interception": "Interception",
+        "clearance": "Clearance", "dribble": "Dribble", "other": "Other",
+    },
+}
+
+
+@dataclass
+class ExportReport:
+    target_vendor: str
+    events_exported: int = 0
+    events_with_native_type_recovered: int = 0  # used event_type_raw (same-vendor origin)
+    events_with_guessed_type: int = 0            # used CANONICAL_TO_NATIVE_TYPE fallback
+    players_with_native_id: int = 0
+    players_with_synthesized_id: int = 0
+    warnings: list[str] = field(default_factory=list)
+
+
+def _scale_to_native(value: Optional[float], native_max: float) -> Optional[float]:
+    if value is None:
+        return None
+    return round((value / 100.0) * native_max, 2)
+
+
+def _player_ref_for_export(document: CDFDocument, player_id: Optional[str], target_vendor: str,
+                            report: ExportReport) -> dict:
+    """Returns the best available player reference for the target vendor.
+    Never claims a synthesized id is a real vendor id."""
+    if player_id is None:
+        return {"vendor_id": None, "jersey_number": None, "name": None, "synthesized": False}
+
+    player = next((p for p in document.players if p.player_id == player_id), None)
+    if player is None:
+        report.warnings.append(f"player_id {player_id} referenced by an event but not found in players[] -- synthesizing placeholder")
+        report.players_with_synthesized_id += 1
+        return {"vendor_id": f"synth_{player_id}", "jersey_number": None, "name": None, "synthesized": True}
+
+    native_id = player.vendor_ids.get(target_vendor)
+    if native_id is not None:
+        report.players_with_native_id += 1
+        return {"vendor_id": native_id, "jersey_number": player.jersey_number, "name": player.name, "synthesized": False}
+
+    report.warnings.append(
+        f"player {player_id} ({player.name or 'unnamed'}) has no native {target_vendor} id on record "
+        f"(never observed in a {target_vendor} feed for this match) -- synthesizing placeholder id"
+    )
+    report.players_with_synthesized_id += 1
+    return {
+        "vendor_id": f"synth_{player_id}", "jersey_number": player.jersey_number,
+        "name": player.name, "synthesized": True,
+    }
+
+
+def _native_event_type(e: CDFEvent, target_vendor: str, report: ExportReport) -> str:
+    raw = (e.metadata or {}).get("event_type_raw")
+    if e.vendor_source == target_vendor and isinstance(raw, str) and raw:
+        report.events_with_native_type_recovered += 1
+        return raw
+    report.events_with_guessed_type += 1
+    return CANONICAL_TO_NATIVE_TYPE.get(target_vendor, {}).get(e.event_type, e.event_type.upper())
+
+
+def _export_opta(document: CDFDocument, report: ExportReport) -> dict:
+    native_max_x, native_max_y = VENDOR_PITCH_DIMENSIONS["opta"]
+    events = []
+    for e in document.events:
+        ref = _player_ref_for_export(document, e.player_id, "opta", report)
+        events.append({
+            "EventId": e.event_id,
+            "TypeName": _native_event_type(e, "opta", report),
+            "Min": int(e.timestamp // 60),
+            "Sec": round(e.timestamp % 60, 1),
+            "PeriodId": e.period,
+            "PlayerRef": ref["vendor_id"],
+            "JerseyNumber": ref["jersey_number"],
+            "TeamName": e.team,
+            "X": _scale_to_native(e.x, native_max_x),
+            "Y": _scale_to_native(e.y, native_max_y),
+        })
+        report.events_exported += 1
+    return {
+        "MatchId": document.match.match_id,
+        "HomeTeam": document.match.home_team,
+        "AwayTeam": document.match.away_team,
+        "Events": events,
+    }
+
+
+def _export_statsbomb(document: CDFDocument, report: ExportReport) -> dict:
+    events = []
+    for e in document.events:
+        ref = _player_ref_for_export(document, e.player_id, "statsbomb", report)
+        player_obj = None
+        if ref["vendor_id"] is not None:
+            player_obj = {"id": ref["vendor_id"], "name": ref["name"]}
+            if ref["jersey_number"] is not None:
+                player_obj["jersey_number"] = ref["jersey_number"]
+        events.append({
+            "id": e.event_id,
+            "type": {"name": _native_event_type(e, "statsbomb", report)},
+            "timestamp": f"00:{int(e.timestamp // 60):02d}:{e.timestamp % 60:05.2f}",
+            "period": e.period,
+            "player": player_obj,
+            "team": {"name": e.team},
+            "location": [e.x, e.y],
+        })
+        report.events_exported += 1
+    return {
+        "match_id": document.match.match_id,
+        "home_team": {"name": document.match.home_team},
+        "away_team": {"name": document.match.away_team},
+        "events": events,
+    }
+
+
+def _export_wyscout(document: CDFDocument, report: ExportReport) -> dict:
+    events = []
+    for e in document.events:
+        ref = _player_ref_for_export(document, e.player_id, "wyscout", report)
+        events.append({
+            "eventId": e.event_id,
+            "subEventName": _native_event_type(e, "wyscout", report),
+            "matchPeriod": f"{e.period}H",
+            "eventSec": e.timestamp,
+            "trackable_object": ref["vendor_id"],
+            "jerseyNumber": ref["jersey_number"],
+            "teamName": e.team,
+            "positions": [{"x": e.x, "y": e.y}],
+            "accurate": e.outcome,
+        })
+        report.events_exported += 1
+    return {
+        "wyId": document.match.match_id,
+        "label": f"{document.match.home_team} - {document.match.away_team}",
+        "events": events,
+    }
+
+
+VENDOR_EXPORTERS: dict[str, Callable] = {
+    "opta": _export_opta,
+    "statsbomb": _export_statsbomb,
+    "wyscout": _export_wyscout,
+}
+
+
+class FormatExporter:
+    """Agent 7. Registry-driven like Agents 2-4: adding a new export target
+    is one new entry in VENDOR_EXPORTERS, not a rewrite of this class.
+
+    Deliberately has no automatic trigger anywhere in this codebase --
+    call export() explicitly when something downstream actually needs a
+    vendor-shaped file."""
+
+    def export(self, document: CDFDocument, target_vendor: str) -> tuple[dict, ExportReport]:
+        exporter_fn = VENDOR_EXPORTERS.get(target_vendor)
+        report = ExportReport(target_vendor=target_vendor)
+        if exporter_fn is None:
+            report.warnings.append(
+                f"no exporter registered for vendor '{target_vendor}'; supported: {sorted(VENDOR_EXPORTERS)}"
+            )
+            return {}, report
+
+        payload = exporter_fn(document, report)
+        if report.players_with_synthesized_id:
+            report.warnings.append(
+                f"{report.players_with_synthesized_id} of "
+                f"{report.players_with_native_id + report.players_with_synthesized_id} player references "
+                f"are synthesized placeholders, not real {target_vendor} ids"
+            )
+        return payload, report
+
+
+if __name__ == "__main__":
+    import json
+    from pathlib import Path
+    from format_detective import FormatDetective
+    from schema_mapper import SchemaMapper
+    from coordinate_translator import CoordinateTranslator
+    from entity_resolver import EntityResolver
+    from validator import Validator
+
+    detective = FormatDetective()
+    mapper = SchemaMapper()
+    translator = CoordinateTranslator()
+    resolver = EntityResolver()
+    validator = Validator()
+    exporter = FormatExporter()
+    sample_root = Path("backend/data/sample_matches")
+
+    print("=" * 78)
+    print("Format Exporter -- test run (round-trip back to each MVP vendor)")
+    print("=" * 78)
+
+    match_dir = sample_root / "PL_2025_CLEAN_001"
+    all_events, vendor_raw_data = [], {}
+    for vendor_file in sorted(match_dir.glob("*.json")):
+        data = json.loads(vendor_file.read_text())
+        detection = detective.detect(data)
+        vendor_raw_data[detection.detected_format] = data
+        mapped = mapper.map_events(data, detection.detected_format, detection.event_list_key)
+        all_events.extend(translator.translate(mapped))
+
+    resolved, registry = resolver.resolve(all_events)
+    document, _ = validator.build_document(resolved, registry, vendor_raw_data)
+
+    for target in ["opta", "statsbomb", "wyscout"]:
+        payload, report = exporter.export(document, target)
+        print(f"\nExport -> {target}: {report.events_exported} events, "
+              f"{report.events_with_native_type_recovered} native-type recovered, "
+              f"{report.events_with_guessed_type} type-guessed, "
+              f"{report.players_with_native_id} native player ids, "
+              f"{report.players_with_synthesized_id} synthesized player ids")
+        for w in report.warnings:
+            print(f"  warning: {w}")

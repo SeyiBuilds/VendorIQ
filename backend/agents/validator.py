@@ -282,6 +282,7 @@ class Validator:
         metadata["mapping_log"] = e.mapping_log
         metadata["resolution_log"] = r.resolution_log
         metadata["resolution_method"] = r.resolution_method
+        metadata["event_type_raw"] = e.event_type_raw  # preserved for lossless export-back (Agent 7)
         if log:
             metadata["validator_log"] = log
 
