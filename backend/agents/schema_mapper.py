@@ -307,6 +307,42 @@ def _map_wyscout_event(raw: dict, index: int) -> MappedEvent:
     )
 
 
+def _safe_float(value: Any, log: list[str], field_label: str) -> float:
+    """Best-effort numeric coercion for the generic/unknown-vendor path,
+    where the sniffed value's shape is a total unknown -- could be a plain
+    number, a numeric string, a timestamp string ("00:00:01.087", as real
+    StatsBomb event files use), a nested dict, or missing entirely. Never
+    raises: falls back to 0.0 and logs it, same honest-degradation rule as
+    every other fallback in this pipeline."""
+    if isinstance(value, (int, float)):
+        return float(value)
+    if isinstance(value, str):
+        try:
+            return float(value)
+        except ValueError:
+            pass
+        # "HH:MM:SS.ms"-shaped timestamp string -- try that before giving up.
+        parts = value.split(":")
+        if len(parts) == 3:
+            try:
+                h, m, s = (float(p) for p in parts)
+                return h * 3600 + m * 60 + s
+            except ValueError:
+                pass
+    log.append(f"could not coerce {field_label}={value!r} to a number via generic sniffing, defaulted to 0.0")
+    return 0.0
+
+
+def _safe_str(value: Any) -> Optional[str]:
+    """Generic path's sniffed fields can turn out to be a nested dict
+    (e.g. a vendor's team/type objects) rather than the plain string every
+    downstream model field expects. Returns None rather than handing a
+    dict to a str field and letting Validator drop the event over it --
+    still logged there as a dropped event if it matters, this just avoids
+    masking an honest 'missing' as a malformed value."""
+    return value if isinstance(value, str) else None
+
+
 def _map_generic_event(raw: dict, index: int) -> MappedEvent:
     """Fallback mapper for a vendor Format Detective couldn't identify.
     Best-effort key-name sniffing across common patterns seen in all known
@@ -326,16 +362,18 @@ def _map_generic_event(raw: dict, index: int) -> MappedEvent:
     if event_type not in CANONICAL_EVENT_TYPES:
         event_type = "other"
 
-    x = sniff("x", "X")
-    y = sniff("y", "Y")
+    x_raw = sniff("x", "X")
+    y_raw = sniff("y", "Y")
+    x = x_raw if isinstance(x_raw, (int, float)) else None
+    y = y_raw if isinstance(y_raw, (int, float)) else None
     if x is None or y is None:
         log.append("could not locate x/y coordinates via generic sniffing")
 
     return MappedEvent(
         event_id=str(event_id), event_type=event_type, event_type_raw=type_raw,
-        timestamp=float(sniff("timestamp", "eventSec", "Sec") or 0.0),
+        timestamp=_safe_float(sniff("timestamp", "eventSec", "Sec"), log, "timestamp"),
         period=sniff("period", "PeriodId"),
-        team=sniff("team", "TeamName", "teamName"),
+        team=_safe_str(sniff("team", "TeamName", "teamName")),
         raw_player_ref={"vendor_id": sniff("player", "PlayerRef", "trackable_object"), "jersey_number": None, "name": None},
         x=x, y=y, end_x=None, end_y=None, outcome=None,
         vendor_source="unknown", mapping_confidence=0.4,

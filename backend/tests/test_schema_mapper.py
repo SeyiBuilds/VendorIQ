@@ -132,6 +132,36 @@ def test_unknown_vendor_generic_path(detective, mapper):
     assert all(e.mapping_confidence <= 0.5 for e in mapped), "unknown-vendor confidence should be capped low"
 
 
+def test_unknown_vendor_generic_path_survives_non_numeric_timestamp_and_nested_fields(detective, mapper):
+    """Regression: the generic/unknown-vendor fallback used to call
+    float() directly on whatever it sniffed for "timestamp" -- a real
+    StatsBomb open-data event file (a bare array wrapped under "events"
+    for detection) has a "HH:MM:SS.mmm"-shaped timestamp string and
+    dict-shaped "type"/"team" fields, which crashed the stage outright
+    instead of degrading honestly like every other fallback here."""
+    real_shaped = {
+        "events": [
+            {
+                "id": "e1", "type": {"id": 30, "name": "Pass"}, "timestamp": "00:00:01.087",
+                "period": 1, "team": {"id": 223, "name": "Malaga"},
+                "player": {"id": 6707, "name": "Someone"}, "location": [60.0, 40.0],
+            },
+        ],
+    }
+    detection = detective.detect(real_shaped)
+    mapped = mapper.map_events(real_shaped, detection.detected_format, detection.event_list_key)
+
+    assert len(mapped) == 1
+    e = mapped[0]
+    # "HH:MM:SS.mmm" parses to seconds when the detour through the generic
+    # path is taken; team/type being dicts (not strings) degrades to None/
+    # "other" rather than crashing or passing a dict where a string belongs.
+    if detection.detected_format == "unknown":
+        assert e.timestamp == 1.087
+        assert e.team is None
+        assert e.event_type == "other"
+
+
 def test_raw_metadata_preserves_unmapped_fields_for_export_back(detective, mapper):
     """Agent 7 (Format Exporter) needs leftover vendor-specific fields to do
     a reasonably lossless round trip. Confirms they're not being discarded."""

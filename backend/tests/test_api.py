@@ -187,12 +187,48 @@ def test_ingest_stream_rejects_empty_body(client):
     assert resp.status_code == 400
 
 
-def test_ingest_stream_rejects_non_object_body(client):
-    # FastAPI's own request-body validation rejects a non-dict JSON value
-    # (a `dict` type annotation) before our handler even runs -- a 422,
-    # not our 400, since this is Pydantic/FastAPI's own validation layer.
+def test_ingest_stream_rejects_array_of_non_dicts(client):
+    # A bare JSON array is accepted (see the StatsBomb-shaped array tests
+    # below), but every element has to actually be an event object.
     resp = client.post("/ingest/run/stream", json=["not", "an", "object"])
-    assert resp.status_code == 422
+    assert resp.status_code == 400
+
+
+def test_ingest_stream_rejects_empty_array(client):
+    resp = client.post("/ingest/run/stream", json=[])
+    assert resp.status_code == 400
+
+
+def test_ingest_stream_rejects_scalar_body(client):
+    resp = client.post("/ingest/run/stream", json="just a string")
+    assert resp.status_code == 400
+
+
+# --- Bare JSON array body: real StatsBomb open-data event files are shaped
+# this way (a top-level list of event objects, no wrapper object) ---
+
+def _statsbomb_bare_event_array():
+    return [
+        {
+            "id": "e1", "type": {"name": "Pass"}, "timestamp": "00:00:01.000", "period": 1,
+            "team": {"name": "Home FC"}, "player": {"id": 10, "name": "Someone"},
+            "location": [50.0, 40.0], "pass": {"end_location": [60.0, 45.0], "outcome": {"name": "Complete"}},
+        },
+        {
+            "id": "e2", "type": {"name": "Shot"}, "timestamp": "00:00:05.000", "period": 1,
+            "team": {"name": "Home FC"}, "player": {"id": 11, "name": "Someone Else"},
+            "location": [88.0, 40.0],
+        },
+    ]
+
+
+def test_ingest_stream_accepts_bare_event_array(client):
+    resp = client.post("/ingest/run/stream", json=_statsbomb_bare_event_array())
+    assert resp.status_code == 200
+    result = _parse_ndjson(resp.text)[-1]
+    assert result["type"] == "result"
+    assert result["data"]["overall_status"] == "success"
+    assert len(result["data"]["document"]["events"]) == 2
 
 
 # --- Match sheet: auto-attached for sample matches, opt-in for uploads ---

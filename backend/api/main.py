@@ -28,7 +28,7 @@ import json
 import sys
 import uuid
 from pathlib import Path
-from typing import Optional
+from typing import Any, Optional
 
 from fastapi import Body, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -164,7 +164,7 @@ def run_match_stream(match_id: str, body: RunRequest = RunRequest()) -> Streamin
 
 
 @app.post("/ingest/run/stream")
-def ingest_run_stream(payload: dict = Body(...)) -> StreamingResponse:
+def ingest_run_stream(payload: Any = Body(...)) -> StreamingResponse:
     """Run the pipeline against a vendor feed the caller supplies directly
     -- e.g. a club's own Opta/StatsBomb/Wyscout export -- rather than one
     of the bundled sample matches. No vendor needs to be named: Format
@@ -179,9 +179,30 @@ def ingest_run_stream(payload: dict = Body(...)) -> StreamingResponse:
     officials/venue payload, same as the bundled matches' own
     opta_match_sheet.json etc.) is popped off before the rest is treated
     as the event feed -- so the existing event-only contract keeps working
-    unchanged for callers that don't send it."""
+    unchanged for callers that don't send it.
+
+    Accepts a bare JSON array too, not just an object: StatsBomb's own
+    public event files (as downloaded straight from their open-data repo)
+    are shaped exactly that way -- a top-level list of event objects, no
+    wrapper. Format Detective/Schema Mapper both need a top-level dict with
+    a named event-list key, so an array is wrapped as {"events": [...]}
+    before detection runs. This is the same honest-degradation philosophy
+    as everything else here: real-world vendor exports don't all share one
+    top-level shape, so we adapt to the ones we can rather than rejecting
+    them outright. A bare array can't carry a "match_sheet_data" sibling
+    key (there's no object to hang it off), so that stays dict-only."""
+    if isinstance(payload, list):
+        if not payload or not all(isinstance(e, dict) for e in payload):
+            raise HTTPException(
+                status_code=400,
+                detail="a JSON array body must be non-empty and contain only event objects",
+            )
+        return StreamingResponse(
+            _stream_run({"events": payload}, {"match_id": None, "quality_tier": None, "source": "uploaded"}),
+            media_type="application/x-ndjson",
+        )
     if not isinstance(payload, dict) or not payload:
-        raise HTTPException(status_code=400, detail="request body must be a non-empty JSON object")
+        raise HTTPException(status_code=400, detail="request body must be a non-empty JSON object or array")
     match_sheet_data = payload.pop("match_sheet_data", None)
     if not isinstance(match_sheet_data, dict):
         match_sheet_data = None

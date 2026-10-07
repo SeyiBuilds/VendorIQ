@@ -321,6 +321,17 @@ button:disabled {
   font-size: 0.82rem;
 }
 
+.upload-results {
+  margin-top: 14px;
+}
+
+.upload-results td {
+  max-width: 420px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .export-panel {
   border-color: rgba(47,158,104,0.3);
 }
