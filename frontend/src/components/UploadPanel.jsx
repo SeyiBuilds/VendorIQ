@@ -22,6 +22,8 @@ function pendingRecords() {
 // status-count summary are what actually show what happened.
 const AUTO_COLLAPSE_THRESHOLD = 15;
 
+const MAX_FILES_DISPLAYED = 8;
+
 function isZip(file) {
   return /\.zip$/i.test(file.name) || file.type === "application/zip" || file.type === "application/x-zip-compressed";
 }
