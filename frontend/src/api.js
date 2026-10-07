@@ -106,3 +106,18 @@ export function corruptAndRunStream(matchId, { mutations, rate, seed }, onEvent)
     onEvent,
   );
 }
+
+// Genuine multi-vendor combine: 2+ uploaded vendor files for the SAME
+// match, one picked as the primary event source (its events become the
+// document's actual event stream -- every other file only contributes
+// player-identity corroboration and match-info fallback, never counted as
+// events, so stats don't get double-counted). Same event shape as
+// runMatchStream(). See orchestrator.run_streaming_multi's docstring for
+// why this isn't a naive concatenation of every vendor's events.
+export function ingestRunStreamMulti(vendorPayloads, primaryIndex, onEvent, matchSheetData) {
+  return streamRequest(
+    "/ingest/run/stream/multi",
+    { vendor_payloads: vendorPayloads, primary_index: primaryIndex, match_sheet_data: matchSheetData ?? null },
+    onEvent,
+  );
+}

@@ -6,13 +6,24 @@ const VENDORS = ["opta", "statsbomb", "wyscout"];
 // Only shown once a run has produced a document -- export (Agent 7) reads
 // the validated CDF document, so there's nothing to export from a failed
 // critical-stage run.
-export default function ExportPanel({ runId, hasDocument }) {
+export default function ExportPanel({ runId, hasDocument, document: cdfDocument }) {
   const [targetVendor, setTargetVendor] = useState("statsbomb");
   const [exporting, setExporting] = useState(false);
   const [error, setError] = useState(null);
   const [result, setResult] = useState(null);
 
   if (!runId || !hasDocument) return null;
+
+  const handleDownloadCDF = () => {
+    if (!cdfDocument) return;
+    const blob = new Blob([JSON.stringify(cdfDocument, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${runId}_cdf.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
   const handleExport = async () => {
     setExporting(true);
@@ -41,6 +52,16 @@ export default function ExportPanel({ runId, hasDocument }) {
   return (
     <div className="panel export-panel">
       <h2>Export (Agent 7)</h2>
+
+      <div className="field-row">
+        <div>
+          <p className="hint" style={{ margin: 0 }}>
+            The actual output of this pipeline — one normalized document, whatever vendor(s) went in.
+          </p>
+          <button onClick={handleDownloadCDF} disabled={!cdfDocument}>Download CDF (raw .json)</button>
+        </div>
+      </div>
+
       <p className="hint">
         Re-export this run's validated CDF document back into another vendor's shape — on demand,
         never part of the pipeline run itself (see orchestrator.py's design note on why).

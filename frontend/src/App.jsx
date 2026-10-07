@@ -133,7 +133,7 @@ export default function App() {
         confidence={runResult?.document?.metadata?.quality_confidence}
       />
 
-      <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} />
+      <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} document={runResult?.document} />
 
       <MatchSheetPanel matchSheet={runResult?.document?.match_sheet} />
 

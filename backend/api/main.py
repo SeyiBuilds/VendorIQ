@@ -140,6 +140,76 @@ def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_dat
             yield json.dumps({"type": "result", "data": final}) + "\n"
 
 
+def _stream_run_multi(vendor_payloads: list[dict], primary_index: int, extra: Optional[dict] = None,
+                       match_sheet_data: Optional[dict] = None):
+    """Multi-vendor twin of _stream_run() -- drives
+    orchestrator.run_streaming_multi() instead of run_streaming(), same
+    NDJSON shape so the frontend's existing stream handling needs no
+    special-casing to consume either one."""
+    for kind, payload in orchestrator.run_streaming_multi(
+        vendor_payloads, primary_index=primary_index, match_sheet_data=match_sheet_data,
+    ):
+        if kind == "start":
+            yield json.dumps({"type": "start", "stage": payload}) + "\n"
+        elif kind == "stage":
+            yield json.dumps({
+                "type": "stage",
+                "stage": payload.stage,
+                "status": payload.status,
+                "detail": payload.detail,
+                "retried": payload.retried,
+            }) + "\n"
+        else:  # kind == "result"
+            result = payload
+            run_id = result.orchestration_log.run_id
+            RUN_STORE[run_id] = result
+            final = _serialize_run(result, run_id, extra)
+            yield json.dumps({"type": "result", "data": final}) + "\n"
+
+
+@app.post("/ingest/run/stream/multi")
+def ingest_run_stream_multi(payload: dict = Body(...)) -> StreamingResponse:
+    """Genuine multi-vendor combine: {"vendor_payloads": [<file1>, <file2>, ...],
+    "primary_index": 0, "match_sheet_data": {...}?}. Each entry in
+    vendor_payloads is one uploaded file's parsed JSON, either a vendor
+    object or (same StatsBomb-open-data accommodation as the single-file
+    endpoint) a bare array, wrapped as {"events": [...]} here before it
+    reaches the orchestrator. primary_index picks which file's events
+    become the document's actual event stream -- see
+    orchestrator.run_streaming_multi's docstring for why only one file's
+    events are counted (avoiding double-counting the same real match
+    twice) while every file still contributes to player-identity
+    resolution and match-info fallback."""
+    raw_payloads = payload.get("vendor_payloads")
+    if not isinstance(raw_payloads, list) or len(raw_payloads) < 2:
+        raise HTTPException(status_code=400, detail="vendor_payloads must be a list of 2 or more files")
+
+    vendor_payloads = []
+    for i, p in enumerate(raw_payloads):
+        if isinstance(p, list):
+            if not p or not all(isinstance(e, dict) for e in p):
+                raise HTTPException(status_code=400, detail=f"vendor_payloads[{i}]: a JSON array entry must be non-empty and contain only event objects")
+            vendor_payloads.append({"events": p})
+        elif isinstance(p, dict) and p:
+            vendor_payloads.append(p)
+        else:
+            raise HTTPException(status_code=400, detail=f"vendor_payloads[{i}] must be a non-empty JSON object or array")
+
+    primary_index = payload.get("primary_index", 0)
+    if not isinstance(primary_index, int) or not (0 <= primary_index < len(vendor_payloads)):
+        raise HTTPException(status_code=400, detail=f"primary_index must be an integer in range [0, {len(vendor_payloads) - 1}]")
+
+    match_sheet_data = payload.get("match_sheet_data")
+    if not isinstance(match_sheet_data, dict):
+        match_sheet_data = None
+
+    extra = {"match_id": None, "quality_tier": None, "source": "uploaded_multi"}
+    return StreamingResponse(
+        _stream_run_multi(vendor_payloads, primary_index, extra, match_sheet_data),
+        media_type="application/x-ndjson",
+    )
+
+
 @app.post("/matches/{match_id}/run/stream")
 def run_match_stream(match_id: str, body: RunRequest = RunRequest()) -> StreamingResponse:
     """Streaming twin of POST /matches/{match_id}/run -- same validation,

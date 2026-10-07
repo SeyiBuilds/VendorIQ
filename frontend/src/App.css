@@ -84,6 +84,23 @@ select, button, input[type="range"] {
   font-family: inherit;
 }
 
+.combine-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border, rgba(255,255,255,0.08));
+}
+
+.checkbox-label {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 8px !important;
+  font-size: 0.85rem !important;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+}
+
 select {
   background: #0d1117;
   color: var(--text);

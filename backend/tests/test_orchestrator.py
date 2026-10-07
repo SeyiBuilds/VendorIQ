@@ -270,3 +270,96 @@ def test_match_sheet_mapper_failure_degrades_to_partial_not_abort(orchestrator, 
     assert result.document.match_sheet is None
     record = next(r for r in result.orchestration_log.records if r.stage == "match_sheet_mapper")
     assert record.status == "failed"
+
+
+# --- Multi-vendor combine: "primary feed + enrichment" (run_streaming_multi) ---
+
+def _statsbomb_vendor_data(match_name="PL_2025_MESSY_001"):
+    path = SAMPLE_MATCHES_DIR / match_name / "statsbomb.json"
+    return json.loads(path.read_text())
+
+
+def _run_multi(orchestrator, payloads, primary_index=0, **kwargs):
+    result = None
+    for kind, payload in orchestrator.run_streaming_multi(payloads, primary_index=primary_index, **kwargs):
+        if kind == "result":
+            result = payload
+    return result
+
+
+def test_multi_vendor_events_are_not_double_counted(orchestrator):
+    """The whole point of 'primary + enrichment' over naive concatenation:
+    combining opta (primary) with statsbomb (secondary) must produce the
+    SAME event count as running opta alone -- statsbomb's events inform
+    player-identity resolution but never become CDFEvents themselves."""
+    opta = _opta_vendor_data("PL_2025_MESSY_001")
+    statsbomb = _statsbomb_vendor_data("PL_2025_MESSY_001")
+
+    solo = orchestrator.run(opta)
+    combined = _run_multi(orchestrator, [opta, statsbomb], primary_index=0)
+
+    assert combined.orchestration_log.overall_status == "success"
+    assert len(combined.document.events) == len(solo.document.events)
+    assert combined.document.metadata.source_vendors == ["opta"]
+
+
+def test_multi_vendor_primary_index_selects_which_file_is_the_event_stream(orchestrator):
+    opta = _opta_vendor_data("PL_2025_MESSY_001")
+    statsbomb = _statsbomb_vendor_data("PL_2025_MESSY_001")
+
+    primary_statsbomb = _run_multi(orchestrator, [opta, statsbomb], primary_index=1)
+    solo_statsbomb = orchestrator.run(statsbomb)
+
+    assert len(primary_statsbomb.document.events) == len(solo_statsbomb.document.events)
+    assert primary_statsbomb.document.metadata.source_vendors == ["statsbomb"]
+
+
+def test_multi_vendor_recovers_match_info_from_secondary_vendor(orchestrator):
+    """A believable real case: the primary feed carries only the event
+    stream, no match header. The secondary vendor's file should still let
+    Validator's existing cross-vendor match-info fallback fill the gap --
+    this was already built into validator.py, just never reachable because
+    run()/run_streaming() only ever passed one vendor's raw data in."""
+    import copy
+    opta_stripped = copy.deepcopy(_opta_vendor_data("PL_2025_MESSY_001"))
+    for k in ("HomeTeam", "AwayTeam", "MatchId"):
+        opta_stripped.pop(k, None)
+    statsbomb = _statsbomb_vendor_data("PL_2025_MESSY_001")
+
+    result = _run_multi(orchestrator, [opta_stripped, statsbomb], primary_index=0)
+
+    assert result.document.match.home_team == "Manchester United"
+    assert result.document.match.away_team == "Tottenham"
+    assert result.document.match.match_id == "PL_2025_MESSY_001"
+
+
+def test_multi_vendor_metadata_notes_which_vendors_were_combined(orchestrator):
+    opta = _opta_vendor_data("PL_2025_MESSY_001")
+    statsbomb = _statsbomb_vendor_data("PL_2025_MESSY_001")
+    result = _run_multi(orchestrator, [opta, statsbomb], primary_index=0)
+
+    assert any("multi-vendor combine" in w and "statsbomb" in w for w in result.document.metadata.warnings)
+
+
+def test_multi_vendor_rejects_empty_payload_list(orchestrator):
+    result = _run_multi(orchestrator, [], primary_index=0)
+    assert result.orchestration_log.overall_status == "failed"
+    assert result.document is None
+
+
+def test_multi_vendor_rejects_out_of_range_primary_index(orchestrator):
+    opta = _opta_vendor_data("PL_2025_MESSY_001")
+    statsbomb = _statsbomb_vendor_data("PL_2025_MESSY_001")
+    result = _run_multi(orchestrator, [opta, statsbomb], primary_index=5)
+    assert result.orchestration_log.overall_status == "failed"
+
+
+def test_multi_vendor_single_payload_still_produces_a_valid_document(orchestrator):
+    """Not the intended use (the API layer requires 2+), but the
+    orchestrator method itself should degrade gracefully to a normal
+    single-vendor run rather than erroring on a 1-item list."""
+    opta = _opta_vendor_data("PL_2025_MESSY_001")
+    result = _run_multi(orchestrator, [opta], primary_index=0)
+    assert result.orchestration_log.overall_status == "success"
+    assert result.document.metadata.source_vendors == ["opta"]
+    assert not any("multi-vendor combine" in w for w in result.document.metadata.warnings)

@@ -222,6 +222,155 @@ class MasterOrchestrator:
 
         yield ("result", PipelineResult(document=document, narrative=narrative, orchestration_log=log))
 
+    def run_streaming_multi(self, vendor_payloads: list[dict], primary_index: int = 0,
+                             match_date: Optional[date_cls] = None, match_sheet_data: Optional[dict] = None):
+        """Genuine multi-vendor combine -- "primary feed + enrichment", not a
+        naive concatenation of every vendor's events. Why not concatenate:
+        every vendor records the SAME real-world match independently, so an
+        Opta shot at minute 23 and a StatsBomb shot at minute 23 are the
+        same kick, not two kicks. Nothing in this pipeline matches events
+        across vendors as "the same real event" (that's a genuinely hard
+        problem -- temporal/spatial matching with its own conflict-resolution
+        logic), so counting every vendor's events would silently double or
+        triple-count every stat in the narrative. That's the double-count
+        problem run_streaming()'s own docstring already flags as the reason
+        single-vendor is the default.
+
+        What this DOES do instead: one vendor's file (vendor_payloads[primary_index])
+        is the actual event timeline -- only its events become CDFEvents, so
+        counts stay real. Every OTHER supplied vendor file still earns its
+        keep: its events are fed into Entity Resolver too (translator +
+        resolver run across the full combined list), so cross-vendor
+        corroboration genuinely improves player-identity confidence and
+        fills in players Entity Resolver would otherwise have flagged
+        unresolved -- then only the primary vendor's slice of the resolved
+        list goes to Validator for the event stream, while the FULL
+        cross-vendor registry still backs the player list. Secondary
+        vendors' raw payloads also feed Validator's match-info extraction
+        (home/away team, date, venue), which already does its own
+        cross-vendor fallback when the primary file leaves a gap.
+        """
+        run_id = uuid.uuid4().hex[:12]
+        log = OrchestrationLog(run_id=run_id)
+
+        if not vendor_payloads:
+            log.record("format_detective", "failed", detail="no vendor payloads supplied")
+            yield ("result", self._failed_result(log))
+            return
+        if not (0 <= primary_index < len(vendor_payloads)):
+            log.record("format_detective", "failed", detail=f"primary_index {primary_index} out of range for {len(vendor_payloads)} file(s)")
+            yield ("result", self._failed_result(log))
+            return
+
+        # Primary file first so its mapped events land at the front of the
+        # combined list -- translator/resolver preserve input order 1:1, so
+        # a simple length-based split recovers "which events were primary"
+        # after both stages run, without needing to trust vendor_source
+        # strings (two files could legitimately detect as the same vendor).
+        ordered_payloads = [vendor_payloads[primary_index]] + [
+            p for i, p in enumerate(vendor_payloads) if i != primary_index
+        ]
+
+        yield ("start", "format_detective")
+        detections = self._run_critical_stage(
+            log, "format_detective", lambda: [self.detective.detect(p) for p in ordered_payloads],
+        )
+        yield ("stage", log.records[-1])
+        if detections is None:
+            yield ("result", self._failed_result(log))
+            return
+        per_file_detail = ", ".join(
+            f"file {i + 1}: {d.detected_format} ({d.confidence:.2f})" for i, d in enumerate(detections)
+        )
+        log.records[-1].detail = f"primary=file 1 ({detections[0].detected_format}); {per_file_detail}"
+
+        yield ("start", "schema_mapper")
+        def _map_all():
+            per_file = [
+                self.mapper.map_events(p, d.detected_format, d.event_list_key)
+                for p, d in zip(ordered_payloads, detections)
+            ]
+            vendor_raw_data = {d.detected_format: p for p, d in zip(ordered_payloads, detections)}
+            return per_file, vendor_raw_data
+        mapping_result = self._run_critical_stage(log, "schema_mapper", _map_all)
+        yield ("stage", log.records[-1])
+        if mapping_result is None:
+            yield ("result", self._failed_result(log))
+            return
+        per_file_mapped, vendor_raw_data = mapping_result
+        primary_count = len(per_file_mapped[0])
+        combined_mapped = [e for file_events in per_file_mapped for e in file_events]
+        log.records[-1].detail = (
+            f"{primary_count} primary event(s) + {len(combined_mapped) - primary_count} "
+            f"secondary event(s) (secondary used for identity resolution only, not counted in the document)"
+        )
+
+        yield ("start", "coordinate_translator")
+        translated = self._run_critical_stage(log, "coordinate_translator", lambda: self.translator.translate(combined_mapped))
+        yield ("stage", log.records[-1])
+        if translated is None:
+            yield ("result", self._failed_result(log))
+            return
+
+        yield ("start", "entity_resolver")
+        resolution = self._run_critical_stage(log, "entity_resolver", lambda: self.resolver.resolve(translated))
+        yield ("stage", log.records[-1])
+        if resolution is None:
+            yield ("result", self._failed_result(log))
+            return
+        resolved, registry = resolution
+        # Split back out by the same length boundary used going in -- only
+        # the primary vendor's resolved events become the document's event
+        # stream. The registry (passed to Validator whole, below) still
+        # reflects corroboration from every file.
+        primary_resolved = resolved[:primary_count]
+        if len(vendor_raw_data) > 1:
+            log.records[-1].detail = (
+                f"{len(vendor_raw_data) - 1} secondary vendor(s) ({', '.join(v for v in vendor_raw_data if v != detections[0].detected_format)}) "
+                "used to corroborate player identity, not counted as events"
+            )
+
+        yield ("start", "match_sheet_mapper")
+        if match_sheet_data is not None:
+            mapped_match_sheet = self._run_optional_stage(
+                log, "match_sheet_mapper", lambda: self.mapper.map_match_sheet(match_sheet_data),
+            )
+        else:
+            mapped_match_sheet = None
+            log.record("match_sheet_mapper", "skipped", detail="no match-sheet payload supplied")
+        yield ("stage", log.records[-1])
+
+        yield ("start", "validator")
+        validation = self._run_critical_stage(
+            log, "validator",
+            lambda: self.validator.build_document(
+                primary_resolved, registry, vendor_raw_data, match_date=match_date,
+                mapped_match_sheet=mapped_match_sheet,
+            ),
+        )
+        yield ("stage", log.records[-1])
+        if validation is None:
+            yield ("result", self._failed_result(log))
+            return
+        document, validation_report = validation
+        document.metadata.orchestration_log_ref = run_id
+        if len(vendor_raw_data) > 1:
+            document.metadata.warnings.append(
+                f"multi-vendor combine: events sourced from '{detections[0].detected_format}' only "
+                f"(primary); {', '.join(v for v in vendor_raw_data if v != detections[0].detected_format)} "
+                "used only for player-identity corroboration and match-info/lineup fallback, not counted "
+                "as events, to avoid double-counting the same real-world match twice"
+            )
+
+        yield ("start", "narrative_generator")
+        narrative = self._run_optional_stage(log, "narrative_generator", lambda: self.narrator.generate(document))
+        yield ("stage", log.records[-1])
+
+        failed_optional = [r for r in log.records if r.stage in OPTIONAL_STAGES and r.status == "failed"]
+        log.overall_status = "partial" if failed_optional else "success"
+
+        yield ("result", PipelineResult(document=document, narrative=narrative, orchestration_log=log))
+
     def export(self, document: CDFDocument, target_vendor: str) -> tuple[dict, ExportReport]:
         """On-demand only (Agent 7) -- never called from run()."""
         return self.exporter.export(document, target_vendor)

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { unzipSync, strFromU8 } from "fflate";
-import { ingestRunStream } from "../api";
+import { ingestRunStream, ingestRunStreamMulti } from "../api";
 import PipelineStatus from "./PipelineStatus";
 
 const STAGE_ORDER = [
@@ -113,16 +113,25 @@ export default function UploadPanel({ onStart, onEvent }) {
   // run straight past when 190 files are firing through it back to back.
   const [liveStageRecords, setLiveStageRecords] = useState([]);
   const [showAllResults, setShowAllResults] = useState(false);
+  // Combine mode: 2+ files of the SAME match (e.g. Opta + StatsBomb),
+  // merged into one CDF document instead of run as independent pipeline
+  // runs. See api.ingestRunStreamMulti / orchestrator.run_streaming_multi
+  // for why this is "primary feed + enrichment", not a naive concatenation.
+  const [combineMode, setCombineMode] = useState(false);
+  const [primaryIndex, setPrimaryIndex] = useState(0);
+  const [combinedResult, setCombinedResult] = useState(null);
 
   const handleFiles = async (e) => {
     const fileList = Array.from(e.target.files || []);
     if (fileList.length === 0) return;
     setError(null);
     setResults([]);
+    setCombinedResult(null);
     setProgress(null);
     setShowAllResults(false);
     const { items: loaded, loadErrors: errs } = await expandFiles(fileList);
     setItems(loaded);
+    setPrimaryIndex(0);
     setLoadErrors(errs);
   };
 
@@ -175,6 +184,33 @@ export default function UploadPanel({ onStart, onEvent }) {
     setRunning(false);
   };
 
+  const handleRunCombined = async () => {
+    if (items.length < 2) return;
+    setRunning(true);
+    setError(null);
+    setCombinedResult(null);
+    setLiveStageRecords(pendingRecords());
+    onStart();
+    try {
+      let captured = null;
+      await ingestRunStreamMulti(items.map((it) => it.payload), primaryIndex, (event) => {
+        onEvent(event);
+        applyLiveStageEvent(event);
+        if (event.type === "result") captured = event.data;
+      });
+      setCombinedResult({
+        status: captured?.overall_status ?? "unknown",
+        confidence: captured?.document?.metadata?.quality_confidence ?? null,
+        eventCount: captured?.document?.events?.length ?? 0,
+        sourceVendors: captured?.document?.metadata?.source_vendors ?? [],
+      });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setRunning(false);
+    }
+  };
+
   const shown = items.slice(0, MAX_FILES_DISPLAYED);
   const extra = items.length - shown.length;
 
@@ -198,12 +234,52 @@ export default function UploadPanel({ onStart, onEvent }) {
             disabled={running}
           />
         </label>
-        <button className="primary" onClick={handleRunAll} disabled={items.length === 0 || running}>
-          {running
-            ? `Running ${progress ? `${progress.index}/${progress.total}` : "…"}`
-            : `Run ${items.length > 1 ? `all ${items.length} matches` : "uploaded match"}`}
-        </button>
+        {!combineMode && (
+          <button className="primary" onClick={handleRunAll} disabled={items.length === 0 || running}>
+            {running
+              ? `Running ${progress ? `${progress.index}/${progress.total}` : "…"}`
+              : `Run ${items.length > 1 ? `all ${items.length} matches` : "uploaded match"}`}
+          </button>
+        )}
       </div>
+
+      {items.length >= 2 && (
+        <div className="field-row combine-row">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={combineMode}
+              onChange={(e) => { setCombineMode(e.target.checked); setCombinedResult(null); }}
+              disabled={running}
+            />
+            Combine these {items.length} files into one CDF (same match, multiple vendors)
+          </label>
+          {combineMode && (
+            <>
+              <label>
+                Primary (event source)
+                <select
+                  value={primaryIndex}
+                  onChange={(e) => setPrimaryIndex(Number(e.target.value))}
+                  disabled={running}
+                >
+                  {items.map((it, i) => <option key={i} value={i}>{it.label}</option>)}
+                </select>
+              </label>
+              <button className="primary" onClick={handleRunCombined} disabled={running}>
+                {running ? "Combining…" : `Combine into 1 CDF`}
+              </button>
+            </>
+          )}
+        </div>
+      )}
+
+      {combineMode && (
+        <p className="hint">
+          Events come only from the primary file, so counts stay real — every other file is used to
+          cross-check player identity and fill in match info, never double-counted as events.
+        </p>
+      )}
 
       {items.length > 0 && (
         <p className="hint">
@@ -215,7 +291,7 @@ export default function UploadPanel({ onStart, onEvent }) {
 
       {progress && <p className="hint">Running {progress.index} of {progress.total}: {progress.label}</p>}
 
-      {liveStageRecords.length > 0 && (running || results.length > 0) && (
+      {liveStageRecords.length > 0 && (running || results.length > 0 || combinedResult) && (
         <PipelineStatus records={liveStageRecords} />
       )}
 
@@ -227,6 +303,16 @@ export default function UploadPanel({ onStart, onEvent }) {
       )}
 
       {error && <div className="error-banner">{error}</div>}
+
+      {combinedResult && (
+        <p className="hint">
+          Combined into one CDF — <strong>{combinedResult.status}</strong>,{" "}
+          {combinedResult.eventCount} event{combinedResult.eventCount === 1 ? "" : "s"} from{" "}
+          {combinedResult.sourceVendors.join(", ") || "primary"},{" "}
+          {combinedResult.confidence != null ? `${(combinedResult.confidence * 100).toFixed(1)}%` : "—"} confidence.
+          Full document below.
+        </p>
+      )}
 
       {results.length > 0 && (
         <ResultsSummary

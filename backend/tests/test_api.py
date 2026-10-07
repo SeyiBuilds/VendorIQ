@@ -383,3 +383,63 @@ def test_corrupt_and_run_result_can_be_exported(client):
 
     export_resp = client.post(f"/runs/{run_id}/export", json={"target_vendor": "statsbomb"})
     assert export_resp.status_code == 200
+
+
+# --- Multi-vendor combine: POST /ingest/run/stream/multi ---
+
+def _opta_sample(match_id="PL_2025_MESSY_001"):
+    import json
+    return json.loads(((ROOT / "backend" / "data" / "sample_matches") / match_id / "opta.json").read_text())
+
+
+def _statsbomb_sample(match_id="PL_2025_MESSY_001"):
+    import json
+    return json.loads(((ROOT / "backend" / "data" / "sample_matches") / match_id / "statsbomb.json").read_text())
+
+
+def test_ingest_multi_rejects_fewer_than_two_payloads(client):
+    resp = client.post("/ingest/run/stream/multi", json={"vendor_payloads": [_opta_sample()]})
+    assert resp.status_code == 400
+
+
+def test_ingest_multi_rejects_missing_vendor_payloads_key(client):
+    resp = client.post("/ingest/run/stream/multi", json={"primary_index": 0})
+    assert resp.status_code == 400
+
+
+def test_ingest_multi_rejects_out_of_range_primary_index(client):
+    resp = client.post("/ingest/run/stream/multi", json={
+        "vendor_payloads": [_opta_sample(), _statsbomb_sample()], "primary_index": 7,
+    })
+    assert resp.status_code == 400
+
+
+def test_ingest_multi_rejects_bad_entry_shape(client):
+    resp = client.post("/ingest/run/stream/multi", json={
+        "vendor_payloads": [_opta_sample(), "not a valid entry"],
+    })
+    assert resp.status_code == 400
+
+
+def test_ingest_multi_combines_two_sample_vendor_files(client):
+    resp = client.post("/ingest/run/stream/multi", json={
+        "vendor_payloads": [_opta_sample(), _statsbomb_sample()], "primary_index": 0,
+    })
+    assert resp.status_code == 200
+    result = _parse_ndjson(resp.text)[-1]
+    assert result["type"] == "result"
+    assert result["data"]["overall_status"] == "success"
+    assert result["data"]["document"]["metadata"]["source_vendors"] == ["opta"]
+    assert any("multi-vendor combine" in w for w in result["data"]["document"]["metadata"]["warnings"])
+
+
+def test_ingest_multi_accepts_a_bare_array_entry_alongside_an_object(client):
+    """Same StatsBomb-open-data accommodation as the single-file endpoint,
+    extended per-entry here: a bare array file sits alongside a normal
+    vendor object in the same combine request."""
+    resp = client.post("/ingest/run/stream/multi", json={
+        "vendor_payloads": [_opta_sample(), _statsbomb_bare_event_array()], "primary_index": 0,
+    })
+    assert resp.status_code == 200
+    result = _parse_ndjson(resp.text)[-1]
+    assert result["data"]["overall_status"] == "success"
