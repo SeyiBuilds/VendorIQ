@@ -1,11 +1,39 @@
 import { useState } from "react";
 import { unzipSync, strFromU8 } from "fflate";
 import { ingestRunStream } from "../api";
+import PipelineStatus from "./PipelineStatus";
 
-const MAX_FILES_DISPLAYED = 8;
+const STAGE_ORDER = [
+  "format_detective",
+  "schema_mapper",
+  "coordinate_translator",
+  "entity_resolver",
+  "match_sheet_mapper",
+  "validator",
+  "narrative_generator",
+];
+
+function pendingRecords() {
+  return STAGE_ORDER.map((stage) => ({ stage, status: "pending" }));
+}
+
+// Auto-collapse the per-file table once a batch gets long -- a 190-row
+// table is just noise to scroll past; the live stage board above and the
+// status-count summary are what actually show what happened.
+const AUTO_COLLAPSE_THRESHOLD = 15;
 
 function isZip(file) {
   return /\.zip$/i.test(file.name) || file.type === "application/zip" || file.type === "application/x-zip-compressed";
+}
+
+// Not an event feed at all -- a competition's match list (data/matches/...)
+// or a lineup/team-sheet file (data/lineups/...), both real shapes in
+// StatsBomb's open-data zips but neither is a list of match events. Running
+// either through the event pipeline isn't a vendor-detection failure, it's
+// the wrong kind of document, so these are filtered out before a run rather
+// than left to score an honest-but-confusing 0% confidence.
+function isNonEventStatsBombFile(entryName) {
+  return /(^|\/)data\/matches\//i.test(entryName) || /(^|\/)data\/lineups\//i.test(entryName) || /(^|\/)competitions\.json$/i.test(entryName);
 }
 
 function parseJsonEntry(text) {
@@ -46,6 +74,10 @@ async function expandFiles(fileList) {
       }
       for (const [entryName, data] of Object.entries(unzipped)) {
         if (entryName.endsWith("/") || !entryName.toLowerCase().endsWith(".json")) continue;
+        if (isNonEventStatsBombFile(entryName)) {
+          loadErrors.push(`${file.name} → ${entryName}: skipped (competition/lineup file, not a match-events feed)`);
+          continue;
+        }
         try {
           const payload = parseJsonEntry(strFromU8(data));
           items.push({ label: `${file.name} → ${entryName}`, payload });
@@ -73,6 +105,12 @@ export default function UploadPanel({ onStart, onEvent }) {
   const [progress, setProgress] = useState(null); // { index, total, label }
   const [running, setRunning] = useState(false);
   const [error, setError] = useState(null);
+  // Mirrors the same stream events App.jsx consumes, but kept local too so
+  // the live per-agent board renders right here, next to the file queue --
+  // not just in the shared panel further down the page, which is easy to
+  // run straight past when 190 files are firing through it back to back.
+  const [liveStageRecords, setLiveStageRecords] = useState([]);
+  const [showAllResults, setShowAllResults] = useState(false);
 
   const handleFiles = async (e) => {
     const fileList = Array.from(e.target.files || []);
@@ -80,9 +118,26 @@ export default function UploadPanel({ onStart, onEvent }) {
     setError(null);
     setResults([]);
     setProgress(null);
+    setShowAllResults(false);
     const { items: loaded, loadErrors: errs } = await expandFiles(fileList);
     setItems(loaded);
     setLoadErrors(errs);
+  };
+
+  const applyLiveStageEvent = (event) => {
+    if (event.type === "start") {
+      setLiveStageRecords((prev) => prev.map((r) => (r.stage === event.stage ? { ...r, status: "running" } : r)));
+    } else if (event.type === "stage") {
+      setLiveStageRecords((prev) =>
+        prev.map((r) =>
+          r.stage === event.stage
+            ? { stage: r.stage, status: event.status, detail: event.detail, retried: event.retried }
+            : r,
+        ),
+      );
+    } else if (event.type === "result") {
+      setLiveStageRecords(event.data.orchestration_log.records);
+    }
   };
 
   const handleRunAll = async () => {
@@ -90,15 +145,18 @@ export default function UploadPanel({ onStart, onEvent }) {
     setRunning(true);
     setError(null);
     setResults([]);
+    setShowAllResults(items.length <= AUTO_COLLAPSE_THRESHOLD);
 
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
       setProgress({ index: i + 1, total: items.length, label: item.label });
+      setLiveStageRecords(pendingRecords());
       onStart();
       let captured = null;
       try {
         await ingestRunStream(item.payload, (event) => {
           onEvent(event);
+          applyLiveStageEvent(event);
           if (event.type === "result") captured = event.data;
         });
         setResults((prev) => [...prev, {
@@ -122,15 +180,9 @@ export default function UploadPanel({ onStart, onEvent }) {
     <div className="panel upload-panel">
       <h2>Bring your own match data</h2>
       <p className="hint">
-        Upload vendor-shaped match feeds — Opta, StatsBomb, or Wyscout JSON, exactly as that vendor
-        delivers it, including a bare array of events (how StatsBomb's own public open-data files
-        ship, no wrapper object) — and run them through the same 7-agent pipeline. Pick several
-        .json files at once, or a .zip containing any number of them (unzipped right here in the
-        browser, nothing uploaded until you hit run); each one runs as its own independent pipeline
-        run, one after another. Format Detective auto-detects the vendor for each -- nothing to
-        select up front. An unrecognized shape won't crash or fabricate data -- it degrades to a
-        zero-confidence, zero-event document with the reason logged, same as any other data-quality
-        fallback here.
+        Upload Opta, StatsBomb, or Wyscout JSON as-is — including bare event arrays. Pick multiple
+        .json files or a .zip of them; each runs through the 7-agent pipeline on its own, vendor
+        auto-detected. Unrecognized shapes degrade honestly, never crash or fabricate data.
       </p>
 
       <div className="field-row">
@@ -161,6 +213,10 @@ export default function UploadPanel({ onStart, onEvent }) {
 
       {progress && <p className="hint">Running {progress.index} of {progress.total}: {progress.label}</p>}
 
+      {liveStageRecords.length > 0 && (running || results.length > 0) && (
+        <PipelineStatus records={liveStageRecords} />
+      )}
+
       {loadErrors.length > 0 && (
         <details className="narrative-section data-quality-notes">
           <summary>{loadErrors.length} file(s) skipped while loading</summary>
@@ -171,6 +227,44 @@ export default function UploadPanel({ onStart, onEvent }) {
       {error && <div className="error-banner">{error}</div>}
 
       {results.length > 0 && (
+        <ResultsSummary
+          results={results}
+          showAll={showAllResults}
+          onToggleShowAll={() => setShowAllResults((v) => !v)}
+        />
+      )}
+    </div>
+  );
+}
+
+function ResultsSummary({ results, showAll, onToggleShowAll }) {
+  const counts = results.reduce((acc, r) => {
+    const key = r.error ? "error" : r.status;
+    acc[key] = (acc[key] || 0) + 1;
+    return acc;
+  }, {});
+
+  return (
+    <div className="upload-results-summary">
+      <p className="hint">
+        {results.length} run{results.length === 1 ? "" : "s"} so far —{" "}
+        {Object.entries(counts).map(([status, n], i) => (
+          <span key={status}>
+            {i > 0 && ", "}
+            <strong>{n}</strong> {status}
+          </span>
+        ))}
+        {results.length > AUTO_COLLAPSE_THRESHOLD && (
+          <>
+            {" "}
+            <button className="link-button" onClick={onToggleShowAll}>
+              {showAll ? "hide per-file table" : "show per-file table"}
+            </button>
+          </>
+        )}
+      </p>
+
+      {showAll && (
         <table className="stats-table upload-results">
           <thead>
             <tr><th>File</th><th>Status</th><th>Confidence</th></tr>

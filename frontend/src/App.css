@@ -321,8 +321,22 @@ button:disabled {
   font-size: 0.82rem;
 }
 
-.upload-results {
+.upload-results-summary {
   margin-top: 14px;
+}
+
+.upload-results {
+  margin-top: 10px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--accent, #4f8cff);
+  cursor: pointer;
+  font-size: inherit;
+  text-decoration: underline;
 }
 
 .upload-results td {
