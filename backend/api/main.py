@@ -24,6 +24,7 @@ reading this file, including future-us.
 
 from __future__ import annotations
 
+import contextlib
 import json
 import sys
 import uuid
@@ -44,6 +45,7 @@ sys.path.insert(0, str(ROOT / "backend" / "data"))
 from orchestrator import MasterOrchestrator, PipelineResult  # noqa: E402
 from serialization import to_jsonable  # noqa: E402
 from corruption import corrupt_opta_payload, MUTATION_DESCRIPTIONS  # noqa: E402
+from fault_injection import AGENT_FAULTS, FAULT_DESCRIPTIONS, maybe_inject_fault  # noqa: E402
 
 SAMPLE_MATCHES_DIR = ROOT / "backend" / "data" / "sample_matches"
 VALID_VENDOR_FILES = {"opta", "statsbomb", "wyscout"}
@@ -89,9 +91,17 @@ class ExportRequest(BaseModel):
 
 class CorruptAndRunRequest(BaseModel):
     vendor: str = "opta"
-    mutations: list[str]
+    mutations: list[str] = []
     rate: float = 0.2  # fraction of events each selected mutation targets
     seed: Optional[int] = None  # pin for a reproducible run on stage
+    # Orchestrator-level fault injection (fault_injection.py) -- a
+    # DIFFERENT demo than `mutations` above. Mutations corrupt event data
+    # and show an agent's own field-level fallback absorb it silently;
+    # agent_fault makes an agent itself genuinely raise, so the Master
+    # Orchestrator's real retry/abort/degrade logic fires visibly. The two
+    # are independent and may be combined in one request.
+    agent_fault: Optional[str] = None
+    fail_attempts: int = 2  # 1 = self-heals on retry, 2 = genuinely fails (abort or degrade)
 
 
 def _serialize_run(result: PipelineResult, run_id: str, extra: Optional[dict] = None) -> dict:
@@ -112,7 +122,8 @@ def _match_sheet_file(match_id: str, vendor: str) -> Optional[Path]:
     return path if path.exists() else None
 
 
-def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_data: Optional[dict] = None):
+def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_data: Optional[dict] = None,
+                 agent_fault: Optional[str] = None, fail_attempts: int = 2):
     """Shared by both streaming endpoints below. Drives
     orchestrator.run_streaming() and re-emits each event as one NDJSON
     line (newline-delimited JSON) as it actually happens -- this is a
@@ -120,24 +131,31 @@ def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_dat
     agent start/finish in real time rather than all at once after the
     whole pipeline completes. Ends with exactly one {"type": "result", ...}
     line carrying the same shape /matches/{id}/run already returns, so
-    existing non-streaming callers and RUN_STORE stay unaffected."""
-    for kind, payload in orchestrator.run_streaming(vendor_data, match_sheet_data=match_sheet_data):
-        if kind == "start":
-            yield json.dumps({"type": "start", "stage": payload}) + "\n"
-        elif kind == "stage":
-            yield json.dumps({
-                "type": "stage",
-                "stage": payload.stage,
-                "status": payload.status,
-                "detail": payload.detail,
-                "retried": payload.retried,
-            }) + "\n"
-        else:  # kind == "result"
-            result = payload
-            run_id = result.orchestration_log.run_id
-            RUN_STORE[run_id] = result
-            final = _serialize_run(result, run_id, extra)
-            yield json.dumps({"type": "result", "data": final}) + "\n"
+    existing non-streaming callers and RUN_STORE stay unaffected.
+
+    agent_fault/fail_attempts (fault_injection.py), when set, wrap the
+    whole run in maybe_inject_fault() -- the `with` block stays open
+    across every `yield` below since this is a generator, so the
+    monkeypatched agent method is live for exactly this one run and
+    restored no matter how the generator ends."""
+    with maybe_inject_fault(orchestrator, agent_fault, fail_attempts):
+        for kind, payload in orchestrator.run_streaming(vendor_data, match_sheet_data=match_sheet_data):
+            if kind == "start":
+                yield json.dumps({"type": "start", "stage": payload}) + "\n"
+            elif kind == "stage":
+                yield json.dumps({
+                    "type": "stage",
+                    "stage": payload.stage,
+                    "status": payload.status,
+                    "detail": payload.detail,
+                    "retried": payload.retried,
+                }) + "\n"
+            else:  # kind == "result"
+                result = payload
+                run_id = result.orchestration_log.run_id
+                RUN_STORE[run_id] = result
+                final = _serialize_run(result, run_id, extra)
+                yield json.dumps({"type": "result", "data": final}) + "\n"
 
 
 def _stream_run_multi(vendor_payloads: list[dict], primary_index: int, extra: Optional[dict] = None,
@@ -333,17 +351,44 @@ def list_mutations() -> dict:
     return MUTATION_DESCRIPTIONS
 
 
+@app.get("/agent-faults")
+def list_agent_faults() -> dict:
+    """Orchestrator-level fault injection targets (fault_injection.py) --
+    a different demo than /mutations above: this makes an agent genuinely
+    raise so the Master Orchestrator's own retry/abort/degrade logic runs
+    visibly, instead of an agent quietly absorbing bad data."""
+    return FAULT_DESCRIPTIONS
+
+
+def _validate_agent_fault(body: CorruptAndRunRequest) -> None:
+    if body.agent_fault is None:
+        return
+    if body.agent_fault not in AGENT_FAULTS:
+        raise HTTPException(
+            status_code=400,
+            detail=f"unknown agent_fault '{body.agent_fault}'; supported: {sorted(AGENT_FAULTS)}",
+        )
+    if body.fail_attempts not in (1, 2):
+        raise HTTPException(
+            status_code=400,
+            detail=f"fail_attempts must be 1 or 2 (matches the orchestrator's real retry count), got {body.fail_attempts}",
+        )
+
+
 @app.post("/matches/{match_id}/corrupt-and-run")
 def corrupt_and_run_match(match_id: str, body: CorruptAndRunRequest) -> dict:
     """Live, on-demand data corruption for stage demos -- see
     backend/data/corruption.py's module docstring for why this exists and
     exactly which upstream fallback each mutation is built to exercise.
-    Currently Opta-only, matching that module's scope."""
+    Currently Opta-only, matching that module's scope. Also accepts an
+    orchestrator-level agent_fault (fault_injection.py), independent of
+    and combinable with the event-level mutations above."""
     if body.vendor != "opta":
         raise HTTPException(
             status_code=400,
             detail=f"corrupt-and-run currently only supports the 'opta' vendor feed, got '{body.vendor}'",
         )
+    _validate_agent_fault(body)
     entry = _manifest_entry(match_id)
     vendor_file = SAMPLE_MATCHES_DIR / match_id / "opta.json"
     if not vendor_file.exists():
@@ -353,13 +398,14 @@ def corrupt_and_run_match(match_id: str, body: CorruptAndRunRequest) -> dict:
     try:
         corrupted_data, corruption_log = corrupt_opta_payload(
             vendor_data, body.mutations, rate=body.rate, seed=body.seed,
-        )
+        ) if body.mutations else (vendor_data, [])
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
 
     sheet_file = _match_sheet_file(match_id, "opta")
     match_sheet_data = json.loads(sheet_file.read_text()) if sheet_file else None
-    result = orchestrator.run(corrupted_data, match_sheet_data=match_sheet_data)
+    with maybe_inject_fault(orchestrator, body.agent_fault, body.fail_attempts):
+        result = orchestrator.run(corrupted_data, match_sheet_data=match_sheet_data)
     run_id = result.orchestration_log.run_id
     RUN_STORE[run_id] = result
 
@@ -367,6 +413,7 @@ def corrupt_and_run_match(match_id: str, body: CorruptAndRunRequest) -> dict:
         "match_id": match_id,
         "quality_tier": entry.get("quality_tier"),
         "corruption_log": corruption_log,
+        "agent_fault": body.agent_fault,
     })
 
 
@@ -381,6 +428,7 @@ def corrupt_and_run_match_stream(match_id: str, body: CorruptAndRunRequest) -> S
             status_code=400,
             detail=f"corrupt-and-run currently only supports the 'opta' vendor feed, got '{body.vendor}'",
         )
+    _validate_agent_fault(body)
     entry = _manifest_entry(match_id)
     vendor_file = SAMPLE_MATCHES_DIR / match_id / "opta.json"
     if not vendor_file.exists():
@@ -390,14 +438,20 @@ def corrupt_and_run_match_stream(match_id: str, body: CorruptAndRunRequest) -> S
     try:
         corrupted_data, corruption_log = corrupt_opta_payload(
             vendor_data, body.mutations, rate=body.rate, seed=body.seed,
-        )
+        ) if body.mutations else (vendor_data, [])
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc))
 
     sheet_file = _match_sheet_file(match_id, "opta")
     match_sheet_data = json.loads(sheet_file.read_text()) if sheet_file else None
-    extra = {"match_id": match_id, "quality_tier": entry.get("quality_tier"), "corruption_log": corruption_log}
-    return StreamingResponse(_stream_run(corrupted_data, extra, match_sheet_data), media_type="application/x-ndjson")
+    extra = {
+        "match_id": match_id, "quality_tier": entry.get("quality_tier"),
+        "corruption_log": corruption_log, "agent_fault": body.agent_fault,
+    }
+    return StreamingResponse(
+        _stream_run(corrupted_data, extra, match_sheet_data, body.agent_fault, body.fail_attempts),
+        media_type="application/x-ndjson",
+    )
 
 
 @app.post("/runs/{run_id}/export")

@@ -89,6 +89,13 @@ export function listMutations() {
   return request("/mutations");
 }
 
+// Orchestrator-level fault targets (fault_injection.py) -- a different demo
+// than the field-level mutations above: this makes an agent genuinely raise
+// so the Master Orchestrator's own retry/abort/degrade logic runs visibly.
+export function listAgentFaults() {
+  return request("/agent-faults");
+}
+
 // Runs the pipeline against a vendor feed the caller supplies directly
 // (a club's own Opta/StatsBomb/Wyscout export), rather than one of the
 // bundled sample matches. Same event shape as runMatchStream(); no vendor
@@ -99,10 +106,23 @@ export function ingestRunStream(payload, onEvent) {
 
 // Streaming twin of the corrupt-and-run endpoint -- same event shape as
 // runMatchStream(), with corruption_log attached to the final "result" event.
-export function corruptAndRunStream(matchId, { mutations, rate, seed }, onEvent) {
+// agentFault/failAttempts are independent of and combinable with the
+// field-level mutations: mutations test an agent's own graceful-degradation
+// logic, agentFault tests the orchestrator's real retry/abort/degrade logic
+// (see fault_injection.py). failAttempts=1 self-heals on the automatic
+// retry; failAttempts=2 genuinely fails (abort for a critical stage,
+// "partial" for an optional one).
+export function corruptAndRunStream(matchId, { mutations, rate, seed, agentFault, failAttempts }, onEvent) {
   return streamRequest(
     `/matches/${matchId}/corrupt-and-run/stream`,
-    { vendor: "opta", mutations, rate, seed: seed ?? null },
+    {
+      vendor: "opta",
+      mutations: mutations ?? [],
+      rate,
+      seed: seed ?? null,
+      agent_fault: agentFault ?? null,
+      fail_attempts: failAttempts ?? 2,
+    },
     onEvent,
   );
 }

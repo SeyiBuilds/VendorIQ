@@ -385,6 +385,129 @@ def test_corrupt_and_run_result_can_be_exported(client):
     assert export_resp.status_code == 200
 
 
+# --- Agent fault injection (the "watch the orchestrator decide" demo feature) ---
+# Distinct from the mutation tests above: these make an agent genuinely
+# raise so MasterOrchestrator's own retry/abort/degrade logic fires, rather
+# than exercising an agent's own graceful per-field fallback logic.
+
+def test_list_agent_faults(client):
+    resp = client.get("/agent-faults")
+    assert resp.status_code == 200
+    body = resp.json()
+    assert "schema_mapper" in body
+    assert "match_sheet_mapper" in body
+
+
+def test_corrupt_and_run_rejects_unknown_agent_fault(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": [], "agent_fault": "not_a_real_fault"},
+    )
+    assert resp.status_code == 400
+
+
+def test_corrupt_and_run_rejects_bad_fail_attempts(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": [], "agent_fault": "schema_mapper", "fail_attempts": 3},
+    )
+    assert resp.status_code == 400
+
+
+def test_corrupt_and_run_agent_fault_self_heals_on_one_failure(client):
+    """fail_attempts=1 means the orchestrator's single automatic retry
+    succeeds -- the run completes normally with a real document."""
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": [], "agent_fault": "schema_mapper", "fail_attempts": 1},
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["overall_status"] == "success"
+    assert body["document"]["events"]
+    # the stage log shows the retry actually happened
+    schema_mapper_record = next(r for r in body["orchestration_log"]["records"] if r["stage"] == "schema_mapper")
+    assert schema_mapper_record["retried"] is True
+    assert schema_mapper_record["status"] == "success"
+
+
+def test_corrupt_and_run_agent_fault_aborts_critical_stage_on_two_failures(client):
+    """fail_attempts=2 exhausts the retry too -- a critical-stage fault
+    aborts the whole run with no usable document."""
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": [], "agent_fault": "schema_mapper", "fail_attempts": 2},
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["overall_status"] == "failed"
+    assert body["document"] is None
+
+
+def test_corrupt_and_run_agent_fault_degrades_optional_stage_on_two_failures(client):
+    """An optional-stage fault still returns a usable document, just
+    marked 'partial' -- it degrades instead of aborting."""
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": [], "agent_fault": "narrative_generator", "fail_attempts": 2},
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["overall_status"] == "partial"
+    assert body["document"] is not None
+
+
+def test_corrupt_and_run_agent_fault_restores_original_method_after_run(client):
+    """The monkeypatch must not leak into the next request against the
+    same (module-level, reused) orchestrator instance."""
+    faulted = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": [], "agent_fault": "schema_mapper", "fail_attempts": 2},
+    )
+    assert faulted.json()["overall_status"] == "failed"
+
+    clean = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": []},
+    )
+    assert clean.json()["overall_status"] == "success"
+
+
+def test_corrupt_and_run_agent_fault_combines_with_data_mutations(client):
+    """agent_fault and mutations are independent and stack: the corrupted
+    data still flows through once the orchestrator's retry recovers from
+    the injected fault."""
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run",
+        json={"mutations": ["null_coordinates"], "rate": 0.3, "seed": 7, "agent_fault": "schema_mapper", "fail_attempts": 1},
+    )
+    assert resp.status_code == 200
+    body = resp.json()
+    assert body["overall_status"] == "success"
+    assert len(body["corruption_log"]) == 1
+
+
+def test_corrupt_and_run_stream_agent_fault_abort_has_no_document(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run/stream",
+        json={"mutations": [], "agent_fault": "coordinate_translator", "fail_attempts": 2},
+    )
+    assert resp.status_code == 200
+    events = _parse_ndjson(resp.text)
+    result_event = events[-1]
+    assert result_event["type"] == "result"
+    assert result_event["data"]["overall_status"] == "failed"
+    assert result_event["data"]["document"] is None
+
+
+def test_corrupt_and_run_stream_rejects_unknown_agent_fault(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/corrupt-and-run/stream",
+        json={"mutations": [], "agent_fault": "not_a_real_fault"},
+    )
+    assert resp.status_code == 400
+
+
 # --- Multi-vendor combine: POST /ingest/run/stream/multi ---
 
 def _opta_sample(match_id="PL_2025_MESSY_001"):
