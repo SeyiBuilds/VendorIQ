@@ -132,13 +132,18 @@ def test_unknown_vendor_generic_path(detective, mapper):
     assert all(e.mapping_confidence <= 0.5 for e in mapped), "unknown-vendor confidence should be capped low"
 
 
-def test_unknown_vendor_generic_path_survives_non_numeric_timestamp_and_nested_fields(detective, mapper):
-    """Regression: the generic/unknown-vendor fallback used to call
-    float() directly on whatever it sniffed for "timestamp" -- a real
-    StatsBomb open-data event file (a bare array wrapped under "events"
-    for detection) has a "HH:MM:SS.mmm"-shaped timestamp string and
-    dict-shaped "type"/"team" fields, which crashed the stage outright
-    instead of degrading honestly like every other fallback here."""
+def test_real_statsbomb_open_data_shape_maps_correctly_end_to_end(detective, mapper):
+    """Regression (two-stage): a real StatsBomb open-data event file (bare
+    array, wrapped under "events" for detection) used to fall through
+    Format Detective's fuzzy match (0.58, just under the 0.6 threshold,
+    since real files carry no top-level match_id/home_team/away_team) to
+    the generic/unknown-vendor mapper -- which crashed on the "HH:MM:SS.mmm"
+    timestamp string before that was patched, and even patched could only
+    degrade honestly (0 usable fields) since it doesn't know StatsBomb's
+    nested shapes. Format Detective now recognizes this shape directly
+    (structural nested-type/team/location check, not top-level keys), which
+    routes it to the real statsbomb mapper -- so this now asserts the
+    correct extracted values, not just "didn't crash"."""
     real_shaped = {
         "events": [
             {
@@ -151,15 +156,35 @@ def test_unknown_vendor_generic_path_survives_non_numeric_timestamp_and_nested_f
     detection = detective.detect(real_shaped)
     mapped = mapper.map_events(real_shaped, detection.detected_format, detection.event_list_key)
 
+    assert detection.detected_format == "statsbomb"
     assert len(mapped) == 1
     e = mapped[0]
-    # "HH:MM:SS.mmm" parses to seconds when the detour through the generic
-    # path is taken; team/type being dicts (not strings) degrades to None/
-    # "other" rather than crashing or passing a dict where a string belongs.
-    if detection.detected_format == "unknown":
-        assert e.timestamp == 1.087
-        assert e.team is None
-        assert e.event_type == "other"
+    assert e.timestamp == 1.087
+    assert e.team == "Malaga"
+    assert e.event_type == "pass"
+    assert e.x == 60.0 and e.y == 40.0
+    assert e.raw_player_ref["vendor_id"] == 6707
+    assert e.vendor_source == "statsbomb"
+
+
+def test_unknown_vendor_generic_path_still_survives_non_numeric_timestamp_and_nested_fields(mapper):
+    """The generic/unknown-vendor fallback itself must still degrade
+    honestly (not crash) on a non-numeric timestamp string and dict-shaped
+    fields, for whatever genuinely-unrecognized vendor shape reaches it --
+    exercised directly here now that the real-StatsBomb case above no
+    longer reaches this path via Format Detective."""
+    garbage_but_similar_shape = {
+        "id": "e1", "type": {"id": 1, "name": "Mystery"}, "timestamp": "00:00:01.087",
+        "team": {"id": 1, "name": "Nowhere FC"},
+    }
+    mapped = mapper.map_events(
+        {"records": [garbage_but_similar_shape]}, "unknown", "records",
+    )
+    assert len(mapped) == 1
+    e = mapped[0]
+    assert e.timestamp == 1.087
+    assert e.team is None  # generic sniffing doesn't know to look inside nested dicts
+    assert e.event_type == "other"
 
 
 def test_raw_metadata_preserves_unmapped_fields_for_export_back(detective, mapper):

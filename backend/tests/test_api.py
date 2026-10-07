@@ -229,6 +229,12 @@ def test_ingest_stream_accepts_bare_event_array(client):
     assert result["type"] == "result"
     assert result["data"]["overall_status"] == "success"
     assert len(result["data"]["document"]["events"]) == 2
+    # Format Detective now recognizes StatsBomb's real nested-dict event
+    # shape directly (no top-level match_id/home_team/away_team needed, see
+    # format_detective._looks_like_real_statsbomb_event), so this isn't just
+    # "didn't crash" -- it's actually extracted real values, not a 0%-
+    # confidence empty document via the generic-vendor fallback.
+    assert result["data"]["document"]["metadata"]["quality_confidence"] > 0.0
 
 
 # --- Match sheet: auto-attached for sample matches, opt-in for uploads ---

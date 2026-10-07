@@ -92,6 +92,51 @@ def test_non_dict_input_does_not_crash(detective):
     assert result.confidence == 0.0
 
 
+def test_real_statsbomb_open_data_shape_detected_without_top_level_match_metadata(detective):
+    """Regression: real StatsBomb open-data event files carry *only* the
+    events array -- no match_id/home_team/away_team alongside it (that
+    lives in a separate matches.json this project doesn't require), unlike
+    this project's synthetic statsbomb fixtures. That used to score 0.58 on
+    fuzzy matching (just under the 0.6 threshold) and fall to the generic/
+    unknown-vendor path, which can't read nested type/team/location shapes
+    and extracted nothing. The structural nested-shape check should catch
+    this directly, on attempt 1, without needing the top-level keys."""
+    real_shaped = {
+        "events": [
+            {
+                "id": "e1", "type": {"id": 30, "name": "Pass"}, "timestamp": "00:00:01.087",
+                "period": 1, "team": {"id": 223, "name": "Malaga"},
+                "player": {"id": 6707, "name": "Someone"}, "location": [60.0, 40.0],
+            },
+            {
+                "id": "e2", "type": {"id": 16, "name": "Shot"}, "timestamp": "00:00:04.512",
+                "period": 1, "team": {"id": 224, "name": "Barcelona"},
+                "location": [102.3, 38.1],
+            },
+        ],
+    }
+    result = detective.detect(real_shaped)
+    assert result.detected_format == "statsbomb"
+    assert result.attempts == 1
+    assert result.confidence >= 0.9
+    assert result.event_list_key == "events"
+
+
+def test_real_statsbomb_shape_check_does_not_misfire_on_generic_nested_json(detective):
+    """A document that merely has dict-shaped 'type'/'team' fields but isn't
+    actually StatsBomb-shaped (no 'name' inside them, no location) should
+    not be mistaken for statsbomb -- the nested-shape check has to require
+    the specific {id, name} dict shape, not just 'type happens to be a dict'."""
+    not_statsbomb = {
+        "events": [
+            {"id": "x1", "type": {"code": 1}, "team": {"code": "A"}},
+            {"id": "x2", "type": {"code": 2}, "team": {"code": "B"}},
+        ],
+    }
+    result = detective.detect(not_statsbomb)
+    assert result.detected_format != "statsbomb"
+
+
 def test_vendor_signatures_are_internally_consistent():
     """Guards against a vendor signature being edited inconsistently
     (e.g. event_fields referencing the wrong event_list_key)."""

@@ -61,6 +61,31 @@ FUZZY_MATCH_THRESHOLD = 0.6
 EVENT_SAMPLE_SIZE = 8
 
 
+def _looks_like_real_statsbomb_event(e: dict) -> bool:
+    """Real StatsBomb open-data event files ship *only* the events array --
+    no match_id/home_team/away_team alongside it, that metadata lives in a
+    separate matches.json this project never requires. That means the
+    top-level-key half of the fuzzy score (VENDOR_SIGNATURES below) can
+    never score well on genuine StatsBomb data, only on this project's own
+    synthetic fixtures (which flatten team/player to strings and do include
+    those top-level keys). This is a second, independent structural check
+    for StatsBomb's actual event shape: type/team nested as {id, name}
+    dicts and location as an [x, y] pair -- distinct enough from every
+    other vendor (and from generic JSON) that a sample matching it
+    consistently is strong evidence on its own, regardless of what's
+    missing at the top level."""
+    if not isinstance(e, dict):
+        return False
+    type_ok = isinstance(e.get("type"), dict) and isinstance(e["type"].get("name"), str)
+    team_ok = isinstance(e.get("team"), dict) and isinstance(e["team"].get("name"), str)
+    has_id = isinstance(e.get("id"), str)
+    location = e.get("location")
+    location_ok = location is None or (
+        isinstance(location, list) and len(location) >= 2 and all(isinstance(v, (int, float)) for v in location)
+    )
+    return type_ok and team_ok and has_id and location_ok
+
+
 @dataclass
 class DetectionResult:
     detected_format: str                 # "opta" | "statsbomb" | "wyscout" | "unknown"
@@ -181,6 +206,29 @@ class FormatDetective:
                 f"Ambiguous: {len(strict_matches)} vendors matched strictly. Breaking tie with fuzzy scoring."
             )
             # fall through to fuzzy scoring, but restricted to the tied candidates
+
+        # --- Attempt 1b: known real-world alternate shape, structural check ---
+        # Only runs when nothing matched strictly -- a real open-data file
+        # (events only, no match metadata) can't, by construction. Checked
+        # before fuzzy scoring because that scoring method structurally
+        # can't see this shape either (see _looks_like_real_statsbomb_event).
+        if not strict_matches and "events" in _clean_keys(data):
+            sb_events = _sample_events(data, "events")
+            if sb_events and all(_looks_like_real_statsbomb_event(e) for e in sb_events):
+                attempt_log.append(
+                    "Attempt 1b (real-world nested-shape check): statsbomb "
+                    "(nested type/team {id,name} dicts, [x,y] location array -- "
+                    "StatsBomb's actual open-data event shape, no top-level match metadata)"
+                )
+                return DetectionResult(
+                    detected_format="statsbomb",
+                    confidence=0.9,
+                    vendor_schema_version="statsbomb_open_data",
+                    file_type="json",
+                    attempts=1,
+                    attempt_log=attempt_log,
+                    event_list_key="events",
+                )
 
         # --- Attempt 2: fuzzy / partial match ---
         candidates = strict_matches if strict_matches else VENDOR_SIGNATURES
