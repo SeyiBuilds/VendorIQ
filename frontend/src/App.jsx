@@ -36,6 +36,11 @@ export default function App() {
   const [runResult, setRunResult] = useState(null);
   const [cleanConfidence, setCleanConfidence] = useState(null);
   const [error, setError] = useState(null);
+  // Which section triggered the run currently shown in PipelineStatus --
+  // there's exactly one shared panel (one real run happens at a time), and
+  // it renders right after whichever section started it, instead of at a
+  // fixed spot everyone has to scroll to find.
+  const [pipelineSource, setPipelineSource] = useState(null); // "upload" | "match"
 
   useEffect(() => {
     listMatches()
@@ -69,15 +74,16 @@ export default function App() {
     }
   };
 
-  const handleStreamStart = () => {
+  const handleStreamStart = (source = "match") => {
     setError(null);
     setRunResult(null);
     setRecords(pendingRecords());
+    setPipelineSource(source);
   };
 
   const handleRun = async () => {
     setRunning(true);
-    handleStreamStart();
+    handleStreamStart("match");
     try {
       await runMatchStream(selectedMatchId, selectedVendor, (event) => {
         applyStreamEvent(event);
@@ -106,7 +112,15 @@ export default function App() {
 
       {error && <div className="error-banner">{error}</div>}
 
-      <UploadPanel onStart={handleStreamStart} onEvent={applyStreamEvent} />
+      <UploadPanel onStart={() => handleStreamStart("upload")} onEvent={applyStreamEvent} />
+
+      {pipelineSource === "upload" && (
+        <PipelineStatus
+          records={records}
+          overallStatus={runResult?.overall_status}
+          confidence={runResult?.document?.metadata?.quality_confidence}
+        />
+      )}
 
       <MatchPicker
         matches={matches}
@@ -122,16 +136,18 @@ export default function App() {
 
       <CorruptionPanel
         matchId={selectedMatchId}
-        onStart={handleStreamStart}
+        onStart={() => handleStreamStart("match")}
         onEvent={applyStreamEvent}
         cleanConfidence={cleanConfidence}
       />
 
-      <PipelineStatus
-        records={records}
-        overallStatus={runResult?.overall_status}
-        confidence={runResult?.document?.metadata?.quality_confidence}
-      />
+      {pipelineSource === "match" && (
+        <PipelineStatus
+          records={records}
+          overallStatus={runResult?.overall_status}
+          confidence={runResult?.document?.metadata?.quality_confidence}
+        />
+      )}
 
       <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} document={runResult?.document} />
 

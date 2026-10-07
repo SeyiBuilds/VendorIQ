@@ -1,21 +1,6 @@
 import { useState } from "react";
 import { unzipSync, strFromU8 } from "fflate";
 import { ingestRunStream, ingestRunStreamMulti } from "../api";
-import PipelineStatus from "./PipelineStatus";
-
-const STAGE_ORDER = [
-  "format_detective",
-  "schema_mapper",
-  "coordinate_translator",
-  "entity_resolver",
-  "match_sheet_mapper",
-  "validator",
-  "narrative_generator",
-];
-
-function pendingRecords() {
-  return STAGE_ORDER.map((stage) => ({ stage, status: "pending" }));
-}
 
 // Auto-collapse the per-file table once a batch gets long -- a 190-row
 // table is just noise to scroll past; the live stage board above and the
@@ -107,11 +92,6 @@ export default function UploadPanel({ onStart, onEvent }) {
   const [progress, setProgress] = useState(null); // { index, total, label }
   const [running, setRunning] = useState(false);
   const [error, setError] = useState(null);
-  // Mirrors the same stream events App.jsx consumes, but kept local too so
-  // the live per-agent board renders right here, next to the file queue --
-  // not just in the shared panel further down the page, which is easy to
-  // run straight past when 190 files are firing through it back to back.
-  const [liveStageRecords, setLiveStageRecords] = useState([]);
   const [showAllResults, setShowAllResults] = useState(false);
   // Combine mode: 2+ files of the SAME match (e.g. Opta + StatsBomb),
   // merged into one CDF document instead of run as independent pipeline
@@ -135,22 +115,6 @@ export default function UploadPanel({ onStart, onEvent }) {
     setLoadErrors(errs);
   };
 
-  const applyLiveStageEvent = (event) => {
-    if (event.type === "start") {
-      setLiveStageRecords((prev) => prev.map((r) => (r.stage === event.stage ? { ...r, status: "running" } : r)));
-    } else if (event.type === "stage") {
-      setLiveStageRecords((prev) =>
-        prev.map((r) =>
-          r.stage === event.stage
-            ? { stage: r.stage, status: event.status, detail: event.detail, retried: event.retried }
-            : r,
-        ),
-      );
-    } else if (event.type === "result") {
-      setLiveStageRecords(event.data.orchestration_log.records);
-    }
-  };
-
   const handleRunAll = async () => {
     if (items.length === 0) return;
     setRunning(true);
@@ -161,13 +125,11 @@ export default function UploadPanel({ onStart, onEvent }) {
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
       setProgress({ index: i + 1, total: items.length, label: item.label });
-      setLiveStageRecords(pendingRecords());
       onStart();
       let captured = null;
       try {
         await ingestRunStream(item.payload, (event) => {
           onEvent(event);
-          applyLiveStageEvent(event);
           if (event.type === "result") captured = event.data;
         });
         setResults((prev) => [...prev, {
@@ -189,13 +151,11 @@ export default function UploadPanel({ onStart, onEvent }) {
     setRunning(true);
     setError(null);
     setCombinedResult(null);
-    setLiveStageRecords(pendingRecords());
     onStart();
     try {
       let captured = null;
       await ingestRunStreamMulti(items.map((it) => it.payload), primaryIndex, (event) => {
         onEvent(event);
-        applyLiveStageEvent(event);
         if (event.type === "result") captured = event.data;
       });
       setCombinedResult({
@@ -290,10 +250,6 @@ export default function UploadPanel({ onStart, onEvent }) {
       )}
 
       {progress && <p className="hint">Running {progress.index} of {progress.total}: {progress.label}</p>}
-
-      {liveStageRecords.length > 0 && (running || results.length > 0 || combinedResult) && (
-        <PipelineStatus records={liveStageRecords} />
-      )}
 
       {loadErrors.length > 0 && (
         <details className="narrative-section data-quality-notes">
