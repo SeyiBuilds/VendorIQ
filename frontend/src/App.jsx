@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AlertCircle } from "lucide-react";
 import { listMatches, runMatchStream } from "./api";
 import MatchPicker from "./components/MatchPicker";
@@ -42,6 +42,10 @@ export default function App() {
   // it renders right after whichever section started it, instead of at a
   // fixed spot everyone has to scroll to find.
   const [pipelineSource, setPipelineSource] = useState(null); // "upload" | "match"
+  // Scroll target for the Outputs section -- once a run actually finishes
+  // (CDF document produced), jump the person down to it instead of leaving
+  // them to scroll past the pipeline stage list themselves.
+  const outputsRef = useRef(null);
 
   useEffect(() => {
     listMatches()
@@ -72,6 +76,11 @@ export default function App() {
       // Reconcile against the authoritative orchestration log, in case any
       // individual stream event was missed -- same data, just a safety net.
       setRecords(event.data.orchestration_log.records);
+      // Wait a tick for the Outputs section to actually render the new
+      // result before scrolling to it.
+      if (event.data.document) {
+        setTimeout(() => outputsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+      }
     }
   };
 
@@ -103,20 +112,11 @@ export default function App() {
 
   return (
     <div className="mx-auto max-w-6xl px-5 pb-16">
-      <header className="sticky top-0 z-20 -mx-5 flex items-center gap-3 bg-gradient-to-b from-background from-80% to-transparent px-5 py-5 backdrop-blur-sm">
-        <div
-          aria-hidden="true"
-          className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-blue-700 font-mono text-sm font-semibold text-primary-foreground shadow-[0_4px_16px_rgba(79,139,255,0.35)]"
-        >
-          SM
-        </div>
-        <div className="min-w-0">
-          <h1 className="truncate text-lg font-bold tracking-tight">Synthetic Match Insights Engine</h1>
-          <p className="hidden truncate text-sm text-muted-foreground sm:block">
-            Inside the Game: Developer Hackathon — turning synthetic football events into
-            explainable match intelligence, in real time.
-          </p>
-        </div>
+      <header className="sticky top-0 z-20 -mx-5 border-b border-border/60 bg-background/95 px-5 py-4 backdrop-blur-sm">
+        <h1 className="text-lg font-bold tracking-tight">Synthetic Match Insights Engine</h1>
+        <p className="mt-0.5 truncate text-sm text-muted-foreground">
+          Turns raw match feeds into explainable match intelligence, in real time.
+        </p>
       </header>
 
       {error && (
@@ -178,7 +178,7 @@ export default function App() {
         </div>
       )}
 
-      <section className="mb-8 flex flex-col gap-6">
+      <section ref={outputsRef} className="mb-8 flex scroll-mt-20 flex-col gap-6">
         <p className="-mb-3 ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
           Outputs
         </p>

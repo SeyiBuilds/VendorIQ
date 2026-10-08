@@ -188,9 +188,7 @@ export default function UploadPanel({ onStart, onEvent }) {
       <CardHeader>
         <CardTitle>Bring your own match data</CardTitle>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Upload Opta, StatsBomb, or Wyscout JSON as-is — including bare event arrays. Pick multiple
-          .json files or a .zip of them; each runs through the 7-agent pipeline on its own, vendor
-          auto-detected. Unrecognized shapes degrade honestly, never crash or fabricate data.
+          Upload Opta, StatsBomb, or Wyscout JSON — pick .json files or a .zip of them.
         </p>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
@@ -252,8 +250,7 @@ export default function UploadPanel({ onStart, onEvent }) {
 
         {combineMode && (
           <p className="text-sm leading-relaxed text-muted-foreground">
-            Events come only from the primary file, so counts stay real — every other file is used to
-            cross-check player identity and fill in match info, never double-counted as events.
+            Events come from the primary file only — others enrich player identity and match info.
           </p>
         )}
 

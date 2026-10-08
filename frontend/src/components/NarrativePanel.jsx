@@ -85,7 +85,13 @@ export default function NarrativePanel({ narrative }) {
           <summary className="cursor-pointer text-sm font-semibold text-muted-foreground hover:text-foreground">
             Full generated report text
           </summary>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{narrative.narrative_text}</p>
+          <div className="mt-3 flex max-w-prose flex-col gap-2.5 text-sm leading-relaxed text-muted-foreground">
+            {/* One sentence per line -- the raw text is a single dense
+                paragraph, which reads as a wall of text at full card width. */}
+            {narrative.narrative_text
+              .split(/(?<=\.)\s+(?=[A-Z])/)
+              .map((sentence, i) => <p key={i}>{sentence}</p>)}
+          </div>
         </details>
 
         {narrative.data_quality_notes.length > 0 && (
