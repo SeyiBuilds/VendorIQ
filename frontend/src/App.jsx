@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { AlertCircle } from "lucide-react";
 import { listMatches, runMatchStream } from "./api";
 import MatchPicker from "./components/MatchPicker";
 import PipelineStatus from "./components/PipelineStatus";
@@ -7,7 +8,7 @@ import CorruptionPanel from "./components/CorruptionPanel";
 import UploadPanel from "./components/UploadPanel";
 import ExportPanel from "./components/ExportPanel";
 import MatchSheetPanel from "./components/MatchSheetPanel";
-import "./App.css";
+import { Alert, AlertDescription } from "./components/ui/alert";
 
 // Fixed display order for the live stage list -- mirrors
 // orchestrator.CRITICAL_STAGES + OPTIONAL_STAGES. Every stage starts
@@ -101,23 +102,35 @@ export default function App() {
   };
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <div className="app-mark" aria-hidden="true">SM</div>
-        <div className="app-header-text">
-          <h1>Synthetic Match Insights Engine</h1>
-          <p className="tagline">
+    <div className="mx-auto max-w-6xl px-5 pb-16">
+      <header className="sticky top-0 z-20 -mx-5 flex items-center gap-3 bg-gradient-to-b from-background from-80% to-transparent px-5 py-5 backdrop-blur-sm">
+        <div
+          aria-hidden="true"
+          className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-blue-700 font-mono text-sm font-semibold text-primary-foreground shadow-[0_4px_16px_rgba(79,139,255,0.35)]"
+        >
+          SM
+        </div>
+        <div className="min-w-0">
+          <h1 className="truncate text-lg font-bold tracking-tight">Synthetic Match Insights Engine</h1>
+          <p className="hidden truncate text-sm text-muted-foreground sm:block">
             Inside the Game: Developer Hackathon — turning synthetic football events into
             explainable match intelligence, in real time.
           </p>
         </div>
       </header>
 
-      {error && <div className="error-banner">{error}</div>}
+      {error && (
+        <Alert variant="destructive" className="mb-5">
+          <AlertCircle />
+          <AlertDescription>{error}</AlertDescription>
+        </Alert>
+      )}
 
-      <section className="flow-group">
-        <p className="flow-group-label">Bring data in</p>
-        <div className="input-grid">
+      <section className="mb-8">
+        <p className="mb-3 ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
+          Bring data in
+        </p>
+        <div className="grid items-start gap-6 md:grid-cols-2">
           <UploadPanel onStart={() => handleStreamStart("upload")} onEvent={applyStreamEvent} />
           <MatchPicker
             matches={matches}
@@ -134,15 +147,19 @@ export default function App() {
       </section>
 
       {pipelineSource === "upload" && (
-        <PipelineStatus
-          records={records}
-          overallStatus={runResult?.overall_status}
-          confidence={runResult?.document?.metadata?.quality_confidence}
-        />
+        <div className="mb-8">
+          <PipelineStatus
+            records={records}
+            overallStatus={runResult?.overall_status}
+            confidence={runResult?.document?.metadata?.quality_confidence}
+          />
+        </div>
       )}
 
-      <section className="flow-group">
-        <p className="flow-group-label">Resilience</p>
+      <section className="mb-8">
+        <p className="mb-3 ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
+          Resilience
+        </p>
         <CorruptionPanel
           matchId={selectedMatchId}
           onStart={() => handleStreamStart("match")}
@@ -152,15 +169,19 @@ export default function App() {
       </section>
 
       {pipelineSource === "match" && (
-        <PipelineStatus
-          records={records}
-          overallStatus={runResult?.overall_status}
-          confidence={runResult?.document?.metadata?.quality_confidence}
-        />
+        <div className="mb-8">
+          <PipelineStatus
+            records={records}
+            overallStatus={runResult?.overall_status}
+            confidence={runResult?.document?.metadata?.quality_confidence}
+          />
+        </div>
       )}
 
-      <section className="flow-group">
-        <p className="flow-group-label">Outputs</p>
+      <section className="mb-8 flex flex-col gap-6">
+        <p className="-mb-3 ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
+          Outputs
+        </p>
         <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} document={runResult?.document} />
         <MatchSheetPanel matchSheet={runResult?.document?.match_sheet} />
         {runResult && <NarrativePanel narrative={runResult.narrative} />}

@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { unzipSync, strFromU8 } from "fflate";
 import { ingestRunStream, ingestRunStreamMulti } from "../api";
+import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
+import { Button } from "./ui/button";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
+import { Checkbox } from "./ui/checkbox";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "./ui/select";
+import { Alert, AlertDescription } from "./ui/alert";
+import { Badge } from "./ui/badge";
+import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from "./ui/table";
 
 // Auto-collapse the per-file table once a batch gets long -- a 190-row
 // table is just noise to scroll past; the live stage board above and the
@@ -175,109 +184,129 @@ export default function UploadPanel({ onStart, onEvent }) {
   const extra = items.length - shown.length;
 
   return (
-    <div className="panel upload-panel">
-      <h2>Bring your own match data</h2>
-      <p className="hint">
-        Upload Opta, StatsBomb, or Wyscout JSON as-is — including bare event arrays. Pick multiple
-        .json files or a .zip of them; each runs through the 7-agent pipeline on its own, vendor
-        auto-detected. Unrecognized shapes degrade honestly, never crash or fabricate data.
-      </p>
-
-      <div className="field-row">
-        <label>
-          Match file(s) (.json or .zip)
-          <input
-            type="file"
-            accept="application/json,.json,.zip,application/zip,application/x-zip-compressed"
-            multiple
-            onChange={handleFiles}
-            disabled={running}
-          />
-        </label>
-        {!combineMode && (
-          <button className="primary" onClick={handleRunAll} disabled={items.length === 0 || running}>
-            {running
-              ? `Running ${progress ? `${progress.index}/${progress.total}` : "…"}`
-              : `Run ${items.length > 1 ? `all ${items.length} matches` : "uploaded match"}`}
-          </button>
-        )}
-      </div>
-
-      {items.length >= 2 && (
-        <div className="field-row combine-row">
-          <label className="checkbox-label">
-            <input
-              type="checkbox"
-              checked={combineMode}
-              onChange={(e) => { setCombineMode(e.target.checked); setCombinedResult(null); }}
+    <Card className="border-primary/30">
+      <CardHeader>
+        <CardTitle>Bring your own match data</CardTitle>
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Upload Opta, StatsBomb, or Wyscout JSON as-is — including bare event arrays. Pick multiple
+          .json files or a .zip of them; each runs through the 7-agent pipeline on its own, vendor
+          auto-detected. Unrecognized shapes degrade honestly, never crash or fabricate data.
+        </p>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4">
+        <div className="flex flex-wrap items-end gap-4">
+          <Label className="flex-col items-start gap-1.5">
+            Match file(s) (.json or .zip)
+            <Input
+              type="file"
+              accept="application/json,.json,.zip,application/zip,application/x-zip-compressed"
+              multiple
+              onChange={handleFiles}
               disabled={running}
+              className="h-auto py-1.5 file:mr-2 file:rounded file:border-0 file:bg-secondary file:px-2 file:py-1"
             />
-            Combine these {items.length} files into one CDF (same match, multiple vendors)
-          </label>
-          {combineMode && (
-            <>
-              <label>
-                Primary (event source)
-                <select
-                  value={primaryIndex}
-                  onChange={(e) => setPrimaryIndex(Number(e.target.value))}
-                  disabled={running}
-                >
-                  {items.map((it, i) => <option key={i} value={i}>{it.label}</option>)}
-                </select>
-              </label>
-              <button className="primary" onClick={handleRunCombined} disabled={running}>
-                {running ? "Combining…" : `Combine into 1 CDF`}
-              </button>
-            </>
+          </Label>
+          {!combineMode && (
+            <Button onClick={handleRunAll} disabled={items.length === 0 || running}>
+              {running
+                ? `Running ${progress ? `${progress.index}/${progress.total}` : "…"}`
+                : `Run ${items.length > 1 ? `all ${items.length} matches` : "uploaded match"}`}
+            </Button>
           )}
         </div>
-      )}
 
-      {combineMode && (
-        <p className="hint">
-          Events come only from the primary file, so counts stay real — every other file is used to
-          cross-check player identity and fill in match info, never double-counted as events.
-        </p>
-      )}
+        {items.length >= 2 && (
+          <div className="flex flex-col gap-3 border-t border-border/70 pt-3">
+            <label className="flex items-center gap-2 text-sm">
+              <Checkbox
+                checked={combineMode}
+                onCheckedChange={(v) => { setCombineMode(v === true); setCombinedResult(null); }}
+                disabled={running}
+              />
+              Combine these {items.length} files into one CDF (same match, multiple vendors)
+            </label>
+            {combineMode && (
+              <div className="flex flex-wrap items-end gap-4">
+                <Label className="flex-col items-start gap-1.5">
+                  Primary (event source)
+                  <Select
+                    value={String(primaryIndex)}
+                    onValueChange={(v) => setPrimaryIndex(Number(v))}
+                    disabled={running}
+                  >
+                    <SelectTrigger className="w-[260px]"><SelectValue /></SelectTrigger>
+                    <SelectContent>
+                      {items.map((it, i) => (
+                        <SelectItem key={i} value={String(i)}>{it.label}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </Label>
+                <Button onClick={handleRunCombined} disabled={running}>
+                  {running ? "Combining…" : "Combine into 1 CDF"}
+                </Button>
+              </div>
+            )}
+          </div>
+        )}
 
-      {items.length > 0 && (
-        <p className="hint">
-          Loaded {items.length} match file{items.length === 1 ? "" : "s"}:{" "}
-          {shown.map((it) => it.label).join(", ")}
-          {extra > 0 && ` + ${extra} more`}
-        </p>
-      )}
+        {combineMode && (
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Events come only from the primary file, so counts stay real — every other file is used to
+            cross-check player identity and fill in match info, never double-counted as events.
+          </p>
+        )}
 
-      {progress && <p className="hint">Running {progress.index} of {progress.total}: {progress.label}</p>}
+        {items.length > 0 && (
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Loaded {items.length} match file{items.length === 1 ? "" : "s"}:{" "}
+            {shown.map((it) => it.label).join(", ")}
+            {extra > 0 && ` + ${extra} more`}
+          </p>
+        )}
 
-      {loadErrors.length > 0 && (
-        <details className="narrative-section data-quality-notes">
-          <summary>{loadErrors.length} file(s) skipped while loading</summary>
-          <ul>{loadErrors.map((e, i) => <li key={i}>{e}</li>)}</ul>
-        </details>
-      )}
+        {progress && (
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Running {progress.index} of {progress.total}: {progress.label}
+          </p>
+        )}
 
-      {error && <div className="error-banner">{error}</div>}
+        {loadErrors.length > 0 && (
+          <details>
+            <summary className="cursor-pointer text-sm font-semibold text-muted-foreground hover:text-foreground">
+              {loadErrors.length} file(s) skipped while loading
+            </summary>
+            <ul className="mt-2 flex list-disc flex-col gap-1 pl-5 text-sm text-muted-foreground">
+              {loadErrors.map((e, i) => <li key={i}>{e}</li>)}
+            </ul>
+          </details>
+        )}
 
-      {combinedResult && (
-        <p className="hint">
-          Combined into one CDF — <strong>{combinedResult.status}</strong>,{" "}
-          {combinedResult.eventCount} event{combinedResult.eventCount === 1 ? "" : "s"} from{" "}
-          {combinedResult.sourceVendors.join(", ") || "primary"},{" "}
-          {combinedResult.confidence != null ? `${(combinedResult.confidence * 100).toFixed(1)}%` : "—"} confidence.
-          Full document below.
-        </p>
-      )}
+        {error && (
+          <Alert variant="destructive">
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        )}
 
-      {results.length > 0 && (
-        <ResultsSummary
-          results={results}
-          showAll={showAllResults}
-          onToggleShowAll={() => setShowAllResults((v) => !v)}
-        />
-      )}
-    </div>
+        {combinedResult && (
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Combined into one CDF — <strong className="text-foreground">{combinedResult.status}</strong>,{" "}
+            {combinedResult.eventCount} event{combinedResult.eventCount === 1 ? "" : "s"} from{" "}
+            {combinedResult.sourceVendors.join(", ") || "primary"},{" "}
+            {combinedResult.confidence != null ? `${(combinedResult.confidence * 100).toFixed(1)}%` : "—"} confidence.
+            Full document below.
+          </p>
+        )}
+
+        {results.length > 0 && (
+          <ResultsSummary
+            results={results}
+            showAll={showAllResults}
+            onToggleShowAll={() => setShowAllResults((v) => !v)}
+          />
+        )}
+      </CardContent>
+    </Card>
   );
 }
 
@@ -289,19 +318,22 @@ function ResultsSummary({ results, showAll, onToggleShowAll }) {
   }, {});
 
   return (
-    <div className="upload-results-summary">
-      <p className="hint">
+    <div className="flex flex-col gap-3">
+      <p className="text-sm leading-relaxed text-muted-foreground">
         {results.length} run{results.length === 1 ? "" : "s"} so far —{" "}
         {Object.entries(counts).map(([status, n], i) => (
           <span key={status}>
             {i > 0 && ", "}
-            <strong>{n}</strong> {status}
+            <strong className="text-foreground">{n}</strong> {status}
           </span>
         ))}
         {results.length > AUTO_COLLAPSE_THRESHOLD && (
           <>
             {" "}
-            <button className="link-button" onClick={onToggleShowAll}>
+            <button
+              className="font-semibold text-primary underline underline-offset-2"
+              onClick={onToggleShowAll}
+            >
               {showAll ? "hide per-file table" : "show per-file table"}
             </button>
           </>
@@ -309,20 +341,31 @@ function ResultsSummary({ results, showAll, onToggleShowAll }) {
       </p>
 
       {showAll && (
-        <table className="stats-table upload-results">
-          <thead>
-            <tr><th>File</th><th>Status</th><th>Confidence</th></tr>
-          </thead>
-          <tbody>
+        <Table>
+          <TableHeader>
+            <TableRow><TableHead>File</TableHead><TableHead>Status</TableHead><TableHead>Confidence</TableHead></TableRow>
+          </TableHeader>
+          <TableBody>
             {results.map((r, i) => (
-              <tr key={i}>
-                <td>{r.label}</td>
-                <td>{r.error ? `error: ${r.error}` : r.status}</td>
-                <td>{r.confidence != null ? `${(r.confidence * 100).toFixed(1)}%` : "—"}</td>
-              </tr>
+              <TableRow key={i}>
+                <TableCell className="max-w-[420px] truncate font-normal">{r.label}</TableCell>
+                <TableCell>
+                  {r.error ? (
+                    <Badge variant="destructive">error</Badge>
+                  ) : (
+                    <Badge variant={r.status === "success" ? "success" : r.status === "partial" ? "warning" : "muted"}>
+                      {r.status}
+                    </Badge>
+                  )}
+                  {r.error && <span className="ml-2 text-xs text-muted-foreground">{r.error}</span>}
+                </TableCell>
+                <TableCell className="font-mono tabular-nums">
+                  {r.confidence != null ? `${(r.confidence * 100).toFixed(1)}%` : "—"}
+                </TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
+          </TableBody>
+        </Table>
       )}
     </div>
   );

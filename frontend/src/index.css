@@ -1,5 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+/*
+  This dashboard is a locked dark-mode tool (technical/demo audience, not a
+  consumer surface that needs a light/dark toggle) -- tokens are defined
+  once at :root rather than duplicated behind a `dark:` variant everywhere.
+  Off-black surfaces (never pure #000) for depth; one accent (blue) reused
+  identically for every interactive/brand moment; status colors (success/
+  partial/failed/skipped) reused identically across badges, pills and
+  borders anywhere a run status is shown.
+*/
+:root {
+  --background: #0b0f16;
+  --foreground: #eef1f6;
+
+  --card: #131a24;
+  --card-foreground: #eef1f6;
+
+  --popover: #131a24;
+  --popover-foreground: #eef1f6;
+
+  --primary: #4f8bff;
+  --primary-foreground: #06101f;
+
+  --secondary: #1b222d;
+  --secondary-foreground: #eef1f6;
+
+  --muted: #0e131b;
+  --muted-foreground: #8d98a8;
+
+  --accent: #1b222d;
+  --accent-foreground: #eef1f6;
+
+  --destructive: #ef5a4c;
+  --destructive-foreground: #1a0b09;
+
+  --success: #3ecf8e;
+  --success-foreground: #06100a;
+  --warning: #e3b341;
+  --warning-foreground: #1a1203;
+
+  --border: #232c39;
+  --input: #232c39;
+  --ring: #4f8bff;
+
+  --radius: 0.65rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
 * {
   box-sizing: border-box;
+  border-color: var(--color-border);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  background-image: radial-gradient(circle at 15% 0%, rgba(79, 139, 255, 0.08), transparent 42%);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 #root {

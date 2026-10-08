@@ -1,5 +1,12 @@
 import { useState } from "react";
+import { Download, UploadCloud } from "lucide-react";
 import { exportRun } from "../api";
+import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
+import { Button } from "./ui/button";
+import { Label } from "./ui/label";
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "./ui/select";
+import { Alert, AlertDescription } from "./ui/alert";
+import { Separator } from "./ui/separator";
 
 const VENDORS = ["opta", "statsbomb", "wyscout"];
 
@@ -50,48 +57,65 @@ export default function ExportPanel({ runId, hasDocument, document: cdfDocument 
   };
 
   return (
-    <div className="panel export-panel">
-      <h2>Export (Agent 7)</h2>
-
-      <div className="field-row">
-        <div>
-          <p className="hint" style={{ margin: 0 }}>
+    <Card className="border-success/30">
+      <CardHeader>
+        <CardTitle>Export (Agent 7)</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
             The actual output of this pipeline — one normalized document, whatever vendor(s) went in.
           </p>
-          <button onClick={handleDownloadCDF} disabled={!cdfDocument}>Download CDF (raw .json)</button>
+          <Button variant="outline" onClick={handleDownloadCDF} disabled={!cdfDocument}>
+            <Download />
+            Download CDF (raw .json)
+          </Button>
         </div>
-      </div>
 
-      <p className="hint">
-        Re-export this run's validated CDF document back into another vendor's shape — on demand,
-        never part of the pipeline run itself (see orchestrator.py's design note on why).
-      </p>
+        <Separator />
 
-      <div className="field-row">
-        <label>
-          Target vendor
-          <select value={targetVendor} onChange={(e) => { setTargetVendor(e.target.value); setResult(null); }}>
-            {VENDORS.map((v) => <option key={v} value={v}>{v}</option>)}
-          </select>
-        </label>
-        <button className="primary" onClick={handleExport} disabled={exporting}>
-          {exporting ? "Exporting…" : "Export"}
-        </button>
-        {result && (
-          <button onClick={handleDownload}>Download {targetVendor}.json</button>
-        )}
-      </div>
-
-      {error && <div className="error-banner">{error}</div>}
-
-      {result && (
-        <p className="hint">
-          Exported {result.report.events_exported} events to {result.report.target_vendor} shape
-          {result.report.players_with_synthesized_id > 0 &&
-            ` (${result.report.players_with_synthesized_id} player ID${result.report.players_with_synthesized_id === 1 ? "" : "s"} synthesized -- no native ID for that vendor)`}
-          .
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          Re-export this run's validated CDF document back into another vendor's shape — on demand,
+          never part of the pipeline run itself (see orchestrator.py's design note on why).
         </p>
-      )}
-    </div>
+
+        <div className="flex flex-wrap items-end gap-4">
+          <Label className="flex-col items-start gap-1.5">
+            Target vendor
+            <Select value={targetVendor} onValueChange={(v) => { setTargetVendor(v); setResult(null); }}>
+              <SelectTrigger className="w-[150px]"><SelectValue /></SelectTrigger>
+              <SelectContent>
+                {VENDORS.map((v) => <SelectItem key={v} value={v}>{v}</SelectItem>)}
+              </SelectContent>
+            </Select>
+          </Label>
+          <Button onClick={handleExport} disabled={exporting}>
+            <UploadCloud />
+            {exporting ? "Exporting…" : "Export"}
+          </Button>
+          {result && (
+            <Button variant="outline" onClick={handleDownload}>
+              <Download />
+              Download {targetVendor}.json
+            </Button>
+          )}
+        </div>
+
+        {error && (
+          <Alert variant="destructive">
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        )}
+
+        {result && (
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            Exported {result.report.events_exported} events to {result.report.target_vendor} shape
+            {result.report.players_with_synthesized_id > 0 &&
+              ` (${result.report.players_with_synthesized_id} player ID${result.report.players_with_synthesized_id === 1 ? "" : "s"} synthesized -- no native ID for that vendor)`}
+            .
+          </p>
+        )}
+      </CardContent>
+    </Card>
   );
 }
