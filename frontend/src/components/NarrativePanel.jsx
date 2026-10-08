@@ -27,24 +27,30 @@ export default function NarrativePanel({ narrative }) {
         <table className="stats-table">
           <thead>
             <tr>
-              <th>Team</th><th>Goals</th><th>Shots</th><th>Passes</th><th>Avg pass (m)</th><th>Tackles</th><th>Fouls</th><th>Cards</th>
+              <th>Team</th><th>Poss. (proxy)</th><th>Goals</th><th>Shots (on target)</th><th>Passes (acc.)</th>
+              <th>Avg pass (m)</th><th>Duels won</th><th>Fouls</th><th>Cards</th>
             </tr>
           </thead>
           <tbody>
             {teams.map((t) => (
               <tr key={t.team}>
                 <td>{t.team}</td>
+                <td>{t.possession_pct != null ? `${t.possession_pct.toFixed(0)}%` : "—"}</td>
                 <td>{t.goals}</td>
-                <td>{t.shots}</td>
+                <td>{t.shots} ({t.shots_on_target})</td>
                 <td>{t.passes_completed}/{t.passes}</td>
                 <td>{t.avg_pass_distance_m?.toFixed(1) ?? "—"}</td>
-                <td>{t.tackles}</td>
+                <td>{t.duels_won}</td>
                 <td>{t.fouls}</td>
                 <td>{t.cards}</td>
               </tr>
             ))}
           </tbody>
         </table>
+        <p className="hint">
+          Possession is an event-share proxy (pass/dribble/shot/set-piece share), not tracked ball
+          time — no vendor here supplies that. Duels won = tackles + interceptions.
+        </p>
       </section>
 
       <details className="narrative-section narrative-raw">

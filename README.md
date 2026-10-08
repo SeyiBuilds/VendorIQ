@@ -21,7 +21,7 @@ Wyscout event or lineup feed, so faking them would misrepresent what this
 tool actually does.
 
 Built with the mindset that this already won and a club wants it in
-production: real test suites (234 passing), pinned dependencies, honest
+production: real test suites (280 passing), pinned dependencies, honest
 confidence scoring and graceful degradation instead of fabricated
 numbers, and a documented fallback path for every place real data goes
 missing or wrong.
@@ -33,7 +33,7 @@ Requires Python 3.11+ and Node 18+.
 ```bash
 # 1. backend — install deps and run the test suite
 pip install -r requirements.txt
-pytest backend/tests -q          # 234 passed
+pytest backend/tests -q          # 280 passed
 # (Windows: if `pytest` / `uvicorn` aren't recognized, use `python -m pytest` / `python -m uvicorn` instead)
 
 # 2. backend — start the API
@@ -46,14 +46,24 @@ cp .env.example .env             # points at http://localhost:8000
 npm run dev                      # opens on http://localhost:5173
 ```
 
-Open the frontend URL, pick a sample match, hit **Run pipeline**. Try
-**Break it live** to corrupt a clean feed on the spot (strip player
-identities, null out coordinates, drop timestamps...) and watch the same
-pipeline degrade gracefully instead of crashing or fabricating data.
+Open the frontend URL, pick a sample match, hit **Run pipeline**. Try the
+**Resilience stress test** to corrupt a clean feed on the spot (strip
+player identities, null out coordinates, drop timestamps...) and watch
+the same pipeline degrade gracefully instead of crashing or fabricating
+data -- or use its orchestrator decision test to make one agent genuinely
+fail and watch the Master Orchestrator's own retry/abort/degrade logic
+fire for real.
 Or use **Bring your own match data** to upload a vendor-shaped JSON file
 of your own (Opta/StatsBomb/Wyscout) and run it through the same
 pipeline — format is auto-detected. Once a run produces a document, use
 **Export** to re-export it into another vendor's shape and download it.
+
+The narrative is always built from a deterministic template first (works
+fully offline). To upgrade it into a more naturally-written paragraph,
+set either `ANTHROPIC_API_KEY` or `GROQ_API_KEY` as an environment
+variable before starting the backend -- Anthropic is tried first if both
+are set, Groq otherwise. Either way the LLM gets the exact same computed
+stats as the template, never raw data it could embellish.
 
 ## Architecture
 
@@ -80,7 +90,7 @@ backend/
     orchestrator.py            Master Orchestrator — wires 1-6 + the optional match_sheet_mapper
                                 stage, critical/optional stage split
   api/main.py                  FastAPI layer over the orchestrator
-  tests/                       234 tests, one file per agent/module
+  tests/                       280 tests, one file per agent/module
 frontend/                      React + Vite UI — see frontend/README.md
 ```
 

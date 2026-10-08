@@ -103,16 +103,35 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Synthetic Match Insights Engine</h1>
-        <p className="tagline">
-          Inside the Game: Developer Hackathon — turning synthetic football events into explainable
-          match intelligence, in real time.
-        </p>
+        <div className="app-mark" aria-hidden="true">SM</div>
+        <div className="app-header-text">
+          <h1>Synthetic Match Insights Engine</h1>
+          <p className="tagline">
+            Inside the Game: Developer Hackathon — turning synthetic football events into
+            explainable match intelligence, in real time.
+          </p>
+        </div>
       </header>
 
       {error && <div className="error-banner">{error}</div>}
 
-      <UploadPanel onStart={() => handleStreamStart("upload")} onEvent={applyStreamEvent} />
+      <section className="flow-group">
+        <p className="flow-group-label">Bring data in</p>
+        <div className="input-grid">
+          <UploadPanel onStart={() => handleStreamStart("upload")} onEvent={applyStreamEvent} />
+          <MatchPicker
+            matches={matches}
+            selectedMatchId={selectedMatchId}
+            selectedVendor={selectedVendor}
+            onChange={({ matchId, vendor }) => {
+              setSelectedMatchId(matchId);
+              setSelectedVendor(vendor);
+            }}
+            onRun={handleRun}
+            running={running}
+          />
+        </div>
+      </section>
 
       {pipelineSource === "upload" && (
         <PipelineStatus
@@ -122,24 +141,15 @@ export default function App() {
         />
       )}
 
-      <MatchPicker
-        matches={matches}
-        selectedMatchId={selectedMatchId}
-        selectedVendor={selectedVendor}
-        onChange={({ matchId, vendor }) => {
-          setSelectedMatchId(matchId);
-          setSelectedVendor(vendor);
-        }}
-        onRun={handleRun}
-        running={running}
-      />
-
-      <CorruptionPanel
-        matchId={selectedMatchId}
-        onStart={() => handleStreamStart("match")}
-        onEvent={applyStreamEvent}
-        cleanConfidence={cleanConfidence}
-      />
+      <section className="flow-group">
+        <p className="flow-group-label">Resilience</p>
+        <CorruptionPanel
+          matchId={selectedMatchId}
+          onStart={() => handleStreamStart("match")}
+          onEvent={applyStreamEvent}
+          cleanConfidence={cleanConfidence}
+        />
+      </section>
 
       {pipelineSource === "match" && (
         <PipelineStatus
@@ -149,11 +159,12 @@ export default function App() {
         />
       )}
 
-      <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} document={runResult?.document} />
-
-      <MatchSheetPanel matchSheet={runResult?.document?.match_sheet} />
-
-      {runResult && <NarrativePanel narrative={runResult.narrative} />}
+      <section className="flow-group">
+        <p className="flow-group-label">Outputs</p>
+        <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} document={runResult?.document} />
+        <MatchSheetPanel matchSheet={runResult?.document?.match_sheet} />
+        {runResult && <NarrativePanel narrative={runResult.narrative} />}
+      </section>
     </div>
   );
 }

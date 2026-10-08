@@ -313,7 +313,7 @@ def test_run_lower_quality_tiers_still_succeed_with_degraded_confidence(client, 
     assert body["document"]["metadata"]["quality_confidence"] < 1.0
 
 
-# --- Live corruption endpoints (the "break it on stage" demo feature) ---
+# --- Live corruption endpoints (the resilience stress-test feature) ---
 
 def test_list_mutations(client):
     resp = client.get("/mutations")

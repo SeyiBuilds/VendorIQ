@@ -93,7 +93,7 @@ class CorruptAndRunRequest(BaseModel):
     vendor: str = "opta"
     mutations: list[str] = []
     rate: float = 0.2  # fraction of events each selected mutation targets
-    seed: Optional[int] = None  # pin for a reproducible run on stage
+    seed: Optional[int] = None  # pin for a reproducible run
     # Orchestrator-level fault injection (fault_injection.py) -- a
     # DIFFERENT demo than `mutations` above. Mutations corrupt event data
     # and show an agent's own field-level fallback absorb it silently;
@@ -377,10 +377,10 @@ def _validate_agent_fault(body: CorruptAndRunRequest) -> None:
 
 @app.post("/matches/{match_id}/corrupt-and-run")
 def corrupt_and_run_match(match_id: str, body: CorruptAndRunRequest) -> dict:
-    """Live, on-demand data corruption for stage demos -- see
-    backend/data/corruption.py's module docstring for why this exists and
-    exactly which upstream fallback each mutation is built to exercise.
-    Currently Opta-only, matching that module's scope. Also accepts an
+    """Live, on-demand data corruption -- see backend/data/corruption.py's
+    module docstring for why this exists and exactly which upstream
+    fallback each mutation is built to exercise. Currently Opta-only,
+    matching that module's scope. Also accepts an
     orchestrator-level agent_fault (fault_injection.py), independent of
     and combinable with the event-level mutations above."""
     if body.vendor != "opta":

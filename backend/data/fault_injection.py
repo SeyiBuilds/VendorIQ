@@ -16,11 +16,11 @@ code path at all.
 
 This module injects an ACTUAL failure -- a monkeypatched agent method
 that raises -- so the orchestrator's real retry-once-then-decide logic
-runs on camera: one failed attempt that self-heals on retry, or two
+actually runs: one failed attempt that self-heals on retry, or two
 failed attempts that genuinely abort (critical stage) or degrade to
 "partial" (optional stage). Every fault is loudly labeled in its own
-exception message as a simulated demo failure, so it can never be
-mistaken for an organic bug in a recording, a log, or a bug report.
+exception message as a simulated failure, so it can never be mistaken
+for an organic bug in a log or a bug report.
 """
 
 from __future__ import annotations

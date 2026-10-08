@@ -1,16 +1,16 @@
 """
-Live feed corruption, for demoing graceful degradation on stage.
+Live, on-demand feed corruption, for demonstrating graceful degradation.
 
 This is deliberately separate from synthetic_match_generator.py's
 clean/messy/partial tiers -- those are fixed, reproducible fixtures used
-by the test suite. This module exists so a presenter can corrupt a
-*clean* feed live, on demand, and show the exact same pipeline absorb it
--- rather than only ever pointing at pre-baked "messy" files and asking
-the audience to trust that they're representative.
+by the test suite. This module exists so a *clean* feed can be corrupted
+live, on demand, and show the exact same pipeline absorb it -- rather
+than only ever pointing at pre-baked "messy" files and asking the
+audience to trust that they're representative.
 
 Every mutation here targets a SPECIFIC, already-documented fallback path
 in an upstream agent (see the docstring comment next to each one). This
-is intentional: the point of a stage demo is "watch the system recover
+is intentional: the point of this feature is "watch the system recover
 from a known failure mode," not "watch it survive random noise." Each
 mutation operates on Opta's raw event shape (EventId/TypeName/Min/Sec/
 PeriodId/PlayerRef/JerseyNumber/TeamName/X/Y/...) since Opta is this
@@ -66,7 +66,7 @@ def _drop_timestamps(event: dict) -> None:
     # non-numeric string -- that hits an unguarded float() call in
     # _map_opta_event and would crash Schema Mapper rather than degrade
     # gracefully, which is a real bug worth fixing someday but is not what
-    # a "graceful degradation" demo should trigger on stage.
+    # this "graceful degradation" feature is meant to trigger.
     event.pop("Min", None)
     event.pop("Sec", None)
 

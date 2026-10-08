@@ -1,5 +1,5 @@
 """Tests for backend/data/corruption.py -- the live, on-stage feed
-corruption used for the demo video's "break it live" moment.
+corruption used for the resilience stress-test feature.
 
 Each mutation is tied to a specific, already-tested fallback path in an
 upstream agent (see corruption.py's own docstrings for the mapping). The

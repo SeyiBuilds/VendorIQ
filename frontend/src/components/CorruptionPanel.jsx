@@ -10,10 +10,10 @@ export default function CorruptionPanel({ matchId, onStart, onEvent, cleanConfid
   const [error, setError] = useState(null);
   const [lastResult, setLastResult] = useState(null);
 
-  // Orchestrator-level fault injection -- a DIFFERENT demo than the data
+  // Orchestrator-level fault injection -- a DIFFERENT feature than the data
   // mutations above. Mutations show an agent gracefully absorbing bad
   // data; this makes an agent genuinely raise so the Master Orchestrator's
-  // own retry-then-decide logic fires on camera. See fault_injection.py.
+  // own retry-then-decide logic actually fires. See fault_injection.py.
   const [agentFaults, setAgentFaults] = useState({});
   const [agentFault, setAgentFault] = useState("");
   const [failAttempts, setFailAttempts] = useState(2);
@@ -66,11 +66,11 @@ export default function CorruptionPanel({ matchId, onStart, onEvent, cleanConfid
 
   return (
     <div className="panel corruption-panel">
-      <h2>Break it live — corrupt this feed on stage</h2>
+      <h2>Resilience stress test</h2>
       <p className="hint">
         Each toggle below targets one specific, already-handled failure mode in the pipeline — not
-        random noise. Pick one or more, set how much of the feed to hit, and run it to watch the
-        same pipeline absorb it.
+        random noise. Pick one or more, set how much of the feed to hit, and run it to see the
+        same pipeline absorb it instead of crashing or fabricating data.
       </p>
 
       <div className="mutation-grid">
@@ -99,7 +99,7 @@ export default function CorruptionPanel({ matchId, onStart, onEvent, cleanConfid
           <span>{Math.round(rate * 100)}%</span>
         </label>
         <label>
-          Seed (optional, for a reproducible take)
+          Seed (optional, for a reproducible run)
           <input type="number" value={seed} onChange={(e) => setSeed(e.target.value)} placeholder="random" />
         </label>
         <button className="primary danger" onClick={handleCorrupt} disabled={running || (selected.size === 0 && !agentFault)}>
@@ -108,12 +108,12 @@ export default function CorruptionPanel({ matchId, onStart, onEvent, cleanConfid
       </div>
 
       <div className="field-row fault-row">
-        <h3 className="fault-heading">Or: make the orchestrator decide something</h3>
+        <h3 className="fault-heading">Orchestrator decision test</h3>
         <p className="hint">
           A different thing than the mutations above. Mutations show an agent quietly absorbing
-          bad data. This makes one agent genuinely fail, so you can watch the Master
-          Orchestrator's own retry-then-decide logic run live — self-heal on 1 failure, or
-          abort/degrade on 2.
+          bad data. This makes one agent genuinely fail, so you can see the Master Orchestrator's
+          own retry-then-decide logic actually fire — self-heals on 1 failure, aborts or degrades
+          on 2.
         </p>
         <label>
           Agent to fail

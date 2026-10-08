@@ -16,10 +16,13 @@ Two outputs, always both produced:
   - narrative_text: a human-readable paragraph. ALWAYS has a deterministic,
     template-based version (so this agent works fully offline, same as
     Entity Resolver). Optionally upgraded to a more naturally-written
-    paragraph via Claude, gated on ANTHROPIC_API_KEY exactly like Agent 4 --
-    no key -> skip, log why, serve the template version. The template
-    version is not a lesser stand-in; it states the same facts, just more
-    mechanically.
+    paragraph via an LLM call, gated on ANTHROPIC_API_KEY or GROQ_API_KEY
+    (whichever is set; Anthropic tried first if both are) -- no key, or
+    every configured call failing -> skip, log why, serve the template
+    version. The template version is not a lesser stand-in; it states the
+    same facts, just more mechanically. Either provider gets the exact
+    same prompt built from the exact same computed stats, so the choice of
+    provider changes the prose, never the facts it's allowed to state.
 
 Confidence awareness (the thing the PRD calls out for this agent
 specifically: "should weight or flag low-confidence events rather than
@@ -86,12 +89,18 @@ class TeamStats:
     passes: int = 0
     passes_completed: int = 0
     shots: int = 0
+    shots_on_target: int = 0
     goals: int = 0
     tackles: int = 0
+    interceptions: int = 0
+    clearances: int = 0
+    saves: int = 0
     fouls: int = 0
     cards: int = 0
     corners: int = 0
+    offsides: int = 0
     possession_proxy_events: int = 0
+    possession_pct: Optional[float] = None  # filled in after both teams' totals are known
     low_confidence_events: int = 0
     avg_confidence: float = 1.0
     pass_distance_total_m: float = 0.0
@@ -105,6 +114,18 @@ class TeamStats:
         if self.passes == 0:
             return None
         return round(self.passes_completed / self.passes, 3)
+
+    @property
+    def shot_accuracy(self) -> Optional[float]:
+        if self.shots == 0:
+            return None
+        return round(self.shots_on_target / self.shots, 3)
+
+    @property
+    def duels_won(self) -> int:
+        # Tackles + interceptions is a defensive-duel proxy, not a vendor
+        # field -- no vendor here reports a duel-outcome event directly.
+        return self.tackles + self.interceptions
 
     @property
     def avg_pass_distance_m(self) -> Optional[float]:
@@ -136,39 +157,38 @@ class NarrativeReport:
     log: list[str] = field(default_factory=list)
 
 
-def _call_claude_for_narrative(match_summary_line: str, team_stats: dict[str, TeamStats],
-                                key_moments: list[KeyMoment], data_quality_notes: list[str]) -> Optional[str]:
-    """Optional upgrade path, same contract as Entity Resolver's escalation:
-    returns narrative text, or None if no key is configured. A dict with an
-    '_error' key signals a configured-but-failed call, so the caller can
-    log the distinction without crashing either way."""
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
-    if not api_key:
-        return None
+def _build_narrative_prompt(match_summary_line: str, team_stats: dict[str, TeamStats],
+                             key_moments: list[KeyMoment], data_quality_notes: list[str]) -> str:
+    stats_lines = []
+    for team, s in team_stats.items():
+        acc = f"{s.pass_accuracy * 100:.0f}%" if s.pass_accuracy is not None else "n/a"
+        avg_dist = f"{s.avg_pass_distance_m}m avg" if s.avg_pass_distance_m is not None else "n/a"
+        poss = f"{s.possession_pct:.0f}%" if s.possession_pct is not None else "n/a"
+        stats_lines.append(
+            f"- {team}: {s.goals} goals, {s.shots} shots ({s.shots_on_target} on target), "
+            f"{poss} ball-event share, {s.passes} passes ({acc} completion, {avg_dist} distance, "
+            f"{s.short_passes} short/{s.medium_passes} medium/{s.long_passes} long), "
+            f"{s.duels_won} defensive duels won ({s.tackles} tackles + {s.interceptions} interceptions), "
+            f"{s.clearances} clearances, {s.saves} saves, "
+            f"{s.fouls} fouls, {s.cards} cards, {s.corners} corners, {s.offsides} offsides"
+        )
+    moments_lines = [f"- {m.minute}' ({m.period}H): {m.description}" for m in key_moments]
+    quality_lines = "\n".join(f"- {n}" for n in data_quality_notes) or "- none"
 
+    return (
+        f"Write a concise, analyst-style tactical summary (3-5 sentences) of this football match, "
+        f"using ONLY the data below. Do not invent details not present here.\n\n"
+        f"{match_summary_line}\n\nTeam stats:\n" + "\n".join(stats_lines) +
+        "\n\nKey moments:\n" + "\n".join(moments_lines) +
+        f"\n\nData quality caveats (mention briefly if material):\n{quality_lines}"
+    )
+
+
+def _call_anthropic_for_narrative(prompt: str, api_key: str) -> Optional[str]:
     try:
         import anthropic
 
         client = anthropic.Anthropic(api_key=api_key)
-        stats_lines = []
-        for team, s in team_stats.items():
-            acc = f"{s.pass_accuracy * 100:.0f}%" if s.pass_accuracy is not None else "n/a"
-            avg_dist = f"{s.avg_pass_distance_m}m avg" if s.avg_pass_distance_m is not None else "n/a"
-            stats_lines.append(
-                f"- {team}: {s.goals} goals, {s.shots} shots, {s.passes} passes ({acc} completion, {avg_dist} distance, "
-                f"{s.short_passes} short/{s.medium_passes} medium/{s.long_passes} long), "
-                f"{s.tackles} tackles, {s.fouls} fouls, {s.cards} cards, {s.corners} corners"
-            )
-        moments_lines = [f"- {m.minute}' ({m.period}H): {m.description}" for m in key_moments]
-        quality_lines = "\n".join(f"- {n}" for n in data_quality_notes) or "- none"
-
-        prompt = (
-            f"Write a concise, analyst-style tactical summary (3-5 sentences) of this football match, "
-            f"using ONLY the data below. Do not invent details not present here.\n\n"
-            f"{match_summary_line}\n\nTeam stats:\n" + "\n".join(stats_lines) +
-            "\n\nKey moments:\n" + "\n".join(moments_lines) +
-            f"\n\nData quality caveats (mention briefly if material):\n{quality_lines}"
-        )
         response = client.messages.create(
             model="claude-haiku-4-5-20251001",
             max_tokens=300,
@@ -176,7 +196,59 @@ def _call_claude_for_narrative(match_summary_line: str, team_stats: dict[str, Te
         )
         return response.content[0].text.strip()
     except Exception:
-        return None  # caller treats this exactly like "no key" -- template path always covers it
+        return None
+
+
+def _call_groq_for_narrative(prompt: str, api_key: str) -> Optional[str]:
+    """Groq serves open-weight models (Llama 3.x) behind an OpenAI-compatible
+    chat-completions endpoint -- same prompt, different wire format, no
+    Anthropic SDK dependency. A free-tier-friendly alternative when no
+    ANTHROPIC_API_KEY is available; see GROQ_MODEL below for the default."""
+    try:
+        from groq import Groq
+
+        client = Groq(api_key=api_key)
+        response = client.chat.completions.create(
+            model=GROQ_MODEL,
+            max_tokens=300,
+            messages=[{"role": "user", "content": prompt}],
+        )
+        return response.choices[0].message.content.strip()
+    except Exception:
+        return None
+
+
+GROQ_MODEL = os.environ.get("GROQ_MODEL", "llama-3.3-70b-versatile")
+
+
+def _call_llm_for_narrative(match_summary_line: str, team_stats: dict[str, TeamStats],
+                             key_moments: list[KeyMoment], data_quality_notes: list[str]) -> tuple[Optional[str], Optional[str]]:
+    """Optional upgrade path, same contract as Entity Resolver's escalation:
+    returns (narrative_text, provider_name), or (None, None) if no provider
+    is configured or every configured provider's call failed -- the caller
+    treats that exactly like "no key", template path always covers it.
+
+    Provider choice: ANTHROPIC_API_KEY is tried first (if set), then
+    GROQ_API_KEY as a fallback/alternative -- independent providers, not a
+    preference ranking; whichever key is present and succeeds wins. Both
+    get the identical prompt built from the SAME computed stats, so the
+    choice of provider changes the prose, never the facts.
+    """
+    prompt = _build_narrative_prompt(match_summary_line, team_stats, key_moments, data_quality_notes)
+
+    anthropic_key = os.environ.get("ANTHROPIC_API_KEY")
+    if anthropic_key:
+        text = _call_anthropic_for_narrative(prompt, anthropic_key)
+        if text:
+            return text, "anthropic"
+
+    groq_key = os.environ.get("GROQ_API_KEY")
+    if groq_key:
+        text = _call_groq_for_narrative(prompt, groq_key)
+        if text:
+            return text, "groq"
+
+    return None, None
 
 
 def extract_key_moments(document: CDFDocument) -> list[KeyMoment]:
@@ -244,12 +316,12 @@ class NarrativeGenerator:
         )
         template_text = self._build_template_narrative(document, match_summary_line, team_stats, key_moments, data_quality_notes)
 
-        ai_text = None
+        ai_text, provider = None, None
         if self.ai_enabled:
-            ai_text = _call_claude_for_narrative(match_summary_line, team_stats, key_moments, data_quality_notes)
+            ai_text, provider = _call_llm_for_narrative(match_summary_line, team_stats, key_moments, data_quality_notes)
 
         if ai_text:
-            log.append("narrative generated via Claude (ANTHROPIC_API_KEY configured)")
+            log.append(f"narrative generated via {provider} ({provider.upper()}_API_KEY configured)")
             return NarrativeReport(
                 narrative_text=ai_text, generation_method="ai_enhanced",
                 team_stats=team_stats, key_moments=key_moments,
@@ -257,7 +329,7 @@ class NarrativeGenerator:
             )
 
         if self.ai_enabled:
-            log.append("AI narrative escalation skipped or failed: ANTHROPIC_API_KEY not configured or call failed; using template narrative")
+            log.append("AI narrative escalation skipped or failed: no ANTHROPIC_API_KEY/GROQ_API_KEY configured, or every configured call failed; using template narrative")
         else:
             log.append("AI narrative disabled by caller; using template narrative")
 
@@ -303,17 +375,28 @@ class NarrativeGenerator:
                         s.long_passes += 1
             elif e.event_type == "shot":
                 s.shots += 1
+                if e.outcome:
+                    s.shots_on_target += 1
             elif e.event_type == "goal":
                 s.goals += 1
                 s.shots += 1  # a goal is also a shot, for shot-count purposes
+                s.shots_on_target += 1  # a goal is definitionally on target
             elif e.event_type == "tackle":
                 s.tackles += 1
+            elif e.event_type == "interception":
+                s.interceptions += 1
+            elif e.event_type == "clearance":
+                s.clearances += 1
+            elif e.event_type == "save":
+                s.saves += 1
             elif e.event_type == "foul":
                 s.fouls += 1
             elif e.event_type == "card":
                 s.cards += 1
             elif e.event_type == "corner":
                 s.corners += 1
+            elif e.event_type == "offside":
+                s.offsides += 1
 
             if e.event_type in POSSESSION_PROXY_TYPES:
                 s.possession_proxy_events += 1
@@ -322,9 +405,11 @@ class NarrativeGenerator:
         for s in stats.values():
             team_events = [e.quality_confidence for e in document.events if e.team == s.team]
             s.avg_confidence = round(sum(team_events) / len(team_events), 3) if team_events else 1.0
+            s.possession_pct = (
+                round(100 * s.possession_proxy_events / total_possession_events, 1)
+                if total_possession_events else None
+            )
 
-        # possession_proxy stays a raw count; percentage is derived on demand
-        # by the narrative builder so TeamStats stays a plain facts object.
         return stats
 
     def _extract_key_moments(self, document: CDFDocument) -> list[KeyMoment]:
@@ -352,27 +437,30 @@ class NarrativeGenerator:
         home_goals = home_stats.goals if home_stats else 0
         away_goals = away_stats.goals if away_stats else 0
 
-        total_poss = sum(s.possession_proxy_events for s in team_stats.values()) or 1
-        home_poss_pct = round(100 * (home_stats.possession_proxy_events / total_poss)) if home_stats else 0
-        away_poss_pct = 100 - home_poss_pct
+        home_poss_pct = (home_stats.possession_pct if home_stats else None) or 0
+        away_poss_pct = (away_stats.possession_pct if away_stats else None) or 0
 
         lines = [
             f"{match_summary_line}: final score {home} {home_goals} - {away_goals} {away}.",
-            f"{home} saw an estimated {home_poss_pct}% of ball-event share to {away}'s {away_poss_pct}% "
+            f"{home} saw an estimated {home_poss_pct:.0f}% of ball-event share to {away}'s {away_poss_pct:.0f}% "
             f"(proxy from pass/dribble/shot/set-piece events, not true possession time).",
         ]
 
         if home_stats and away_stats:
             lines.append(
-                f"Shots: {home} {home_stats.shots} ({home_stats.pass_accuracy and round(home_stats.pass_accuracy*100)}% "
-                f"pass completion) vs {away} {away_stats.shots} "
-                f"({away_stats.pass_accuracy and round(away_stats.pass_accuracy*100)}% pass completion)."
+                f"Shots: {home} {home_stats.shots} ({home_stats.shots_on_target} on target, "
+                f"{home_stats.pass_accuracy and round(home_stats.pass_accuracy*100)}% pass completion) vs "
+                f"{away} {away_stats.shots} ({away_stats.shots_on_target} on target, "
+                f"{away_stats.pass_accuracy and round(away_stats.pass_accuracy*100)}% pass completion)."
             )
             lines.append(
                 f"Pass distance: {home} averaged {home_stats.avg_pass_distance_m or 0}m per pass "
                 f"({home_stats.short_passes} short, {home_stats.medium_passes} medium, {home_stats.long_passes} long) "
                 f"vs {away} {away_stats.avg_pass_distance_m or 0}m "
                 f"({away_stats.short_passes} short, {away_stats.medium_passes} medium, {away_stats.long_passes} long)."
+            )
+            lines.append(
+                f"Defensive duels won (tackles + interceptions): {home} {home_stats.duels_won} vs {away} {away_stats.duels_won}."
             )
 
         if key_moments:
