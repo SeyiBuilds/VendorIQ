@@ -112,22 +112,22 @@ export default function App() {
 
   return (
     <div className="mx-auto max-w-6xl px-5 pb-16">
-      <header className="sticky top-0 z-20 -mx-5 border-b border-border/60 bg-background/95 px-5 py-4 backdrop-blur-sm">
+      <header className="sticky top-0 z-20 -mx-5 border-b border-border/60 bg-background/95 px-5 py-6 backdrop-blur-sm">
         <h1 className="text-lg font-bold tracking-tight">Synthetic Match Insights Engine</h1>
-        <p className="mt-0.5 truncate text-sm text-muted-foreground">
+        <p className="mt-1 truncate text-sm text-muted-foreground">
           Turns raw match feeds into explainable match intelligence, in real time.
         </p>
       </header>
 
       {error && (
-        <Alert variant="destructive" className="mb-5">
+        <Alert variant="destructive" className="mt-8 mb-5">
           <AlertCircle />
           <AlertDescription>{error}</AlertDescription>
         </Alert>
       )}
 
-      <section className="mb-8">
-        <p className="mb-3 ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
+      <section className="mt-8 mb-10">
+        <p className="mb-4 ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
           Bring data in
         </p>
         <div className="grid items-start gap-6 md:grid-cols-2">
@@ -147,7 +147,7 @@ export default function App() {
       </section>
 
       {pipelineSource === "upload" && (
-        <div className="mb-8">
+        <div className="mb-10">
           <PipelineStatus
             records={records}
             overallStatus={runResult?.overall_status}
@@ -156,8 +156,8 @@ export default function App() {
         </div>
       )}
 
-      <section className="mb-8">
-        <p className="mb-3 ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
+      <section className="mb-10">
+        <p className="mb-4 ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
           Resilience
         </p>
         <CorruptionPanel
@@ -169,7 +169,7 @@ export default function App() {
       </section>
 
       {pipelineSource === "match" && (
-        <div className="mb-8">
+        <div className="mb-10">
           <PipelineStatus
             records={records}
             overallStatus={runResult?.overall_status}
@@ -178,8 +178,8 @@ export default function App() {
         </div>
       )}
 
-      <section ref={outputsRef} className="mb-8 flex scroll-mt-20 flex-col gap-6">
-        <p className="-mb-3 ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
+      <section ref={outputsRef} className="mb-10 flex scroll-mt-24 flex-col gap-6">
+        <p className="ml-0.5 text-xs font-bold tracking-widest text-muted-foreground uppercase">
           Outputs
         </p>
         <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} document={runResult?.document} />

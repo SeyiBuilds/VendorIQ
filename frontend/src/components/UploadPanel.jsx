@@ -188,7 +188,8 @@ export default function UploadPanel({ onStart, onEvent }) {
       <CardHeader>
         <CardTitle>Bring your own match data</CardTitle>
         <p className="text-sm leading-relaxed text-muted-foreground">
-          Upload Opta, StatsBomb, or Wyscout JSON — pick .json files or a .zip of them.
+          Upload any vendor's match JSON — pick .json files or a .zip of them. Format is
+          auto-detected; unrecognized shapes still run, just with lower confidence.
         </p>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
