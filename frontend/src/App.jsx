@@ -124,7 +124,7 @@ export default function App() {
   return (
     <div className="mx-auto max-w-6xl px-5 pb-16">
       <header className="flex items-start gap-5 pt-10">
-        <div className="relative flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-blue-700 shadow-[0_8px_24px_rgba(79,139,255,0.35)]">
+        <div className="relative flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-purple-900 shadow-[0_8px_24px_rgba(157,92,255,0.35)]">
           <Goal className="size-8 text-primary-foreground" />
           <div className="absolute -top-1.5 -right-1.5 flex size-6 items-center justify-center rounded-full bg-background shadow">
             <Sparkles className="size-3.5 text-primary" />

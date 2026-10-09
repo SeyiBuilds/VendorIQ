@@ -9,32 +9,32 @@
   This dashboard is a locked dark-mode tool (technical/demo audience, not a
   consumer surface that needs a light/dark toggle) -- tokens are defined
   once at :root rather than duplicated behind a `dark:` variant everywhere.
-  Off-black surfaces (never pure #000) for depth; one accent (blue) reused
-  identically for every interactive/brand moment; status colors (success/
-  partial/failed/skipped) reused identically across badges, pills and
-  borders anywhere a run status is shown.
+  Off-black surfaces (never pure #000) for depth; one accent (Premier
+  League purple) reused identically for every interactive/brand moment;
+  status colors (success/partial/failed/skipped) reused identically
+  across badges, pills and borders anywhere a run status is shown.
 */
 :root {
-  --background: #0b0f16;
-  --foreground: #eef1f6;
+  --background: #0e0a16;
+  --foreground: #f1edf8;
 
-  --card: #131a24;
-  --card-foreground: #eef1f6;
+  --card: #1a1424;
+  --card-foreground: #f1edf8;
 
-  --popover: #131a24;
-  --popover-foreground: #eef1f6;
+  --popover: #1a1424;
+  --popover-foreground: #f1edf8;
 
-  --primary: #4f8bff;
-  --primary-foreground: #06101f;
+  --primary: #9d5cff;
+  --primary-foreground: #0d0620;
 
-  --secondary: #1b222d;
-  --secondary-foreground: #eef1f6;
+  --secondary: #241c30;
+  --secondary-foreground: #f1edf8;
 
-  --muted: #0e131b;
-  --muted-foreground: #8d98a8;
+  --muted: #140f1c;
+  --muted-foreground: #9d93ab;
 
-  --accent: #1b222d;
-  --accent-foreground: #eef1f6;
+  --accent: #241c30;
+  --accent-foreground: #f1edf8;
 
   --destructive: #ef5a4c;
   --destructive-foreground: #1a0b09;
@@ -44,9 +44,9 @@
   --warning: #e3b341;
   --warning-foreground: #1a1203;
 
-  --border: #232c39;
-  --input: #232c39;
-  --ring: #4f8bff;
+  --border: #2b2238;
+  --input: #2b2238;
+  --ring: #9d5cff;
 
   --radius: 0.65rem;
 }
@@ -94,7 +94,7 @@ html {
 body {
   margin: 0;
   background-color: var(--color-background);
-  background-image: radial-gradient(circle at 15% 0%, rgba(79, 139, 255, 0.08), transparent 42%);
+  background-image: radial-gradient(circle at 15% 0%, rgba(157, 92, 255, 0.1), transparent 42%);
   color: var(--color-foreground);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
