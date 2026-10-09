@@ -159,10 +159,13 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete }) {
       onStart();
       let captured = null;
       try {
+        // Paced (visible per-stage thinking) only for a single file -- the
+        // same pauses repeated per stage, per file would turn a batch of
+        // dozens/hundreds of files into minutes of apparent freeze.
         await ingestRunStream(item.payload, (event) => {
           onEvent(event);
           if (event.type === "result") captured = event.data;
-        });
+        }, { pace: items.length === 1 });
         setResults((prev) => [...prev, {
           label: item.label,
           status: captured?.overall_status ?? "unknown",
@@ -252,15 +255,24 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete }) {
               Combine these {items.length} files into one CDF (same match, multiple vendors)
             </label>
             {combineMode && (
-              <div className="flex flex-wrap items-end gap-4">
-                <Label className="flex-col items-start gap-1.5">
+              <div className="flex items-end gap-3">
+                <Label className="min-w-0 flex-1 flex-col items-start gap-1.5">
                   Primary (event source)
                   <Select
                     value={String(primaryIndex)}
                     onValueChange={(v) => setPrimaryIndex(Number(v))}
                     disabled={running}
                   >
-                    <SelectTrigger className="w-[260px]"><SelectValue /></SelectTrigger>
+                    {/* w-full + min-w-0 so this sizes to the row, never past it. Radix's
+                        own Select.Value drops className/style, so truncation has to be
+                        on an explicit span we pass as its children -- a long zip-expanded
+                        label (file.zip -> data/events/x.json) truncates inside the box
+                        instead of pushing the button out. */}
+                    <SelectTrigger className="w-full min-w-0">
+                      <SelectValue>
+                        <span className="block min-w-0 truncate text-left">{items[primaryIndex]?.label}</span>
+                      </SelectValue>
+                    </SelectTrigger>
                     <SelectContent>
                       {items.map((it, i) => (
                         <SelectItem key={i} value={String(i)}>{it.label}</SelectItem>
@@ -268,7 +280,7 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete }) {
                     </SelectContent>
                   </Select>
                 </Label>
-                <Button onClick={handleRunCombined} disabled={running}>
+                <Button onClick={handleRunCombined} disabled={running} className="shrink-0">
                   {running ? "Combining…" : "Combine into 1 CDF"}
                 </Button>
               </div>

@@ -32,7 +32,7 @@ import uuid
 from pathlib import Path
 from typing import Any, Optional
 
-from fastapi import Body, FastAPI, HTTPException
+from fastapi import Body, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
@@ -139,7 +139,7 @@ def _match_sheet_file(match_id: str, vendor: str) -> Optional[Path]:
 
 
 def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_data: Optional[dict] = None,
-                 agent_fault: Optional[str] = None, fail_attempts: int = 2):
+                 agent_fault: Optional[str] = None, fail_attempts: int = 2, pace: bool = True):
     """Shared by both streaming endpoints below. Drives
     orchestrator.run_streaming() and re-emits each event as one NDJSON
     line (newline-delimited JSON) as it actually happens -- this is a
@@ -153,12 +153,20 @@ def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_dat
     whole run in maybe_inject_fault() -- the `with` block stays open
     across every `yield` below since this is a generator, so the
     monkeypatched agent method is live for exactly this one run and
-    restored no matter how the generator ends."""
+    restored no matter how the generator ends.
+
+    pace=True (the default) adds the STAGE_THINK/SETTLE pauses, for a
+    single demo run someone is watching live. A multi-file batch (the
+    upload panel's "Run all N matches") calls this once per file in a
+    loop, so the same pauses would multiply into minutes of apparent
+    freeze for a large batch -- callers running a batch pass pace=False
+    to get each file's real, near-instant result with no demo pacing."""
     with maybe_inject_fault(orchestrator, agent_fault, fail_attempts):
         for kind, payload in orchestrator.run_streaming(vendor_data, match_sheet_data=match_sheet_data):
             if kind == "start":
                 yield json.dumps({"type": "start", "stage": payload}) + "\n"
-                time.sleep(STAGE_THINK_SECONDS)
+                if pace:
+                    time.sleep(STAGE_THINK_SECONDS)
             elif kind == "stage":
                 yield json.dumps({
                     "type": "stage",
@@ -167,7 +175,8 @@ def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_dat
                     "detail": payload.detail,
                     "retried": payload.retried,
                 }) + "\n"
-                time.sleep(STAGE_SETTLE_SECONDS)
+                if pace:
+                    time.sleep(STAGE_SETTLE_SECONDS)
             else:  # kind == "result"
                 result = payload
                 run_id = result.orchestration_log.run_id
@@ -177,17 +186,18 @@ def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_dat
 
 
 def _stream_run_multi(vendor_payloads: list[dict], primary_index: int, extra: Optional[dict] = None,
-                       match_sheet_data: Optional[dict] = None):
+                       match_sheet_data: Optional[dict] = None, pace: bool = True):
     """Multi-vendor twin of _stream_run() -- drives
     orchestrator.run_streaming_multi() instead of run_streaming(), same
     NDJSON shape so the frontend's existing stream handling needs no
-    special-casing to consume either one."""
+    special-casing to consume either one. Same pace flag, same reason."""
     for kind, payload in orchestrator.run_streaming_multi(
         vendor_payloads, primary_index=primary_index, match_sheet_data=match_sheet_data,
     ):
         if kind == "start":
             yield json.dumps({"type": "start", "stage": payload}) + "\n"
-            time.sleep(STAGE_THINK_SECONDS)
+            if pace:
+                time.sleep(STAGE_THINK_SECONDS)
         elif kind == "stage":
             yield json.dumps({
                 "type": "stage",
@@ -196,7 +206,8 @@ def _stream_run_multi(vendor_payloads: list[dict], primary_index: int, extra: Op
                 "detail": payload.detail,
                 "retried": payload.retried,
             }) + "\n"
-            time.sleep(STAGE_SETTLE_SECONDS)
+            if pace:
+                time.sleep(STAGE_SETTLE_SECONDS)
         else:  # kind == "result"
             result = payload
             run_id = result.orchestration_log.run_id
@@ -206,7 +217,7 @@ def _stream_run_multi(vendor_payloads: list[dict], primary_index: int, extra: Op
 
 
 @app.post("/ingest/run/stream/multi")
-def ingest_run_stream_multi(payload: dict = Body(...)) -> StreamingResponse:
+def ingest_run_stream_multi(payload: dict = Body(...), pace: bool = Query(True)) -> StreamingResponse:
     """Genuine multi-vendor combine: {"vendor_payloads": [<file1>, <file2>, ...],
     "primary_index": 0, "match_sheet_data": {...}?}. Each entry in
     vendor_payloads is one uploaded file's parsed JSON, either a vendor
@@ -243,13 +254,13 @@ def ingest_run_stream_multi(payload: dict = Body(...)) -> StreamingResponse:
 
     extra = {"match_id": None, "quality_tier": None, "source": "uploaded_multi"}
     return StreamingResponse(
-        _stream_run_multi(vendor_payloads, primary_index, extra, match_sheet_data),
+        _stream_run_multi(vendor_payloads, primary_index, extra, match_sheet_data, pace=pace),
         media_type="application/x-ndjson",
     )
 
 
 @app.post("/matches/{match_id}/run/stream")
-def run_match_stream(match_id: str, body: RunRequest = RunRequest()) -> StreamingResponse:
+def run_match_stream(match_id: str, body: RunRequest = RunRequest(), pace: bool = Query(True)) -> StreamingResponse:
     """Streaming twin of POST /matches/{match_id}/run -- same validation,
     same orchestrator, same final payload shape; the only difference is
     that stage progress is pushed as NDJSON lines as each agent actually
@@ -268,11 +279,11 @@ def run_match_stream(match_id: str, body: RunRequest = RunRequest()) -> Streamin
     sheet_file = _match_sheet_file(match_id, body.vendor)
     match_sheet_data = json.loads(sheet_file.read_text()) if sheet_file else None
     extra = {"match_id": match_id, "quality_tier": entry.get("quality_tier")}
-    return StreamingResponse(_stream_run(vendor_data, extra, match_sheet_data), media_type="application/x-ndjson")
+    return StreamingResponse(_stream_run(vendor_data, extra, match_sheet_data, pace=pace), media_type="application/x-ndjson")
 
 
 @app.post("/ingest/run/stream")
-def ingest_run_stream(payload: Any = Body(...)) -> StreamingResponse:
+def ingest_run_stream(payload: Any = Body(...), pace: bool = Query(True)) -> StreamingResponse:
     """Run the pipeline against a vendor feed the caller supplies directly
     -- e.g. a club's own Opta/StatsBomb/Wyscout export -- rather than one
     of the bundled sample matches. No vendor needs to be named: Format
@@ -306,7 +317,7 @@ def ingest_run_stream(payload: Any = Body(...)) -> StreamingResponse:
                 detail="a JSON array body must be non-empty and contain only event objects",
             )
         return StreamingResponse(
-            _stream_run({"events": payload}, {"match_id": None, "quality_tier": None, "source": "uploaded"}),
+            _stream_run({"events": payload}, {"match_id": None, "quality_tier": None, "source": "uploaded"}, pace=pace),
             media_type="application/x-ndjson",
         )
     if not isinstance(payload, dict) or not payload:
@@ -315,7 +326,7 @@ def ingest_run_stream(payload: Any = Body(...)) -> StreamingResponse:
     if not isinstance(match_sheet_data, dict):
         match_sheet_data = None
     return StreamingResponse(
-        _stream_run(payload, {"match_id": None, "quality_tier": None, "source": "uploaded"}, match_sheet_data),
+        _stream_run(payload, {"match_id": None, "quality_tier": None, "source": "uploaded"}, match_sheet_data, pace=pace),
         media_type="application/x-ndjson",
     )
 

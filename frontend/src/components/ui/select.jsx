@@ -8,6 +8,12 @@ function Select({ ...props }) {
 }
 
 function SelectValue({ ...props }) {
+  // Radix's own Select.Value silently drops className/style (see its
+  // source -- they're destructured out and never applied), because it
+  // expects the selected label's actual visible text to come from
+  // whatever's passed as children, not from styling the Value node
+  // itself. So truncating a long label is done at each call site by
+  // passing an explicit truncating span as children, not here.
   return <SelectPrimitive.Value data-slot="select-value" {...props} />;
 }
 

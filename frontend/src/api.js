@@ -29,8 +29,12 @@ async function request(path, options = {}) {
 // starting and finishing in real time instead of painting a finished
 // pipeline all at once. Throws the same shape of error as request() if
 // the initial response itself is a non-2xx (validation errors, 404s).
-async function streamRequest(path, body, onEvent) {
-  const res = await fetch(`${BASE_URL}${path}`, {
+// pace=false drops the backend's demo think/settle pauses between stages --
+// used for a batch of many files (see ingestRunStream's `pace` param) where
+// those pauses would otherwise multiply into minutes of apparent freeze.
+async function streamRequest(path, body, onEvent, { pace = true } = {}) {
+  const url = pace ? `${BASE_URL}${path}` : `${BASE_URL}${path}?pace=false`;
+  const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
@@ -99,9 +103,13 @@ export function listAgentFaults() {
 // Runs the pipeline against a vendor feed the caller supplies directly
 // (a club's own Opta/StatsBomb/Wyscout export), rather than one of the
 // bundled sample matches. Same event shape as runMatchStream(); no vendor
-// is named since Format Detective auto-detects it.
-export function ingestRunStream(payload, onEvent) {
-  return streamRequest("/ingest/run/stream", payload, onEvent);
+// is named since Format Detective auto-detects it. pace:false (used by
+// UploadPanel's "run all" batch loop) skips the backend's demo think/settle
+// pauses -- essential once there's more than a handful of files, since
+// those pauses are per-stage, per-file, and a multi-minute batch otherwise
+// looks like the page has frozen.
+export function ingestRunStream(payload, onEvent, { pace = true } = {}) {
+  return streamRequest("/ingest/run/stream", payload, onEvent, { pace });
 }
 
 // Streaming twin of the corrupt-and-run endpoint -- same event shape as
