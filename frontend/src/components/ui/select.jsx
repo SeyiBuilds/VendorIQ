@@ -23,7 +23,15 @@ function SelectTrigger({ className, size = "default", children, ...props }) {
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "flex w-fit items-center justify-between gap-2 rounded-md border border-input bg-muted px-3 py-2 text-sm text-foreground shadow-xs outline-none transition-colors",
+        // overflow-hidden is load-bearing, not decorative: Radix's own
+        // Select.Value span (the flex child actually holding the text) has
+        // no width cap of its own -- it drops className (see SelectValue
+        // above) and, as a flex item, defaults to min-width:auto, so it
+        // never shrinks below its unwrapped text's full intrinsic width.
+        // Without this, a long selected label just paints past the
+        // trigger's right edge instead of being clipped by it, no matter
+        // how the trigger's own width is constrained by its caller.
+        "flex w-fit items-center justify-between gap-2 overflow-hidden rounded-md border border-input bg-muted px-3 py-2 text-sm text-foreground shadow-xs outline-none transition-colors",
         "data-[size=default]:h-9 data-[size=sm]:h-8",
         "focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/40",
         "disabled:cursor-not-allowed disabled:opacity-50",
