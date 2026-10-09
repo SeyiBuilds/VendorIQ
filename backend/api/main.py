@@ -27,6 +27,7 @@ from __future__ import annotations
 import contextlib
 import json
 import sys
+import time
 import uuid
 from pathlib import Path
 from typing import Any, Optional
@@ -117,6 +118,21 @@ def _serialize_run(result: PipelineResult, run_id: str, extra: Optional[dict] = 
     return base
 
 
+# Every stage computes in milliseconds, so an unpaced stream flashes
+# through all 7 agents before anyone can read a single status line --
+# fine for a test assertion, useless for a human watching the pipeline
+# work. These pauses are presentation-only: they sit in the HTTP
+# streaming wrapper, after the real result is already computed, never
+# inside the orchestrator or an agent, so nothing about the actual
+# pipeline logic, timing-sensitive retry behavior, or test suite is
+# touched. STAGE_THINK_SECONDS holds the "running" row on screen before
+# its result appears (lets you read what's about to happen);
+# STAGE_SETTLE_SECONDS holds the finished row before the next one starts
+# (lets you read what happened, retries/fallbacks included).
+STAGE_THINK_SECONDS = 0.7
+STAGE_SETTLE_SECONDS = 0.35
+
+
 def _match_sheet_file(match_id: str, vendor: str) -> Optional[Path]:
     path = SAMPLE_MATCHES_DIR / match_id / "match_sheets" / f"{vendor}_match_sheet.json"
     return path if path.exists() else None
@@ -142,6 +158,7 @@ def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_dat
         for kind, payload in orchestrator.run_streaming(vendor_data, match_sheet_data=match_sheet_data):
             if kind == "start":
                 yield json.dumps({"type": "start", "stage": payload}) + "\n"
+                time.sleep(STAGE_THINK_SECONDS)
             elif kind == "stage":
                 yield json.dumps({
                     "type": "stage",
@@ -150,6 +167,7 @@ def _stream_run(vendor_data: dict, extra: Optional[dict] = None, match_sheet_dat
                     "detail": payload.detail,
                     "retried": payload.retried,
                 }) + "\n"
+                time.sleep(STAGE_SETTLE_SECONDS)
             else:  # kind == "result"
                 result = payload
                 run_id = result.orchestration_log.run_id
@@ -169,6 +187,7 @@ def _stream_run_multi(vendor_payloads: list[dict], primary_index: int, extra: Op
     ):
         if kind == "start":
             yield json.dumps({"type": "start", "stage": payload}) + "\n"
+            time.sleep(STAGE_THINK_SECONDS)
         elif kind == "stage":
             yield json.dumps({
                 "type": "stage",
@@ -177,6 +196,7 @@ def _stream_run_multi(vendor_payloads: list[dict], primary_index: int, extra: Op
                 "detail": payload.detail,
                 "retried": payload.retried,
             }) + "\n"
+            time.sleep(STAGE_SETTLE_SECONDS)
         else:  # kind == "result"
             result = payload
             run_id = result.orchestration_log.run_id
