@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { AlertCircle } from "lucide-react";
+import { Activity, AlertCircle } from "lucide-react";
 import { listMatches, runMatchStream } from "./api";
 import MatchPicker from "./components/MatchPicker";
 import PipelineStatus from "./components/PipelineStatus";
@@ -123,11 +123,16 @@ export default function App() {
 
   return (
     <div className="mx-auto max-w-6xl px-5 pb-16">
-      <header className="sticky top-0 z-20 -mx-5 border-b border-border/60 bg-background/95 px-5 py-6 backdrop-blur-sm">
-        <h1 className="text-lg font-bold tracking-tight">Synthetic Match Insights Engine</h1>
-        <p className="mt-1 truncate text-sm text-muted-foreground">
-          Turns raw match feeds into explainable match intelligence, in real time.
-        </p>
+      <header className="flex items-start gap-5 pt-10">
+        <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-blue-700 shadow-[0_8px_24px_rgba(79,139,255,0.35)]">
+          <Activity className="size-8 text-primary-foreground" />
+        </div>
+        <div>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Synthetic Match Insights Engine</h1>
+          <p className="mt-2 text-lg text-muted-foreground">
+            Turns raw match feeds into explainable match intelligence, in real time.
+          </p>
+        </div>
       </header>
 
       {error && (
