@@ -129,8 +129,8 @@ def _serialize_run(result: PipelineResult, run_id: str, extra: Optional[dict] = 
 # its result appears (lets you read what's about to happen);
 # STAGE_SETTLE_SECONDS holds the finished row before the next one starts
 # (lets you read what happened, retries/fallbacks included).
-STAGE_THINK_SECONDS = 0.7
-STAGE_SETTLE_SECONDS = 0.35
+STAGE_THINK_SECONDS = 0.35
+STAGE_SETTLE_SECONDS = 0.15
 
 
 def _match_sheet_file(match_id: str, vendor: str) -> Optional[Path]:
