@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Activity, AlertCircle } from "lucide-react";
+import { AlertCircle, Goal, Sparkles } from "lucide-react";
 import { listMatches, runMatchStream } from "./api";
 import MatchPicker from "./components/MatchPicker";
 import PipelineStatus from "./components/PipelineStatus";
@@ -124,8 +124,11 @@ export default function App() {
   return (
     <div className="mx-auto max-w-6xl px-5 pb-16">
       <header className="flex items-start gap-5 pt-10">
-        <div className="flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-blue-700 shadow-[0_8px_24px_rgba(79,139,255,0.35)]">
-          <Activity className="size-8 text-primary-foreground" />
+        <div className="relative flex size-16 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-blue-700 shadow-[0_8px_24px_rgba(79,139,255,0.35)]">
+          <Goal className="size-8 text-primary-foreground" />
+          <div className="absolute -top-1.5 -right-1.5 flex size-6 items-center justify-center rounded-full bg-background shadow">
+            <Sparkles className="size-3.5 text-primary" />
+          </div>
         </div>
         <div>
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Synthetic Match Insights Engine</h1>
