@@ -86,6 +86,35 @@ def _looks_like_real_statsbomb_event(e: dict) -> bool:
     return type_ok and team_ok and has_id and location_ok
 
 
+def _looks_like_real_wyscout_event(e: dict) -> bool:
+    """Real Wyscout open-data event files (as actually downloaded, e.g. a
+    competition's events/<matchId>.json) ship only {"events", "teams",
+    "players"} at the top level -- no wyId/label match-info wrapper, that
+    lives in a separate matches file this project never requires. Same gap
+    as _looks_like_real_statsbomb_event above, just undetected until a real
+    file surfaced it: the top-level-key half of the fuzzy score can only
+    ever score well against this project's own synthetic fixtures. Real
+    exports also commonly carry "playerId" instead of the synthetic
+    fixture's "trackable_object" for the per-event player reference, which
+    schema_mapper already accepts as a fallback key -- it's detection,
+    not mapping, that was missing this shape.
+
+    Checked independently of top-level keys: eventId + subEventName/
+    eventName + a positions list of {x, y} dicts is distinct enough from
+    every other vendor's real shape (and from generic JSON) to be strong
+    evidence on its own."""
+    if not isinstance(e, dict):
+        return False
+    has_event_id = "eventId" in e or "id" in e
+    has_type_name = isinstance(e.get("subEventName"), str) or isinstance(e.get("eventName"), str)
+    positions = e.get("positions")
+    positions_ok = (
+        isinstance(positions, list) and len(positions) >= 1
+        and all(isinstance(p, dict) and "x" in p and "y" in p for p in positions)
+    )
+    return has_event_id and has_type_name and positions_ok
+
+
 @dataclass
 class DetectionResult:
     detected_format: str                 # "opta" | "statsbomb" | "wyscout" | "unknown"
@@ -224,6 +253,22 @@ class FormatDetective:
                     detected_format="statsbomb",
                     confidence=0.9,
                     vendor_schema_version="statsbomb_open_data",
+                    file_type="json",
+                    attempts=1,
+                    attempt_log=attempt_log,
+                    event_list_key="events",
+                )
+            wy_events = sb_events
+            if wy_events and all(_looks_like_real_wyscout_event(e) for e in wy_events):
+                attempt_log.append(
+                    "Attempt 1b (real-world nested-shape check): wyscout "
+                    "(eventId + subEventName/eventName + positions [{x,y},...] -- "
+                    "Wyscout's actual open-data event shape, no top-level wyId/label wrapper)"
+                )
+                return DetectionResult(
+                    detected_format="wyscout",
+                    confidence=0.9,
+                    vendor_schema_version="wyscout_open_data",
                     file_type="json",
                     attempts=1,
                     attempt_log=attempt_log,

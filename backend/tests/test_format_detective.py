@@ -137,6 +137,57 @@ def test_real_statsbomb_shape_check_does_not_misfire_on_generic_nested_json(dete
     assert result.detected_format != "statsbomb"
 
 
+def test_real_wyscout_open_data_shape_detected_without_top_level_match_metadata(detective):
+    """Regression: a real Wyscout open-data events file (e.g. a downloaded
+    competition's events/<matchId>.json) carries only {"events", "teams",
+    "players"} at the top level -- no wyId/label match-info wrapper, that
+    lives in a separate matches file this project doesn't require -- and
+    uses "playerId" rather than this project's synthetic fixture's
+    "trackable_object" for the per-event player reference. That used to
+    score just under the 0.6 fuzzy-match threshold (missing wyId/label
+    top-level, missing trackable_object per-event) and fall to the
+    generic/unknown-vendor path, which doesn't know "positions" holds
+    coordinates -- every event lost its x/y and got dropped by the
+    Validator as a result, even though the file plainly has usable data.
+    The structural shape check should catch this directly, on attempt 1,
+    the same way it already does for real StatsBomb open data."""
+    real_shaped = {
+        "events": [
+            {
+                "eventId": 8, "subEventName": "Simple pass", "playerId": 15526,
+                "positions": [{"x": 50, "y": 50}, {"x": 35, "y": 48}],
+                "matchId": 2500061, "eventName": "Pass", "teamId": 1651,
+                "matchPeriod": "1H", "eventSec": 3.14, "subEventId": 85, "id": 244031300,
+            },
+            {
+                "eventId": 1, "subEventName": "Air duel", "playerId": 8242,
+                "positions": [{"x": 34, "y": 46}, {"x": 56, "y": 56}],
+                "matchId": 2500061, "eventName": "Duel", "teamId": 1651,
+                "matchPeriod": "1H", "eventSec": 9.45, "subEventId": 10, "id": 244031305,
+            },
+        ],
+        "teams": {}, "players": {},
+    }
+    result = detective.detect(real_shaped)
+    assert result.detected_format == "wyscout"
+    assert result.attempts == 1
+    assert result.confidence >= 0.9
+    assert result.event_list_key == "events"
+
+
+def test_real_wyscout_shape_check_does_not_misfire_on_generic_nested_json(detective):
+    """A document with an 'events' list and an 'eventId'-ish field but no
+    'positions' shape shouldn't be mistaken for wyscout."""
+    not_wyscout = {
+        "events": [
+            {"eventId": 1, "subEventName": "Pass"},
+            {"eventId": 2, "subEventName": "Shot"},
+        ],
+    }
+    result = detective.detect(not_wyscout)
+    assert result.detected_format != "wyscout"
+
+
 def test_vendor_signatures_are_internally_consistent():
     """Guards against a vendor signature being edited inconsistently
     (e.g. event_fields referencing the wrong event_list_key)."""
