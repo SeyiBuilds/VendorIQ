@@ -76,12 +76,23 @@ export default function App() {
       // Reconcile against the authoritative orchestration log, in case any
       // individual stream event was missed -- same data, just a safety net.
       setRecords(event.data.orchestration_log.records);
-      // Wait a tick for the Outputs section to actually render the new
-      // result before scrolling to it.
-      if (event.data.document) {
-        setTimeout(() => outputsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+      // Scroll to Outputs here for single-shot sources (sample match,
+      // corrupted sample match) -- exactly one "result" event per click.
+      // Upload is different: a multi-file batch fires one "result" per
+      // file with a fresh onStart() (and blanked Outputs) in between, so
+      // scrolling on every one of those would just bounce the person down
+      // to an empty section mid-batch. UploadPanel calls scrollToOutputs
+      // itself once the whole batch is actually done instead.
+      if (event.data.document && pipelineSource !== "upload") {
+        scrollToOutputs();
       }
     }
+  };
+
+  const scrollToOutputs = () => {
+    // Wait a tick for the Outputs section to actually render the new
+    // result before scrolling to it.
+    setTimeout(() => outputsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
   };
 
   const handleStreamStart = (source = "match") => {
@@ -131,7 +142,11 @@ export default function App() {
           Bring data in
         </p>
         <div className="grid items-start gap-6 md:grid-cols-2">
-          <UploadPanel onStart={() => handleStreamStart("upload")} onEvent={applyStreamEvent} />
+          <UploadPanel
+            onStart={() => handleStreamStart("upload")}
+            onEvent={applyStreamEvent}
+            onBatchComplete={scrollToOutputs}
+          />
           <MatchPicker
             matches={matches}
             selectedMatchId={selectedMatchId}

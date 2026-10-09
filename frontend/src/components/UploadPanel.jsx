@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { unzipSync, strFromU8 } from "fflate";
+import { X } from "lucide-react";
 import { ingestRunStream, ingestRunStreamMulti } from "../api";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
@@ -94,7 +95,7 @@ async function expandFiles(fileList) {
   return { items, loadErrors };
 }
 
-export default function UploadPanel({ onStart, onEvent }) {
+export default function UploadPanel({ onStart, onEvent, onBatchComplete }) {
   const [items, setItems] = useState([]);
   const [loadErrors, setLoadErrors] = useState([]);
   const [results, setResults] = useState([]);
@@ -122,6 +123,27 @@ export default function UploadPanel({ onStart, onEvent }) {
     setItems(loaded);
     setPrimaryIndex(0);
     setLoadErrors(errs);
+  };
+
+  // Drop one loaded file before running -- e.g. a wrong pick, or a file that
+  // shouldn't be part of a combine. Keeps primaryIndex pointing at the same
+  // logical item (or resets to 0 if that one was just removed).
+  const removeItem = (index) => {
+    setItems((prev) => prev.filter((_, i) => i !== index));
+    setPrimaryIndex((prev) => {
+      if (index < prev) return prev - 1;
+      if (index === prev) return 0;
+      return prev;
+    });
+  };
+
+  const clearAll = () => {
+    setItems([]);
+    setLoadErrors([]);
+    setPrimaryIndex(0);
+    setCombinedResult(null);
+    setResults([]);
+    setCombineMode(false);
   };
 
   const handleRunAll = async () => {
@@ -153,6 +175,10 @@ export default function UploadPanel({ onStart, onEvent }) {
 
     setProgress(null);
     setRunning(false);
+    // Scroll to Outputs once here, after the whole batch -- not per file,
+    // which would otherwise bounce the person down to Outputs (briefly
+    // showing that file's result) and back to blank between every file.
+    onBatchComplete?.();
   };
 
   const handleRunCombined = async () => {
@@ -173,6 +199,7 @@ export default function UploadPanel({ onStart, onEvent }) {
         eventCount: captured?.document?.events?.length ?? 0,
         sourceVendors: captured?.document?.metadata?.source_vendors ?? [],
       });
+      onBatchComplete?.();
     } catch (err) {
       setError(err.message);
     } finally {
@@ -256,11 +283,43 @@ export default function UploadPanel({ onStart, onEvent }) {
         )}
 
         {items.length > 0 && (
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            Loaded {items.length} match file{items.length === 1 ? "" : "s"}:{" "}
-            {shown.map((it) => it.label).join(", ")}
-            {extra > 0 && ` + ${extra} more`}
-          </p>
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center justify-between">
+              <p className="text-sm text-muted-foreground">
+                Loaded {items.length} match file{items.length === 1 ? "" : "s"}
+              </p>
+              <button
+                type="button"
+                onClick={clearAll}
+                disabled={running}
+                className="text-sm font-semibold text-muted-foreground underline underline-offset-2 hover:text-foreground disabled:pointer-events-none disabled:opacity-50"
+              >
+                Clear all
+              </button>
+            </div>
+            <ul className="flex flex-col gap-1.5">
+              {shown.map((it, i) => (
+                <li
+                  key={i}
+                  className="flex items-center gap-2 rounded-md border border-border bg-muted px-2.5 py-1.5 text-sm"
+                >
+                  <span className="flex-1 truncate" title={it.label}>{it.label}</span>
+                  <button
+                    type="button"
+                    onClick={() => removeItem(i)}
+                    disabled={running}
+                    aria-label={`Remove ${it.label}`}
+                    className="shrink-0 rounded p-0.5 text-muted-foreground hover:text-destructive disabled:pointer-events-none disabled:opacity-50"
+                  >
+                    <X className="size-3.5" />
+                  </button>
+                </li>
+              ))}
+            </ul>
+            {extra > 0 && (
+              <p className="text-sm text-muted-foreground">+ {extra} more (remove some to see them)</p>
+            )}
+          </div>
         )}
 
         {progress && (
