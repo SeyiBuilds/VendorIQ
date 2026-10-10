@@ -1,4 +1,4 @@
-# Synthetic Match Insights Engine (FDOA)
+# VendorIQ
 
 Built for Microsoft x Premier League's **Inside the Game: Developer Hackathon**.
 
@@ -22,8 +22,8 @@ Built to production standard: 282 passing tests, pinned dependencies, confidence
 Requires Python 3.11+ and Node 18+.
 
 ```bash
-git clone https://github.com/SeyiBuilds/football-data-orchestration
-cd football-data-orchestration
+git clone https://github.com/SeyiBuilds/VendorIQ
+cd VendorIQ
 pip install -r requirements.txt
 pytest backend/tests -q              # expected: 282 passed
 

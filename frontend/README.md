@@ -1,4 +1,4 @@
-# Synthetic Match Insights Engine — frontend
+# VendorIQ — frontend
 
 React + Vite UI over the FastAPI layer (`backend/api/`), demonstrating the
 7-agent ingest → interpret → narrate pipeline live -- each agent's status

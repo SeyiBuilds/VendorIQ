@@ -142,7 +142,7 @@ export default function App() {
           </div>
         </div>
         <div>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Synthetic Match Insights Engine</h1>
+          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">VendorIQ</h1>
           <p className="mt-2 text-lg text-muted-foreground">
             Turns raw match feeds into explainable match intelligence, in real time.
           </p>

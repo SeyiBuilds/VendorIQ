@@ -52,7 +52,7 @@ SAMPLE_MATCHES_DIR = ROOT / "backend" / "data" / "sample_matches"
 VALID_VENDOR_FILES = {"opta", "statsbomb", "wyscout"}
 
 app = FastAPI(
-    title="Synthetic Match Insights Engine API",
+    title="VendorIQ API",
     description="HTTP layer over the 7-agent football-data orchestration pipeline.",
     version="1.0.0",
 )
