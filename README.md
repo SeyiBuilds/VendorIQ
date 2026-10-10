@@ -1,100 +1,117 @@
-# Synthetic Match Insights Engine
+# Synthetic Match Insights Engine (FDOA)
 
-Built for Microsoft × Premier League's **Inside the Game: Developer Hackathon**.
+Built for Microsoft x Premier League's **Inside the Game: Developer Hackathon**.
 
-Turns synthetic, football-realistic match events into explainable match
-intelligence: a 7-agent pipeline that ingests a vendor feed (Opta/
-StatsBomb/Wyscout shaped), interprets it into a normalized format, and
-explains it back out as stats + narrative text -- with each agent's
-progress streamed to the UI live as it actually runs, not revealed all at
-once after the whole pipeline finishes.
+A 7-agent pipeline that ingests a vendor-shaped football feed (Opta, StatsBomb, or Wyscout), normalizes it into a single Common Data Format (CDF) document, and explains it back out as computed stats plus narrative text. Each agent's progress streams to the UI live as it runs.
 
-Covers two of the Common Data Format's data pillars honestly: **event
-data** (the pipeline above) and **match sheet data** (lineups, formations,
-substitutions, officials, venue, attendance -- mapped from its own
-vendor-shaped feed, a separate optional stage, never fabricated when no
-match-sheet payload is supplied). Tracking data, video footage and
-physical/physiological data are deliberately out of scope -- they come
-from entirely different vendor systems (TRACAB/Second Spectrum, raw media,
-club-internal GPS wearables) that aren't bundled into an Opta/StatsBomb/
-Wyscout event or lineup feed, so faking them would misrepresent what this
-tool actually does.
+Covers event data and match sheet data (lineups, officials, venue) honestly, never fabricating a match sheet when none is supplied. Tracking data, video, and physiological data are not wired up yet; adding them is a future phase, not a schema limitation.
 
-Built with the mindset that this already won and a club wants it in
-production: real test suites (280 passing), pinned dependencies, honest
-confidence scoring and graceful degradation instead of fabricated
-numbers, and a documented fallback path for every place real data goes
-missing or wrong.
+Built to production standard: 282 passing tests, pinned dependencies, confidence scores computed from real data quality, and a documented fallback for every point where real-world data can arrive missing or wrong.
 
-## Quickstart
+## Stack
+
+| Layer | Technology |
+|---|---|
+| Backend | Python 3.11+, FastAPI, Pydantic v2, uvicorn |
+| Frontend | React 19, Vite, Tailwind CSS v4, shadcn/ui |
+| Testing | pytest (282 tests) |
+| Optional narrative upgrade | Anthropic API or Groq API |
+
+## Quick start
 
 Requires Python 3.11+ and Node 18+.
 
 ```bash
-# 1. backend — install deps and run the test suite
+git clone https://github.com/SeyiBuilds/football-data-orchestration
+cd football-data-orchestration
 pip install -r requirements.txt
-pytest backend/tests -q          # 280 passed
-# (Windows: if `pytest` / `uvicorn` aren't recognized, use `python -m pytest` / `python -m uvicorn` instead)
+pytest backend/tests -q              # expected: 282 passed
 
-# 2. backend — start the API
-uvicorn backend.api.main:app --reload --port 8000
+uvicorn backend.api.main:app --reload --port 8000   # terminal 1
 
-# 3. frontend — in a second terminal
-cd frontend
+cd frontend                                          # terminal 2
 npm install
-cp .env.example .env             # points at http://localhost:8000
-npm run dev                      # opens on http://localhost:5173
+cp .env.example .env
+npm run dev
 ```
 
-Open the frontend URL, pick a sample match, hit **Run pipeline**. Try the
-**Resilience stress test** to corrupt a clean feed on the spot (strip
-player identities, null out coordinates, drop timestamps...) and watch
-the same pipeline degrade gracefully instead of crashing or fabricating
-data -- or use its orchestrator decision test to make one agent genuinely
-fail and watch the Master Orchestrator's own retry/abort/degrade logic
-fire for real.
-Or use **Bring your own match data** to upload a vendor-shaped JSON file
-of your own (Opta/StatsBomb/Wyscout) and run it through the same
-pipeline — format is auto-detected. Once a run produces a document, use
-**Export** to re-export it into another vendor's shape and download it.
+Frontend: `http://localhost:5173`. API: `http://localhost:8000` (check `/health`).
+Windows: if `pytest`/`uvicorn` are not recognized, use `python -m pytest` / `python -m uvicorn`.
 
-The narrative is always built from a deterministic template first (works
-fully offline). To upgrade it into a more naturally-written paragraph,
-set either `ANTHROPIC_API_KEY` or `GROQ_API_KEY` as an environment
-variable before starting the backend -- Anthropic is tried first if both
-are set, Groq otherwise. Either way the LLM gets the exact same computed
-stats as the template, never raw data it could embellish.
+## Environment variables
+
+Nothing is required to run the full pipeline. Both are optional upgrades.
+
+| Variable | Required | What it does |
+|---|---|---|
+| `ANTHROPIC_API_KEY` | No | Upgrades narrative text and AI entity-resolution escalation. Tried first if set. |
+| `GROQ_API_KEY` | No | Narrative upgrade, used only if `ANTHROPIC_API_KEY` is not set. |
+| `VITE_API_BASE_URL` | Yes, for frontend | Backend URL. Defaults to `http://localhost:8000` via `.env.example`. |
+
+Without either API key, the narrative still generates in full from a deterministic template, fully offline.
+
+## Demo data
+
+Three synthetic matches ship in `backend/data/sample_matches/`, each with all three vendor formats and a match sheet.
+
+| Match ID | Teams | Tier |
+|---|---|---|
+| `PL_2025_CLEAN_001` | Liverpool vs Man City | clean |
+| `PL_2025_MESSY_001` | Man United vs Tottenham | messy |
+| `PL_2025_PARTIAL_001` | Arsenal vs Chelsea | partial |
+
+A real Wyscout open-data file also works; Format Detective auto-detects both the synthetic and real-world shape.
+
+## Trying it
+
+In the UI: pick a sample match, click Run pipeline, watch all seven agents complete, then check the document, match sheet, and narrative. Use Resilience to corrupt a feed live, or Upload to run your own vendor file (format auto-detected).
+
+Via the API:
+
+```bash
+curl -s -X POST http://localhost:8000/matches/PL_2025_CLEAN_001/run \
+  -H "Content-Type: application/json" -d '{"vendor":"opta"}'
+```
+
+Expect `overall_status: "success"`, `quality_confidence: 1.0`, 300 events. The messy sample returns the same status with `quality_confidence` around `0.91`, reflecting genuine quality notes instead of a fabricated perfect score. Export a run with the `run_id` from either response:
+
+```bash
+curl -s -X POST http://localhost:8000/runs/<run_id>/export \
+  -H "Content-Type: application/json" -d '{"target_vendor":"statsbomb"}'
+```
+
+## API reference
+
+| Method | Path | Purpose |
+|---|---|---|
+| GET | `/health` | Liveness check |
+| GET | `/matches` | List sample matches |
+| POST | `/matches/{id}/run` (or `/run/stream`) | Run the pipeline |
+| POST | `/ingest/run/stream` (or `/stream/multi`) | Run against uploaded file(s) |
+| POST | `/matches/{id}/corrupt-and-run/stream` | Corrupt and run, streamed |
+| GET | `/runs/{run_id}` | Fetch a completed run |
+| POST | `/runs/{run_id}/export` | Export to another vendor shape |
+
+Streaming endpoints take `?pace=false` to skip the demo per-stage pause.
 
 ## Architecture
 
-```
-backend/
-  data/
-    generators/synthetic_match_generator.py   synthetic Opta/StatsBomb/Wyscout fixtures
-                                               (events + match sheets)
-    corruption.py                             live fallback-path injection (demo feature)
-    sample_matches/                           3 pre-generated matches (clean/messy/partial tiers);
-                                               each has 3 event files + match_sheets/ (3 more)
-    schemas/cdf_models.py                     the Common Data Format (CDF) — Pydantic
-  agents/
-    format_detective.py        Agent 1 — detect vendor format (event feeds)
-    schema_mapper.py           Agent 2 — map to CDF, per-vendor; also maps match-sheet feeds
-                                (own vendor detection, separate from Format Detective)
-    coordinate_translator.py   Agent 3 — normalize pitch coordinates to 0-100 x 0-100
-    entity_resolver.py         Agent 4 — resolve player identity (jersey/name, cross-vendor)
-    validator.py               Agent 5 — build the final CDFDocument, score confidence,
-                                assemble match_sheet when one was supplied
-    narrative_generator.py     Agent 6 — stats + key moments + narrative text
-    format_exporter.py         Agent 7 — export CDF (events + match sheet) back to a vendor
-                                shape (on-demand)
-    orchestrator.py            Master Orchestrator — wires 1-6 + the optional match_sheet_mapper
-                                stage, critical/optional stage split
-  api/main.py                  FastAPI layer over the orchestrator
-  tests/                       280 tests, one file per agent/module
-frontend/                      React + Vite UI — see frontend/README.md
-```
+`backend/agents/` holds the 7 agents (`format_detective` through `format_exporter`) plus `orchestrator.py`, which wires them together and is the best starting point for design rationale (fallback tiers, confidence scoring, why export is on-demand). `backend/api/main.py` is the FastAPI layer; `backend/data/` holds the CDF schema, sample matches, and the corruption/fault-injection demo tools. `frontend/` is the React + Vite UI.
 
-Full design rationale (fallback tiers, confidence scoring, why
-single-vendor ingestion, why export is on-demand rather than a pipeline
-stage) is documented inline in each agent's own docstring — start with
-`backend/agents/orchestrator.py`.
+## Troubleshooting
+
+| Problem | Fix |
+|---|---|
+| "Could not reach the API" | Confirm `uvicorn` is running on port 8000 and `frontend/.env` points at it |
+| Frontend changes not showing | Restart `npm run dev` and hard-refresh |
+| Narrative reads as templated | Expected without an LLM key; set `ANTHROPIC_API_KEY` or `GROQ_API_KEY` |
+
+## Limitations
+
+- Sample matches are synthetic, not real Premier League data.
+- `RunStore` is an in-memory, single-process dict; a run does not survive a backend restart. A deliberate hackathon-scope shortcut, documented as such.
+- AI narrative and entity-resolution escalation need network access; the pipeline runs fully without them.
+
+## License
+
+MIT. See `LICENSE`.
