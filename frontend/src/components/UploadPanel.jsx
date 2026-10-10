@@ -156,7 +156,9 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete }) {
     for (let i = 0; i < items.length; i++) {
       const item = items[i];
       setProgress({ index: i + 1, total: items.length, label: item.label });
-      onStart();
+      // Only the first file scrolls the view to PipelineStatus -- scrolling
+      // on every one of potentially hundreds of files would be pure jitter.
+      onStart(i === 0);
       let captured = null;
       try {
         // Paced (visible per-stage thinking) only for a single file -- the

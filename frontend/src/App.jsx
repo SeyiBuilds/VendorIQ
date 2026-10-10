@@ -42,9 +42,15 @@ export default function App() {
   // it renders right after whichever section started it, instead of at a
   // fixed spot everyone has to scroll to find.
   const [pipelineSource, setPipelineSource] = useState(null); // "upload" | "match"
-  // Scroll target for the Outputs section -- once a run actually finishes
-  // (CDF document produced), jump the person down to it instead of leaving
-  // them to scroll past the pipeline stage list themselves.
+  // Scroll target for the live PipelineStatus section -- jumped to the
+  // moment a run starts, so the person lands on the stage-by-stage view
+  // (where the deliberate per-stage pacing is actually visible) instead of
+  // staying wherever they clicked from.
+  const pipelineRef = useRef(null);
+  // Scroll target for the Outputs section -- only used when something
+  // *other* than a single live run wants to jump there (an upload batch
+  // finishing). A single run no longer auto-scrolls here: that used to cut
+  // the pipeline view short the instant the last stage finished.
   const outputsRef = useRef(null);
 
   useEffect(() => {
@@ -75,17 +81,11 @@ export default function App() {
       setRunResult(event.data);
       // Reconcile against the authoritative orchestration log, in case any
       // individual stream event was missed -- same data, just a safety net.
+      // No scroll here: the person already landed on the PipelineStatus
+      // section when the run started (see handleStreamStart) and watches
+      // it finish there. Jumping to Outputs the instant the last stage
+      // completes used to cut that view short before they could see it.
       setRecords(event.data.orchestration_log.records);
-      // Scroll to Outputs here for single-shot sources (sample match,
-      // corrupted sample match) -- exactly one "result" event per click.
-      // Upload is different: a multi-file batch fires one "result" per
-      // file with a fresh onStart() (and blanked Outputs) in between, so
-      // scrolling on every one of those would just bounce the person down
-      // to an empty section mid-batch. UploadPanel calls scrollToOutputs
-      // itself once the whole batch is actually done instead.
-      if (event.data.document && pipelineSource !== "upload") {
-        scrollToOutputs();
-      }
     }
   };
 
@@ -95,11 +95,22 @@ export default function App() {
     setTimeout(() => outputsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
   };
 
-  const handleStreamStart = (source = "match") => {
+  const scrollToPipeline = () => {
+    // Wait a tick for the PipelineStatus section to actually mount (it's
+    // conditional on pipelineSource, set just before this is called).
+    setTimeout(() => pipelineRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+  };
+
+  const handleStreamStart = (source = "match", { scroll = true } = {}) => {
     setError(null);
     setRunResult(null);
     setRecords(pendingRecords());
     setPipelineSource(source);
+    // scroll:false is for a multi-file upload batch's per-item onStart --
+    // scrolling on every one of potentially hundreds of files would be
+    // nothing but jitter. UploadPanel only passes scroll:true on the
+    // first item, so the view settles on PipelineStatus once per batch.
+    if (scroll) scrollToPipeline();
   };
 
   const handleRun = async () => {
@@ -151,7 +162,7 @@ export default function App() {
         </p>
         <div className="grid items-start gap-6 md:grid-cols-2">
           <UploadPanel
-            onStart={() => handleStreamStart("upload")}
+            onStart={(scroll = true) => handleStreamStart("upload", { scroll })}
             onEvent={applyStreamEvent}
             onBatchComplete={scrollToOutputs}
           />
@@ -170,7 +181,7 @@ export default function App() {
       </section>
 
       {pipelineSource === "upload" && (
-        <div className="mb-10">
+        <div ref={pipelineRef} className="mb-10 scroll-mt-24">
           <PipelineStatus
             records={records}
             overallStatus={runResult?.overall_status}
@@ -192,7 +203,7 @@ export default function App() {
       </section>
 
       {pipelineSource === "match" && (
-        <div className="mb-10">
+        <div ref={pipelineRef} className="mb-10 scroll-mt-24">
           <PipelineStatus
             records={records}
             overallStatus={runResult?.overall_status}
