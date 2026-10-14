@@ -1,5 +1,9 @@
 # VendorIQ
 
+| Data Ingestion | Pipeline Run |
+|:---:|:---:|
+| ![Data ingestion and feed selection](Screenshots/data-ingestion.jpg) | ![7-agent pipeline run](Screenshots/pipeline-run.jpg) |
+
 Built for Microsoft x Premier League's **Inside the Game: Developer Hackathon**.
 
 A 7-agent pipeline that ingests a vendor-shaped football feed (Opta, StatsBomb, or Wyscout), normalizes it into a single Common Data Format (CDF) document, and explains it back out as computed stats plus narrative text. Each agent's progress streams to the UI live as it runs.
