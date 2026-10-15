@@ -1,9 +1,6 @@
-# VendorIQ — frontend
+# VendorIQ frontend
 
-React + Vite UI over the FastAPI layer (`backend/api/`), demonstrating the
-7-agent ingest → interpret → narrate pipeline live -- each agent's status
-streams in as it actually runs, not as one lump result after the whole
-pipeline finishes -- plus a live "break it on stage" data-corruption demo.
+React + Vite UI over the FastAPI layer (`backend/api/`). It shows the 7-agent pipeline working live, replays a match as a live feed with a match tracker, and presents the result as a match report. No business logic lives here: every panel is a view onto what the pipeline produced.
 
 ## Running locally
 
@@ -25,36 +22,24 @@ npm run dev
 
 ## What it does
 
-1. **Match & feed** — pick one of the three sample matches (clean/messy/
-   partial data-quality tiers) and which vendor file to ingest, then run
-   the full pipeline.
-2. **Break it live** — pick one or more corruption mutations (strip player
-   identity, null coordinates, drop timestamps...), set a rate and
-   optional seed, and watch the same pipeline degrade gracefully instead
-   of crashing or fabricating data, with a clean-vs-corrupted confidence
-   comparison.
-3. **Bring your own match data** — upload a vendor-shaped JSON file (Opta/
-   StatsBomb/Wyscout, exactly as that vendor delivers it) and run it
-   through the same pipeline. Format Detective auto-detects the vendor;
-   nothing to select. An unrecognized shape degrades to a zero-confidence,
-   zero-event result with the reason logged, rather than crashing or
-   fabricating data.
-4. **Pipeline run** — shows every stage live: pending → running → success/
-   failed (retried flagged), streamed over NDJSON from
-   `POST /matches/{id}/run/stream` (or `/ingest/run/stream` for an
-   uploaded file) as each agent actually executes -- mirroring
-   `OrchestrationLog`.
-5. **Export** — re-export the current run's validated document into
-   another vendor's shape (Agent 7, on demand) and download the result as
-   JSON -- includes the match sheet too, when the run has one.
-6. **Match sheet** — lineups, formations, substitutions, officials, venue,
-   attendance and weather. A separate data pillar from the event timeline,
-   mapped from its own vendor-shaped feed; only renders when the run
-   actually had one (auto-attached for the 3 sample matches, optional for
-   an upload).
-7. **Narrative** — the generated match report, key moments, and team
-   stats table.
+| Panel | What you see |
+|---|---|
+| Bring your own match data | Upload Opta, StatsBomb or Wyscout JSON (single files or a .zip). The vendor is auto-detected. Run one file, run a batch, combine several vendors' files for one match into one CDF, or pick any loaded file to play as a live feed. |
+| Match & feed | Pick a sample match and vendor file, then Run pipeline or Play as live feed at Fast, Normal or Watch speed. |
+| Pipeline run | Each agent's status streams in as it actually runs (pending, running, success or failed, retries flagged). |
+| Resilience | Corrupt a feed live (strip player ids, null coordinates, drop timestamps) or make an agent fail, and watch the pipeline degrade or retry instead of crashing. |
+| Live feed | Match clock, events received so far, and the result of each minute's full pipeline re-run. |
+| Match tracker | The live feed's events played on a pitch: the ball moves through each action, the player on the ball is marked with his number, shots stay on the pitch, goals and cards get an overlay, and a commentary feed names each action. Only event data is drawn; other players' positions would need tracking data. |
+| Match report | Scoreboard with team badges, key-moment timeline, and two views. Fan view: turning point (the last goal that changed who was ahead) with the events that led to it, shot map, possession, shots and pass accuracy, and the story. Analyst view: full team comparison, key moment log with exact times, card colours and confidence, and data quality notes. |
+| Export | Re-export the run's document into another vendor's shape and download it. |
+| Match sheet | Lineups, formations, substitutions, officials, venue, attendance and weather, when the run had a match sheet. |
 
-No business logic lives here — every panel is a direct view onto what the
-pipeline already produced; see `backend/api/main.py`'s docstring for the
-API's own design notes.
+## Where things live
+
+| Path | Contents |
+|---|---|
+| `src/App.jsx` | Page layout and run state (normal runs and live feed) |
+| `src/api.js` | Fetch and NDJSON stream helpers, one per endpoint |
+| `src/components/` | One component per panel |
+| `src/components/narrative/` | Match report and tracker pieces: pitch, timeline, stats, badges, and the pure helpers in `matchInsights.js` |
+| `src/components/ui/` | shadcn/ui primitives |
