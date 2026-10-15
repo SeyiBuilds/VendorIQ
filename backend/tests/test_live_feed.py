@@ -197,3 +197,28 @@ def test_mid_match_narrative_never_calls_the_score_final():
         assert "score so far" in result.narrative.narrative_text
         assert "final score" not in result.narrative.narrative_text
     assert "final score" in ticks[-1][2].narrative.narrative_text
+
+
+def test_team_relative_feed_uses_one_frame_from_the_first_minute(orchestrator):
+    """Early minutes have too few shots to read the direction of play, so
+    live replay decides it once from the whole file: every event must land
+    in the same place in its update as in the finished document."""
+    data = _vendor_data("statsbomb", "PL_2025_CLEAN_001")
+    home = data["home_team"]["name"]
+    for e in data["events"]:
+        if (e["team"]["name"] == home) != (e.get("period") == 1):
+            e["location"] = [100 - e["location"][0], 100 - e["location"][1]]
+    plan = plan_feed(data)
+    assert plan.direction_convention == "team_relative"
+
+    delivered = {}
+    final = None
+    for item in replay(data, orchestrator, orchestrator):
+        if item[0] == "tick":
+            for e in events_in_tick(item[2].document, item[1]):
+                delivered[(e.period, e.timestamp, e.event_type, e.team)] = (e.x, e.y)
+        elif item[0] == "result":
+            final = item[1]
+    for e in final.document.events:
+        x, y = delivered[(e.period, e.timestamp, e.event_type, e.team)]
+        assert abs(x - e.x) < 1e-6 and abs(y - e.y) < 1e-6

@@ -137,6 +137,50 @@ WYSCOUT_TAG_BLOCKED = 2101
 WYSCOUT_TAG_ACCURATE = 1801
 WYSCOUT_TAG_NOT_ACCURATE = 1802
 WYSCOUT_CARD_TAGS = {1702: "yellow", 1703: "second_yellow", 1701: "red"}
+WYSCOUT_PERIODS = {"1H": 1, "2H": 2, "E1": 3, "E2": 4}  # "P" (penalty shootout) is not match play
+WYSCOUT_TAG_WON = 703     # duel won
+WYSCOUT_TAG_LOST = 701    # duel lost
+
+
+def _unescape(text: str) -> str:
+    """The public Wyscout dataset stores some accented names as literal
+    \\uXXXX escapes ("Chiriche\\u0219"); turn those into the letters."""
+    return re.sub(r"\\u([0-9a-fA-F]{4})", lambda m: chr(int(m.group(1), 16)), text)
+
+
+def _wyscout_context(data: dict) -> dict:
+    """Wyscout ships teams and players as separate lookups keyed by id
+    (events carry only teamId / playerId). When a file bundles them, as
+    the public Wyscout dataset does, read names from there. Accepts the
+    dataset's shapes: teams as {id: {"team": {...}}} or a list of team
+    dicts; players as {teamId: [{"player": {...}}]} or a flat list."""
+    teams: dict[str, str] = {}
+    raw_teams = data.get("teams")
+    team_items = raw_teams.values() if isinstance(raw_teams, dict) else raw_teams if isinstance(raw_teams, list) else []
+    for item in team_items:
+        team = item.get("team", item) if isinstance(item, dict) else None
+        if isinstance(team, dict) and team.get("wyId") is not None and team.get("name"):
+            teams[str(team["wyId"])] = _unescape(team["name"])
+
+    players: dict[str, str] = {}
+    raw_players = data.get("players")
+    if isinstance(raw_players, dict):
+        groups = raw_players.values()
+    elif isinstance(raw_players, list):
+        groups = [raw_players]
+    else:
+        groups = []
+    for group in groups:
+        for item in group if isinstance(group, list) else []:
+            player = item.get("player", item) if isinstance(item, dict) else None
+            if not isinstance(player, dict) or player.get("wyId") is None:
+                continue
+            name = player.get("shortName") or " ".join(
+                part for part in (player.get("firstName"), player.get("lastName")) if part
+            )
+            if name:
+                players[str(player["wyId"])] = _unescape(name)
+    return {"teams": teams, "players": players}
 
 
 def _resolve_event_type(type_raw: Any, aliases: dict[str, str]) -> Optional[str]:
@@ -376,7 +420,8 @@ def _map_statsbomb_event(raw: dict, index: int) -> MappedEvent:
     )
 
 
-def _map_wyscout_event(raw: dict, index: int) -> MappedEvent:
+def _map_wyscout_event(raw: dict, index: int, context: Optional[dict] = None) -> MappedEvent:
+    context = context or {"teams": {}, "players": {}}
     log = []
 
     event_id, _ = _get_first_present(raw, ["eventId", "wyId", "id"])
@@ -415,19 +460,32 @@ def _map_wyscout_event(raw: dict, index: int) -> MappedEvent:
 
     period_raw, period_attempt = _get_first_present(raw, ["matchPeriod"])
     period = None
-    if isinstance(period_raw, str) and period_raw.endswith("H"):
-        try:
-            period = int(period_raw[0])
-        except ValueError:
-            log.append(f"could not parse matchPeriod '{period_raw}'")
-            period_attempt = 99
+    shootout = period_raw == "P"
+    if isinstance(period_raw, str) and period_raw in WYSCOUT_PERIODS:
+        period = WYSCOUT_PERIODS[period_raw]
+    elif shootout:
+        log.append("penalty shootout kick: not match play, kept out of match stats")
+    elif period_raw is not None:
+        log.append(f"could not parse matchPeriod '{period_raw}'")
+        period_attempt = 99
     else:
         log.append("matchPeriod missing")
         period_attempt = 99
 
     team, team_attempt = _get_first_present(raw, ["teamName", "team"])
+    if team is None and raw.get("teamId") is not None:
+        team = context["teams"].get(str(raw["teamId"]))
+        if team is not None:
+            team_attempt = 2
+            log.append("team name read from the bundled teams list by teamId")
+        else:
+            log.append(f"teamId {raw['teamId']} not in a bundled teams list; team unknown")
 
     player_ref, player_attempt = _get_first_present(raw, ["trackable_object", "playerId"])
+    if player_ref == 0:
+        # Wyscout uses playerId 0 for events with no player (ball out, etc.).
+        player_ref = None
+    player_name = context["players"].get(str(player_ref)) if player_ref is not None else None
     jersey, jersey_attempt = _get_first_present(raw, ["jerseyNumber"])
     if player_ref is None and jersey is None:
         log.append("both player identifiers missing (trackable_object AND jerseyNumber null) — worst case for entity resolution")
@@ -444,13 +502,19 @@ def _map_wyscout_event(raw: dict, index: int) -> MappedEvent:
         x_attempt = y_attempt = 99
         log.append("positions missing or empty")
 
+    # Wyscout gives shots a placeholder second position, (0, 0) or
+    # (100, 100), not where the ball went: no end point rather than a fake one.
+    if event_type in ("shot", "goal") and (end_x, end_y) in ((0, 0), (100, 100)):
+        end_x = end_y = None
+        log.append("shot end position is a Wyscout placeholder (0,0 or 100,100); left unset")
+
     outcome, outcome_attempt = _get_first_present(raw, ["accurate"])
     if outcome is None:
         if shot_outcome is not None:
             outcome = shot_outcome in ("goal", "saved")
-        elif WYSCOUT_TAG_ACCURATE in tags:
+        elif WYSCOUT_TAG_ACCURATE in tags or WYSCOUT_TAG_WON in tags:
             outcome = True
-        elif WYSCOUT_TAG_NOT_ACCURATE in tags:
+        elif WYSCOUT_TAG_NOT_ACCURATE in tags or WYSCOUT_TAG_LOST in tags:
             outcome = False
 
     attempts_used = [period_attempt, team_attempt, player_attempt, x_attempt, y_attempt]
@@ -460,12 +524,19 @@ def _map_wyscout_event(raw: dict, index: int) -> MappedEvent:
 
     known_keys = {"eventId", "subEventName", "matchPeriod", "eventSec",
                   "trackable_object", "jerseyNumber", "teamName", "positions", "accurate", "tags"}
+    if team_attempt == 2:
+        known_keys = known_keys | {"teamId"}
     leftover = {k: v for k, v in raw.items() if k not in known_keys}
+    if shootout:
+        # Shootout goals don't count toward the score, so the kick is not a
+        # shot or goal for any stat; Validator drops it from the document.
+        leftover["penalty_shootout"] = True
+        event_type, shot_outcome, card_type = "other", None, None
 
     return MappedEvent(
         event_id=str(event_id), event_type=event_type, event_type_raw=type_raw,
         timestamp=float(timestamp), period=period, team=team,
-        raw_player_ref={"vendor_id": player_ref, "jersey_number": jersey, "name": None},
+        raw_player_ref={"vendor_id": player_ref, "jersey_number": jersey, "name": player_name},
         x=x, y=y, end_x=end_x, end_y=end_y,
         outcome=bool(outcome) if outcome is not None else None,
         vendor_source="wyscout", mapping_confidence=round(confidence, 3),
@@ -861,6 +932,9 @@ class SchemaMapper:
     def map_events(self, data: dict, detected_format: str, event_list_key: str) -> list[MappedEvent]:
         mapper_fn = VENDOR_MAPPERS.get(detected_format, _map_generic_event)
         events = data.get(event_list_key, []) if event_list_key else []
+        if detected_format == "wyscout":
+            context = _wyscout_context(data)
+            return [_map_wyscout_event(raw, i, context) for i, raw in enumerate(events) if isinstance(raw, dict)]
         return [mapper_fn(raw, i) for i, raw in enumerate(events) if isinstance(raw, dict)]
 
     def map_match_sheet(self, data: dict) -> MappedMatchSheet:

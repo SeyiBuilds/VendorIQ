@@ -256,6 +256,10 @@ def _call_llm_for_narrative(match_summary_line: str, team_stats: dict[str, TeamS
     return None, None
 
 
+# Minute each period starts at: second half 45', extra time 90' and 105'.
+# Timestamps are seconds into their own period.
+PERIOD_START_MINUTE = {1: 0, 2: 45, 3: 90, 4: 105}
+
 CARD_LABELS = {
     "yellow": "Yellow card",
     "second_yellow": "Second yellow card, sent off",
@@ -288,7 +292,7 @@ def extract_key_moments(document: CDFDocument) -> list[KeyMoment]:
     for e in document.events:
         if e.event_type != "goal" and not _is_card_moment(e):
             continue
-        minute = int(e.timestamp // 60) + (45 if e.period == 2 else 0)
+        minute = int(e.timestamp // 60) + PERIOD_START_MINUTE.get(e.period, 0)
         player = players_by_id.get(e.player_id) if e.player_id else None
         player_name = player.name if player else None
         if not player_name and player and player.jersey_number is not None:
@@ -384,13 +388,11 @@ class NarrativeGenerator:
             stats[team] = TeamStats(team=team)
 
         for e in document.events:
-            team = e.team
+            # An event with no team (or one Validator didn't recognize) still
+            # counts, under its own heading, rather than being dropped.
+            team = e.team or "unknown_team"
             if team not in stats:
-                # Defensive: a team name Validator didn't recognize (shouldn't
-                # happen for this dataset, but an event shouldn't be silently
-                # dropped from the stat line just because of that).
-                stats[team] = TeamStats(team=team or "unknown_team")
-                team = team or "unknown_team"
+                stats[team] = TeamStats(team=team)
 
             s = stats[team]
             s.events_total += 1

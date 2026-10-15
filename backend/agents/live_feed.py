@@ -38,6 +38,8 @@ import copy
 from dataclasses import dataclass
 from typing import Iterator, Optional
 
+from coordinate_translator import CoordinateTranslator, detect_team_relative
+from narrative_generator import PERIOD_START_MINUTE
 from format_detective import FormatDetective
 from schema_mapper import SchemaMapper
 
@@ -59,13 +61,17 @@ class FeedPlan:
     raw_events: list          # the feed's event dicts, original vendor order
     arrival: list             # arrival[i] = (period, minute) for raw_events[i]
     ticks: list               # list[FeedTick], in match-time order
+    # Direction of play, decided once from the whole file and applied to
+    # every update: "team_relative" or "fixed" (see coordinate_translator).
+    direction_convention: str = "fixed"
 
 
 def match_minute(period: int, timestamp: float) -> int:
-    """Mirrors narrative_generator.py (minute = timestamp // 60, +45 in the
-    second half) so a live clock minute always lines up with the minute on
-    the key moments the same run produces."""
-    return int(timestamp // 60) + (45 if period == 2 else 0)
+    """Mirrors narrative_generator.py (minute = timestamp // 60 plus the
+    period's start: 45 in the second half, 90 and 105 in extra time) so a
+    live clock minute always lines up with the minute on the key moments
+    the same run produces."""
+    return int(timestamp // 60) + PERIOD_START_MINUTE.get(period, 0)
 
 
 def plan_feed(vendor_data: dict, detective: Optional[FormatDetective] = None,
@@ -92,6 +98,11 @@ def plan_feed(vendor_data: dict, detective: Optional[FormatDetective] = None,
     arrival = []
     for m in mapped:
         timestamp = m.timestamp if isinstance(m.timestamp, (int, float)) and m.timestamp >= 0 else 0.0
+        if m.raw_metadata.get("penalty_shootout"):
+            # Not match play (Validator keeps it out of the document): it
+            # arrives after everything else so it never disturbs the clock.
+            arrival.append((5, 120))
+            continue
         # A missing/invalid period gets the exact repair Validator applies
         # (validator._repair_period: before 45:00 is the first half), so an
         # event's arrival minute always equals the minute it carries in the
@@ -112,7 +123,14 @@ def plan_feed(vendor_data: dict, detective: Optional[FormatDetective] = None,
         received += new
         ticks.append(FeedTick(period=period, minute=minute, received=received, total=total, new_events=new))
 
-    return FeedPlan(event_list_key=key, raw_events=raw_events, arrival=arrival, ticks=ticks)
+    # A partial feed early on has too few shots to read the direction of
+    # play from, so decide it here from the whole file; every update then
+    # uses the same frame (and so does the final, full run).
+    translated = CoordinateTranslator().translate(mapped)
+    convention = "team_relative" if detect_team_relative(translated) else "fixed"
+
+    return FeedPlan(event_list_key=key, raw_events=raw_events, arrival=arrival, ticks=ticks,
+                    direction_convention=convention)
 
 
 def payload_up_to(vendor_data: dict, plan: FeedPlan, tick: FeedTick) -> dict:
@@ -160,9 +178,11 @@ def replay(vendor_data: dict, live_orchestrator, final_orchestrator,
 
     for tick in plan.ticks[:-1]:
         partial = payload_up_to(vendor_data, plan, tick)
-        yield ("tick", tick, live_orchestrator.run(partial, match_sheet_data=match_sheet_data))
+        yield ("tick", tick, live_orchestrator.run(partial, match_sheet_data=match_sheet_data,
+                                                   direction_convention=plan.direction_convention))
 
     # Last chunk: the whole feed, through the normally configured pipeline.
-    final = final_orchestrator.run(vendor_data, match_sheet_data=match_sheet_data)
+    final = final_orchestrator.run(vendor_data, match_sheet_data=match_sheet_data,
+                                   direction_convention=plan.direction_convention)
     yield ("tick", plan.ticks[-1], final)
     yield ("result", final)

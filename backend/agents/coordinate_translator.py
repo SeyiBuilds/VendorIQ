@@ -210,3 +210,88 @@ if __name__ == "__main__":
     expected_x = raw_event["X"] / 120 * 100
     expected_y = raw_event["Y"] / 80 * 100
     print(f"  expected:        x={expected_x:.2f} y={expected_y:.2f}")
+
+
+# ---------------------------------------------------------------------------
+# Direction of play
+#
+# Real vendor feeds usually record positions relative to the team making
+# the action: every team "attacks toward x=100" in its own events, in both
+# halves. One fixed frame is needed for anything spatial across both teams
+# (a match tracker, a shot map with both sides on it), so the CDF uses:
+# the home team attacks toward x=100 in the first half (and extra time's
+# first period) and toward x=0 in the second.
+#
+# Whether a feed is team-relative is read from the data, not assumed per
+# vendor: in a team-relative feed every team's shots sit at high x in every
+# half; in a fixed-frame feed the two teams shoot at opposite ends and swap
+# at half-time. Too few shots to tell means positions stay as delivered.
+# ---------------------------------------------------------------------------
+
+DIRECTION_MIN_SHOTS = 3        # per team and half, to count as evidence
+DIRECTION_RELATIVE_X = 60.0    # median shot x above this in every group = team-relative
+
+
+def detect_team_relative(events: list[MappedEvent]) -> Optional[bool]:
+    """True if positions are team-relative, False if one fixed frame, None
+    if there are not enough shots by both teams to tell."""
+    groups: dict[tuple[str, int], list[float]] = {}
+    for e in events:
+        if e.event_type in ("shot", "goal") and e.x is not None and e.team and e.period:
+            groups.setdefault((e.team, e.period), []).append(e.x)
+    medians = {
+        key: sorted(xs)[len(xs) // 2] for key, xs in groups.items() if len(xs) >= DIRECTION_MIN_SHOTS
+    }
+    if len(medians) < 2 or len({team for team, _ in medians}) < 2:
+        return None
+    return all(m > DIRECTION_RELATIVE_X for m in medians.values())
+
+
+def _attacks_toward_100(team: str, period: Optional[int], home_team: str) -> bool:
+    first_half = period in (1, 3) or period is None
+    return (team == home_team) == first_half
+
+
+def _flip(e: MappedEvent) -> MappedEvent:
+    def mirror(v):
+        return None if v is None else round(100.0 - v, 4)
+    return replace(e, x=mirror(e.x), y=mirror(e.y), end_x=mirror(e.end_x), end_y=mirror(e.end_y))
+
+
+def normalize_attack_direction(events: list[MappedEvent], home_team: str,
+                               convention: str = "detect") -> tuple[list[MappedEvent], list[str]]:
+    """Converts team-relative positions to the CDF frame (see above).
+    Returns the events (new objects where flipped, input never mutated)
+    and log lines saying what was decided and why.
+
+    convention: "detect" reads it from these events; "team_relative" or
+    "fixed" applies a decision already made elsewhere (live replay decides
+    once from the whole file, so a partial feed with no shots yet is not
+    left in a different frame from later updates)."""
+    if convention == "team_relative":
+        relative = True
+    elif convention == "fixed":
+        return events, []
+    else:
+        relative = detect_team_relative(events)
+    if relative is None:
+        return events, ["direction of play: not enough shots by both teams to tell the feed's convention; positions kept as delivered"]
+    if not relative:
+        return events, []
+
+    teams = [e.team for e in events if e.team]
+    log = []
+    if home_team not in teams:
+        home_team = teams[0]
+        log.append(f"direction of play: home team not identified in the events; treated {home_team!r} as home")
+    out = [
+        _flip(e) if e.team and not _attacks_toward_100(e.team, e.period, home_team) else e
+        for e in events
+    ]
+    flipped = sum(1 for a, b in zip(events, out) if a is not b)
+    log.append(
+        f"direction of play: positions were team-relative (each team attacking toward x=100); "
+        f"converted to one frame with {home_team} attacking toward x=100 in the first half "
+        f"({flipped} event(s) mirrored)"
+    )
+    return out, log

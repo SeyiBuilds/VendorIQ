@@ -212,9 +212,22 @@ class EntityResolver:
                 ))
                 continue
 
+            # Attempt 3: no shirt number, but the vendor's own player id and a
+            # name from that vendor's records. The player is known within
+            # this feed; what's missing is any way to link him to another
+            # vendor's records, so it ranks below every cross-vendor tier.
+            vendor_id = ref.get("vendor_id")
+            if vendor_id is not None and name:
+                log.append(f"no jersey_number; identified by this vendor's own player id and name ('{name}'), not cross-vendor linked")
+                resolved.append(ResolvedEvent(
+                    event=e, canonical_player_id=f"vendor::{e.vendor_source}::{e.team or 'unknown_team'}::{vendor_id}",
+                    resolution_confidence=0.7, resolution_method="vendor_id_with_name",
+                    resolution_log=log,
+                ))
+                continue
+
             # Fallback: no cross-vendor signal at all. Vendor-scoped synthetic
             # identity -- explicitly NOT claimed to match anything else.
-            vendor_id = ref.get("vendor_id")
             scoped_key = vendor_id if vendor_id is not None else f"idx{idx}"
             canonical_id = f"unresolved::{e.vendor_source}::{e.team or 'unknown_team'}::{scoped_key}"
             log.append("no jersey_number and no name match available; vendor-scoped fallback identity assigned")

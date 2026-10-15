@@ -119,20 +119,21 @@ class MasterOrchestrator:
         self.exporter = FormatExporter()
 
     def run(self, vendor_data: dict, match_date: Optional[date_cls] = None,
-            match_sheet_data: Optional[dict] = None) -> PipelineResult:
+            match_sheet_data: Optional[dict] = None, direction_convention: str = "detect") -> PipelineResult:
         """Blocking convenience wrapper: drains run_streaming() and returns
         just the final PipelineResult, discarding the per-stage events.
         Existing callers (tests, the CLI block below) that just want the
         end result keep working unchanged."""
         result: Optional[PipelineResult] = None
-        for kind, payload in self.run_streaming(vendor_data, match_date=match_date, match_sheet_data=match_sheet_data):
+        for kind, payload in self.run_streaming(vendor_data, match_date=match_date, match_sheet_data=match_sheet_data,
+                                                direction_convention=direction_convention):
             if kind == "result":
                 result = payload
         assert result is not None  # run_streaming always ends with a "result" event
         return result
 
     def run_streaming(self, vendor_data: dict, match_date: Optional[date_cls] = None,
-                       match_sheet_data: Optional[dict] = None):
+                       match_sheet_data: Optional[dict] = None, direction_convention: str = "detect"):
         """Generator version of run(): yields real-time progress events as
         each agent actually executes, instead of handing back one lump
         result after the whole pipeline has already finished. This is what
@@ -202,7 +203,7 @@ class MasterOrchestrator:
             log, "validator",
             lambda: self.validator.build_document(
                 resolved, registry, {detection.detected_format: vendor_data}, match_date=match_date,
-                mapped_match_sheet=mapped_match_sheet,
+                mapped_match_sheet=mapped_match_sheet, direction_convention=direction_convention,
             ),
         )
         yield ("stage", log.records[-1])

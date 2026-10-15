@@ -43,6 +43,9 @@ from typing import Callable, Optional
 
 from pydantic import ValidationError
 
+from dataclasses import replace as dc_replace
+
+from coordinate_translator import normalize_attack_direction
 from entity_resolver import ResolvedEvent, PlayerIdentity
 from schema_mapper import MappedMatchSheet
 from cdf_models import (
@@ -78,15 +81,45 @@ def _extract_statsbomb_match(raw: dict) -> tuple[Optional[str], Optional[str], O
 def _extract_wyscout_match(raw: dict) -> tuple[Optional[str], Optional[str], Optional[str], list[str]]:
     log = []
     match_id = raw.get("wyId")
+    if match_id is None:
+        events = raw.get("events")
+        first = events[0] if isinstance(events, list) and events and isinstance(events[0], dict) else {}
+        if first.get("matchId") is not None:
+            match_id = first["matchId"]
+            log.append("wyscout: match id read from the events' matchId (no top-level wyId)")
     label = raw.get("label")
     home = away = None
     if isinstance(label, str) and " - " in label:
         home, away = (part.strip() for part in label.split(" - ", 1))
     else:
-        log.append(f"wyscout: could not split label '{label}' into home/away teams")
+        home, away, teams_log = _wyscout_sides_from_teams(raw.get("teams"))
+        log.extend(teams_log)
     if match_id is None:
         log.append("wyscout: wyId missing from top-level match data")
     return match_id, home, away, log
+
+
+def _wyscout_sides_from_teams(raw_teams) -> tuple[Optional[str], Optional[str], list[str]]:
+    """Home/away from a bundled Wyscout teams list. Uses each entry's
+    "side" when present; otherwise takes the two teams in the order the
+    file lists them and says so, since the side is then not in the feed."""
+    entries = []
+    items = raw_teams.items() if isinstance(raw_teams, dict) else enumerate(raw_teams) if isinstance(raw_teams, list) else []
+    for _, item in items:
+        if not isinstance(item, dict):
+            continue
+        team = item.get("team", item)
+        name = team.get("name") if isinstance(team, dict) else None
+        if name:
+            entries.append((item.get("side") or (team.get("side") if isinstance(team, dict) else None), name))
+    if len(entries) != 2:
+        return None, None, ["wyscout: no label and no two-team teams list; home/away unknown"]
+    sides = {side: name for side, name in entries if side in ("home", "away")}
+    if len(sides) == 2:
+        return sides["home"], sides["away"], []
+    return entries[0][1], entries[1][1], [
+        "wyscout: home/away not in the feed; assigned from the order of the bundled teams list"
+    ]
 
 
 MATCH_INFO_EXTRACTORS: dict[str, Callable] = {
@@ -118,6 +151,8 @@ def _resolve_match_info(vendor_raw_data: dict[str, dict], match_date: Optional[d
     if match_id is None:
         match_id = "unknown_match"
         log.append("fallback: no vendor supplied a usable match_id, defaulted to 'unknown_match'")
+    else:
+        match_id = str(match_id)  # vendors use numeric ids too (Wyscout wyId / matchId)
     if home_team is None:
         home_team = "unknown_home_team"
         log.append("fallback: no vendor supplied a usable home_team")
@@ -291,6 +326,7 @@ class Validator:
         vendor_raw_data: dict[str, dict],
         match_date: Optional[date_cls] = None,
         mapped_match_sheet: Optional[MappedMatchSheet] = None,
+        direction_convention: str = "detect",
     ) -> tuple[CDFDocument, ValidationReport]:
         report = ValidationReport(events_in=len(resolved_events))
 
@@ -299,6 +335,16 @@ class Validator:
 
         match_sheet, match_sheet_log = _build_match_sheet(mapped_match_sheet, match_info)
         report.warnings.extend(match_sheet_log)
+
+        # One fixed direction of play needs the home team, known only from
+        # here on (see coordinate_translator.normalize_attack_direction).
+        normalized, direction_log = normalize_attack_direction(
+            [r.event for r in resolved_events], match_info.home_team, direction_convention,
+        )
+        report.warnings.extend(direction_log)
+        resolved_events = [
+            r if r.event is e else dc_replace(r, event=e) for r, e in zip(resolved_events, normalized)
+        ]
 
         players = self._build_players(resolved_events, registry)
         report.players_in_document = len(players)
@@ -310,6 +356,14 @@ class Validator:
             )
 
         events: list[CDFEvent] = []
+        shootout_kicks = sum(1 for r in resolved_events if r.event.raw_metadata.get("penalty_shootout"))
+        if shootout_kicks:
+            report.warnings.append(
+                f"{shootout_kicks} penalty shootout event(s) left out of the event stream: a shootout is not "
+                "match play and its goals don't count toward the score (the CDF has no shootout section yet)"
+            )
+            report.events_in -= shootout_kicks
+            resolved_events = [r for r in resolved_events if not r.event.raw_metadata.get("penalty_shootout")]
         for r in resolved_events:
             cdf_event, event_warning = self._build_event(r, report)
             if cdf_event is None:
