@@ -110,6 +110,9 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete, onLive,
   const [combineMode, setCombineMode] = useState(false);
   const [primaryIndex, setPrimaryIndex] = useState(0);
   const [combinedResult, setCombinedResult] = useState(null);
+  // Which loaded file "Play as live feed" replays when several are loaded
+  // (e.g. a zip of many matches). Live replay is one match at a time.
+  const [liveIndex, setLiveIndex] = useState(0);
 
   const handleFiles = async (e) => {
     const fileList = Array.from(e.target.files || []);
@@ -122,6 +125,7 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete, onLive,
     const { items: loaded, loadErrors: errs } = await expandFiles(fileList);
     setItems(loaded);
     setPrimaryIndex(0);
+    setLiveIndex(0);
     setLoadErrors(errs);
   };
 
@@ -135,12 +139,18 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete, onLive,
       if (index === prev) return 0;
       return prev;
     });
+    setLiveIndex((prev) => {
+      if (index < prev) return prev - 1;
+      if (index === prev) return 0;
+      return prev;
+    });
   };
 
   const clearAll = () => {
     setItems([]);
     setLoadErrors([]);
     setPrimaryIndex(0);
+    setLiveIndex(0);
     setCombinedResult(null);
     setResults([]);
     setCombineMode(false);
@@ -244,7 +254,8 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete, onLive,
                 : `Run ${items.length > 1 ? `all ${items.length} matches` : "uploaded match"}`}
             </Button>
           )}
-          {/* Live replay is one match at a time: a batch has no single clock. */}
+          {/* Live replay is one match at a time. With one file loaded the
+              button sits here; with several, the picker below chooses which. */}
           {!combineMode && items.length === 1 && onLive && (
             <Button variant="secondary" onClick={() => onLive(items[0].payload)} disabled={running || liveBusy}>
               <Radio />
@@ -252,6 +263,41 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete, onLive,
             </Button>
           )}
         </div>
+
+        {!combineMode && items.length >= 2 && onLive && (
+          <div className="flex items-end gap-3 border-t border-border/70 pt-3">
+            <Label className="min-w-0 flex-1 flex-col items-start gap-1.5">
+              Play one match as a live feed
+              <Select
+                value={String(Math.min(liveIndex, items.length - 1))}
+                onValueChange={(v) => setLiveIndex(Number(v))}
+                disabled={running || liveBusy}
+              >
+                <SelectTrigger className="w-full min-w-0">
+                  <SelectValue>
+                    <span className="block min-w-0 truncate text-left">
+                      {items[Math.min(liveIndex, items.length - 1)]?.label}
+                    </span>
+                  </SelectValue>
+                </SelectTrigger>
+                <SelectContent>
+                  {items.map((it, i) => (
+                    <SelectItem key={i} value={String(i)}>{it.label}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </Label>
+            <Button
+              variant="secondary"
+              onClick={() => onLive(items[Math.min(liveIndex, items.length - 1)].payload)}
+              disabled={running || liveBusy}
+              className="shrink-0"
+            >
+              <Radio />
+              Play as live feed
+            </Button>
+          </div>
+        )}
 
         {items.length >= 2 && (
           <div className="flex flex-col gap-3 border-t border-border/70 pt-3">

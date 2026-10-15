@@ -70,7 +70,7 @@ A real Wyscout open-data file also works; Format Detective auto-detects both the
 
 In the UI: pick a sample match, click Run pipeline, watch all seven agents complete, then check the document, match sheet, and match report (Fan and Analyst views). Use Resilience to corrupt a feed live, or Upload to run your own vendor file (format auto-detected).
 
-**Live feed:** click Play as live feed (sample match, or a single uploaded file). The file is delivered one match minute at a time and the full pipeline re-runs after each minute, so the score, stats, key moments and shot map update as the match unfolds. Mid-match updates use the template narrative and say "score so far"; the final update is identical to a normal run. This replays a finished file at a chosen speed; it is not connected to a real live vendor socket, but the chunking and re-run per chunk are the same mechanics a live integration would use.
+**Live feed:** click Play as live feed on a sample match or an uploaded file. With several files loaded (for example a zip of matches), pick which one to play from the list. The file is delivered one match minute at a time and the full pipeline re-runs after each minute, so the score, stats, key moments and shot map update as the match unfolds. Mid-match updates use the template narrative and say "score so far"; the final update is identical to a normal run. This replays a finished file at a chosen speed; it is not connected to a real live vendor socket, but the chunking and re-run per chunk are the same mechanics a live integration would use.
 
 Via the API:
 
