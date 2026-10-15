@@ -107,13 +107,15 @@ class MasterOrchestrator:
     """Wires Agents 1-6 into one run() call. export() is a separate,
     on-demand entry point per the locked MVP decision."""
 
-    def __init__(self, ai_escalation_enabled: bool = True):
+    def __init__(self, ai_escalation_enabled: bool = True, narrative_in_progress: bool = False):
         self.detective = FormatDetective()
         self.mapper = SchemaMapper()
         self.translator = CoordinateTranslator()
         self.resolver = EntityResolver(ai_escalation_enabled=ai_escalation_enabled)
         self.validator = Validator()
-        self.narrator = NarrativeGenerator(ai_enabled=ai_escalation_enabled)
+        # narrative_in_progress: set for live feed replay's mid-match updates
+        # (live_feed.py), so the narrative never calls a partial score final.
+        self.narrator = NarrativeGenerator(ai_enabled=ai_escalation_enabled, in_progress=narrative_in_progress)
         self.exporter = FormatExporter()
 
     def run(self, vendor_data: dict, match_date: Optional[date_cls] = None,

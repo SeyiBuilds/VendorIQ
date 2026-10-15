@@ -103,3 +103,18 @@ body {
 #root {
   min-height: 100svh;
 }
+
+/* Score change on the live match report: a short pop, then rest. */
+@keyframes score-pop {
+  0% { transform: scale(1); color: var(--color-foreground); }
+  35% { transform: scale(1.18); color: var(--color-primary); }
+  100% { transform: scale(1); color: var(--color-foreground); }
+}
+
+@theme {
+  --animate-score-pop: score-pop 0.6s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-score-pop { animation: none; }
+}

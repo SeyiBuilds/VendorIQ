@@ -6,11 +6,11 @@
 
 Built for Microsoft x Premier League's **Inside the Game: Developer Hackathon**.
 
-A 7-agent pipeline that ingests a vendor-shaped football feed (Opta, StatsBomb, or Wyscout), normalizes it into a single Common Data Format (CDF) document, and explains it back out as computed stats plus narrative text. Each agent's progress streams to the UI live as it runs.
+A 7-agent pipeline that ingests a vendor-shaped football feed (Opta, StatsBomb, or Wyscout), normalizes it into a single Common Data Format (CDF) document, and explains it back out as computed stats plus narrative text. Each agent's progress streams to the UI live as it runs, and a live feed mode delivers a match one minute at a time so the stats update as the game unfolds.
 
 Covers event data and match sheet data (lineups, officials, venue) honestly, never fabricating a match sheet when none is supplied. Tracking data, video, and physiological data are not wired up yet; adding them is a future phase, not a schema limitation.
 
-Built to production standard: 282 passing tests, pinned dependencies, confidence scores computed from real data quality, and a documented fallback for every point where real-world data can arrive missing or wrong.
+Built to production standard: 315 passing tests, pinned dependencies, confidence scores computed from real data quality, and a documented fallback for every point where real-world data can arrive missing or wrong.
 
 ## Stack
 
@@ -18,7 +18,7 @@ Built to production standard: 282 passing tests, pinned dependencies, confidence
 |---|---|
 | Backend | Python 3.11+, FastAPI, Pydantic v2, uvicorn |
 | Frontend | React 19, Vite, Tailwind CSS v4, shadcn/ui |
-| Testing | pytest (282 tests) |
+| Testing | pytest (315 tests) |
 | Optional narrative upgrade | Anthropic API or Groq API |
 
 ## Quick start
@@ -29,7 +29,7 @@ Requires Python 3.11+ and Node 18+.
 git clone https://github.com/SeyiBuilds/VendorIQ
 cd VendorIQ
 pip install -r requirements.txt
-pytest backend/tests -q              # expected: 282 passed
+pytest backend/tests -q              # expected: 315 passed
 
 uvicorn backend.api.main:app --reload --port 8000   # terminal 1
 
@@ -68,7 +68,9 @@ A real Wyscout open-data file also works; Format Detective auto-detects both the
 
 ## Trying it
 
-In the UI: pick a sample match, click Run pipeline, watch all seven agents complete, then check the document, match sheet, and narrative. Use Resilience to corrupt a feed live, or Upload to run your own vendor file (format auto-detected).
+In the UI: pick a sample match, click Run pipeline, watch all seven agents complete, then check the document, match sheet, and match report (Fan and Analyst views). Use Resilience to corrupt a feed live, or Upload to run your own vendor file (format auto-detected).
+
+**Live feed:** click Play as live feed (sample match, or a single uploaded file). The file is delivered one match minute at a time and the full pipeline re-runs after each minute, so the score, stats, key moments and shot map update as the match unfolds. Mid-match updates use the template narrative and say "score so far"; the final update is identical to a normal run. This replays a finished file at a chosen speed; it is not connected to a real live vendor socket, but the chunking and re-run per chunk are the same mechanics a live integration would use.
 
 Via the API:
 
@@ -93,14 +95,16 @@ curl -s -X POST http://localhost:8000/runs/<run_id>/export \
 | POST | `/matches/{id}/run` (or `/run/stream`) | Run the pipeline |
 | POST | `/ingest/run/stream` (or `/stream/multi`) | Run against uploaded file(s) |
 | POST | `/matches/{id}/corrupt-and-run/stream` | Corrupt and run, streamed |
+| POST | `/matches/{id}/live/stream` | Replay a sample match as a live feed |
+| POST | `/ingest/live/stream` | Replay an uploaded file as a live feed |
 | GET | `/runs/{run_id}` | Fetch a completed run |
 | POST | `/runs/{run_id}/export` | Export to another vendor shape |
 
-Streaming endpoints take `?pace=false` to skip the demo per-stage pause.
+Streaming endpoints take `?pace=false` to skip the demo per-stage pause. Live endpoints take `?seconds_per_minute=` (0 to 5, default 0.6) to set replay speed.
 
 ## Architecture
 
-`backend/agents/` holds the 7 agents (`format_detective` through `format_exporter`) plus `orchestrator.py`, which wires them together and is the best starting point for design rationale (fallback tiers, confidence scoring, why export is on-demand). `backend/api/main.py` is the FastAPI layer; `backend/data/` holds the CDF schema, sample matches, and the corruption/fault-injection demo tools. `frontend/` is the React + Vite UI.
+`backend/agents/` holds the 7 agents (`format_detective` through `format_exporter`) plus `orchestrator.py`, which wires them together, and `live_feed.py`, which drives live replay and is the best starting point for design rationale (fallback tiers, confidence scoring, why export is on-demand). `backend/api/main.py` is the FastAPI layer; `backend/data/` holds the CDF schema, sample matches, and the corruption/fault-injection demo tools. `frontend/` is the React + Vite UI.
 
 ## Troubleshooting
 

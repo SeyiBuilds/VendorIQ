@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { unzipSync, strFromU8 } from "fflate";
-import { X } from "lucide-react";
+import { Radio, X } from "lucide-react";
 import { ingestRunStream, ingestRunStreamMulti } from "../api";
 import { Card, CardHeader, CardTitle, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
@@ -95,7 +95,7 @@ async function expandFiles(fileList) {
   return { items, loadErrors };
 }
 
-export default function UploadPanel({ onStart, onEvent, onBatchComplete }) {
+export default function UploadPanel({ onStart, onEvent, onBatchComplete, onLive, liveBusy = false }) {
   const [items, setItems] = useState([]);
   const [loadErrors, setLoadErrors] = useState([]);
   const [results, setResults] = useState([]);
@@ -238,10 +238,17 @@ export default function UploadPanel({ onStart, onEvent, onBatchComplete }) {
             />
           </Label>
           {!combineMode && (
-            <Button onClick={handleRunAll} disabled={items.length === 0 || running}>
+            <Button onClick={handleRunAll} disabled={items.length === 0 || running || liveBusy}>
               {running
                 ? `Running ${progress ? `${progress.index}/${progress.total}` : "…"}`
                 : `Run ${items.length > 1 ? `all ${items.length} matches` : "uploaded match"}`}
+            </Button>
+          )}
+          {/* Live replay is one match at a time: a batch has no single clock. */}
+          {!combineMode && items.length === 1 && onLive && (
+            <Button variant="secondary" onClick={() => onLive(items[0].payload)} disabled={running || liveBusy}>
+              <Radio />
+              Play as live feed
             </Button>
           )}
         </div>

@@ -301,8 +301,12 @@ class NarrativeGenerator:
     deliberately vendor-blind: it never looks at vendor_source for anything
     except surfacing it in data-quality notes."""
 
-    def __init__(self, ai_enabled: bool = AI_NARRATIVE_ENABLED_DEFAULT):
+    def __init__(self, ai_enabled: bool = AI_NARRATIVE_ENABLED_DEFAULT, in_progress: bool = False):
         self.ai_enabled = ai_enabled
+        # True for a match still being fed in (live feed replay): the score
+        # is then "so far", never "final". Only the wording changes; every
+        # stat is computed identically either way.
+        self.in_progress = in_progress
 
     def generate(self, document: CDFDocument) -> NarrativeReport:
         log: list[str] = []
@@ -441,7 +445,8 @@ class NarrativeGenerator:
         away_poss_pct = (away_stats.possession_pct if away_stats else None) or 0
 
         lines = [
-            f"{match_summary_line}: final score {home} {home_goals} - {away_goals} {away}.",
+            f"{match_summary_line}: {'score so far' if self.in_progress else 'final score'} "
+            f"{home} {home_goals} - {away_goals} {away}.",
             f"{home} saw an estimated {home_poss_pct:.0f}% of ball-event share to {away}'s {away_poss_pct:.0f}% "
             f"(proxy from pass/dribble/shot/set-piece events, not true possession time).",
         ]

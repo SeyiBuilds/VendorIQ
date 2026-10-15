@@ -566,3 +566,89 @@ def test_ingest_multi_accepts_a_bare_array_entry_alongside_an_object(client):
     assert resp.status_code == 200
     result = _parse_ndjson(resp.text)[-1]
     assert result["data"]["overall_status"] == "success"
+
+
+# --- Live feed replay -------------------------------------------------------
+
+def test_live_stream_emits_start_then_one_tick_per_minute_then_result(client):
+    resp = client.post(
+        "/matches/PL_2025_CLEAN_001/live/stream?seconds_per_minute=0", json={"vendor": "opta"},
+    )
+    assert resp.status_code == 200
+    assert resp.headers["content-type"].startswith("application/x-ndjson")
+    events = _parse_ndjson(resp.text)
+
+    start = events[0]
+    assert start["type"] == "live_start"
+    assert start["replayable"] is True
+    ticks = [e for e in events if e["type"] == "tick"]
+    assert len(ticks) == start["updates"]
+    assert events[-1]["type"] == "result"
+    assert events[-1]["data"]["mode"] == "live"
+
+    minutes = [(t["period"], t["minute"]) for t in ticks]
+    assert minutes == sorted(minutes)
+    assert [t["final"] for t in ticks] == [False] * (len(ticks) - 1) + [True]
+    assert ticks[-1]["received"] == ticks[-1]["total"] == start["total_events"]
+
+
+def test_live_stream_new_events_add_up_to_the_final_document(client):
+    resp = client.post(
+        "/matches/PL_2025_MESSY_001/live/stream?seconds_per_minute=0", json={"vendor": "statsbomb"},
+    )
+    events = _parse_ndjson(resp.text)
+    ticks = [e for e in events if e["type"] == "tick"]
+    delivered = sum(len(t["new_events"]) for t in ticks)
+    final_doc = events[-1]["data"]["document"]
+    assert delivered == len(final_doc["events"])
+    # Ticks ship the document without its event list (the client accumulates).
+    assert all("events" not in t["document"] for t in ticks)
+
+
+def test_live_stream_score_never_goes_backwards(client):
+    resp = client.post(
+        "/matches/PL_2025_PARTIAL_001/live/stream?seconds_per_minute=0", json={"vendor": "wyscout"},
+    )
+    ticks = [e for e in _parse_ndjson(resp.text) if e["type"] == "tick"]
+    totals = [sum(s["goals"] for s in t["narrative"]["team_stats"].values()) for t in ticks]
+    assert totals == sorted(totals)
+    assert totals[-1] == 3
+
+
+def test_live_stream_result_can_be_exported(client):
+    resp = client.post("/matches/PL_2025_CLEAN_001/live/stream?seconds_per_minute=0", json={"vendor": "opta"})
+    run_id = _parse_ndjson(resp.text)[-1]["data"]["run_id"]
+    export = client.post(f"/runs/{run_id}/export", json={"target_vendor": "statsbomb"})
+    assert export.status_code == 200
+
+
+def test_live_stream_rejects_out_of_range_speed(client):
+    resp = client.post("/matches/PL_2025_CLEAN_001/live/stream?seconds_per_minute=99", json={"vendor": "opta"})
+    assert resp.status_code == 422
+
+
+def test_live_stream_unknown_vendor_400_and_unknown_match_404(client):
+    assert client.post("/matches/PL_2025_CLEAN_001/live/stream", json={"vendor": "nope"}).status_code == 400
+    assert client.post("/matches/NOPE/live/stream", json={"vendor": "opta"}).status_code == 404
+
+
+def test_ingest_live_stream_replays_an_uploaded_feed(client):
+    resp = client.post("/ingest/live/stream?seconds_per_minute=0", json=_opta_bundle())
+    events = _parse_ndjson(resp.text)
+    assert events[0]["replayable"] is True
+    assert events[-1]["type"] == "result"
+    assert events[-1]["data"]["source"] == "uploaded"
+
+
+def test_ingest_live_stream_unrecognized_shape_falls_back_honestly(client):
+    resp = client.post("/ingest/live/stream?seconds_per_minute=0", json={"hello": "world"})
+    assert resp.status_code == 200
+    events = _parse_ndjson(resp.text)
+    assert events[0]["replayable"] is False
+    assert events[0]["detail"]
+    assert [e["type"] for e in events] == ["live_start", "result"]
+
+
+def test_ingest_live_stream_rejects_bad_bodies(client):
+    assert client.post("/ingest/live/stream", json={}).status_code == 400
+    assert client.post("/ingest/live/stream", json=[1, 2]).status_code == 400

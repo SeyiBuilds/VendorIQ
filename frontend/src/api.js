@@ -32,8 +32,11 @@ async function request(path, options = {}) {
 // pace=false drops the backend's demo think/settle pauses between stages --
 // used for a batch of many files (see ingestRunStream's `pace` param) where
 // those pauses would otherwise multiply into minutes of apparent freeze.
-async function streamRequest(path, body, onEvent, { pace = true } = {}) {
-  const url = pace ? `${BASE_URL}${path}` : `${BASE_URL}${path}?pace=false`;
+async function streamRequest(path, body, onEvent, { pace = true, query = null } = {}) {
+  const params = new URLSearchParams(query || {});
+  if (!pace) params.set("pace", "false");
+  const qs = params.toString();
+  const url = qs ? `${BASE_URL}${path}?${qs}` : `${BASE_URL}${path}`;
   const res = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -80,6 +83,25 @@ export function listMatches() {
 //   { type: "result", data }   -- the same shape runMatch() used to resolve with
 export function runMatchStream(matchId, vendor, onEvent) {
   return streamRequest(`/matches/${matchId}/run/stream`, { vendor }, onEvent);
+}
+
+// Live feed replay: the vendor file is delivered one match minute at a time
+// and the full pipeline re-runs after each chunk. onEvent receives:
+//   { type: "live_start", replayable, updates, total_events, last_minute, ... }
+//   { type: "tick", period, minute, received, total, final, overall_status,
+//     quality_confidence, stages, document (no events), new_events, narrative }
+//   { type: "result", data }   -- same shape as every other stream's result
+// secondsPerMinute is the replay speed (wall-clock seconds per match minute).
+export function liveMatchStream(matchId, vendor, secondsPerMinute, onEvent) {
+  return streamRequest(`/matches/${matchId}/live/stream`, { vendor }, onEvent, {
+    query: { seconds_per_minute: String(secondsPerMinute) },
+  });
+}
+
+export function ingestLiveStream(payload, secondsPerMinute, onEvent) {
+  return streamRequest("/ingest/live/stream", payload, onEvent, {
+    query: { seconds_per_minute: String(secondsPerMinute) },
+  });
 }
 
 export function exportRun(runId, targetVendor) {

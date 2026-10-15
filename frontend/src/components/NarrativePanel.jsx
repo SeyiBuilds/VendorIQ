@@ -64,7 +64,9 @@ function ViewToggle({ view, onChange }) {
   );
 }
 
-function Scoreboard({ home, away, palette, homeStats, awayStats, coverage, method }) {
+function Scoreboard({ home, away, palette, homeStats, awayStats, coverage, method, liveRunning }) {
+  const hg = homeStats?.goals ?? 0;
+  const ag = awayStats?.goals ?? 0;
   return (
     <div className="flex flex-col gap-3">
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6">
@@ -73,10 +75,14 @@ function Scoreboard({ home, away, palette, homeStats, awayStats, coverage, metho
           <TeamBadge colors={palette[home]} size={44} />
         </div>
         <div className="flex flex-col items-center">
-          <span className="font-mono text-4xl font-bold tracking-tight tabular-nums sm:text-5xl">
-            {homeStats?.goals ?? 0}
+          {/* Keyed on the score so a goal arriving mid-feed replays the pop. */}
+          <span
+            key={`${hg}-${ag}`}
+            className="animate-score-pop font-mono text-4xl font-bold tracking-tight tabular-nums sm:text-5xl"
+          >
+            {hg}
             <span className="mx-2 text-muted-foreground">-</span>
-            {awayStats?.goals ?? 0}
+            {ag}
           </span>
         </div>
         <div className="flex min-w-0 flex-col items-center gap-1.5 sm:flex-row sm:gap-3">
@@ -86,7 +92,9 @@ function Scoreboard({ home, away, palette, homeStats, awayStats, coverage, metho
       </div>
       <div className="flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
         <span>
-          {coverage.eventCount} events, data through {coverage.maxMinute}'
+          {liveRunning
+            ? `${coverage.eventCount} events so far, live at ${coverage.maxMinute}'`
+            : `${coverage.eventCount} events, data through ${coverage.maxMinute}'`}
         </span>
         <span aria-hidden="true">·</span>
         <Badge variant={method === "ai_enhanced" ? "default" : "muted"}>
@@ -97,11 +105,13 @@ function Scoreboard({ home, away, palette, homeStats, awayStats, coverage, metho
   );
 }
 
-function TurningPoint({ turning, evidence, players, palette, home, away }) {
+function TurningPoint({ turning, evidence, players, palette, home, away, liveRunning }) {
   if (!turning) {
     return (
       <div className="rounded-xl border border-border bg-muted/60 p-5 text-sm text-muted-foreground">
-        No goals in this run's data, so there is no turning point to call.
+        {liveRunning
+          ? "No goals yet. The turning point appears once a goal changes who is ahead."
+          : "No goals in this run's data, so there is no turning point to call."}
       </div>
     );
   }
@@ -116,8 +126,11 @@ function TurningPoint({ turning, evidence, players, palette, home, away }) {
     "go-ahead goal": `${g.team} went back in front`,
     equaliser: `${g.team} drew level`,
   }[turning.kind];
-  const after =
-    turning.kind === "equaliser"
+  const after = liveRunning
+    ? turning.kind === "equaliser"
+      ? "Level since then, so far. Can change while the feed is live."
+      : `${g.team} has led since, so far. Can change while the feed is live.`
+    : turning.kind === "equaliser"
       ? "Neither side scored again in the data, so it finished level."
       : settled
         ? `${g.team} never gave the lead back.`
@@ -206,8 +219,9 @@ function KeyMomentList({ moments, palette }) {
   );
 }
 
-export default function NarrativePanel({ narrative, document }) {
+export default function NarrativePanel({ narrative, document, live = null }) {
   const [view, setView] = useState("fan");
+  const liveRunning = live != null && (live.status === "running" || live.status === "connecting");
 
   const model = useMemo(() => {
     if (!narrative) return null;
@@ -252,10 +266,19 @@ export default function NarrativePanel({ narrative, document }) {
   return (
     <Card className="gap-0 overflow-hidden py-0">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-5 py-4">
-        <h2 className="flex items-center gap-2 text-base font-bold">
-          <Sparkles className="size-4 text-primary" />
-          Match report
-        </h2>
+        <div className="flex items-center gap-3">
+          <h2 className="flex items-center gap-2 text-base font-bold">
+            <Sparkles className="size-4 text-primary" />
+            Match report
+          </h2>
+          {liveRunning && (
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-destructive/15 px-2.5 py-0.5 font-mono text-xs font-bold text-destructive">
+              <span className="size-1.5 rounded-full bg-destructive" />
+              LIVE {live.minute != null ? `${live.minute}'` : ""}
+            </span>
+          )}
+          {live?.status === "done" && <Badge variant="success">Feed complete</Badge>}
+        </div>
         <ViewToggle view={view} onChange={setView} />
       </div>
 
@@ -268,6 +291,7 @@ export default function NarrativePanel({ narrative, document }) {
           awayStats={awayStats}
           coverage={model.coverage}
           method={narrative.generation_method}
+          liveRunning={liveRunning}
         />
 
         <section className="flex flex-col gap-3">
@@ -290,6 +314,7 @@ export default function NarrativePanel({ narrative, document }) {
                 palette={palette}
                 home={home}
                 away={away}
+                liveRunning={liveRunning}
               />
               <section className="flex flex-col gap-3">
                 <SectionLabel icon={Crosshair}>Shot map</SectionLabel>

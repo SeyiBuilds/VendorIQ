@@ -44,6 +44,7 @@ sys.path.insert(0, str(ROOT / "backend" / "data" / "schemas"))
 sys.path.insert(0, str(ROOT / "backend" / "data"))
 
 from orchestrator import MasterOrchestrator, PipelineResult  # noqa: E402
+from live_feed import events_in_tick, replay  # noqa: E402
 from serialization import to_jsonable  # noqa: E402
 from corruption import corrupt_opta_payload, MUTATION_DESCRIPTIONS  # noqa: E402
 from fault_injection import AGENT_FAULTS, FAULT_DESCRIPTIONS, maybe_inject_fault  # noqa: E402
@@ -65,6 +66,10 @@ app.add_middleware(
 )
 
 orchestrator = MasterOrchestrator(ai_escalation_enabled=True)
+# Live feed replay re-runs the pipeline once per match minute; its
+# in-progress updates use this AI-off instance (see live_feed.py's
+# docstring for why), and only the final update uses `orchestrator` above.
+live_orchestrator = MasterOrchestrator(ai_escalation_enabled=False, narrative_in_progress=True)
 
 # See module docstring -- in-memory, single-process, documented shortcut.
 RUN_STORE: dict[str, PipelineResult] = {}
@@ -327,6 +332,141 @@ def ingest_run_stream(payload: Any = Body(...), pace: bool = Query(True)) -> Str
         match_sheet_data = None
     return StreamingResponse(
         _stream_run(payload, {"match_id": None, "quality_tier": None, "source": "uploaded"}, match_sheet_data, pace=pace),
+        media_type="application/x-ndjson",
+    )
+
+
+# Default replay speed: wall-clock seconds per match minute. 0.6s plays a
+# 25-minute sample in about 15 seconds and a full 90 in about a minute.
+LIVE_DEFAULT_SECONDS_PER_MINUTE = 0.6
+LIVE_MAX_SECONDS_PER_MINUTE = 5.0
+
+
+def _stream_live(vendor_data: dict, extra: Optional[dict] = None, match_sheet_data: Optional[dict] = None,
+                 seconds_per_minute: float = LIVE_DEFAULT_SECONDS_PER_MINUTE):
+    """NDJSON live feed replay (see backend/agents/live_feed.py).
+
+    Lines, in order:
+      {"type": "live_start", ...}   -- once: whether the feed could be
+                                       replayed, how many updates, how many events
+      {"type": "tick", ...}         -- one per match minute that has events
+      {"type": "result", "data": {...}}  -- once, same shape as every other
+                                       stream's result, stored in RUN_STORE
+                                       so export works on a live run too
+
+    Each tick carries the document WITHOUT its event list plus only the
+    events that arrived in that minute (`new_events`); the client keeps a
+    running list. Re-sending every event every minute would grow the stream
+    quadratically (a real 1,700-event match over 95 updates is roughly
+    160,000 event objects). The narrative and stats are sent whole each
+    tick since they are small and are what actually changes."""
+    plan_seen = False
+    for item in replay(vendor_data, live_orchestrator, orchestrator, match_sheet_data=match_sheet_data):
+        kind = item[0]
+        if kind == "plan":
+            plan = item[1]
+            plan_seen = plan is not None
+            yield json.dumps({
+                "type": "live_start",
+                "replayable": plan_seen,
+                "updates": len(plan.ticks) if plan else 0,
+                "total_events": plan.ticks[-1].total if plan else 0,
+                "last_minute": plan.ticks[-1].minute if plan else None,
+                "seconds_per_minute": seconds_per_minute,
+                "detail": None if plan else (
+                    "feed could not be split by match time (format not detected or no events); "
+                    "ran as a single normal update instead"
+                ),
+            }) + "\n"
+        elif kind == "tick":
+            tick, result = item[1], item[2]
+            document = result.document
+            doc_json = to_jsonable(document) if document is not None else None
+            if doc_json is not None:
+                doc_json.pop("events", None)
+            yield json.dumps({
+                "type": "tick",
+                "period": tick.period,
+                "minute": tick.minute,
+                "received": tick.received,
+                "total": tick.total,
+                "new_raw_events": tick.new_events,
+                "final": tick.received == tick.total,
+                "overall_status": result.orchestration_log.overall_status,
+                "quality_confidence": document.metadata.quality_confidence if document else None,
+                "stages": [
+                    {"stage": r.stage, "status": r.status, "retried": r.retried}
+                    for r in result.orchestration_log.records
+                ],
+                "document": doc_json,
+                "new_events": to_jsonable(events_in_tick(document, tick)),
+                "narrative": to_jsonable(result.narrative),
+            }) + "\n"
+            if tick.received < tick.total and seconds_per_minute > 0:
+                time.sleep(seconds_per_minute)
+        else:  # "result"
+            result = item[1]
+            run_id = result.orchestration_log.run_id
+            RUN_STORE[run_id] = result
+            data = _serialize_run(result, run_id, {**(extra or {}), "mode": "live"})
+            yield json.dumps({"type": "result", "data": data}) + "\n"
+
+
+@app.post("/matches/{match_id}/live/stream")
+def live_match_stream(
+    match_id: str,
+    body: RunRequest = RunRequest(),
+    seconds_per_minute: float = Query(LIVE_DEFAULT_SECONDS_PER_MINUTE, ge=0.0, le=LIVE_MAX_SECONDS_PER_MINUTE),
+) -> StreamingResponse:
+    """Replays a sample match as a live feed: the vendor file is delivered
+    one match minute at a time and the full pipeline re-runs after each
+    chunk, so stats, score and key moments update as the match unfolds.
+    seconds_per_minute sets the replay speed (0 = as fast as possible)."""
+    if body.vendor not in VALID_VENDOR_FILES:
+        raise HTTPException(
+            status_code=400,
+            detail=f"unknown vendor '{body.vendor}'; supported ingest vendors: {sorted(VALID_VENDOR_FILES)}",
+        )
+    entry = _manifest_entry(match_id)
+    vendor_file = SAMPLE_MATCHES_DIR / match_id / f"{body.vendor}.json"
+    if not vendor_file.exists():
+        raise HTTPException(status_code=404, detail=f"match '{match_id}' has no '{body.vendor}' file")
+    vendor_data = json.loads(vendor_file.read_text())
+    sheet_file = _match_sheet_file(match_id, body.vendor)
+    match_sheet_data = json.loads(sheet_file.read_text()) if sheet_file else None
+    extra = {"match_id": match_id, "quality_tier": entry.get("quality_tier")}
+    return StreamingResponse(
+        _stream_live(vendor_data, extra, match_sheet_data, seconds_per_minute),
+        media_type="application/x-ndjson",
+    )
+
+
+@app.post("/ingest/live/stream")
+def ingest_live_stream(
+    payload: Any = Body(...),
+    seconds_per_minute: float = Query(LIVE_DEFAULT_SECONDS_PER_MINUTE, ge=0.0, le=LIVE_MAX_SECONDS_PER_MINUTE),
+) -> StreamingResponse:
+    """Live feed replay for an uploaded vendor file. Accepts the same body
+    shapes as POST /ingest/run/stream (object, optional match_sheet_data
+    sibling key, or a bare StatsBomb-style event array)."""
+    extra = {"match_id": None, "quality_tier": None, "source": "uploaded"}
+    if isinstance(payload, list):
+        if not payload or not all(isinstance(e, dict) for e in payload):
+            raise HTTPException(
+                status_code=400,
+                detail="a JSON array body must be non-empty and contain only event objects",
+            )
+        return StreamingResponse(
+            _stream_live({"events": payload}, extra, None, seconds_per_minute),
+            media_type="application/x-ndjson",
+        )
+    if not isinstance(payload, dict) or not payload:
+        raise HTTPException(status_code=400, detail="request body must be a non-empty JSON object or array")
+    match_sheet_data = payload.pop("match_sheet_data", None)
+    if not isinstance(match_sheet_data, dict):
+        match_sheet_data = None
+    return StreamingResponse(
+        _stream_live(payload, extra, match_sheet_data, seconds_per_minute),
         media_type="application/x-ndjson",
     )
 

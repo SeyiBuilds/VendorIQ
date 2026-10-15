@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { AlertCircle, Goal, Sparkles } from "lucide-react";
-import { listMatches, runMatchStream } from "./api";
+import { ingestLiveStream, listMatches, liveMatchStream, runMatchStream } from "./api";
 import MatchPicker from "./components/MatchPicker";
 import PipelineStatus from "./components/PipelineStatus";
+import LiveFeedPanel from "./components/LiveFeedPanel";
 import NarrativePanel from "./components/NarrativePanel";
 import CorruptionPanel from "./components/CorruptionPanel";
 import UploadPanel from "./components/UploadPanel";
@@ -26,6 +27,18 @@ const STAGE_ORDER = [
 
 function pendingRecords() {
   return STAGE_ORDER.map((stage) => ({ stage, status: "pending" }));
+}
+
+const LIVE_LOG_LIMIT = 6;
+
+function momentKey(m) {
+  return `${m.period}-${m.second_in_period}-${m.event_type}-${m.team}-${m.player_jersey}`;
+}
+
+function momentText(m) {
+  const kind = { goal: "Goal", card: "Card" }[m.event_type] || m.event_type;
+  const who = m.player_name || (m.player_jersey != null ? `#${m.player_jersey}` : null);
+  return `${kind}, ${m.team}${who ? ` (${who})` : ""}`;
 }
 
 export default function App() {
@@ -52,6 +65,14 @@ export default function App() {
   // finishing). A single run no longer auto-scrolls here: that used to cut
   // the pipeline view short the instant the last stage finished.
   const outputsRef = useRef(null);
+  // Live feed replay state (see LiveFeedPanel / backend live_feed.py).
+  // Each tick ships only the events that arrived that minute, so the
+  // running event list is accumulated here; seenMoments tracks which key
+  // moments have already been announced in the live log.
+  const [live, setLive] = useState(null);
+  const [liveSpeed, setLiveSpeed] = useState(0.6);
+  const liveEventsRef = useRef([]);
+  const seenMomentsRef = useRef(new Set());
 
   useEffect(() => {
     listMatches()
@@ -105,6 +126,7 @@ export default function App() {
     setError(null);
     setRunResult(null);
     setRecords(pendingRecords());
+    setLive(null);
     setPipelineSource(source);
     // scroll:false is for a multi-file upload batch's per-item onStart --
     // scrolling on every one of potentially hundreds of files would be
@@ -131,6 +153,76 @@ export default function App() {
       setRunning(false);
     }
   };
+
+  const applyLiveEvent = (event) => {
+    if (event.type === "live_start") {
+      setLive((l) => ({
+        ...l,
+        status: "running",
+        replayable: event.replayable,
+        updates: event.updates,
+        totalEvents: event.total_events,
+        detail: event.detail,
+      }));
+    } else if (event.type === "tick") {
+      liveEventsRef.current = liveEventsRef.current.concat(event.new_events);
+      const document = event.document ? { ...event.document, events: liveEventsRef.current } : null;
+      setRunResult({ document, narrative: event.narrative, overall_status: event.overall_status });
+
+      const entries = [];
+      for (const m of event.narrative?.key_moments || []) {
+        const key = momentKey(m);
+        if (!seenMomentsRef.current.has(key)) {
+          seenMomentsRef.current.add(key);
+          entries.push({ id: key, minute: m.minute, text: momentText(m), highlight: true });
+        }
+      }
+      entries.push({
+        id: `tick-${event.period}-${event.minute}`,
+        minute: event.minute,
+        text: `+${event.new_raw_events} event${event.new_raw_events === 1 ? "" : "s"} · pipeline re-run ${event.overall_status}`,
+        highlight: false,
+      });
+
+      setLive((l) => ({
+        ...l,
+        tick: event,
+        updateCount: (l?.updateCount ?? 0) + 1,
+        // Newest first: this minute's key moments, then its arrival line.
+        log: [...entries, ...(l?.log ?? [])].slice(0, LIVE_LOG_LIMIT),
+      }));
+    } else if (event.type === "result") {
+      setRunResult(event.data);
+      setRecords(event.data.orchestration_log.records);
+      setLive((l) => ({ ...l, status: "done" }));
+    }
+  };
+
+  // Shared by both live sources (a sample match, or a single uploaded file).
+  const handleLive = async (startStream) => {
+    setRunning(true);
+    setError(null);
+    setRunResult(null);
+    setRecords([]);
+    setPipelineSource("live");
+    liveEventsRef.current = [];
+    seenMomentsRef.current = new Set();
+    setLive({ status: "connecting", log: [], updateCount: 0, secondsPerMinute: liveSpeed });
+    scrollToPipeline();
+    try {
+      await startStream(applyLiveEvent);
+    } catch (e) {
+      setError(e.message);
+      setLive((l) => ({ ...l, status: "error" }));
+    } finally {
+      setRunning(false);
+    }
+  };
+
+  const handleLiveMatch = () =>
+    handleLive((onEvent) => liveMatchStream(selectedMatchId, selectedVendor, liveSpeed, onEvent));
+  const handleLiveUpload = (payload) =>
+    handleLive((onEvent) => ingestLiveStream(payload, liveSpeed, onEvent));
 
   return (
     <div className="mx-auto max-w-6xl px-5 pb-16">
@@ -165,6 +257,8 @@ export default function App() {
             onStart={(scroll = true) => handleStreamStart("upload", { scroll })}
             onEvent={applyStreamEvent}
             onBatchComplete={scrollToOutputs}
+            onLive={handleLiveUpload}
+            liveBusy={running}
           />
           <MatchPicker
             matches={matches}
@@ -175,10 +269,26 @@ export default function App() {
               setSelectedVendor(vendor);
             }}
             onRun={handleRun}
+            onLive={handleLiveMatch}
+            liveSpeed={liveSpeed}
+            onLiveSpeedChange={setLiveSpeed}
             running={running}
           />
         </div>
       </section>
+
+      {pipelineSource === "live" && (
+        <div ref={pipelineRef} className="mb-10 flex scroll-mt-24 flex-col gap-6">
+          <LiveFeedPanel live={live} />
+          {runResult?.narrative && (
+            <NarrativePanel
+              narrative={runResult.narrative}
+              document={runResult.document}
+              live={{ status: live?.status, minute: live?.tick?.minute, period: live?.tick?.period }}
+            />
+          )}
+        </div>
+      )}
 
       {pipelineSource === "upload" && (
         <div ref={pipelineRef} className="mb-10 scroll-mt-24">
@@ -218,7 +328,11 @@ export default function App() {
         </p>
         <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} document={runResult?.document} />
         <MatchSheetPanel matchSheet={runResult?.document?.match_sheet} />
-        {runResult && <NarrativePanel narrative={runResult.narrative} document={runResult.document} />}
+        {/* A live run shows its match report next to the live feed panel
+            instead, where it updates minute by minute. */}
+        {runResult && pipelineSource !== "live" && (
+          <NarrativePanel narrative={runResult.narrative} document={runResult.document} />
+        )}
       </section>
     </div>
   );
