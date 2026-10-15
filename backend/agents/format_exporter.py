@@ -135,14 +135,44 @@ def _native_event_type(e: CDFEvent, target_vendor: str, report: ExportReport) ->
     return CANONICAL_TO_NATIVE_TYPE.get(target_vendor, {}).get(e.event_type, e.event_type.upper())
 
 
+# Card colour and shot result, written back in each vendor's own encoding
+# (the inverse of schema_mapper's vendor vocabularies).
+OPTA_SHOT_TYPE_BY_OUTCOME = {
+    "off_target": "MISS", "post": "POST", "saved": "ATTEMPT_SAVED", "blocked": "ATTEMPT_SAVED", "goal": "GOAL",
+}
+OPTA_CARD_QUALIFIER = {"yellow": 31, "second_yellow": 32, "red": 33}
+OPTA_BLOCKED_QUALIFIER = 82
+STATSBOMB_SHOT_OUTCOME_NAME = {
+    "goal": "Goal", "saved": "Saved", "off_target": "Off T", "blocked": "Blocked", "post": "Post",
+}
+STATSBOMB_CARD_NAME = {"yellow": "Yellow Card", "second_yellow": "Second Yellow", "red": "Red Card"}
+WYSCOUT_SHOT_TAGS = {
+    "goal": [101, 1801], "saved": [1801], "off_target": [1802], "blocked": [2101, 1802], "post": [1802],
+}
+WYSCOUT_CARD_TAG = {"yellow": 1702, "second_yellow": 1703, "red": 1701}
+
+
+def _value(enum_or_str) -> Optional[str]:
+    return getattr(enum_or_str, "value", enum_or_str)
+
+
 def _export_opta(document: CDFDocument, report: ExportReport) -> dict:
     native_max_x, native_max_y = VENDOR_PITCH_DIMENSIONS["opta"]
     events = []
     for e in document.events:
         ref = _player_ref_for_export(document, e.player_id, "opta", report)
-        events.append({
+        type_name = _native_event_type(e, "opta", report)
+        shot_outcome, card_type = _value(e.shot_outcome), _value(e.card_type)
+        qualifiers = []
+        if e.event_type in ("shot", "goal") and shot_outcome in OPTA_SHOT_TYPE_BY_OUTCOME:
+            type_name = OPTA_SHOT_TYPE_BY_OUTCOME[shot_outcome]
+            if shot_outcome == "blocked":
+                qualifiers.append({"QualifierId": OPTA_BLOCKED_QUALIFIER})
+        if card_type in OPTA_CARD_QUALIFIER:
+            qualifiers.append({"QualifierId": OPTA_CARD_QUALIFIER[card_type]})
+        record = {
             "EventId": e.event_id,
-            "TypeName": _native_event_type(e, "opta", report),
+            "TypeName": type_name,
             "Min": int(e.timestamp // 60),
             "Sec": round(e.timestamp % 60, 1),
             "PeriodId": e.period,
@@ -151,7 +181,10 @@ def _export_opta(document: CDFDocument, report: ExportReport) -> dict:
             "TeamName": e.team,
             "X": _scale_to_native(e.x, native_max_x),
             "Y": _scale_to_native(e.y, native_max_y),
-        })
+        }
+        if qualifiers:
+            record["Qualifiers"] = qualifiers
+        events.append(record)
         report.events_exported += 1
     return {
         "MatchId": document.match.match_id,
@@ -170,7 +203,7 @@ def _export_statsbomb(document: CDFDocument, report: ExportReport) -> dict:
             player_obj = {"id": ref["vendor_id"], "name": ref["name"]}
             if ref["jersey_number"] is not None:
                 player_obj["jersey_number"] = ref["jersey_number"]
-        events.append({
+        record = {
             "id": e.event_id,
             "type": {"name": _native_event_type(e, "statsbomb", report)},
             "timestamp": f"00:{int(e.timestamp // 60):02d}:{e.timestamp % 60:05.2f}",
@@ -178,7 +211,21 @@ def _export_statsbomb(document: CDFDocument, report: ExportReport) -> dict:
             "player": player_obj,
             "team": {"name": e.team},
             "location": [e.x, e.y],
-        })
+        }
+        shot_outcome, card_type = _value(e.shot_outcome), _value(e.card_type)
+        if e.event_type in ("shot", "goal") and shot_outcome in STATSBOMB_SHOT_OUTCOME_NAME:
+            # StatsBomb has no Goal type: a goal is a Shot with outcome "Goal".
+            record["type"] = {"name": "Shot"}
+            record["shot"] = {"outcome": {"name": STATSBOMB_SHOT_OUTCOME_NAME[shot_outcome]}}
+        if card_type in STATSBOMB_CARD_NAME:
+            card = {"card": {"name": STATSBOMB_CARD_NAME[card_type]}}
+            if e.event_type == "foul":
+                record["type"] = {"name": "Foul Committed"}
+                record["foul_committed"] = card
+            else:
+                record["type"] = {"name": "Bad Behaviour"}
+                record["bad_behaviour"] = card
+        events.append(record)
         report.events_exported += 1
     return {
         "match_id": document.match.match_id,
@@ -192,7 +239,7 @@ def _export_wyscout(document: CDFDocument, report: ExportReport) -> dict:
     events = []
     for e in document.events:
         ref = _player_ref_for_export(document, e.player_id, "wyscout", report)
-        events.append({
+        record = {
             "eventId": e.event_id,
             "subEventName": _native_event_type(e, "wyscout", report),
             "matchPeriod": f"{e.period}H",
@@ -202,7 +249,18 @@ def _export_wyscout(document: CDFDocument, report: ExportReport) -> dict:
             "teamName": e.team,
             "positions": [{"x": e.x, "y": e.y}],
             "accurate": e.outcome,
-        })
+        }
+        shot_outcome, card_type = _value(e.shot_outcome), _value(e.card_type)
+        tags = []
+        if e.event_type in ("shot", "goal") and shot_outcome in WYSCOUT_SHOT_TAGS:
+            # Wyscout records a goal as a Shot tagged 101.
+            record["subEventName"] = "Shot"
+            tags.extend(WYSCOUT_SHOT_TAGS[shot_outcome])
+        if card_type in WYSCOUT_CARD_TAG:
+            tags.append(WYSCOUT_CARD_TAG[card_type])
+        if tags:
+            record["tags"] = [{"id": t} for t in tags]
+        events.append(record)
         report.events_exported += 1
     return {
         "wyId": document.match.match_id,

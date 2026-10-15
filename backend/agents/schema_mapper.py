@@ -20,6 +20,7 @@ Per PRD Section 4.1 fallback logic:
 """
 
 from __future__ import annotations
+import re
 from dataclasses import dataclass, field
 from typing import Any, Callable, Optional
 
@@ -52,6 +53,10 @@ class MappedEvent:
     mapping_attempts: int
     mapping_log: list[str] = field(default_factory=list)
     raw_metadata: dict = field(default_factory=dict)
+    # Event detail, already in CDF vocabulary (cdf_models.CardType /
+    # ShotOutcome). None means the vendor record carried no such detail.
+    card_type: Optional[str] = None
+    shot_outcome: Optional[str] = None
 
 
 def _get_first_present(d: dict, candidate_keys: list[str]) -> tuple[Any, int]:
@@ -76,6 +81,94 @@ def _nested_get(d: dict, path: list[str]) -> Any:
 
 
 # ---------------------------------------------------------------------------
+# Vendor vocabularies: event-type aliases, card colours, shot results.
+#
+# Each vendor names events its own way and encodes card colour and shot
+# result differently. These tables are the mapper's knowledge of each; the
+# values are CDF vocabulary. Anything not listed still falls through to
+# "other" with a log line, never a guess.
+# ---------------------------------------------------------------------------
+
+# Opta reports each shot result as its own event type (Miss, Post, Attempt
+# Saved, Goal) rather than one "shot" type plus an outcome field, and puts
+# card colour in a qualifier on the Card event.
+OPTA_SHOT_TYPES: dict[str, tuple[str, str]] = {
+    "miss": ("shot", "off_target"),
+    "post": ("shot", "post"),
+    "attempt_saved": ("shot", "saved"),
+    "goal": ("goal", "goal"),
+}
+OPTA_BLOCKED_QUALIFIER = 82          # on an Attempt Saved: blocked by an outfield player, not the keeper
+OPTA_CARD_QUALIFIERS = {31: "yellow", 32: "second_yellow", 33: "red"}
+OPTA_TYPE_ALIASES = {"throwin": "throw_in", "goalkick": "goal_kick", "take_on": "dribble"}
+
+# StatsBomb: one "Shot" type with shot.outcome, goals included (a goal is a
+# Shot whose outcome is "Goal"); cards ride on Foul Committed
+# (foul_committed.card) or Bad Behaviour (bad_behaviour.card); corners,
+# throw-ins and goal kicks are Passes with pass.type set.
+STATSBOMB_SHOT_OUTCOMES = {
+    "goal": "goal", "saved": "saved", "saved to post": "saved",
+    "off t": "off_target", "wayward": "off_target", "saved off target": "off_target",
+    "blocked": "blocked", "post": "post",
+}
+STATSBOMB_CARDS = {"yellow card": "yellow", "second yellow": "second_yellow", "red card": "red"}
+STATSBOMB_TYPE_ALIASES = {
+    "foul committed": "foul", "bad behaviour": "card", "duel": "tackle",
+    "goal keeper": "save", "throw in": "throw_in", "goal kick": "goal_kick",
+}
+STATSBOMB_PASS_TYPES = {"corner": "corner", "throw-in": "throw_in", "goal kick": "goal_kick"}
+STATSBOMB_OUTCOME_TRUE = {"complete", "won", "success", "success in play", "success to team", "success out"}
+STATSBOMB_OUTCOME_FALSE = {"incomplete", "lost", "lost in play", "lost out", "out", "unknown", "pass offside"}
+
+# Wyscout (v2): descriptive subEventNames, and result detail as numeric tags.
+WYSCOUT_TYPE_ALIASES = {
+    "simple pass": "pass", "high pass": "pass", "cross": "pass", "launch": "pass",
+    "smart pass": "pass", "head pass": "pass", "hand pass": "pass",
+    "free kick": "pass", "free kick cross": "pass",
+    "free kick shot": "shot", "penalty": "shot",
+    "hand foul": "foul", "late card foul": "foul", "out of game foul": "foul",
+    "protest": "foul", "simulation": "foul", "time lost foul": "foul", "violent foul": "foul",
+    "ground defending duel": "tackle", "ground attacking duel": "dribble",
+    "throw in": "throw_in", "goal kick": "goal_kick",
+    "save attempt": "save", "reflexes": "save",
+}
+WYSCOUT_TAG_GOAL = 101
+WYSCOUT_TAG_BLOCKED = 2101
+WYSCOUT_TAG_ACCURATE = 1801
+WYSCOUT_TAG_NOT_ACCURATE = 1802
+WYSCOUT_CARD_TAGS = {1702: "yellow", 1703: "second_yellow", 1701: "red"}
+
+
+def _resolve_event_type(type_raw: Any, aliases: dict[str, str]) -> Optional[str]:
+    """Canonical CDF event type for a vendor type name, or None if unknown.
+    Tries the name as-is, then with spaces/hyphens as underscores
+    ("Throw-in" -> "throw_in"), then the vendor's alias table."""
+    if not isinstance(type_raw, str):
+        return None
+    lower = type_raw.strip().lower()
+    normalized = re.sub(r"[\s\-]+", "_", lower)
+    for candidate in (lower, normalized):
+        if candidate in CANONICAL_EVENT_TYPES:
+            return candidate
+    return aliases.get(lower) or aliases.get(normalized)
+
+
+def _ids_from(items: Any, key: str) -> set[int]:
+    """Numeric ids from a list of {key: n} dicts or bare ints (Opta
+    qualifiers, Wyscout tags). Anything unparseable is skipped."""
+    ids: set[int] = set()
+    if not isinstance(items, list):
+        return ids
+    for item in items:
+        value = item.get(key) if isinstance(item, dict) else item
+        try:
+            ids.add(int(value))
+        except (TypeError, ValueError):
+            continue
+    return ids
+
+
+# ---------------------------------------------------------------------------
 # Per-vendor mapping functions
 # ---------------------------------------------------------------------------
 
@@ -88,13 +181,22 @@ def _map_opta_event(raw: dict, index: int) -> MappedEvent:
         log.append("event_id missing, generated placeholder")
 
     type_raw, attempt = _get_first_present(raw, ["TypeName", "Type", "QualifierName"])
-    event_type = type_raw.lower() if isinstance(type_raw, str) else None
-    if event_type not in CANONICAL_EVENT_TYPES:
-        if event_type is not None:
+    qualifier_ids = _ids_from(raw.get("Qualifiers"), "QualifierId")
+    shot_outcome = None
+    type_key = re.sub(r"[\s\-]+", "_", type_raw.strip().lower()) if isinstance(type_raw, str) else None
+    if type_key in OPTA_SHOT_TYPES:
+        event_type, shot_outcome = OPTA_SHOT_TYPES[type_key]
+        if shot_outcome == "saved" and OPTA_BLOCKED_QUALIFIER in qualifier_ids:
+            shot_outcome = "blocked"
+    else:
+        event_type = _resolve_event_type(type_raw, OPTA_TYPE_ALIASES)
+    if event_type is None:
+        if type_raw is not None:
             log.append(f"unrecognized event type '{type_raw}', mapped to 'other'")
         event_type = "other"
     elif attempt > 1:
         log.append(f"event_type found via fallback key (attempt {attempt})")
+    card_type = next((OPTA_CARD_QUALIFIERS[q] for q in sorted(qualifier_ids) if q in OPTA_CARD_QUALIFIERS), None)
 
     minute, min_attempt = _get_first_present(raw, ["Min", "Minute"])
     second, sec_attempt = _get_first_present(raw, ["Sec", "Second"])
@@ -125,6 +227,8 @@ def _map_opta_event(raw: dict, index: int) -> MappedEvent:
 
     outcome_raw, outcome_attempt = _get_first_present(raw, ["Outcome"])
     outcome = bool(outcome_raw) if outcome_raw is not None else None
+    if outcome is None and shot_outcome is not None:
+        outcome = shot_outcome in ("goal", "saved")
 
     attempts_used = [time_attempt, period_attempt, team_attempt, player_attempt, x_attempt, y_attempt, outcome_attempt]
     mapping_attempts = 1 if all(a == 1 for a in attempts_used if a < 90) else (
@@ -134,7 +238,7 @@ def _map_opta_event(raw: dict, index: int) -> MappedEvent:
     confidence = max(0.3, 1.0 - 0.15 * missing_critical)
 
     known_keys = {"EventId", "TypeName", "Min", "Sec", "PeriodId", "PlayerRef", "JerseyNumber",
-                  "TeamName", "X", "Y", "PassEndX", "PassEndY", "Outcome"}
+                  "TeamName", "X", "Y", "PassEndX", "PassEndY", "Outcome", "Qualifiers"}
     leftover = {k: v for k, v in raw.items() if k not in known_keys}
 
     return MappedEvent(
@@ -144,6 +248,7 @@ def _map_opta_event(raw: dict, index: int) -> MappedEvent:
         x=x, y=y, end_x=end_x, end_y=end_y, outcome=outcome,
         vendor_source="opta", mapping_confidence=round(confidence, 3),
         mapping_attempts=mapping_attempts, mapping_log=log, raw_metadata=leftover,
+        card_type=card_type, shot_outcome=shot_outcome,
     )
 
 
@@ -159,13 +264,34 @@ def _map_statsbomb_event(raw: dict, index: int) -> MappedEvent:
     attempt = 1
     if type_raw is None:
         type_raw, attempt = _get_first_present(raw, ["type_name", "event_type"])
-    event_type = type_raw.lower() if isinstance(type_raw, str) else None
-    if event_type not in CANONICAL_EVENT_TYPES:
-        if event_type is not None:
+    event_type = _resolve_event_type(type_raw, STATSBOMB_TYPE_ALIASES)
+    if event_type is None:
+        if type_raw is not None:
             log.append(f"unrecognized event type '{type_raw}', mapped to 'other'")
         event_type = "other"
     elif attempt > 1:
         log.append(f"event_type found via fallback key (attempt {attempt})")
+
+    # Set pieces are Passes with a pass.type in StatsBomb.
+    pass_type = _nested_get(raw, ["pass", "type", "name"])
+    if event_type == "pass" and isinstance(pass_type, str):
+        event_type = STATSBOMB_PASS_TYPES.get(pass_type.strip().lower(), event_type)
+
+    # A goal is a Shot whose outcome is "Goal".
+    shot_outcome = None
+    shot_outcome_name = _nested_get(raw, ["shot", "outcome", "name"])
+    if isinstance(shot_outcome_name, str):
+        shot_outcome = STATSBOMB_SHOT_OUTCOMES.get(shot_outcome_name.strip().lower())
+        if shot_outcome is None:
+            log.append(f"unrecognized shot outcome '{shot_outcome_name}', left unset")
+    if event_type == "shot" and shot_outcome == "goal":
+        event_type = "goal"
+    elif event_type == "goal":
+        shot_outcome = "goal"
+
+    card_name = (_nested_get(raw, ["foul_committed", "card", "name"])
+                 or _nested_get(raw, ["bad_behaviour", "card", "name"]))
+    card_type = STATSBOMB_CARDS.get(card_name.strip().lower()) if isinstance(card_name, str) else None
 
     ts_raw, time_attempt = _get_first_present(raw, ["timestamp"])
     timestamp = 0.0
@@ -205,11 +331,29 @@ def _map_statsbomb_event(raw: dict, index: int) -> MappedEvent:
         x_attempt = y_attempt = 99
         log.append("location missing or malformed")
 
-    end_location = _nested_get(raw, ["pass", "end_location"])
-    end_x, end_y = (end_location[0], end_location[1]) if isinstance(end_location, list) and len(end_location) == 2 else (None, None)
+    end_location = _nested_get(raw, ["pass", "end_location"]) or _nested_get(raw, ["shot", "end_location"])
+    # Shot end locations can carry a third (height) value; only x/y map to the CDF.
+    end_x, end_y = (end_location[0], end_location[1]) if isinstance(end_location, list) and len(end_location) >= 2 else (None, None)
 
-    outcome_name = _nested_get(raw, ["pass", "outcome", "name"])
-    outcome = (outcome_name == "Complete") if outcome_name is not None else None
+    if shot_outcome is not None:
+        outcome = shot_outcome in ("goal", "saved")
+    else:
+        outcome = None
+        for obj_key in ("pass", "dribble", "duel", "interception"):
+            obj = raw.get(obj_key)
+            if not isinstance(obj, dict):
+                continue
+            name = _nested_get(obj, ["outcome", "name"])
+            if isinstance(name, str):
+                lowered = name.strip().lower()
+                if lowered in STATSBOMB_OUTCOME_TRUE:
+                    outcome = True
+                elif lowered in STATSBOMB_OUTCOME_FALSE:
+                    outcome = False
+            elif obj_key == "pass":
+                # StatsBomb leaves outcome off a completed pass entirely.
+                outcome = True
+            break
     outcome_attempt = 1
 
     attempts_used = [time_attempt, period_attempt, team_attempt, player_attempt, x_attempt, y_attempt]
@@ -217,7 +361,8 @@ def _map_statsbomb_event(raw: dict, index: int) -> MappedEvent:
     missing_critical = sum(1 for v in [player_id, x, y, period] if v is None)
     confidence = max(0.3, 1.0 - 0.15 * missing_critical)
 
-    known_keys = {"id", "type", "timestamp", "period", "player", "team", "location", "pass"}
+    known_keys = {"id", "type", "timestamp", "period", "player", "team", "location", "pass",
+                  "shot", "foul_committed", "bad_behaviour", "duel", "dribble", "interception"}
     leftover = {k: v for k, v in raw.items() if k not in known_keys}
 
     return MappedEvent(
@@ -227,6 +372,7 @@ def _map_statsbomb_event(raw: dict, index: int) -> MappedEvent:
         x=x, y=y, end_x=end_x, end_y=end_y, outcome=outcome,
         vendor_source="statsbomb", mapping_confidence=round(confidence, 3),
         mapping_attempts=mapping_attempts, mapping_log=log, raw_metadata=leftover,
+        card_type=card_type, shot_outcome=shot_outcome,
     )
 
 
@@ -239,15 +385,28 @@ def _map_wyscout_event(raw: dict, index: int) -> MappedEvent:
         log.append("event_id missing, generated placeholder")
 
     type_raw, attempt = _get_first_present(raw, ["subEventName", "eventName"])
-    event_type = type_raw.lower() if isinstance(type_raw, str) else None
-    if event_type not in CANONICAL_EVENT_TYPES:
-        if event_type is not None:
+    event_type = _resolve_event_type(type_raw, WYSCOUT_TYPE_ALIASES)
+    if event_type is None:
+        if type_raw is not None:
             log.append(f"unrecognized event type '{type_raw}', mapped to 'other'")
         else:
             log.append("event type missing (null in source)")
         event_type = "other"
     elif attempt > 1:
         log.append(f"event_type found via fallback key (attempt {attempt})")
+
+    tags = _ids_from(raw.get("tags"), "id")
+    shot_outcome = None
+    if event_type in ("shot", "goal"):
+        if WYSCOUT_TAG_GOAL in tags or event_type == "goal":
+            event_type, shot_outcome = "goal", "goal"
+        elif WYSCOUT_TAG_BLOCKED in tags:
+            shot_outcome = "blocked"
+        elif WYSCOUT_TAG_ACCURATE in tags:
+            shot_outcome = "saved"
+        elif WYSCOUT_TAG_NOT_ACCURATE in tags:
+            shot_outcome = "off_target"
+    card_type = next((WYSCOUT_CARD_TAGS[t] for t in sorted(tags) if t in WYSCOUT_CARD_TAGS), None)
 
     timestamp, time_attempt = _get_first_present(raw, ["eventSec"])
     if timestamp is None:
@@ -286,6 +445,13 @@ def _map_wyscout_event(raw: dict, index: int) -> MappedEvent:
         log.append("positions missing or empty")
 
     outcome, outcome_attempt = _get_first_present(raw, ["accurate"])
+    if outcome is None:
+        if shot_outcome is not None:
+            outcome = shot_outcome in ("goal", "saved")
+        elif WYSCOUT_TAG_ACCURATE in tags:
+            outcome = True
+        elif WYSCOUT_TAG_NOT_ACCURATE in tags:
+            outcome = False
 
     attempts_used = [period_attempt, team_attempt, player_attempt, x_attempt, y_attempt]
     mapping_attempts = 1 if all(a == 1 for a in attempts_used) else 2
@@ -293,7 +459,7 @@ def _map_wyscout_event(raw: dict, index: int) -> MappedEvent:
     confidence = max(0.3, 1.0 - 0.12 * missing_critical)
 
     known_keys = {"eventId", "subEventName", "matchPeriod", "eventSec",
-                  "trackable_object", "jerseyNumber", "teamName", "positions", "accurate"}
+                  "trackable_object", "jerseyNumber", "teamName", "positions", "accurate", "tags"}
     leftover = {k: v for k, v in raw.items() if k not in known_keys}
 
     return MappedEvent(
@@ -304,6 +470,7 @@ def _map_wyscout_event(raw: dict, index: int) -> MappedEvent:
         outcome=bool(outcome) if outcome is not None else None,
         vendor_source="wyscout", mapping_confidence=round(confidence, 3),
         mapping_attempts=mapping_attempts, mapping_log=log, raw_metadata=leftover,
+        card_type=card_type, shot_outcome=shot_outcome,
     )
 
 

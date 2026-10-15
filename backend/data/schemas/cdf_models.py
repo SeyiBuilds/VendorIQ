@@ -40,6 +40,20 @@ class EventType(str, Enum):
     OTHER = "other"
 
 
+class CardType(str, Enum):
+    YELLOW = "yellow"
+    SECOND_YELLOW = "second_yellow"  # a second yellow, which is a sending-off
+    RED = "red"                      # a straight red
+
+
+class ShotOutcome(str, Enum):
+    GOAL = "goal"
+    SAVED = "saved"            # on target, stopped by the goalkeeper
+    OFF_TARGET = "off_target"
+    BLOCKED = "blocked"        # stopped by an outfield player
+    POST = "post"              # hit the woodwork
+
+
 Confidence = confloat(ge=0.0, le=1.0)
 Coordinate = confloat(ge=0.0, le=100.0)
 
@@ -92,6 +106,8 @@ class CDFEvent(BaseModel):
     end_x: Optional[Coordinate] = None
     end_y: Optional[Coordinate] = None
     outcome: Optional[bool] = None
+    card_type: Optional[CardType] = None      # see cdf_unified.json for when each is set
+    shot_outcome: Optional[ShotOutcome] = None
     quality_confidence: Confidence
     vendor_source: VendorSource
     metadata: dict = Field(default_factory=dict)

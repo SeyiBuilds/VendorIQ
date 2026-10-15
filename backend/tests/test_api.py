@@ -609,10 +609,12 @@ def test_live_stream_score_never_goes_backwards(client):
     resp = client.post(
         "/matches/PL_2025_PARTIAL_001/live/stream?seconds_per_minute=0", json={"vendor": "wyscout"},
     )
-    ticks = [e for e in _parse_ndjson(resp.text) if e["type"] == "tick"]
+    events = _parse_ndjson(resp.text)
+    ticks = [e for e in events if e["type"] == "tick"]
     totals = [sum(s["goals"] for s in t["narrative"]["team_stats"].values()) for t in ticks]
     assert totals == sorted(totals)
-    assert totals[-1] == 3
+    final_goals = sum(s["goals"] for s in events[-1]["data"]["narrative"]["team_stats"].values())
+    assert totals[-1] == final_goals > 0
 
 
 def test_live_stream_result_can_be_exported(client):

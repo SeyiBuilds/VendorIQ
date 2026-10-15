@@ -48,6 +48,7 @@ from schema_mapper import MappedMatchSheet
 from cdf_models import (
     CDFDocument, CDFEvent, CDFMetadata, MatchInfo, PlayerRecord,
     LineupEntry, MatchOfficials, MatchSheet, SubstitutionRecord, TeamSheet,
+    CardType, ShotOutcome,
 )
 
 
@@ -135,6 +136,10 @@ def _resolve_match_info(vendor_raw_data: dict[str, dict], match_date: Optional[d
 
 
 # --- Per-event period repair ---
+
+_CARD_TYPES = {c.value for c in CardType}
+_SHOT_OUTCOMES = {o.value for o in ShotOutcome}
+
 
 def _repair_period(period: Optional[int], timestamp: float, log: list[str]) -> tuple[int, float]:
     """Returns (period, confidence_penalty)."""
@@ -402,6 +407,15 @@ class Validator:
         if period_penalty > 0:
             report.periods_repaired += 1
 
+        # Detail fields: only CDF vocabulary passes; anything else is dropped
+        # to None with a log line rather than failing the whole event.
+        card_type = e.card_type if e.card_type in _CARD_TYPES else None
+        if e.card_type is not None and card_type is None:
+            log.append(f"card_type {e.card_type!r} is not CDF vocabulary; left unset")
+        shot_outcome = e.shot_outcome if e.shot_outcome in _SHOT_OUTCOMES else None
+        if e.shot_outcome is not None and shot_outcome is None:
+            log.append(f"shot_outcome {e.shot_outcome!r} is not CDF vocabulary; left unset")
+
         confidence = round(min(e.mapping_confidence, r.resolution_confidence) - period_penalty, 3)
         confidence = max(0.0, confidence)
 
@@ -423,6 +437,8 @@ class Validator:
                 team=e.team,
                 x=e.x, y=e.y, end_x=e.end_x, end_y=e.end_y,
                 outcome=e.outcome,
+                card_type=card_type,
+                shot_outcome=shot_outcome,
                 quality_confidence=confidence,
                 vendor_source=e.vendor_source,
                 metadata=metadata,

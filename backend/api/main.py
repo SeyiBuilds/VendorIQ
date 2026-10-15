@@ -336,9 +336,9 @@ def ingest_run_stream(payload: Any = Body(...), pace: bool = Query(True)) -> Str
     )
 
 
-# Default replay speed: wall-clock seconds per match minute. 0.6s plays a
-# 25-minute sample in about 15 seconds and a full 90 in about a minute.
-LIVE_DEFAULT_SECONDS_PER_MINUTE = 0.6
+# Default replay speed: wall-clock seconds per match minute. 1s plays a
+# full 90-minute match (plus stoppage time) in about a minute and a half.
+LIVE_DEFAULT_SECONDS_PER_MINUTE = 1.0
 LIVE_MAX_SECONDS_PER_MINUTE = 5.0
 
 

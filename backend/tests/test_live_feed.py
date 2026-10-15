@@ -106,16 +106,16 @@ def test_per_minute_deltas_add_up_to_the_finished_document(orchestrator, vendor)
 
 def test_score_builds_up_as_goals_arrive(orchestrator):
     data = _vendor_data("opta", "PL_2025_CLEAN_001")
-    goals_by_minute = {}
+    goals_in_file = sum(1 for e in data["Events"] if e.get("TypeName") == "GOAL")
+    assert goals_in_file > 0, "fixture should contain goals"
+    totals = []
     for item in replay(data, orchestrator, orchestrator):
         if item[0] == "tick":
             stats = item[2].narrative.team_stats
-            goals_by_minute[item[1].minute] = sum(s.goals for s in stats.values())
-    minutes = sorted(goals_by_minute)
-    totals = [goals_by_minute[m] for m in minutes]
+            totals.append(sum(s.goals for s in stats.values()))
     assert totals == sorted(totals), "goal count never goes down as the feed advances"
     assert totals[0] == 0
-    assert totals[-1] == 2  # final score 1-1
+    assert totals[-1] == goals_in_file
 
 
 def test_final_update_matches_a_normal_run_of_the_whole_file(orchestrator):

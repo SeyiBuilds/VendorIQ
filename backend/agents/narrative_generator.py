@@ -97,6 +97,8 @@ class TeamStats:
     saves: int = 0
     fouls: int = 0
     cards: int = 0
+    yellow_cards: int = 0
+    red_cards: int = 0         # straight reds and second yellows: every sending-off
     corners: int = 0
     offsides: int = 0
     possession_proxy_events: int = 0
@@ -145,6 +147,8 @@ class KeyMoment:
     player_jersey: Optional[int]  # often the only reliable per-player identifier (names aren't always resolved)
     confidence: float
     description: str
+    card_type: Optional[str] = None     # "yellow" | "second_yellow" | "red" for card moments, when the feed says
+    shot_outcome: Optional[str] = None  # set on goal moments when the feed carries shot detail
 
 
 @dataclass
@@ -170,7 +174,8 @@ def _build_narrative_prompt(match_summary_line: str, team_stats: dict[str, TeamS
             f"{s.short_passes} short/{s.medium_passes} medium/{s.long_passes} long), "
             f"{s.duels_won} defensive duels won ({s.tackles} tackles + {s.interceptions} interceptions), "
             f"{s.clearances} clearances, {s.saves} saves, "
-            f"{s.fouls} fouls, {s.cards} cards, {s.corners} corners, {s.offsides} offsides"
+            f"{s.fouls} fouls, {s.cards} cards ({s.yellow_cards} yellow, {s.red_cards} red or second yellow), "
+            f"{s.corners} corners, {s.offsides} offsides"
         )
     moments_lines = [f"- {m.minute}' ({m.period}H): {m.description}" for m in key_moments]
     quality_lines = "\n".join(f"- {n}" for n in data_quality_notes) or "- none"
@@ -251,19 +256,43 @@ def _call_llm_for_narrative(match_summary_line: str, team_stats: dict[str, TeamS
     return None, None
 
 
+CARD_LABELS = {
+    "yellow": "Yellow card",
+    "second_yellow": "Second yellow card, sent off",
+    "red": "Red card, sent off",
+}
+
+
+def _is_card_moment(e) -> bool:
+    """A card event, or a foul carrying the card itself (how StatsBomb and
+    Wyscout record a booking for a foul)."""
+    return e.event_type == "card" or (e.event_type == "foul" and e.card_type is not None)
+
+
 def extract_key_moments(document: CDFDocument) -> list[KeyMoment]:
     """Module-level so Agent 8 (Explainability Engine) can reuse the exact
     same goal/card extraction and minute math without importing private
     NarrativeGenerator internals or duplicating the logic."""
     players_by_id = {p.player_id: p for p in document.players}
+    # The match sheet (same document) lists every squad member by team and
+    # shirt number. An event feed with numbers but no names (Opta's) can
+    # take the name from there: a lookup inside one document, not a guess.
+    sheet_names: dict[tuple[str, int], str] = {}
+    if document.match_sheet is not None:
+        for side in (document.match_sheet.home, document.match_sheet.away):
+            for entry in side.starters + side.substitutes:
+                if entry.name and entry.jersey_number is not None:
+                    sheet_names[(side.team, entry.jersey_number)] = entry.name
     moments: list[KeyMoment] = []
 
     for e in document.events:
-        if e.event_type not in ("goal", "card"):
+        if e.event_type != "goal" and not _is_card_moment(e):
             continue
         minute = int(e.timestamp // 60) + (45 if e.period == 2 else 0)
         player = players_by_id.get(e.player_id) if e.player_id else None
         player_name = player.name if player else None
+        if not player_name and player and player.jersey_number is not None:
+            player_name = sheet_names.get((e.team, player.jersey_number))
 
         if player_name:
             who = player_name
@@ -280,15 +309,21 @@ def extract_key_moments(document: CDFDocument) -> list[KeyMoment]:
         else:
             who = "an unidentified player"
 
+        card_type = e.card_type if _is_card_moment(e) else None
         if e.event_type == "goal":
-            description = f"Goal for {e.team} -- {who}"
+            description = f"Goal for {e.team}: {who}"
         else:
-            description = f"Card for {e.team} -- {who}"
+            # The vendor feed decides the colour; with no card detail it is
+            # reported as a card of unknown colour, never guessed.
+            label = CARD_LABELS.get(card_type, "Card (colour not in feed)")
+            description = f"{label} for {e.team}: {who}"
 
         moments.append(KeyMoment(
-            minute=minute, period=e.period, second_in_period=e.timestamp, event_type=e.event_type,
+            minute=minute, period=e.period, second_in_period=e.timestamp,
+            event_type="card" if _is_card_moment(e) else e.event_type,
             team=e.team, player_name=player_name, player_jersey=player.jersey_number if player else None,
             confidence=e.quality_confidence, description=description,
+            card_type=card_type, shot_outcome=e.shot_outcome if e.event_type == "goal" else None,
         ))
 
     moments.sort(key=lambda m: (m.period, m.minute))
@@ -379,7 +414,10 @@ class NarrativeGenerator:
                         s.long_passes += 1
             elif e.event_type == "shot":
                 s.shots += 1
-                if e.outcome:
+                # Shot detail beats the generic success flag when the feed has it:
+                # only saved shots (and goals, below) are on target.
+                on_target = (e.shot_outcome == "saved") if e.shot_outcome else bool(e.outcome)
+                if on_target:
                     s.shots_on_target += 1
             elif e.event_type == "goal":
                 s.goals += 1
@@ -397,6 +435,16 @@ class NarrativeGenerator:
                 s.fouls += 1
             elif e.event_type == "card":
                 s.cards += 1
+
+            # A card is counted once: from its card event, or from the foul it
+            # rides on when the vendor attaches it there (StatsBomb, Wyscout).
+            if _is_card_moment(e):
+                if e.event_type == "foul":
+                    s.cards += 1
+                if e.card_type == "yellow":
+                    s.yellow_cards += 1
+                elif e.card_type in ("second_yellow", "red"):
+                    s.red_cards += 1
             elif e.event_type == "corner":
                 s.corners += 1
             elif e.event_type == "offside":
