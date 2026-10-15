@@ -5,12 +5,15 @@
 // Mirrors narrative_generator.py's minute calculation exactly, so a minute
 // shown on the pitch or in the evidence list always matches the minute on
 // the matching key moment.
+// Minute each period starts at (second half 45', extra time 90' and 105').
+export const PERIOD_START_MINUTE = { 1: 0, 2: 45, 3: 90, 4: 105 };
+
 export function eventMinute(e) {
-  return Math.floor(e.timestamp / 60) + (e.period === 2 ? 45 : 0);
+  return Math.floor(e.timestamp / 60) + (PERIOD_START_MINUTE[e.period] ?? 0);
 }
 
 export function clockLabel(e) {
-  const total = e.timestamp + (e.period === 2 ? 45 * 60 : 0);
+  const total = e.timestamp + (PERIOD_START_MINUTE[e.period] ?? 0) * 60;
   const m = Math.floor(total / 60);
   const s = Math.floor(total % 60);
   return `${m}:${String(s).padStart(2, "0")}`;
@@ -183,6 +186,6 @@ export function describeEvent(e) {
   if (e.event_type === "card") return "Card (colour not in feed)";
   if (e.event_type === "pass" && e.outcome === false) return "Pass, not completed";
   if (e.event_type === "dribble") return e.outcome === false ? "Dribble, lost the ball" : "Dribble, beat his man";
-  if (e.event_type === "tackle") return "Tackle won";
+  if (e.event_type === "tackle") return e.outcome === false ? "Duel lost" : "Tackle won";
   return base;
 }

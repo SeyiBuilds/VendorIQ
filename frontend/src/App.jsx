@@ -32,6 +32,7 @@ function pendingRecords() {
 }
 
 const LIVE_LOG_LIMIT = 6;
+const DEFAULT_LIVE_SPEED = 2; // wall-clock seconds per match minute
 
 function momentKey(m) {
   return `${m.period}-${m.second_in_period}-${m.event_type}-${m.team}-${m.player_jersey}`;
@@ -77,9 +78,17 @@ export default function App() {
   // running event list is accumulated here; seenMoments tracks which key
   // moments have already been announced in the live log.
   const [live, setLive] = useState(null);
-  const [liveSpeed, setLiveSpeed] = useState(1);
   const liveEventsRef = useRef([]);
   const seenMomentsRef = useRef(new Set());
+  // Live playback happens here, not on the server: the backend streams
+  // every minute's update as fast as it computes them, and they wait in
+  // this queue to be released one match minute at a time at the chosen
+  // speed. That is what lets a viewer pause, change speed or skip ahead
+  // mid-match. Each update is still a real pipeline run on the server.
+  const liveQueueRef = useRef([]);
+  const liveTimerRef = useRef(null);
+  const livePausedRef = useRef(false);
+  const liveSpeedRef = useRef(DEFAULT_LIVE_SPEED);
 
   useEffect(() => {
     listMatches()
@@ -201,12 +210,74 @@ export default function App() {
     } else if (event.type === "result") {
       setRunResult(event.data);
       setRecords(event.data.orchestration_log.records);
-      setLive((l) => ({ ...l, status: "done" }));
+      setLive((l) => ({ ...l, status: "done", paused: false }));
+      setRunning(false);
     }
+  };
+
+  // Releases queued live events: everything up to and including the next
+  // minute's update, then waits the chosen time before the following one.
+  const pumpLive = () => {
+    if (livePausedRef.current || liveTimerRef.current) return;
+    while (liveQueueRef.current.length) {
+      const next = liveQueueRef.current.shift();
+      applyLiveEvent(next);
+      if (next.type === "tick" && !next.final) {
+        liveTimerRef.current = setTimeout(() => {
+          liveTimerRef.current = null;
+          pumpLive();
+        }, liveSpeedRef.current * 1000);
+        return;
+      }
+    }
+  };
+
+  const stopLivePlayback = () => {
+    clearTimeout(liveTimerRef.current);
+    liveTimerRef.current = null;
+    liveQueueRef.current = [];
+  };
+
+  const toggleLivePause = () => {
+    livePausedRef.current = !livePausedRef.current;
+    setLive((l) => ({ ...l, paused: livePausedRef.current }));
+    if (livePausedRef.current) {
+      clearTimeout(liveTimerRef.current);
+      liveTimerRef.current = null;
+    } else {
+      pumpLive();
+    }
+  };
+
+  const setLivePlaybackSpeed = (secondsPerMinute) => {
+    liveSpeedRef.current = secondsPerMinute;
+    setLive((l) => (l ? { ...l, secondsPerMinute } : l));
+    // Restart the current wait at the new speed.
+    if (liveTimerRef.current) {
+      clearTimeout(liveTimerRef.current);
+      liveTimerRef.current = setTimeout(() => {
+        liveTimerRef.current = null;
+        pumpLive();
+      }, secondsPerMinute * 1000);
+    }
+  };
+
+  // Releases everything already computed. If the server is still working,
+  // later updates arrive straight away too.
+  const skipLiveToEnd = () => {
+    liveSpeedRef.current = 0;
+    livePausedRef.current = false;
+    clearTimeout(liveTimerRef.current);
+    liveTimerRef.current = null;
+    setLive((l) => ({ ...l, paused: false, skipped: true }));
+    pumpLive();
   };
 
   // Shared by both live sources (a sample match, or a single uploaded file).
   const handleLive = async (startStream) => {
+    stopLivePlayback();
+    livePausedRef.current = false;
+    if (liveSpeedRef.current === 0) liveSpeedRef.current = DEFAULT_LIVE_SPEED;
     setRunning(true);
     setError(null);
     setRunResult(null);
@@ -214,22 +285,26 @@ export default function App() {
     setPipelineSource("live");
     liveEventsRef.current = [];
     seenMomentsRef.current = new Set();
-    setLive({ status: "connecting", log: [], updateCount: 0, secondsPerMinute: liveSpeed });
+    setLive({ status: "connecting", log: [], updateCount: 0, secondsPerMinute: liveSpeedRef.current, paused: false });
     scrollToPipeline();
     try {
-      await startStream(applyLiveEvent);
+      await startStream((event) => {
+        liveQueueRef.current.push(event);
+        pumpLive();
+      });
     } catch (e) {
+      stopLivePlayback();
       setError(e.message);
       setLive((l) => ({ ...l, status: "error" }));
-    } finally {
       setRunning(false);
     }
   };
 
+  // seconds_per_minute=0: the server computes every update straight away;
+  // pacing happens in pumpLive above.
   const handleLiveMatch = () =>
-    handleLive((onEvent) => liveMatchStream(selectedMatchId, selectedVendor, liveSpeed, onEvent));
-  const handleLiveUpload = (payload) =>
-    handleLive((onEvent) => ingestLiveStream(payload, liveSpeed, onEvent));
+    handleLive((onEvent) => liveMatchStream(selectedMatchId, selectedVendor, 0, onEvent));
+  const handleLiveUpload = (payload) => handleLive((onEvent) => ingestLiveStream(payload, 0, onEvent));
 
   return (
     <div className="mx-auto max-w-6xl px-5 pb-16">
@@ -277,8 +352,6 @@ export default function App() {
             }}
             onRun={handleRun}
             onLive={handleLiveMatch}
-            liveSpeed={liveSpeed}
-            onLiveSpeedChange={setLiveSpeed}
             running={running}
           />
         </div>
@@ -286,7 +359,12 @@ export default function App() {
 
       {pipelineSource === "live" && (
         <div ref={pipelineRef} className="mb-10 flex scroll-mt-24 flex-col gap-6">
-          <LiveFeedPanel live={live} />
+          <LiveFeedPanel
+            live={live}
+            onTogglePause={toggleLivePause}
+            onSpeedChange={setLivePlaybackSpeed}
+            onSkipToEnd={skipLiveToEnd}
+          />
           {runResult?.document?.events?.length > 0 && (
             <LiveMatchTracker document={runResult.document} narrative={runResult.narrative} live={live} />
           )}

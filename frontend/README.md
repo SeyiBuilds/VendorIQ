@@ -25,10 +25,10 @@ npm run dev
 | Panel | What you see |
 |---|---|
 | Bring your own match data | Upload Opta, StatsBomb or Wyscout JSON (single files or a .zip). The vendor is auto-detected. Run one file, run a batch, combine several vendors' files for one match into one CDF, or pick any loaded file to play as a live feed. |
-| Match & feed | Pick a sample match and vendor file, then Run pipeline or Play as live feed at Fast, Normal or Watch speed. |
+| Match & feed | Pick a sample match and vendor file, then Run pipeline or Play as live feed. |
 | Pipeline run | Each agent's status streams in as it actually runs (pending, running, success or failed, retries flagged). |
 | Resilience | Corrupt a feed live (strip player ids, null coordinates, drop timestamps) or make an agent fail, and watch the pipeline degrade or retry instead of crashing. |
-| Live feed | Match clock, events received so far, and the result of each minute's full pipeline re-run. |
+| Live feed | Match clock, events received so far, and the result of each minute's full pipeline re-run. Pause, change speed (Fast, Normal, Watch) or skip to full time at any point; playback is paced in the browser. |
 | Match tracker | The live feed's events played on a pitch: the ball moves through each action, the player on the ball is marked with his number, shots stay on the pitch, goals and cards get an overlay, and a commentary feed names each action. Only event data is drawn; other players' positions would need tracking data. |
 | Match report | Scoreboard with team badges, key-moment timeline, and two views. Fan view: turning point (the last goal that changed who was ahead) with the events that led to it, shot map, possession, shots and pass accuracy, and the story. Analyst view: full team comparison, key moment log with exact times, card colours and confidence, and data quality notes. |
 | Export | Re-export the run's document into another vendor's shape and download it. |

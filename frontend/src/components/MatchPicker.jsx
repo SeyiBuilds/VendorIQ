@@ -6,16 +6,8 @@ import { Button } from "./ui/button";
 
 const VENDORS = ["opta", "statsbomb", "wyscout"];
 
-// Wall-clock seconds per match minute for live feed replay.
-const LIVE_SPEEDS = [
-  { value: "0.3", label: "Fast" },
-  { value: "1", label: "Normal" },
-  { value: "4", label: "Watch" },
-];
 
-export default function MatchPicker({
-  matches, selectedMatchId, selectedVendor, onChange, onRun, onLive, liveSpeed, onLiveSpeedChange, running,
-}) {
+export default function MatchPicker({ matches, selectedMatchId, selectedVendor, onChange, onRun, onLive, running }) {
   return (
     <Card>
       <CardHeader>
@@ -63,17 +55,6 @@ export default function MatchPicker({
             <Radio />
             Play as live feed
           </Button>
-          <Label className="flex-col items-start gap-1.5">
-            Live speed
-            <Select value={String(liveSpeed)} onValueChange={(v) => onLiveSpeedChange(Number(v))} disabled={running}>
-              <SelectTrigger className="w-[150px]"><SelectValue /></SelectTrigger>
-              <SelectContent>
-                {LIVE_SPEEDS.map((s) => (
-                  <SelectItem key={s.value} value={s.value}>{s.label} ({s.value}s/min)</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </Label>
         </div>
         <p className="text-sm leading-relaxed text-muted-foreground">
           Single-vendor ingestion is the realistic default — pick which vendor's feed to run through

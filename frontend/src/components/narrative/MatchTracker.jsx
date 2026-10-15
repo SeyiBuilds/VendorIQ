@@ -5,7 +5,7 @@ import TeamBadge from "./TeamBadge";
 import { PitchLines } from "./ShotMap";
 import { teamPalette } from "./teamColors";
 import {
-  CARD_LABELS, cardColor, describeEvent, playerLabel, playerLookup, resolveTeams, shortName,
+  CARD_LABELS, cardColor, describeEvent, eventMinute, playerLabel, playerLookup, resolveTeams, shortName,
 } from "./matchInsights";
 
 // Live match tracker. Plays the received CDF events back on a pitch in step
@@ -34,8 +34,7 @@ function easeInOut(t) {
 }
 
 function clockText(e) {
-  const total = e.timestamp + (e.period === 2 ? 45 * 60 : 0);
-  return `${Math.floor(total / 60)}'`;
+  return `${eventMinute(e)}'`;
 }
 
 // Ball keyframes: each event's start point at its own time, then its end
@@ -121,7 +120,7 @@ function commentaryLine(e, players) {
   return { id: `${e.event_id}-${e.period}-${e.timestamp}`, minute: clockText(e), text, who, team: e.team, e };
 }
 
-export default function MatchTracker({ events, home, away, palette, players, secondsPerMinute, status }) {
+export default function MatchTracker({ events, home, away, palette, players, secondsPerMinute, status, paused, skipped }) {
   const sorted = useMemo(
     () => [...(events || [])].sort((a, b) => a.period - b.period || a.timestamp - b.timestamp),
     [events],
@@ -156,7 +155,12 @@ export default function MatchTracker({ events, home, away, palette, players, sec
     playersRef.current = players;
   }, [latestT, frames, sorted, players]);
 
-  const rate = 60 / Math.max(0.05, secondsPerMinute || 1); // match seconds per real second
+  // Match seconds per real second; paused holds the picture still.
+  const rate = paused ? 0 : 60 / Math.max(0.05, secondsPerMinute || 2);
+  const skippedRef = useRef(false);
+  useEffect(() => {
+    skippedRef.current = Boolean(skipped);
+  }, [skipped]);
 
   // A new live run (different first event) resets playback.
   const firstId = sorted[0]?.event_id ?? null;
@@ -197,7 +201,8 @@ export default function MatchTracker({ events, home, away, palette, players, sec
       let p = playheadRef.current;
       if (p != null && fr.length) {
         const latest = latestRef.current;
-        p = Math.min(p + dt * rate, latest + 0.5);
+        // Skipped to full time: go straight to the latest action.
+        p = skippedRef.current ? latest + 0.5 : Math.min(p + dt * rate, latest + 0.5);
         // Fell far behind (tab in background): catch up near the live edge.
         if (latest - p > 180 && Math.floor(latest / PERIOD_SPAN) === Math.floor(p / PERIOD_SPAN)) p = latest - 90;
         // Half-time: jump the gap between periods.
@@ -487,6 +492,8 @@ export function LiveMatchTracker({ document, narrative, live }) {
       players={players}
       secondsPerMinute={live?.secondsPerMinute}
       status={live?.status}
+      paused={live?.paused}
+      skipped={live?.skipped}
     />
   );
 }
