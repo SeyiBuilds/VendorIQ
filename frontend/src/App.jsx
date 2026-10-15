@@ -218,7 +218,7 @@ export default function App() {
         </p>
         <ExportPanel runId={runResult?.run_id} hasDocument={!!runResult?.document} document={runResult?.document} />
         <MatchSheetPanel matchSheet={runResult?.document?.match_sheet} />
-        {runResult && <NarrativePanel narrative={runResult.narrative} />}
+        {runResult && <NarrativePanel narrative={runResult.narrative} document={runResult.document} />}
       </section>
     </div>
   );
