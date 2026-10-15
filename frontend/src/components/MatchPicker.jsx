@@ -9,8 +9,8 @@ const VENDORS = ["opta", "statsbomb", "wyscout"];
 // Wall-clock seconds per match minute for live feed replay.
 const LIVE_SPEEDS = [
   { value: "0.3", label: "Fast" },
-  { value: "0.6", label: "Normal" },
-  { value: "1.2", label: "Slow" },
+  { value: "1", label: "Normal" },
+  { value: "4", label: "Watch" },
 ];
 
 export default function MatchPicker({

@@ -20,10 +20,47 @@ function byMatchTime(a, b) {
   return a.period - b.period || a.timestamp - b.timestamp;
 }
 
+// Player records by id. When the event feed carried no name (Opta's), the
+// name is filled from the match sheet in the same document by team and
+// shirt number -- the same lookup the narrative generator makes.
 export function playerLookup(document) {
+  const sheetNames = new Map();
+  const sheet = document?.match_sheet;
+  for (const side of sheet ? [sheet.home, sheet.away] : []) {
+    for (const entry of [...(side?.starters || []), ...(side?.substitutes || [])]) {
+      if (entry.name && entry.jersey_number != null) sheetNames.set(`${side.team}|${entry.jersey_number}`, entry.name);
+    }
+  }
   const map = new Map();
-  for (const p of document?.players || []) map.set(p.player_id, p);
+  for (const p of document?.players || []) {
+    const name = p.name || sheetNames.get(`${p.team}|${p.jersey_number}`) || null;
+    map.set(p.player_id, name === p.name ? p : { ...p, name });
+  }
   return map;
+}
+
+export function shortName(name) {
+  if (!name) return null;
+  const parts = name.trim().split(/\s+/);
+  return parts.length > 1 ? parts[parts.length - 1] : name;
+}
+
+export const CARD_LABELS = {
+  yellow: "Yellow card",
+  second_yellow: "Second yellow, sent off",
+  red: "Red card, sent off",
+};
+
+export const SHOT_LABELS = {
+  goal: "Goal",
+  saved: "Shot saved",
+  off_target: "Shot off target",
+  blocked: "Shot blocked",
+  post: "Hit the post",
+};
+
+export function cardColor(cardType) {
+  return cardType === "yellow" ? "#f5c518" : cardType ? "#ef4444" : "#9d93ab";
 }
 
 // "Jersey #17" when the name was never resolved, which is the honest
@@ -94,15 +131,17 @@ export function findTurningPoint(goals, home, away) {
   return { ...turning, finalScore: { ...score } };
 }
 
-// The events that led into a moment: up to `limit` events in the 60 seconds
-// before it (same period), then the moment itself. These are real CDF rows,
-// shown as the evidence behind the claim.
+// The events that led into a moment: up to `limit` events in the 150
+// seconds before it (same period), then the moment itself. The window is
+// wide enough to reach across a stoppage (a penalty takes over a minute to
+// set up after the foul). These are real CDF rows, shown as the evidence
+// behind the claim.
 export function evidenceFor(target, document, limit = 4) {
   const events = (document?.events || []).filter(
     (e) =>
       e.period === target.period &&
       e.timestamp < target.timestamp &&
-      target.timestamp - e.timestamp <= 60,
+      target.timestamp - e.timestamp <= 150,
   );
   events.sort(byMatchTime);
   return [...events.slice(-limit), target];
@@ -134,7 +173,16 @@ export const EVENT_LABELS = {
 
 export function describeEvent(e) {
   const base = EVENT_LABELS[e.event_type] || e.event_type;
-  if (e.event_type === "shot") return e.outcome ? "Shot on target" : "Shot off target";
+  if (e.event_type === "shot") {
+    if (e.shot_outcome) return SHOT_LABELS[e.shot_outcome];
+    return e.outcome ? "Shot on target" : "Shot off target";
+  }
+  if (e.card_type && (e.event_type === "card" || e.event_type === "foul")) {
+    return e.event_type === "foul" ? `Foul, ${CARD_LABELS[e.card_type].toLowerCase()}` : CARD_LABELS[e.card_type];
+  }
+  if (e.event_type === "card") return "Card (colour not in feed)";
   if (e.event_type === "pass" && e.outcome === false) return "Pass, not completed";
+  if (e.event_type === "dribble") return e.outcome === false ? "Dribble, lost the ball" : "Dribble, beat his man";
+  if (e.event_type === "tackle") return "Tackle won";
   return base;
 }

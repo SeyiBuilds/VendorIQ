@@ -4,6 +4,8 @@ import { ingestLiveStream, listMatches, liveMatchStream, runMatchStream } from "
 import MatchPicker from "./components/MatchPicker";
 import PipelineStatus from "./components/PipelineStatus";
 import LiveFeedPanel from "./components/LiveFeedPanel";
+import { LiveMatchTracker } from "./components/narrative/MatchTracker";
+import { CARD_LABELS } from "./components/narrative/matchInsights";
 import NarrativePanel from "./components/NarrativePanel";
 import CorruptionPanel from "./components/CorruptionPanel";
 import UploadPanel from "./components/UploadPanel";
@@ -36,7 +38,12 @@ function momentKey(m) {
 }
 
 function momentText(m) {
-  const kind = { goal: "Goal", card: "Card" }[m.event_type] || m.event_type;
+  const kind =
+    m.event_type === "goal"
+      ? "Goal"
+      : m.event_type === "card"
+        ? CARD_LABELS[m.card_type] || "Card (colour not in feed)"
+        : m.event_type;
   const who = m.player_name || (m.player_jersey != null ? `#${m.player_jersey}` : null);
   return `${kind}, ${m.team}${who ? ` (${who})` : ""}`;
 }
@@ -70,7 +77,7 @@ export default function App() {
   // running event list is accumulated here; seenMoments tracks which key
   // moments have already been announced in the live log.
   const [live, setLive] = useState(null);
-  const [liveSpeed, setLiveSpeed] = useState(0.6);
+  const [liveSpeed, setLiveSpeed] = useState(1);
   const liveEventsRef = useRef([]);
   const seenMomentsRef = useRef(new Set());
 
@@ -280,6 +287,9 @@ export default function App() {
       {pipelineSource === "live" && (
         <div ref={pipelineRef} className="mb-10 flex scroll-mt-24 flex-col gap-6">
           <LiveFeedPanel live={live} />
+          {runResult?.document?.events?.length > 0 && (
+            <LiveMatchTracker document={runResult.document} narrative={runResult.narrative} live={live} />
+          )}
           {runResult?.narrative && (
             <NarrativePanel
               narrative={runResult.narrative}

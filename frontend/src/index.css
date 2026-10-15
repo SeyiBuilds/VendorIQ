@@ -118,3 +118,40 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .animate-score-pop { animation: none; }
 }
+
+/* Match tracker and shot map motion. */
+@keyframes pop-in {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.animate-pop-in {
+  animation: pop-in 0.45s cubic-bezier(0.2, 0.9, 0.3, 1.3) both;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in { animation: fade-in 0.25s ease-out both; }
+@keyframes draw-line {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  55% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.animate-draw-line { stroke-dasharray: 1; animation: draw-line 1.8s ease-out both; }
+@keyframes banner-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+.animate-banner-in { animation: banner-in 0.35s ease-out both; }
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-6px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-slide-in { animation: slide-in 0.3s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pop-in, .animate-fade-in, .animate-banner-in, .animate-slide-in { animation: none; }
+  .animate-draw-line { animation: none; opacity: 0.6; }
+}

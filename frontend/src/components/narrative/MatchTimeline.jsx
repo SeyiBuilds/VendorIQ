@@ -1,11 +1,12 @@
 import { Goal } from "lucide-react";
+import { cardColor } from "./matchInsights";
 
 function axisEnd(maxMinute) {
   if (maxMinute >= 85) return Math.max(90, Math.ceil(maxMinute / 5) * 5);
   return Math.max(10, Math.ceil((maxMinute + 1) / 5) * 5);
 }
 
-function MomentIcon({ type, color }) {
+function MomentIcon({ type, color, cardType }) {
   if (type === "goal") {
     return (
       <span className="flex size-6 items-center justify-center rounded-full bg-card" style={{ boxShadow: `0 0 0 2px ${color}` }}>
@@ -14,7 +15,7 @@ function MomentIcon({ type, color }) {
     );
   }
   if (type === "card") {
-    return <span className="block h-4 w-3 rounded-[2px] bg-warning ring-2 ring-card" />;
+    return <span className="block h-4 w-3 rounded-[2px] ring-2 ring-card" style={{ background: cardColor(cardType) }} />;
   }
   return <span className="block size-3 rounded-full ring-2 ring-card" style={{ background: color }} />;
 }
@@ -53,7 +54,7 @@ export default function MatchTimeline({ moments, palette, maxMinute, highlightMi
               style={{ left: pct(m.minute), bottom: `${laneOf.get(i) * 30}px` }}
               title={`${m.minute}' ${m.description}`}
             >
-              <MomentIcon type={m.event_type} color={color} />
+              <MomentIcon type={m.event_type} color={color} cardType={m.card_type} />
             </div>
           );
         })}

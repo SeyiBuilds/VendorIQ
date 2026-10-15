@@ -9,6 +9,7 @@ import MatchTimeline from "./narrative/MatchTimeline";
 import { PairBars, PossessionDonut, StatCompare, StatTile } from "./narrative/Stats";
 import { teamPalette } from "./narrative/teamColors";
 import {
+  cardColor,
   clockLabel,
   dataCoverage,
   describeEvent,
@@ -206,7 +207,11 @@ function KeyMomentList({ moments, palette }) {
             <span className="w-[4.75rem] shrink-0 font-mono text-xs whitespace-nowrap text-muted-foreground tabular-nums">
               P{m.period} {m.minute}:{String(sec).padStart(2, "0")}
             </span>
-            <span className="size-2.5 shrink-0 rounded-full" style={{ background: palette[m.team]?.mark || "#9d93ab" }} />
+            {m.event_type === "card" ? (
+              <span className="block h-3.5 w-2.5 shrink-0 rounded-[2px]" style={{ background: cardColor(m.card_type) }} title={m.card_type || "card"} />
+            ) : (
+              <span className="size-2.5 shrink-0 rounded-full" style={{ background: palette[m.team]?.mark || "#9d93ab" }} />
+            )}
             <span className="flex-1 leading-relaxed">{m.description}</span>
             <span className="shrink-0 font-mono text-xs tabular-nums text-muted-foreground">
               {Math.round(m.confidence * 100)}%

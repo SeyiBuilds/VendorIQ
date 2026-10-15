@@ -8,7 +8,7 @@ const H = 68;
 const px = (x) => (x / 100) * W;
 const py = (y) => (y / 100) * H;
 
-function PitchLines() {
+export function PitchLines() {
   const line = { fill: "none", stroke: "rgba(255,255,255,0.32)", strokeWidth: 0.35 };
   const boxW = 40.32;
   const sixW = 18.32;
@@ -69,7 +69,7 @@ export default function ShotMap({ shots, palette, evidence, compact = false }) {
             const cy = py(s.y);
             if (s.event_type === "goal") {
               return (
-                <g key={s.event_id}>
+                <g key={s.event_id} className="animate-pop-in">
                   <circle cx={cx} cy={cy} r="3.1" fill="none" stroke={c} strokeOpacity="0.45" strokeWidth="0.5" />
                   <circle cx={cx} cy={cy} r="1.9" fill={c} stroke="#fff" strokeWidth="0.5">
                     <title>{`Goal, ${s.team}, ${eventMinute(s)}'`}</title>
@@ -80,6 +80,7 @@ export default function ShotMap({ shots, palette, evidence, compact = false }) {
             return (
               <circle
                 key={s.event_id}
+                className="animate-pop-in"
                 cx={cx}
                 cy={cy}
                 r="1.05"
