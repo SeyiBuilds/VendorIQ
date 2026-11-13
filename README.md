@@ -10,7 +10,7 @@ A 7-agent pipeline that ingests a vendor-shaped football feed (Opta, StatsBomb, 
 
 Covers event data and match sheet data (lineups, officials, venue) honestly, never fabricating a match sheet when none is supplied. Tracking data, video, and physiological data are not wired up yet; adding them is a future phase, not a schema limitation.
 
-Built to production standard: 420 passing tests, pinned dependencies, confidence scores computed from real data quality, and a documented fallback for every point where real-world data can arrive missing or wrong.
+Built to production standard: 423 tests, pinned dependencies, confidence scores computed from real data quality, and a documented fallback for every point where real-world data can arrive missing or wrong.
 
 ## Stack
 
@@ -18,7 +18,8 @@ Built to production standard: 420 passing tests, pinned dependencies, confidence
 |---|---|
 | Backend | Python 3.11+, FastAPI, Pydantic v2, uvicorn |
 | Frontend | React 19, Vite, Tailwind CSS v4, shadcn/ui |
-| Testing | pytest (420 tests) |
+| Testing | pytest (423 tests) |
+| Optional tracing | TraceRoot (OpenTelemetry) |
 | Optional narrative upgrade | Anthropic API or Groq API |
 
 ## Quick start
@@ -29,7 +30,7 @@ Requires Python 3.11+ and Node 18+.
 git clone https://github.com/SeyiBuilds/VendorIQ
 cd VendorIQ
 pip install -r requirements.txt
-pytest backend/tests -q              # expected: 420 passed
+pytest backend/tests -q              # expected: 421 passed, 2 skipped (tracing tests need traceroot)
 
 uvicorn backend.api.main:app --reload --port 8000   # terminal 1
 
@@ -51,8 +52,13 @@ Nothing is required to run the full pipeline. Both are optional upgrades.
 | `ANTHROPIC_API_KEY` | No | Upgrades narrative text and AI entity-resolution escalation. Tried first if set. |
 | `GROQ_API_KEY` | No | Narrative upgrade, used only if `ANTHROPIC_API_KEY` is not set. |
 | `VITE_API_BASE_URL` | Yes, for frontend | Backend URL. Defaults to `http://localhost:8000` via `.env.example`. |
+| `TRACEROOT_API_KEY` | No | Sends a trace of every pipeline run to [TraceRoot](https://traceroot.ai). Needs `pip install -r requirements-tracing.txt`. |
 
 Without either API key, the narrative still generates in full from a deterministic template, fully offline.
+
+### Tracing (optional)
+
+With `TRACEROOT_API_KEY` set and `traceroot` installed, each pipeline run is one trace: a `pipeline_run` root span, one span per agent stage attempt, and the Anthropic or Groq calls nested under the stage that made them. A stage that fails and succeeds on retry shows both attempts, the first marked as an error, so a retry no longer reads as a clean success. Every run of a match shares a session, so a live feed replay groups into one session. Tracing is off by default and the pipeline never depends on it (`backend/agents/tracing.py`).
 
 ## Demo data
 
