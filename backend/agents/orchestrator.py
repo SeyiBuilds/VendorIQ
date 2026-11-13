@@ -60,6 +60,7 @@ from validator import Validator, ValidationReport
 from narrative_generator import NarrativeGenerator, NarrativeReport
 from format_exporter import FormatExporter, ExportReport
 from cdf_models import CDFDocument
+from tracing import annotate_trace, run_in_span, traced
 
 T = TypeVar("T")
 
@@ -132,6 +133,7 @@ class MasterOrchestrator:
         assert result is not None  # run_streaming always ends with a "result" event
         return result
 
+    @traced("pipeline_run")
     def run_streaming(self, vendor_data: dict, match_date: Optional[date_cls] = None,
                        match_sheet_data: Optional[dict] = None, direction_convention: str = "detect"):
         """Generator version of run(): yields real-time progress events as
@@ -222,9 +224,11 @@ class MasterOrchestrator:
         # an optional stage knocks the run down to "partial".
         failed_optional = [r for r in log.records if r.stage in OPTIONAL_STAGES and r.status == "failed"]
         log.overall_status = "partial" if failed_optional else "success"
+        self._annotate_trace(log, document)
 
         yield ("result", PipelineResult(document=document, narrative=narrative, orchestration_log=log))
 
+    @traced("pipeline_run_multi")
     def run_streaming_multi(self, vendor_payloads: list[dict], primary_index: int = 0,
                              match_date: Optional[date_cls] = None, match_sheet_data: Optional[dict] = None):
         """Genuine multi-vendor combine -- "primary feed + enrichment", not a
@@ -371,9 +375,11 @@ class MasterOrchestrator:
 
         failed_optional = [r for r in log.records if r.stage in OPTIONAL_STAGES and r.status == "failed"]
         log.overall_status = "partial" if failed_optional else "success"
+        self._annotate_trace(log, document)
 
         yield ("result", PipelineResult(document=document, narrative=narrative, orchestration_log=log))
 
+    @traced("format_exporter")
     def export(self, document: CDFDocument, target_vendor: str) -> tuple[dict, ExportReport]:
         """On-demand only (Agent 7) -- never called from run()."""
         return self.exporter.export(document, target_vendor)
@@ -384,13 +390,16 @@ class MasterOrchestrator:
         what the CALLER does with a None result: abort the run (critical)
         or skip and continue (optional). Named for the critical path since
         that's the stricter caller; _run_optional_stage is an alias."""
+        # Each attempt gets its own span, so a stage that fails once and
+        # succeeds on retry is visible in the trace instead of reading as a
+        # clean success.
         try:
-            result = fn()
+            result = run_in_span(name, fn, metadata={"attempt": 1})
             log.record(name, "success")
             return result
         except Exception as first_exc:
             try:
-                result = fn()
+                result = run_in_span(name, fn, metadata={"attempt": 2})
                 log.record(name, "success", detail=f"succeeded on retry after: {first_exc}", retried=True)
                 return result
             except Exception as retry_exc:
@@ -401,7 +410,24 @@ class MasterOrchestrator:
 
     def _failed_result(self, log: OrchestrationLog) -> PipelineResult:
         log.overall_status = "failed"
+        self._annotate_trace(log, None)
         return PipelineResult(document=None, narrative=None, orchestration_log=log)
+
+    @staticmethod
+    def _annotate_trace(log: OrchestrationLog, document: Optional[CDFDocument]) -> None:
+        """Run-level details on the trace, so runs can be filtered by outcome
+        and every run of one match groups into one session."""
+        retried = [r.stage for r in log.records if r.retried]
+        failed = [r.stage for r in log.records if r.status == "failed"]
+        annotate_trace(
+            session_id=document.match.match_id if document else None,
+            run_id=log.run_id,
+            overall_status=log.overall_status,
+            retried_stages=retried or None,
+            failed_stages=failed or None,
+            events=len(document.events) if document else None,
+            quality_confidence=document.metadata.quality_confidence if document else None,
+        )
 
 
 if __name__ == "__main__":

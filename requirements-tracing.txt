@@ -1,0 +1,2 @@
+-r requirements.txt
+traceroot>=0.5.1,<1.0
