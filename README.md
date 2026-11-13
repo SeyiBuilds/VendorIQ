@@ -10,7 +10,7 @@ A 7-agent pipeline that ingests a vendor-shaped football feed (Opta, StatsBomb, 
 
 Covers event data and match sheet data (lineups, officials, venue) honestly, never fabricating a match sheet when none is supplied. Tracking data, video, and physiological data are not wired up yet; adding them is a future phase, not a schema limitation.
 
-Built to production standard: 423 tests, pinned dependencies, confidence scores computed from real data quality, and a documented fallback for every point where real-world data can arrive missing or wrong.
+Built to production standard: 431 tests, pinned dependencies, confidence scores computed from real data quality, and a documented fallback for every point where real-world data can arrive missing or wrong.
 
 ## Stack
 
@@ -18,7 +18,7 @@ Built to production standard: 423 tests, pinned dependencies, confidence scores 
 |---|---|
 | Backend | Python 3.11+, FastAPI, Pydantic v2, uvicorn |
 | Frontend | React 19, Vite, Tailwind CSS v4, shadcn/ui |
-| Testing | pytest (423 tests) |
+| Testing | pytest (431 tests) |
 | Optional tracing | TraceRoot (OpenTelemetry) |
 | Optional narrative upgrade | Anthropic API or Groq API |
 
@@ -30,7 +30,7 @@ Requires Python 3.11+ and Node 18+.
 git clone https://github.com/SeyiBuilds/VendorIQ
 cd VendorIQ
 pip install -r requirements.txt
-pytest backend/tests -q              # expected: 421 passed, 2 skipped (tracing tests need traceroot)
+pytest backend/tests -q              # expected: 429 passed, 2 skipped (tracing tests need traceroot)
 
 uvicorn backend.api.main:app --reload --port 8000   # terminal 1
 
@@ -55,6 +55,8 @@ Nothing is required to run the full pipeline. Both are optional upgrades.
 | `TRACEROOT_API_KEY` | No | Sends a trace of every pipeline run to [TraceRoot](https://traceroot.ai). Needs `pip install -r requirements-tracing.txt`. |
 
 Without either API key, the narrative still generates in full from a deterministic template, fully offline.
+
+With a key set, every number in the AI narrative is checked against the computed stats before it is used (`backend/agents/narrative_fact_check.py`). If it cites a number the stats do not support, it is rejected and the template narrative is used instead, with the rejected numbers listed in the narrative report.
 
 ### Tracing (optional)
 

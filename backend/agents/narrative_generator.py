@@ -40,6 +40,7 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 from cdf_models import CDFDocument, CDFEvent
+from narrative_fact_check import check_narrative
 
 LOW_CONFIDENCE_THRESHOLD = 0.6
 
@@ -159,6 +160,9 @@ class NarrativeReport:
     key_moments: list[KeyMoment]
     data_quality_notes: list[str] = field(default_factory=list)
     log: list[str] = field(default_factory=list)
+    # Numbers an AI narrative cited that the computed stats do not support.
+    # Non-empty means that narrative was rejected for the template one.
+    rejected_numbers: list[str] = field(default_factory=list)
 
 
 def _build_narrative_prompt(match_summary_line: str, team_stats: dict[str, TeamStats],
@@ -363,15 +367,24 @@ class NarrativeGenerator:
         if self.ai_enabled:
             ai_text, provider = _call_llm_for_narrative(match_summary_line, team_stats, key_moments, data_quality_notes)
 
+        rejected_numbers: list[str] = []
         if ai_text:
-            log.append(f"narrative generated via {provider} ({provider.upper()}_API_KEY configured)")
-            return NarrativeReport(
-                narrative_text=ai_text, generation_method="ai_enhanced",
-                team_stats=team_stats, key_moments=key_moments,
-                data_quality_notes=data_quality_notes, log=log,
-            )
-
-        if self.ai_enabled:
+            # The model was told to use only the prompt's data. Hold it to
+            # that: every number it cites must come from the same prompt.
+            prompt = _build_narrative_prompt(match_summary_line, team_stats, key_moments, data_quality_notes)
+            check = check_narrative(ai_text, prompt)
+            if check.passed:
+                log.append(f"narrative generated via {provider} ({provider.upper()}_API_KEY configured); "
+                           f"fact check passed ({check.checked} numbers verified against the computed stats)")
+                return NarrativeReport(
+                    narrative_text=ai_text, generation_method="ai_enhanced",
+                    team_stats=team_stats, key_moments=key_moments,
+                    data_quality_notes=data_quality_notes, log=log,
+                )
+            rejected_numbers = check.unsupported
+            log.append(f"AI narrative from {provider} rejected: it cites numbers the computed stats do not "
+                       f"support ({', '.join(check.unsupported)}); using template narrative")
+        elif self.ai_enabled:
             log.append("AI narrative escalation skipped or failed: no ANTHROPIC_API_KEY/GROQ_API_KEY configured, or every configured call failed; using template narrative")
         else:
             log.append("AI narrative disabled by caller; using template narrative")
@@ -380,6 +393,7 @@ class NarrativeGenerator:
             narrative_text=template_text, generation_method="template",
             team_stats=team_stats, key_moments=key_moments,
             data_quality_notes=data_quality_notes, log=log,
+            rejected_numbers=rejected_numbers,
         )
 
     def _compute_team_stats(self, document: CDFDocument) -> dict[str, TeamStats]:
